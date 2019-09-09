@@ -1,0 +1,39 @@
+-- Constructing new FuelMonitor object FM(14.5)
+Trip miles (expected: 0) was: 0
+Lifetime miles (expected: 0) was: 0
+Fuel remaining (expected: 14.5) was: 14.5
+
+-- After G(5, 0.123)
+Trip miles (expected: 5) was: 5
+Lifetime miles (expected: 5) was: 5
+Fuel remaining (expected: 14.377) was: 14.377
+Trip MPG (expected: 40.6) was: 40.6
+Lifetime MPG (expected: 40.6) was: 40.6
+Green miles remaining (expected: 580) was: 580
+
+-- After S(23, 1.234) then G(150, 3.14)
+Trip miles (expected: 178) was: 178
+Lifetime miles (expected: 178) was: 178
+Fuel remaining (expected: 10.003) was: 10.003
+Trip MPG (expected: 39.5) was: 39.5
+Lifetime MPG (expected: 39.5) was: 39.5
+Green miles remaining (expected: 470) was: 470
+Sport miles remaining (expected: 180) was: 180
+
+-- After F(5.55), S(0, 0.5), S(42, 2.4), then G(5, 0.01)
+Trip miles (expected: 225) was: 225
+Lifetime miles (expected: 225) was: 225
+Fuel remaining (expected: 12.643) was: 12.643
+Trip MPG (expected: 30.3) was: 30.3
+Lifetime MPG (expected: 30.3) was: 30.3
+Green miles remaining (expected: 610) was: 610
+Sport miles remaining (expected: 190) was: 190
+
+-- After R(), S(20, 1.111), then G(345, 10)
+Trip miles (expected: 365) was: 365
+Lifetime miles (expected: 590) was: 590
+Fuel remaining (expected: 1.532) was: 1.532
+Trip MPG (expected: 32.8) was: 32.8
+Lifetime MPG (expected: 31.8) was: 31.8
+Green miles remaining (expected: 50) was: 50
+Sport miles remaining (expected: 20) was: 20
