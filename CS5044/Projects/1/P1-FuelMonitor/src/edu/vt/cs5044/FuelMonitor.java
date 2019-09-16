@@ -1,6 +1,10 @@
 package edu.vt.cs5044;
 
 /**
+ * 
+ * @author gasser18
+ * @version Sep 08, 2019
+ * 
  * A basic vehicle Fuel Monitor.
  *
  * Objects of this class track a vehicle's fuel usage and miles-per-gallon (MPG) efficiency, over
@@ -20,18 +24,17 @@ package edu.vt.cs5044;
 public class FuelMonitor
 {
 
-    //
-    // TODO: Your private instance variables (fields) go here
-    //
+    private int tripGreenMiles;
+    private double tripGreenFuel;
+    private int tripSportMiles;
+    private double tripSportFuel;
     private int lifeTimeMiles;
     private double lifeTimeGallons;
     private int tripMiles;
     private double tripGallons;
-    private double fuelRemaining;
-    private int greenModeMiles;
-    private double greenModeGallons;
-    private int sportModeMiles;
-    private double sportModeGallons;
+    private double fuelLevel;
+
+    
     /**
      * Creates a new FuelMonitor object.
      *
@@ -42,11 +45,10 @@ public class FuelMonitor
      */
     public FuelMonitor(double initialFuel)
     {
-        // TODO: Your implementation goes here
-        this.lifeTimeMiles = 0;
-        this.tripMiles = 0;
-        this.tripGallons=0;
-        this.fuelRemaining = initialFuel;
+        lifeTimeMiles = 0;
+        tripMiles = 0;
+        tripGallons = 0;
+        fuelLevel = initialFuel;
     }
 
     /**
@@ -60,14 +62,13 @@ public class FuelMonitor
      */
     public void useInGreenMode(int miles, double gallons)
     {
-        // TODO: Your implementation goes here
-        this.greenModeMiles += miles;
-        this.greenModeGallons += gallons;
-        this.lifeTimeMiles += miles;
-        this.lifeTimeGallons += gallons;
-        this.tripMiles += miles;
-        this.tripGallons += gallons;
-        this.fuelRemaining -= gallons;        
+        tripGreenMiles += miles;
+        tripGreenFuel += gallons;
+        lifeTimeMiles += miles;
+        lifeTimeGallons += gallons;
+        tripMiles += miles;
+        tripGallons += gallons;
+        fuelLevel -= gallons;        
     }
 
     /**
@@ -81,14 +82,13 @@ public class FuelMonitor
      */
     public void useInSportMode(int miles, double gallons)
     {
-        // TODO: Your implementation goes here
-        this.sportModeMiles += miles;
-        this.sportModeGallons += gallons;
-        this.lifeTimeMiles += miles;
-        this.lifeTimeGallons += gallons;
-        this.tripMiles += miles;
-        this.tripGallons += gallons;
-        this.fuelRemaining -= gallons;
+        tripSportMiles += miles;
+        tripSportFuel += gallons;
+        lifeTimeMiles += miles;
+        lifeTimeGallons += gallons;
+        tripMiles += miles;
+        tripGallons += gallons;
+        fuelLevel -= gallons;
     }
 
     /**
@@ -100,8 +100,7 @@ public class FuelMonitor
      */
     public void addFuel(double gallons)
     {
-        // TODO: Your implementation goes here
-        this.fuelRemaining += gallons;
+        fuelLevel += gallons;
     }
 
     /**
@@ -112,9 +111,12 @@ public class FuelMonitor
      */
     public void resetTrip()
     {
-        // TODO: Your implementation goes here
-        this.tripMiles = 0;
-        this.tripGallons = 0.0;
+        tripMiles = 0;
+        tripGallons = 0.0;
+        tripGreenMiles = 0;
+        tripGreenFuel = 0.0;
+        tripSportMiles = 0;
+        tripSportFuel = 0.0;
     }
 
     /**
@@ -126,8 +128,7 @@ public class FuelMonitor
      */
     public int getTripMiles()
     {
-        // TODO: Your implementation goes here
-        return tripMiles; // TODO: Replace this placeholder
+        return tripMiles;
     }
 
     /**
@@ -138,14 +139,12 @@ public class FuelMonitor
      *
      * Academic Note: This method won't be called until at least some fuel has been used this trip.
      *
-     * @return truncated fuel efficency this trip.
+     * @return truncated fuel efficiency this trip.
      */
     public double getTripMPG()
     {
-        // TODO: Your implementation goes here
-        //System.out.println(tripMiles+"-"+tripGallons);
-        double MPG = tripMiles / tripGallons;
-        return truncateToTenths(MPG); // TODO: Replace this placeholder
+        double mpg = tripMiles / tripGallons;
+        return truncateToTenths(mpg);
     }
 
     /**
@@ -157,8 +156,7 @@ public class FuelMonitor
      */
     public double getFuelRemaining()
     {
-        // TODO: Your implementation goes here
-        return fuelRemaining; // TODO: Replace this placeholder
+        return fuelLevel;
     }
 
     /**
@@ -175,8 +173,7 @@ public class FuelMonitor
      */
     public int getSportMilesRemaining()
     {
-        // TODO: Your implementation goes here
-        return truncateToTens((sportModeMiles / sportModeGallons) * fuelRemaining); // TODO: Replace this placeholder
+        return truncateToTens((tripSportMiles / tripSportFuel) * fuelLevel);
     }
 
     /**
@@ -193,10 +190,7 @@ public class FuelMonitor
      */
     public int getGreenMilesRemaining()
     {
-        // TODO: Your implementation goes here
-        //System.out.println(tripMiles+"-"+tripGallons+"-"+fuelRemaining);
-        //System.out.println(greenModeMiles+"-"+greenModeGallons+"-"+fuelRemaining);
-        return truncateToTens((greenModeMiles / greenModeGallons) * fuelRemaining); // TODO: Replace this placeholder
+        return truncateToTens((tripGreenMiles / tripGreenFuel) * fuelLevel);
     }
 
     /**
@@ -208,8 +202,7 @@ public class FuelMonitor
      */
     public int getLifetimeMiles()
     {
-        // TODO: Your implementation goes here
-        return lifeTimeMiles; // TODO: Replace this placeholder
+        return lifeTimeMiles;
     }
 
     /**
@@ -223,9 +216,8 @@ public class FuelMonitor
      */
     public double getLifetimeMPG()
     {
-        // TODO: Your implementation goes here
-        double MPG = lifeTimeMiles / lifeTimeGallons;
-        return truncateToTenths(MPG); // TODO: Replace this placeholder
+        double mpg = lifeTimeMiles / lifeTimeGallons;
+        return truncateToTenths(mpg);
     }
     
     /**
@@ -235,10 +227,9 @@ public class FuelMonitor
      * 
      * @return integer truncated to tens.
      */
-    public int truncateToTens(double input) 
+    private int truncateToTens(double input) 
     {
-        //System.out.println(input);
-        int truncatedInput = (int)(input - (input%10));
+        int truncatedInput = (int)(input - (input % 10));
         return truncatedInput;
     }
 
@@ -249,15 +240,11 @@ public class FuelMonitor
      *
      * @return double truncated to tenths.
      */
-    public double truncateToTenths(double input)
+    private double truncateToTenths(double input)
     {
-        //int digitsNumber = String.valueOf((int)input).length();
-        //System.out.println(digitsNumber);
         double decimalDigits = input - (int)input;
         double firstDecimal = (int)(decimalDigits * 10) / 10.0;
-       // System.out.println(decimalDigits+"-"+firstDecimal);
         double truncatedInput = (int)input + firstDecimal; 
-        //System.out.println(truncatedInput);
         return truncatedInput;
     }
 }
