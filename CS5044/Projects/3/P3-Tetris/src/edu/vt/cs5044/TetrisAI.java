@@ -8,8 +8,8 @@ import edu.vt.cs5044.tetris.Shape;
 
 /**
  * 
- * This class has the constructor, private instances, helpers, and public methods
- * that for AI interface implementation
+ * This class has private instances, helpers, and public methods 
+ * for the AI interface implementation
  *
  * @author gasser18
  * @version Oct 7, 2019
