@@ -2,6 +2,7 @@ package adventure;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -26,20 +27,23 @@ public class EnhancedRoom extends Room
         doorMap.put(direction, door);
     }
     
-    public boolean hasDoor(String doorName) {
-        boolean doorExists = false;
-        for (Door door : doorMap.values()) {
-            if (door.getName().equals(doorName)) {
-                doorExists = true;
-            }
-        }
-        return doorExists;
+    public boolean hasDoor(String dir) {
+        return doorMap.containsKey(dir);
     }
     
     @Override
     public String getExitString() {
-        // create a fancier exit string
-        return super.getExitString();
+        String exitString = "You can go to ";
+        Set<String> exitSet = new HashSet<String>();
+        for (String dir: getExitDirections()) 
+        {
+            Room destRoom = getExit(dir);
+            exitSet.add(dir + " to " + destRoom.getName());
+        }
+        
+        Formatter f = Formatter.getInstance();
+        return exitString + f.commaSeparatedList(exitSet) + '.';
+                
     }
     
     @Override
@@ -74,7 +78,21 @@ public class EnhancedRoom extends Room
             GameObject obj = this.getObject(objName);
             if (!obj.hasProperty("concealed")) {
                 inScopeMap.put(objName, obj);
+                
                 // if obj instanceof non-closed container, add the non-concealed objs to map also
+                if (obj instanceof Container && obj.hasProperty("openable") 
+                        && obj.hasProperty("open")) 
+                {
+                    Container container = (Container) obj;
+                    for (String childObjName : container.getObjectNames()) 
+                    {
+                        GameObject childObj = container.getObject(childObjName);
+                        if (!childObj.hasProperty("concealed")) 
+                        {
+                            inScopeMap.put(childObjName, childObj);
+                        }
+                    }
+                }
             }
         }
         return inScopeMap;

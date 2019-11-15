@@ -4,6 +4,7 @@ import java.util.Set;
 
 import adventure.Command;
 import adventure.Container;
+import adventure.Door;
 import adventure.EnhancedRoom;
 import adventure.GameObject;
 import adventure.Item;
@@ -25,7 +26,8 @@ public class ExamineCommand extends Command
         
         String second = getSecondWord();
         // if the second word is a door
-        if (room.hasDoor(second)) {
+        GameObject doorObj = room.getObject(second);
+        if (doorObj instanceof Door) {
             return Message.examineDefault(second);
         }
         
@@ -34,6 +36,22 @@ public class ExamineCommand extends Command
         
         if (obj == null) {
             return Message.objectNotInScope(second);
+        }
+        
+        // treat wall-lantern special
+        if (second.equals("wall-lantern")) {
+            // is lantern working
+            if (!room.hasProperty("dark")) 
+            {
+                return Message.examineLanternFixed();    
+            }
+            
+            // is the lantern working? (already open) return
+            if (obj.hasProperty("open")) {
+                return Message.examineLanternOpen();
+            }
+            
+            return Message.examineLanternBroken();
         }
         
         // is the second word player? return x player message
@@ -62,10 +80,10 @@ public class ExamineCommand extends Command
         Set<String> contents = container.getObjectNames();
         if (contents.isEmpty()) {
             return container.getDescription() + " " + Message.searchEmpty(second);
-        } else {
-            return container.getDescription() + " " + 
-                    Message.searchList(second, contents.toArray(new String[0]));
         }
+        
+        return container.getDescription() + " " + 
+                Message.searchList(second, contents.toArray(new String[0]));
     }
 
 }

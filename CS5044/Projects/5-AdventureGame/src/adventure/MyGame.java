@@ -15,7 +15,21 @@ public class MyGame extends Game {
     @Override
     public void createCommands() {
         CommandWords commands = parser().commandWords();
-        commands.addCommand("go",   new EnhancedGoCommand());
+        
+        // no argument constructor; we need a second word
+        commands.addCommand("go", new EnhancedGoCommand());
+        // pre-populate the direction; no second word involved
+        commands.addCommand("east", new EnhancedGoCommand("east"));
+        // pre-populate the direction; no second word involved
+        commands.addCommand("e", new EnhancedGoCommand("east"));
+        
+        commands.addCommand("west", new EnhancedGoCommand("west"));
+        commands.addCommand("w", new EnhancedGoCommand("west"));
+        commands.addCommand("north", new EnhancedGoCommand("north"));
+        commands.addCommand("n", new EnhancedGoCommand("north"));
+        commands.addCommand("south", new EnhancedGoCommand("south"));
+        commands.addCommand("s", new EnhancedGoCommand("south"));
+        
         commands.addCommand("help", new HelpCommand(commands));
         commands.addCommand("quit", new QuitCommand());
         commands.addCommand("examine", new ExamineCommand());
@@ -37,8 +51,8 @@ public class MyGame extends Game {
     	// ======================================================
 
     	EnhancedRoom yard = new EnhancedRoom("the front yard");
-    	yard.setDescription("You are in the front yard of your house, "
-    	        + "which you can enter through the <em>front-door</em>. "
+    	yard.setDescription("You are in the front yard of your house. "
+    	        + "A <em>stone-walkway</em> leads up to the <em>front-door</em>. "
     	        + "A <em>wall-lantern</em> hangs next to the door. "
     	        + "It seems to be broken.");
     	yard.addProperty("dark");
@@ -48,13 +62,16 @@ public class MyGame extends Game {
         driveway.addProperty("dark");
         driveway.setDescription("You are standing on your driveway, facing the garage.");
         EnhancedRoom garage = new EnhancedRoom("your garage");
-        garage.setDescription("You are in your garage. There is a <em>shoebox</em> "
+        garage.setDescription("You are in your garage. There are a few <em>old-boxes</em> on the "
+                + "floor that don't look important, and there is a <em>shoebox</em> "
                 + "on some shelves in the corner. A <em>side-door</em> leads to the house.");
 
         Door frontDoor = new Door("front-door", yard);
         frontDoor.addProperty("locked");
+        frontDoor.setKey("house-key");
         Door sideDoor = new Door("side-door", garage);
         sideDoor.addProperty("locked");
+        sideDoor.setKey("house-key");
         
     	// ======================================================
         // set room doors and exits
@@ -88,6 +105,7 @@ public class MyGame extends Game {
         shoebox.addProperty("local");
         Container flowerPot = new Container("flower-pot", yard);
         flowerPot.addProperty("local");
+        flowerPot.setDescription("The flower pot is full of deep-red chrysanthemums.");
         
     	// ======================================================
         // create item (leaf) objects
@@ -99,8 +117,18 @@ public class MyGame extends Game {
         wallLantern.addProperty("fixed");
         Item screwdriver = new Item("screwdriver", garage);
         screwdriver.setDescription("Your handy-dandy screwdriver.");
+        Item oldBoxes = new Item("old-boxes", garage);
+        oldBoxes.setDescription("You don't keep anything valuable in these old boxes.");
+        oldBoxes.addProperty("do-not-list");
+        
+        Item stoneWalkway = new Item("stone-walkway", yard);
+        stoneWalkway.setDescription("The stone-walkway leads up to the front-door of your house.");
+        stoneWalkway.addProperty("do-not-list");
         
         Item lightBulb = new Item("light-bulb", shoebox);
+        
+        Item houseKey = new Item("house-key", flowerPot);
+        houseKey.addProperty("concealed");
         
         // the player starts the game outside
         player().moveTo(yard);
