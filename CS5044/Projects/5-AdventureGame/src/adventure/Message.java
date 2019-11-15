@@ -167,8 +167,15 @@ public class Message {
 		return "I like you just the way your are!";
 	}
 	
+	public static final String noLightBulbsHereToReplace() {
+	    return "No light-bulbs around here need to be replaced.";
+	}
+	
 	public static final String replaceSuccess(String obj) {
-		return "You replace the " + obj + ".";
+		return "You carefully remove the old light-bulb and screw in the new one. It works! "
+		        + "The wall-lantern lights up the area around your front-door again. "
+		        + "You close the lantern, happy that you have at least accomplished something. "
+		        + "Now if only you can only find that house-key!";
 	}
 	
 	// ==========================================================
@@ -200,7 +207,10 @@ public class Message {
 	}
 	
 	public static final String searchPotSuccess() {
-		return "You search the flower-pot and find the house-key!";
+		return "You sift through the dirt beneath the crysanthemums and come up with nothing. "
+		        + "You tilt the flower-pot a bit, moving the lower branches of the plant aside, and"
+		        + " you see something like a piece of metal catch the light. That's it -- "
+		        + "you've found the house-key! You take the key and brush off the dirt.";
 	}
 	
 	// ----------------------------------------------------------

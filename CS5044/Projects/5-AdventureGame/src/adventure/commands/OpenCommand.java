@@ -4,6 +4,7 @@ import java.util.Set;
 
 import adventure.Command;
 import adventure.Container;
+import adventure.Door;
 import adventure.EnhancedRoom;
 import adventure.GameObject;
 import adventure.Item;
@@ -24,9 +25,14 @@ public class OpenCommand extends Command
         }
         
         String second = getSecondWord();
-        // if the second word is a door
-        if (room.hasDoor(second)) {
-            return Message.examineDefault(second);
+
+        // if the second word is a door object
+        Object doorObj = room.getObject(second);
+        if (doorObj instanceof Door) 
+        {
+            if (((Door) doorObj).hasProperty("locked")) {
+                return Message.openLocked(second);
+            }
         }
         
         // if the second word is not an in-scope object, return
@@ -44,7 +50,7 @@ public class OpenCommand extends Command
             }
             
             // is the lantern still broken?
-            if (!player.getParent().hasObject(second)) {
+            if (!player.hasObject("screwdriver")) {
                 return Message.openLanternNoKey();
             }
             
