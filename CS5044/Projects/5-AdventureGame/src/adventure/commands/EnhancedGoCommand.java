@@ -41,6 +41,9 @@ public class EnhancedGoCommand extends GoCommand
             {
                 return Message.openLocked(dirDoor.getName());
             }
+            
+           player.setHasWon(true);
+           return "You solved the mystery!";
         }
         
         // delegate to superclass

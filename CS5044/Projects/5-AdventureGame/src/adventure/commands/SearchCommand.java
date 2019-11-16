@@ -53,8 +53,6 @@ public class SearchCommand extends Command
             
             Container flowerPot = (Container) room.getObject("flower-pot");
             GameObject gameObj = flowerPot.getObject("house-key");
-            System.out.println(gameObj);
-            System.out.println(gameObj.getName());
             gameObj.moveTo(player);
             return Message.searchPotSuccess();
         }

@@ -26,9 +26,14 @@ public class ExamineCommand extends Command
         
         String second = getSecondWord();
         // if the second word is a door
-        GameObject doorObj = room.getObject(second);
-        if (doorObj instanceof Door) {
+        GameObject notInScopeObj = room.getObject(second);
+        if (notInScopeObj instanceof Door) {
             return Message.examineDefault(second);
+        }
+        
+        // is the second word player? return x player message
+        if (notInScopeObj == player) {
+            return Message.examinePlayer();
         }
         
         // if the second word is not an in-scope object, return
@@ -52,12 +57,7 @@ public class ExamineCommand extends Command
             }
             
             return Message.examineLanternBroken();
-        }
-        
-        // is the second word player? return x player message
-        if (obj == player) {
-            return Message.examinePlayer();
-        }
+        }        
         
         // is the second word the flower pot? return the flower-pot (but not contents)
         if (second.equals("flower-pot")) {

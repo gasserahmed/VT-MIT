@@ -55,8 +55,8 @@ public class TakeCommand extends Command
             return Message.takePlayer();
         }
         
-        // if object is item/container and not fixed, take it 
-        if ((obj instanceof Container || obj instanceof Item) && !obj.hasProperty("fixed")) 
+        // if object is not fixed, take it 
+        if (!obj.hasProperty("fixed")) 
         {
             obj.moveTo(player);
             return Message.takeSuccess(second);

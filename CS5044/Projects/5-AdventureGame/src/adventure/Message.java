@@ -167,10 +167,6 @@ public class Message {
 		return "I like you just the way your are!";
 	}
 	
-	public static final String noLightBulbsHereToReplace() {
-	    return "No light-bulbs around here need to be replaced.";
-	}
-	
 	public static final String replaceSuccess(String obj) {
 		return "You carefully remove the old light-bulb and screw in the new one. It works! "
 		        + "The wall-lantern lights up the area around your front-door again. "
@@ -233,8 +229,12 @@ public class Message {
 	// Replace
 	// ----------------------------------------------------------
 	
-	// I wrote several customized messages for "replace light-bulb".
-	// Try writing your own, making sure you give good hints to the
-	// player in different situations.
+    public static final String replaceNoLightBulbsHere() {
+        return "No light-bulbs around here need to be replaced.";
+    }
+    
+    public static final String replaceOpenWallLanternFirst() {
+        return "You need to open the wall-lantern before you can replace the light-bulb.";
+    }
 	
 }

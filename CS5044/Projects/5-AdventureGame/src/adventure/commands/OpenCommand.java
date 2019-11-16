@@ -27,12 +27,14 @@ public class OpenCommand extends Command
         String second = getSecondWord();
 
         // if the second word is a door object
-        Object doorObj = room.getObject(second);
+        GameObject doorObj = room.getObject(second);
         if (doorObj instanceof Door) 
         {
-            if (((Door) doorObj).hasProperty("locked")) {
+            if (doorObj.hasProperty("locked")) {
                 return Message.openLocked(second);
             }
+            
+            return Message.openSuccess(second);
         }
         
         // if the second word is not an in-scope object, return
@@ -67,20 +69,7 @@ public class OpenCommand extends Command
         // is the object already open? return
         if (obj.hasProperty("open")) {
             return Message.openAlready(second);
-        }
-        
-        // is the object locked? return
-        if (obj.hasProperty("locked")) {
-            return Message.openLocked(second);
-        }
-        
-        // can you successfully open the object
-        // if so, is the object an item or a container?
-        // if item: set props and return open success
-        if (obj instanceof Item) {
-            obj.addProperty("open");
-            return Message.openSuccess(second);
-        }       
+        }          
         
         // if container: set props, open success, and search result (empty/list)
         Container container = (Container) obj;

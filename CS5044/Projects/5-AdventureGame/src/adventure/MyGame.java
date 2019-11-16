@@ -60,7 +60,8 @@ public class MyGame extends Game {
         house.setDescription("You are inside your house.");
         EnhancedRoom driveway = new EnhancedRoom("the driveway");
         driveway.addProperty("dark");
-        driveway.setDescription("You are standing on your driveway, facing the garage.");
+        driveway.setDescription("You are standing on your driveway, facing the garage. "
+                + "Also, there's a <em>water-fountain.</em>");
         EnhancedRoom garage = new EnhancedRoom("your garage");
         garage.setDescription("You are in your garage. There are a few <em>old-boxes</em> on the "
                 + "floor that don't look important, and there is a <em>shoebox</em> "
@@ -106,6 +107,10 @@ public class MyGame extends Game {
         Container flowerPot = new Container("flower-pot", yard);
         flowerPot.addProperty("local");
         flowerPot.setDescription("The flower pot is full of deep-red chrysanthemums.");
+        Container waterFountain = new Container("water-fountain", driveway);
+        waterFountain.addProperty("do-not-list");
+        waterFountain.addProperty("fixed");
+        waterFountain.setDescription("The water-fountain is not working.");
         
     	// ======================================================
         // create item (leaf) objects
@@ -117,13 +122,15 @@ public class MyGame extends Game {
         wallLantern.addProperty("fixed");
         Item screwdriver = new Item("screwdriver", garage);
         screwdriver.setDescription("Your handy-dandy screwdriver.");
-        Item oldBoxes = new Item("old-boxes", garage);
+        Container oldBoxes = new Container("old-boxes", garage);
         oldBoxes.setDescription("You don't keep anything valuable in these old boxes.");
         oldBoxes.addProperty("do-not-list");
+        oldBoxes.addProperty("open");
         
         Item stoneWalkway = new Item("stone-walkway", yard);
         stoneWalkway.setDescription("The stone-walkway leads up to the front-door of your house.");
         stoneWalkway.addProperty("do-not-list");
+        stoneWalkway.addProperty("fixed");
         
         Item lightBulb = new Item("light-bulb", shoebox);
         
