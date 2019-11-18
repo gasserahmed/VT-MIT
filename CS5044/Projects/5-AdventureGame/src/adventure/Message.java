@@ -209,6 +209,14 @@ public class Message {
 		        + "you've found the house-key! You take the key and brush off the dirt.";
 	}
 	
+	public static final String searchDriverLicenseAlready() {
+        return "You find nothing else in your wallet.";
+    }
+	
+	public static final String searchDriverLicenseSuccess() {
+        return "You found your driver license. Now you can go and drive your spaceship!";
+    }
+	
 	// ----------------------------------------------------------
 	// Open
 	// ----------------------------------------------------------
@@ -236,5 +244,40 @@ public class Message {
     public static final String replaceOpenWallLanternFirst() {
         return "You need to open the wall-lantern before you can replace the light-bulb.";
     }
-	
+    
+    // ----------------------------------------------------------
+    // Close
+    // ----------------------------------------------------------
+    
+    public static final String closeCant(String obj) {
+        return "The " + obj + " is not something you can close.";
+    }
+    
+    public static final String closeSuccess(String obj) {
+        return "The " + obj + " is closed.";
+    }
+    
+    public static final String closeAlready(String obj) {
+        return "The " + obj + " is already closed.";
+    }
+    
+    // ----------------------------------------------------------
+    // Hide
+    // ----------------------------------------------------------
+    
+    public static final String hideCant(String obj) {
+        return "The " + obj + " is not something you can hide.";
+    }
+    
+    public static final String hideSuccess(String obj) {
+        return "The " + obj + " is hidden.";
+    }
+    
+    public static final String hideAlready(String obj) {
+        return "The " + obj + " is already hidden.";
+    }
+    
+    public static final String hideNeedsFlowerpot(String obj) {
+        return "There isn't any flower pots here to hide the " + obj + " in.";
+    }   
 }

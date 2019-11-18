@@ -6,6 +6,14 @@ import adventure.GameObject;
 import adventure.Message;
 import adventure.Player;
 
+/**
+ * 
+ * This class handles scenarios for replacing an object
+ *
+ * @author gasser18
+ * @version Nov 16, 2019
+ *
+ */
 public class ReplaceCommand extends Command
 {
 

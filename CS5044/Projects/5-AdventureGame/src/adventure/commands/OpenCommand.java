@@ -7,10 +7,17 @@ import adventure.Container;
 import adventure.Door;
 import adventure.EnhancedRoom;
 import adventure.GameObject;
-import adventure.Item;
 import adventure.Message;
 import adventure.Player;
 
+/**
+ * 
+ * This class handles scenarios for opening an object
+ *
+ * @author gasser18
+ * @version Nov 16, 2019
+ *
+ */
 public class OpenCommand extends Command
 {
 

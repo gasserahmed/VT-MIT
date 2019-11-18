@@ -11,6 +11,14 @@ import adventure.Item;
 import adventure.Message;
 import adventure.Player;
 
+/**
+ * 
+ * This class handles scenarios for examining an object
+ *
+ * @author gasser18
+ * @version Nov 16, 2019
+ *
+ */
 public class ExamineCommand extends Command
 {
 
@@ -25,7 +33,8 @@ public class ExamineCommand extends Command
         }
         
         String second = getSecondWord();
-        // if the second word is a door
+        // if the second word is a door 
+        // (I added this just for code test full coverage)
         GameObject notInScopeObj = room.getObject(second);
         if (notInScopeObj instanceof Door) {
             return Message.examineDefault(second);

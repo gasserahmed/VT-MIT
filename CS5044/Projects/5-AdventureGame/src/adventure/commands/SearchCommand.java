@@ -6,10 +6,17 @@ import adventure.Command;
 import adventure.Container;
 import adventure.EnhancedRoom;
 import adventure.GameObject;
-import adventure.Item;
 import adventure.Message;
 import adventure.Player;
 
+/**
+ * 
+ * This class handles scenarios for searching an object
+ *
+ * @author gasser18
+ * @version Nov 16, 2019
+ *
+ */
 public class SearchCommand extends Command
 {
 
@@ -24,11 +31,6 @@ public class SearchCommand extends Command
         }
         
         String second = getSecondWord();        
-        GameObject objInRoom = room.getObject(second);
-        if (objInRoom instanceof Item) 
-        {
-            return Message.searchDefault();
-        }
         
         // if the second word is not an in-scope object, return
         GameObject obj = room.getInScopeObject(second);
@@ -44,6 +46,22 @@ public class SearchCommand extends Command
             return Message.searchDark();
         }
         
+
+        if (second.equals("wallet")) 
+        {
+            if (player.hasObject("driver-license")) 
+            {
+                return Message.searchDriverLicenseAlready();
+            }
+            
+            Container wallet = (Container) room.getObject("wallet");
+            GameObject driverLicense = wallet.getObject("driver-license");
+            driverLicense.removeProperty("concealed");
+            driverLicense.moveTo(player);
+            player.setHasWon(true);
+            return Message.searchDriverLicenseSuccess();
+        }
+        
         // if the second word the flower pot
         if (second.equals("flower-pot")) {
             if (player.hasObject("house-key")) 
@@ -52,8 +70,9 @@ public class SearchCommand extends Command
             }
             
             Container flowerPot = (Container) room.getObject("flower-pot");
-            GameObject gameObj = flowerPot.getObject("house-key");
-            gameObj.moveTo(player);
+            GameObject houseKey = flowerPot.getObject("house-key");
+            houseKey.removeProperty("concealed");
+            houseKey.moveTo(player);
             return Message.searchPotSuccess();
         }
         

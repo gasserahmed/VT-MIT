@@ -7,6 +7,14 @@ import adventure.GameObject;
 import adventure.Message;
 import adventure.Player;
 
+/**
+ * 
+ * This class handles scenarios for unlocking an object
+ *
+ * @author gasser18
+ * @version Nov 16, 2019
+ *
+ */
 public class UnlockCommand extends Command
 {
 
@@ -23,18 +31,18 @@ public class UnlockCommand extends Command
         String second = getSecondWord();
         
         // if the second word is not an in-scope object, return
-        GameObject doorObj = room.getObject(second);
+        GameObject obj = room.getInScopeObject(second);
         
-        if (doorObj == null) 
+        if (obj == null) 
         {
             return Message.objectNotInScope(second);
         }
         
-        if (doorObj.hasProperty("lockable") ) 
+        if (obj.hasProperty("lockable") ) 
         {
-            if (doorObj.hasProperty("locked")) 
+            if (obj.hasProperty("locked")) 
             {
-                Door door = (Door) doorObj;
+                Door door = (Door) obj;
                 String doorKey = door.getKey();
                 if (player.hasObject(doorKey)) 
                 {

@@ -4,6 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.Set;
 
 //CHECKSTYLE:OFF
@@ -31,15 +33,15 @@ public class MyGameTest {
         assertEquals("the front yard", roomName);
     }
 
-
     @Test
-    public void testTakeScrewdriver() {
-        executeMoves("east", "north", "take screwdriver");
-        assertEquals("your garage", roomName);
-        assertEquals(Message.takeSuccess("screwdriver"), message);
+    public void testMain() {
+        MyGame.main(null);                // exercises the main() method
+        assertNotNull(new Message());     // exercises the Message constructor 
+                                          // (and thus the class itself)
+        assertEquals("<p>You are locked out of your house, and you need to get in.</p>" + 
+                "<p>Type 'help' if you need help.</p>" 
+                + "<p>Hit [return] to continue...</p>", game.welcomeMessage());
     }
-
-
     /*
      * Testing Examine Commands
      * */
@@ -144,6 +146,21 @@ public class MyGameTest {
                 + " " + Message.searchList("shoebox", contents.toArray(new String[0])), message);
     }
 
+    @Test
+    public void testExamineConcealedDriverLicense() 
+    {
+        testUnlockFrontDoorSuccess();
+        executeMoves("n", "examine driver-license");
+        assertEquals(game.player().getRoom().getName(), "your house entrance");
+    }
+    
+    @Test
+    public void testExamineConcealedCreditcardInWallet() 
+    {
+        testUnlockFrontDoorSuccess();
+        executeMoves("n", "examine wallet");
+        assertEquals(game.player().getRoom().getName(), "your house entrance");
+    }
 
     /*
      * Testing Inventory Commands
@@ -385,6 +402,13 @@ public class MyGameTest {
         assertEquals(Message.takeSuccess("light-bulb"), message);
     }
     
+    @Test
+    public void testTakeScrewdriver() {
+        executeMoves("east", "north", "take screwdriver");
+        assertEquals("your garage", roomName);
+        assertEquals(Message.takeSuccess("screwdriver"), message);
+    }
+    
     /*
      * Testing EnhancedGo commands
      * */
@@ -407,7 +431,247 @@ public class MyGameTest {
     {
         game.player().getRoom().getObject("front-door").removeProperty("locked");
         executeMoves("n");
-        assertEquals("You solved the mystery!", message);
+        assertEquals(game.player().getRoom().getName(), "your house entrance");
+    }
+    
+    /*
+     * Testing Search commands
+     * */
+    @Test
+    public void testSearchWithNoSecondWord() 
+    {
+        executeMoves("search");
+        assertEquals(Message.commandRequiresSecond("search"), message);
+    }
+    
+    @Test
+    public void testSearchObjectNotInScope() 
+    {
+        executeMoves("search not_here");
+        assertEquals(Message.objectNotInScope("not_here"), message);
+    }
+    
+    @Test
+    public void testSearchInDark() 
+    {
+        executeMoves("search stone-walkway");
+        assertEquals(Message.searchDark(), message);
+    }
+    
+    @Test
+    public void testSearchFlowerPotSuccess() 
+    {
+        testReplaceLightBulbSuccess();
+        executeMoves("search flower-pot");
+        assertEquals(Message.searchPotSuccess(), message);
+    }
+    
+    @Test
+    public void testSearchFlowerPotAlready() 
+    {
+        testSearchFlowerPotSuccess();
+        executeMoves("search flower-pot");
+        assertEquals(Message.searchPotAlready(), message);
+    }
+    
+    @Test
+    public void testSearchWalletSuccess() 
+    {
+        testUnlockFrontDoorSuccess();
+        executeMoves("n", "w", "w", "search wallet");
+        assertEquals(Message.searchDriverLicenseSuccess(), message);
+    }
+    
+    @Test
+    public void testSearchWalletAlready() 
+    {
+        testSearchWalletSuccess();
+        executeMoves("search wallet");
+        assertEquals(Message.searchDriverLicenseAlready(), message);
+    }
+    
+    @Test
+    public void testSearchContainerClosed() 
+    {
+        executeMoves("e", "n", "search shoebox");
+        assertEquals(Message.searchClosed("shoebox"), message);
+    }
+    
+    @Test
+    public void testSearchContainerOpenAndEmpty() 
+    {
+        testTakeLightBulbSuccessfull();
+        executeMoves("search shoebox");
+        assertEquals(Message.searchEmpty("shoebox"), message);
+    }
+    
+    @Test
+    public void testSearchContainerOpenAndFull() 
+    {
+        executeMoves("e", "n", "open shoebox", "search shoebox");
+        GameObject obj = game.player().getRoom().getObject("shoebox");
+        Container container = (Container) obj;
+        Set<String> contents = container.getObjectNames();
+        assertEquals(Message.searchList(obj.getName(), contents.toArray(new String[0])), message);
+    }
+    
+    @Test
+    public void testSearchUnopenableEmptyContainer() 
+    {
+        executeMoves("e", "n", "search old-boxes");
+        assertEquals(Message.searchEmpty("old-boxes"), message);
+    }
+    
+    @Test
+    public void testSearchItem() 
+    {
+        executeMoves("e", "n", "search screwdriver");
+        assertEquals(Message.searchDefault(), message);
+    }
+    
+    /*
+     * Test Unlock commands
+     * */
+    @Test
+    public void testUnlockWithNoSecondWord() 
+    {
+        executeMoves("unlock");
+        assertEquals(Message.commandRequiresSecond("unlock"), message);
+    }
+    
+    @Test
+    public void testUnlockObjectNotInScope() 
+    {
+        executeMoves("unlock not_here");
+        assertEquals(Message.objectNotInScope("not_here"), message);
+    }
+    
+    @Test
+    public void testUnlockObjectNotLockable() 
+    {
+        executeMoves("e", "n", "unlock shoebox");
+        assertEquals(Message.unlockCant("shoebox"), message);
+    }
+    
+    @Test
+    public void testUnlockLockedFrontDoorWithNoKey() 
+    {
+        executeMoves("unlock front-door");
+        assertEquals(Message.unlockNoKey("front-door", "house-key"), message);
+    }
+    
+    @Test
+    public void testUnlockFrontDoorSuccess() 
+    {
+        testSearchFlowerPotSuccess();
+        executeMoves("unlock front-door");
+        assertEquals(Message.unlockSuccess("front-door", "house-key"), message);
+    }
+    
+    @Test
+    public void testUnlockLockedFrontDoorAlready() 
+    {
+        testUnlockFrontDoorSuccess();
+        executeMoves("unlock front-door");
+        assertEquals(Message.unlockAlready("front-door"), message);
+    }
+    
+    /*
+     * Testing Hide commands
+     * */
+    @Test
+    public void testHideWithNoSecondWord() 
+    {
+        executeMoves("hide");
+        assertEquals(Message.commandRequiresSecond("hide"), message);
+    }
+    
+    @Test
+    public void testHideObjectNotInScope() 
+    {
+        executeMoves("hide not_here");
+        assertEquals(Message.objectNotInScope("not_here"), message);
+    }
+    
+    @Test
+    public void testHideNotHouseKey() 
+    {
+        executeMoves("hide flower-pot");
+        assertEquals(Message.hideCant("flower-pot"), message);
+    }
+    
+    @Test
+    public void testHideNeedsFlowerPot() 
+    {
+        testSearchFlowerPotSuccess();
+        executeMoves("e", "hide house-key");
+        assertEquals(Message.hideNeedsFlowerpot("house-key"), message);
+    }
+    
+    @Test
+    public void testHideSuccess() 
+    {
+        testSearchFlowerPotSuccess();
+        executeMoves("hide house-key");
+        assertEquals(Message.hideSuccess("house-key"), message);
+    }
+    
+    @Test
+    public void testHideAlready() 
+    {
+        testHideSuccess();
+        executeMoves("hide house-key");
+        assertEquals(Message.hideAlready("house-key"), message);
+    }
+    
+    /*
+     * Testing Close commands
+     * */
+    @Test
+    public void testCloseWithNoSecondWord() 
+    {
+        executeMoves("close");
+        assertEquals(Message.commandRequiresSecond("close"), message);
+    }
+    
+    @Test
+    public void testCloseObjectNotInScope() 
+    {
+        executeMoves("close not_here");
+        assertEquals(Message.objectNotInScope("not_here"), message);
+    }
+    
+    @Test
+    public void testCloseUnopenableObject() 
+    {
+        executeMoves("close stone-walkway");
+        assertEquals(Message.closeCant("stone-walkway"), message);
+    }
+    
+    @Test
+    public void testCloseSuccess() 
+    {
+        testOpenWallLanternSuccess();
+        executeMoves("close wall-lantern");
+        assertEquals(Message.closeSuccess("wall-lantern"), message);
+    }
+    
+    @Test
+    public void testCloseAlready() 
+    {
+        testCloseSuccess();
+        executeMoves("close wall-lantern");
+        assertEquals(Message.closeAlready("wall-lantern"), message);
+    }
+    
+    /*
+     * Testing winning after player took his driver license
+     * */
+    @Test
+    public void testDriverLicenseFound() 
+    {
+        testSearchWalletSuccess();
+        assertEquals(Message.searchDriverLicenseSuccess(), message);
     }
     
     

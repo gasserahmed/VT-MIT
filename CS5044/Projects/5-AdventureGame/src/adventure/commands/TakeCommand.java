@@ -1,14 +1,19 @@
 package adventure.commands;
 
 import adventure.Command;
-import adventure.Container;
-import adventure.Door;
 import adventure.EnhancedRoom;
 import adventure.GameObject;
-import adventure.Item;
 import adventure.Message;
 import adventure.Player;
 
+/**
+ * 
+ * This class handles scenarios for taking an object
+ *
+ * @author gasser18
+ * @version Nov 16, 2019
+ *
+ */
 public class TakeCommand extends Command
 {
 
@@ -22,13 +27,7 @@ public class TakeCommand extends Command
             return Message.commandRequiresSecond("take");
         }
         
-        String second = getSecondWord();
-        // if the second word is a door object
-        Object doorObj = room.getObject(second);
-        if (doorObj instanceof Door) 
-        {
-            return Message.takeCant(second);
-        }        
+        String second = getSecondWord();     
         
         GameObject objWithPlayer = player.getObject(second);
         if (objWithPlayer != null) 
