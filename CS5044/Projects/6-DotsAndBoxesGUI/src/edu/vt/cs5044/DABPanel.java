@@ -83,7 +83,7 @@ public class DABPanel extends JPanel {
         int row = xCombo.getSelectedIndex();
         int col = yCombo.getSelectedIndex();
         Direction dir = (Direction) dirCombo.getSelectedItem();
-        boolean drawIsSuccess = game.drawEdge(new Coordinate(col, row), dir);
+        boolean drawIsSuccess = game.drawEdge(new Coordinate(row, col), dir);
         if (drawIsSuccess) 
         {
            updateStatus(); 
@@ -103,11 +103,10 @@ public class DABPanel extends JPanel {
         else
         {
             turnLabel.setText("Player " + currentPlayer.toString() + " Go!");
-            
-            p1ScoreLabel.setText(Player.ONE + ": " + game.getScores().get(Player.ONE));
-            p2ScoreLabel.setText(Player.TWO + ": " + game.getScores().get(Player.TWO));
         }
-
+        
+        p1ScoreLabel.setText(Player.ONE + ": " + game.getScores().get(Player.ONE));
+        p2ScoreLabel.setText(Player.TWO + ": " + game.getScores().get(Player.TWO));
         // TODO: be sure to call repaint() at the end of this method to render any changes
         repaint();
     }
