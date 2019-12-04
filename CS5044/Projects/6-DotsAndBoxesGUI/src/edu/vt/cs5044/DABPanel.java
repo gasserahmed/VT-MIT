@@ -87,7 +87,6 @@ public class DABPanel extends JPanel {
 
         // Begins a new 3x3 game by default:
         startGame(3);
-
     }
 
     /**
