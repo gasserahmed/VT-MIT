@@ -19,6 +19,14 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+/**
+ * 
+ * This class has private instances, helpers, and public methods for the DotsAndBoxes GUI
+ *
+ * @author gasser18
+ * @version Dec 4, 2019
+ *
+ */
 public class DABPanel extends JPanel {
 
     private final DotsAndBoxes game;
@@ -32,6 +40,11 @@ public class DABPanel extends JPanel {
     private final JButton drawButton;
     private final DABGrid dabGrid;
 
+    /**
+     * Create a new DABPanel object.
+     *
+     * @param frame DABPanel main frame
+     */
     public DABPanel(JFrame frame) {
 
         // Adds a menu bar to the frame that will contain this panel:
@@ -53,11 +66,10 @@ public class DABPanel extends JPanel {
 
         drawButton = new JButton();
         drawButton.setName(DRAW_BUTTON);
-        // TODO: set the text to be displayed on the draw button
+        
         drawButton.setText("Draw!");
         drawButton.addActionListener(e -> handleDrawButton(e));
-        // TODO: use a method reference to add handleDrawButton() as a listener to the draw button
-
+        
         turnLabel = new JLabel();
         turnLabel.setName(TURN_LABEL);
         
@@ -78,23 +90,30 @@ public class DABPanel extends JPanel {
 
     }
 
+    /**
+     * 
+     * The handler code for the draw button.
+     *
+     * @param ae action event
+     */
     private void handleDrawButton(ActionEvent ae) {
-        // TODO: the handler code for the draw button goes here
         int row = xCombo.getSelectedIndex();
         int col = yCombo.getSelectedIndex();
         Direction dir = (Direction) dirCombo.getSelectedItem();
         boolean drawIsSuccess = game.drawEdge(new Coordinate(row, col), dir);
         if (drawIsSuccess) 
         {
-           updateStatus(); 
-        }
-        // TODO: don't forget to call updateStatus(), but ONLY if the draw was successful
+            updateStatus(); 
+        }        
     }
 
+    /**
+     * 
+     * Read the game status via accessors; then set each label's text accordingly.
+     *
+     */
     private void updateStatus() {
-        // TODO: read the game status via accessors; set each label's text accordingly
         Player currentPlayer = game.getCurrentPlayer();
-        // TODO: don't forget to disable the draw button, if the game is over
         if (game.getCurrentPlayer() == null) 
         {
             drawButton.setEnabled(false);
@@ -107,34 +126,44 @@ public class DABPanel extends JPanel {
         
         p1ScoreLabel.setText(Player.ONE + ": " + game.getScores().get(Player.ONE));
         p2ScoreLabel.setText(Player.TWO + ": " + game.getScores().get(Player.TWO));
-        // TODO: be sure to call repaint() at the end of this method to render any changes
         repaint();
     }
 
+    /**
+     * 
+     * Update the coordinate combo box options, based on the current size of the grid.
+     *
+     */
     private void updateCombos() {
-        // TODO: update the coordinate combo box options, based on the current size of the grid
         xCombo.removeAllItems();
         yCombo.removeAllItems();
         int gridSize = game.getSize();
-        for (int i = 0; i < gridSize ; i++) 
+        for (int item = 0; item < gridSize ; item++) 
         {
-            xCombo.addItem(i);
-            yCombo.addItem(i);
+            xCombo.addItem(item);
+            yCombo.addItem(item);
         }
     }
 
+    /**
+     * 
+     * Start a new game of the specified size.
+     *
+     * @param size grid size
+     */
     private void startGame(int size) {
-        // TODO: start a new game of the specified size
         game.init(size);
-        // TODO: call updateCombos() and updateStatus()
         updateCombos();
         updateStatus();
-        // TODO: don't forget to enable the draw button
         drawButton.setEnabled(true);
     }
 
+    /**
+     * 
+     * Layout setup for the panel and all its components.
+     *
+     */
     private void setupLayout() {
-        // TODO: layout this panel and all its components
         setLayout(new BorderLayout());
         
         JPanel topPanel = new JPanel();
@@ -171,11 +200,15 @@ public class DABPanel extends JPanel {
         scorePanel.add(p2ScoreLabel, BorderLayout.LINE_END);
         
         bottomPanel.add(scorePanel);
-        // TODO: The layout must reasonably handle resizing of the frame
     }
 
+    /**
+     * 
+     * Create a new JMenuBar and populate it with game menu items like New and Interactive Grid.
+     *
+     * @return the created JMenuBar
+     */
     private JMenuBar setupMenuBar() {
-        // TODO: create a new JMenuBar and populate it with the required items
         JMenuBar gameMenuBar = new JMenuBar();
         JMenu gameMenu = new JMenu("Game");
         JMenu gridSizeSubMenu = new JMenu("New");
@@ -213,16 +246,17 @@ public class DABPanel extends JPanel {
             }
         });
         
-        gameMenuBar.add(gameMenu);
-        // TODO: use lambda expressions so the new game items call startGame() when clicked
-        // TODO: use a lambda expression to handle activating/deactivating interactive mode
-        // (Note that a method reference must be nested within the lambda expression)
-        return gameMenuBar; // TODO: replace this placeholder so it returns the JMenuBar
+        gameMenuBar.add(gameMenu);        
+        return gameMenuBar; 
     }
 
+    /**
+     * 
+     * This is boilerplate code for creating and showing GUI.
+     * (This shouldn't be touched) 
+     *
+     */
     private static void createAndShowGUI() {
-        // This is boilerplate code
-        // You should leave this exactly as-is
         JFrame frame = new JFrame("Dots And Boxes");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         JComponent newContentPane = new DABPanel(frame);
@@ -232,10 +266,15 @@ public class DABPanel extends JPanel {
         frame.setVisible(true);
     }
 
+    /**
+     * 
+     * This is boilerplate code for running the game.
+     * (This shouldn't be touched)
+     * 
+     * @param args main method arguments
+     */
     public static void main(String[] args) {
-        // This is boilerplate code
-        // You should leave this exactly as-is
-        // Notice the use of a method reference to simplify this code
+        // we used the method reference to simplify the code
         SwingUtilities.invokeLater(DABPanel::createAndShowGUI);
     }
 
