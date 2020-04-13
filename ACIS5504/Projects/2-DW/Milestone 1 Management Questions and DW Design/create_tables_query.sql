@@ -125,16 +125,44 @@ FOREIGN KEY (C_EventID_CA) REFERENCES EventDim(C_EventID_EV),
 PRIMARY KEY(C_CustomerID_CA, C_EventID_CA)
 );
 
---ReservationsFact
-CREATE TABLE ReservationsFact
+--RoomTypeReservationsFact
+CREATE TABLE RoomTypeReservationsFact
 (
-C_TimeID_RV INT NOT NULL,
-C_CustomerID_RV INT NOT NULL,
-C_ResortID_RV INT NOT NULL,
-C_EventID_RV INT,
-C_RoomNum_RV VARCHAR(10) NOT NULL,
-T_RoomType_RV VARCHAR(50) NOT NULL,
-N_Duration_RV DECIMAL NOT NULL,
-N_Price_RV DECIMAL NOT NULL,
+C_TimeID_TR INT NOT NULL,
+T_RoomType_TR VARCHAR(50) NOT NULL,
+C_ResortID_TR INT NOT NULL,
+N_TotalNumOfStays_TR DECIMAL,
+N_TotalPrice_TR DECIMAL,
+FOREIGN KEY (C_TimeID_TR) REFERENCES TimeDim(C_TimeID_TI),
+FOREIGN KEY (T_RoomType_TR) REFERENCES RoomTypeDim(C_RoomType_RT),
+FOREIGN KEY (C_ResortID_TR) REFERENCES ResortDim(C_ResortID_RS),
+PRIMARY KEY(C_TimeID_TR, T_RoomType_TR, C_ResortID_TR)
+);
 
+--CustomerReservationsFact
+CREATE TABLE CustomerReservationsFact
+(
+C_TimeID_CR INT NOT NULL,
+C_CustomerID_CR INT NOT NULL,
+C_ResortID_CR INT NOT NULL,
+N_TotalNumOfStays_CR DECIMAL,
+N_TotalPrice_CR DECIMAL,
+FOREIGN KEY (C_TimeID_CR) REFERENCES TimeDim(C_TimeID_TI),
+FOREIGN KEY (C_CustomerID_CR) REFERENCES CustomerDim(C_CustomerID_CU),
+FOREIGN KEY (C_ResortID_CR) REFERENCES ResortDim(C_ResortID_RS),
+PRIMARY KEY(C_TimeID_CR, C_CustomerID_CR, C_ResortID_CR)
+);
+
+--EventReservationsFact
+CREATE TABLE EventReservationsFact
+(
+C_TimeID_ER INT NOT NULL,
+C_EventID_ER INT NOT NULL,
+C_ResortID_ER INT NOT NULL,
+N_TotalNumOfStays_ER DECIMAL,
+N_TotalPrice_ER DECIMAL,
+FOREIGN KEY (C_TimeID_ER) REFERENCES TimeDim(C_TimeID_TI),
+FOREIGN KEY (C_EventID_ER) REFERENCES EventDim(C_EventID_EV),
+FOREIGN KEY (C_ResortID_ER) REFERENCES ResortDim(C_ResortID_RS),
+PRIMARY KEY(C_TimeID_ER, C_EventID_ER, C_ResortID_ER)
 );
