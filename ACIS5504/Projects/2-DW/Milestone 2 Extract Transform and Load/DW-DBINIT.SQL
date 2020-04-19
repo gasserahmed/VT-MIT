@@ -13,8 +13,8 @@ DROP TABLE CustomerReservationsFact;
 DROP TABLE EventReservationsFact;
 DROP TABLE TimeDim;
 DROP TABLE RoomDim;
-DROP TABLE RoomTypeDim;
 DROP TABLE RoomReservationDim;
+DROP TABLE RoomTypeDim;
 DROP TABLE FloorDim;
 DROP TABLE WingDim;
 DROP TABLE BuildingDim;
@@ -22,34 +22,34 @@ DROP TABLE ResortDim;
 DROP TABLE CityDim;
 DROP TABLE RegionDim;
 DROP TABLE CountryDim;
+DROP TABLE CustomerAffiliationDim;
 DROP TABLE EventDim;
 DROP TABLE CustomerDim;
-DROP TABLE CustomerAffiliationDim;
 
---TimeDim
+/* TimeDim */
 CREATE TABLE TimeDim
 (
 C_TimeID_TI INT PRIMARY KEY,
 N_TimeYear_TI INT NOT NULL,
 N_TimeMonth_TI INT NOT NULL,
-T_TimeDay_TI VARCHAR(50) NOT NULL,
+T_TimeDay_TI VARCHAR(50) NOT NULL
 );
 
---RoomTypeDim
+/* RoomTypeDim */
 CREATE TABLE RoomTypeDim
 (
 C_RoomType_RT VARCHAR(50) PRIMARY KEY,
 N_RoomPrice_RT DECIMAL NOT NULL
 );
 
---CountryDim
+/* CountryDim */
 CREATE TABLE CountryDim
 (
 C_CountryCode_CO VARCHAR(5) PRIMARY KEY,
 T_CountryName_CO VARCHAR(50) NOT NULL
 );
 
---RegionDim
+/* RegionDim */
 CREATE TABLE RegionDim
 (
 C_RegionID_RG INT PRIMARY KEY,
@@ -58,7 +58,7 @@ C_CountryCode_RG VARCHAR(5) NOT NULL,
 FOREIGN KEY (C_CountryCode_RG) REFERENCES CountryDim(C_CountryCode_CO)
 );
 
---CityDim
+/* CityDim */
 CREATE TABLE CityDim
 (
 C_CityName_CI VARCHAR(50),
@@ -69,7 +69,7 @@ FOREIGN KEY (C_RegionID_CI) REFERENCES RegionDim(C_RegionID_RG),
 PRIMARY KEY(C_CityName_CI, C_ZipCode_CI)
 );
 
---ResortDim
+/* ResortDim */
 CREATE TABLE ResortDim
 (
 C_ResortID_RS INT PRIMARY KEY,
@@ -79,7 +79,7 @@ C_CityName_RS VARCHAR(50) NOT NULL,
 FOREIGN KEY (C_CityName_RS) REFERENCES CityDim(C_CityName_CI)
 );
 
---BuildingDim
+/* BuildingDim */
 CREATE TABLE BuildingDim
 (
 C_BuildingID_BU INT PRIMARY KEY,
@@ -89,7 +89,7 @@ C_ResortID_BU INT NOT NULL,
 FOREIGN KEY (C_ResortID_BU) REFERENCES ResortDim(C_ResortID_RS)
 );
 
---WingDim
+/* WingDim */
 CREATE TABLE WingDim
 (
 C_WingCode_WG VARCHAR(10) NOT NULL,
@@ -98,7 +98,7 @@ T_WingName_WG VARCHAR(50) NOT NULL,
 PRIMARY KEY(C_WingCode_WG, C_BuildingID_WG)
 );
 
---FloorDim
+/* FloorDim */
 CREATE TABLE FloorDim
 (
 C_FloorNumber_FL INT NOT NULL,
@@ -107,7 +107,7 @@ C_WingCode_FL VARCHAR(10) NOT NULL,
 PRIMARY KEY(C_FloorNumber_FL, C_BuildingID_FL, C_WingCode_FL)
 );
 
---RoomDim
+/* RoomDim */
 CREATE TABLE RoomDim
 (
 C_RoomNum_RM VARCHAR(10) NOT NULL,
@@ -118,7 +118,7 @@ PRIMARY KEY(C_RoomNum_RM, C_FloorNumber_RM, C_WingCode_RM),
 FOREIGN KEY (C_RoomType_RM) REFERENCES RoomTypeDim(C_RoomType_RT)
 );
 
---EventDim
+/* EventDim */
 CREATE TABLE EventDim
 (
 C_EventID_EV INT NOT NULL PRIMARY KEY,
@@ -127,7 +127,7 @@ D_EventStartDate_EV DATETIME NOT NULL,
 D_EventEndDate_EV DATETIME NOT NULL
 );
 
---CustomerDim
+/* CustomerDim */
 CREATE TABLE CustomerDim
 (
 C_CustomerID_CU INT NOT NULL PRIMARY KEY,
@@ -138,7 +138,20 @@ T_CustomerAddress_CU VARCHAR(255),
 I_CustomerPhoneNumber_CU VARCHAR(50) NOT NULL
 );
 
---CustomerAffiliationDim
+/* RoomReservationDim */
+CREATE TABLE RoomReservationDim
+(
+C_RoomReservationNum_RR VARCHAR(50),
+C_CustomerID_RR INT,
+C_RoomType_RR VARCHAR(50),
+D_ArrivalDate_RR DATETIME NOT NULL,
+D_DepartureDate_RR DATETIME NOT NULL,
+FOREIGN KEY (C_CustomerID_RR) REFERENCES CustomerDim(C_CustomerID_CU),
+FOREIGN KEY (C_RoomType_RR) REFERENCES RoomTypeDim(C_RoomType_RT),
+PRIMARY KEY(C_RoomReservationNum_RR, C_CustomerID_RR, C_RoomType_RR)
+);
+
+/* CustomerAffiliationDim */
 CREATE TABLE CustomerAffiliationDim
 (
 C_CustomerID_CA INT NOT NULL,
@@ -148,7 +161,7 @@ FOREIGN KEY (C_EventID_CA) REFERENCES EventDim(C_EventID_EV),
 PRIMARY KEY(C_CustomerID_CA, C_EventID_CA)
 );
 
---RoomTypeReservationsFact
+/* RoomTypeReservationsFact */
 CREATE TABLE RoomTypeReservationsFact
 (
 C_TimeID_TR INT NOT NULL,
@@ -162,7 +175,7 @@ FOREIGN KEY (C_ResortID_TR) REFERENCES ResortDim(C_ResortID_RS),
 PRIMARY KEY(C_TimeID_TR, T_RoomType_TR, C_ResortID_TR)
 );
 
---CustomerReservationsFact
+/* CustomerReservationsFact */
 CREATE TABLE CustomerReservationsFact
 (
 C_TimeID_CR INT NOT NULL,
@@ -176,7 +189,7 @@ FOREIGN KEY (C_ResortID_CR) REFERENCES ResortDim(C_ResortID_RS),
 PRIMARY KEY(C_TimeID_CR, C_CustomerID_CR, C_ResortID_CR)
 );
 
---EventReservationsFact
+/* EventReservationsFact */
 CREATE TABLE EventReservationsFact
 (
 C_TimeID_ER INT NOT NULL,
@@ -190,12 +203,6 @@ FOREIGN KEY (C_ResortID_ER) REFERENCES ResortDim(C_ResortID_RS),
 PRIMARY KEY(C_TimeID_ER, C_EventID_ER, C_ResortID_ER)
 );
 
-/* Loading data rows					*/
-/* Turn Escape character on                             */
-/* Default escape character "\" 			*/
-/* Used to enter special characters (&)			*/
-SET ESCAPE ON;
-
 /* TimeDim rows						*/
 INSERT INTO TimeDim VALUES(1, 2010, 09, 29);
 INSERT INTO TimeDim VALUES(2, 2010, 09, 30);
@@ -207,6 +214,7 @@ INSERT INTO TimeDim VALUES(7, 2010, 10, 06);
 INSERT INTO TimeDim VALUES(8, 2010, 10, 07);
 INSERT INTO TimeDim VALUES(9, 2010, 10, 08);
 INSERT INTO TimeDim VALUES(10, 2010, 10, 09);
+INSERT INTO TimeDim VALUES(11, 2010, 10, 10);
 
 /* RoomTypeDim rows						*/
 INSERT INTO RoomTypeDim VALUES('SINGLE', 80.0);
@@ -225,9 +233,9 @@ INSERT INTO RegionDim VALUES(2,'Middle-East', 'EG');
 INSERT INTO RegionDim VALUES(3,'EAST', 'JP');
 
 /* CityDim rows						*/
-INSERT INTO CityDim VALUES('Blacksburg','24060','Virginia','US');
-INSERT INTO CityDim VALUES('Arlington','76010','Texas','US');
-INSERT INTO CityDim VALUES('Houston','77092','Texas','US');
+INSERT INTO CityDim VALUES('Blacksburg','24060','Virginia', 1);
+INSERT INTO CityDim VALUES('Arlington','76010','Texas', 1);
+INSERT INTO CityDim VALUES('Houston','77092','Texas', 1);
 
 /* ResortDim rows						*/
 INSERT INTO ResortDim VALUES(1,'Hokie East', '131 Patrick Dr.','Blacksburg');
@@ -246,22 +254,22 @@ INSERT INTO BuildingDim VALUES(8,'Hokies','Hokies Building', 3);
 INSERT INTO BuildingDim VALUES(9,'Innovation','Innovation Building', 3);
 
 /* WingDim rows						*/
-INSERT INTO WingDim VALUES('E', 1 'East');
-INSERT INTO WingDim VALUES('W', 1 'West');
-INSERT INTO WingDim VALUES('N', 1 'North');
-INSERT INTO WingDim VALUES('S', 1 'South');
-INSERT INTO WingDim VALUES('E', 2 'East');
-INSERT INTO WingDim VALUES('W', 2 'West');
-INSERT INTO WingDim VALUES('N', 2 'North');
-INSERT INTO WingDim VALUES('S', 2 'South');
-INSERT INTO WingDim VALUES('E', 3 'East');
-INSERT INTO WingDim VALUES('W', 3 'West');
-INSERT INTO WingDim VALUES('N', 3 'North');
-INSERT INTO WingDim VALUES('S', 3 'South');
-INSERT INTO WingDim VALUES('E', 4 'East');
-INSERT INTO WingDim VALUES('W', 4 'West');
-INSERT INTO WingDim VALUES('N', 4 'North');
-INSERT INTO WingDim VALUES('S', 4 'South');
+INSERT INTO WingDim VALUES('E', 1, 'East');
+INSERT INTO WingDim VALUES('W', 1, 'West');
+INSERT INTO WingDim VALUES('N', 1, 'North');
+INSERT INTO WingDim VALUES('S', 1, 'South');
+INSERT INTO WingDim VALUES('E', 2, 'East');
+INSERT INTO WingDim VALUES('W', 2, 'West');
+INSERT INTO WingDim VALUES('N', 2, 'North');
+INSERT INTO WingDim VALUES('S', 2, 'South');
+INSERT INTO WingDim VALUES('E', 3, 'East');
+INSERT INTO WingDim VALUES('W', 3, 'West');
+INSERT INTO WingDim VALUES('N', 3, 'North');
+INSERT INTO WingDim VALUES('S', 3, 'South');
+INSERT INTO WingDim VALUES('E', 4, 'East');
+INSERT INTO WingDim VALUES('W', 4, 'West');
+INSERT INTO WingDim VALUES('N', 4, 'North');
+INSERT INTO WingDim VALUES('S', 4, 'South');
 
 /* FloorDim rows						*/
 INSERT INTO FloorDim VALUES(1, 1, 'W');
@@ -302,6 +310,12 @@ INSERT INTO CustomerDim VALUES(3, 'Mariam', 'Hafez', '', '19 Roanoke St.', '817-
 INSERT INTO CustomerDim VALUES(4, 'Jordan', 'Saba', '', '37 N St.', '205-112-1134');
 INSERT INTO CustomerDim VALUES(5, 'Zack', 'Nolan', '', '1700 Pratt St.', '205-406-7780');
 
+/* RoomReservationDim rows						*/
+INSERT INTO RoomReservationDim VALUES(1, 1, 'MULTI', '2010-04-25 15:00:00', '2010-04-26 11:01:00');
+INSERT INTO RoomReservationDim VALUES(2, 2, 'SINGLE', '2010-04-25 15:30:00', '2010-04-26 10:30:00');
+INSERT INTO RoomReservationDim VALUES(3, 3, 'DOUBLE', '2010-04-25 18:00:00', '2010-04-26 11:05:00');
+INSERT INTO RoomReservationDim VALUES(4, 4, 'SINGLE', '2010-04-25 16:09:00', '2010-04-26 09:03:00');
+
 /* CustomerAffiliationDim rows						*/
 INSERT INTO CustomerAffiliationDim VALUES(1, 1);
 INSERT INTO CustomerAffiliationDim VALUES(2, 1);
@@ -315,18 +329,19 @@ INSERT INTO CustomerAffiliationDim VALUES(4, 2);
 INSERT INTO RoomTypeReservationsFact VALUES(1, 'SINGLE', 1, 2, 160.0);
 INSERT INTO RoomTypeReservationsFact VALUES(2, 'DOUBLE', 1, 1, 90.0);
 INSERT INTO RoomTypeReservationsFact VALUES(3, 'MULTI', 1, 1, 105.0);
+INSERT INTO RoomTypeReservationsFact VALUES(4, 'SINGLE', 1, 1, 80.0);
+
 
 /* CustomerReservationsFact rows						*/
-INSERT INTO CustomerReservationsFact VALUES(4, 1, 1, 2, 105.0);
+INSERT INTO CustomerReservationsFact VALUES(4, 1, 1, 1, 105.0);
 INSERT INTO CustomerReservationsFact VALUES(5, 2, 1, 1, 80.0);
 INSERT INTO CustomerReservationsFact VALUES(6, 3, 1, 2, 180.0);
+INSERT INTO CustomerReservationsFact VALUES(7, 4, 1, 1, 80.0);
 
 /* EventReservationsFact rows						*/
-INSERT INTO EventReservationsFact VALUES(7, 1, 1, 1, 90.0);
-INSERT INTO EventReservationsFact VALUES(8, 2, 1, 1, 80.0);
-INSERT INTO EventReservationsFact VALUES(9, 2, 1, 1, 105.0);
-INSERT INTO EventReservationsFact VALUES(10, 1, 1, 2, 160.0);
+INSERT INTO EventReservationsFact VALUES(8, 1, 1, 1, 90.0);
+INSERT INTO EventReservationsFact VALUES(9, 2, 1, 1, 80.0);
+INSERT INTO EventReservationsFact VALUES(10, 2, 1, 1, 105.0);
+INSERT INTO EventReservationsFact VALUES(11, 1, 1, 2, 160.0);
 
 COMMIT;
-
-SET ESCAPE OFF;
