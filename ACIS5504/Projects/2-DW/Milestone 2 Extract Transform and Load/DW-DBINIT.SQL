@@ -1,6 +1,6 @@
 /* DW-DBINIT.SQL                                    	*/
 /* DATA WAREHOUSE SQL 					*/
-/* Script file for ORACLE 9iR2 DBMS			*/
+/* Script file for MySQL DBMS			*/
 /* This script file creates the following tables:	*/
 /* TimeDim, RoomDim, RoomTypeDim, RoomReservationDim, FloorDim,	*/
 /* WingDim, BuildingDim, ResortDim, CityDim, RegionDim, CountryDim	*/
