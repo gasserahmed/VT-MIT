@@ -1,0 +1,116 @@
+--Region
+CREATE TABLE Region
+(
+C_RegionID_RG INT PRIMARY KEY,
+T_RegionName_RG VARCHAR(50) NOT NULL,
+T_RegionCode_RG VARCHAR(2) NOT NULL
+);
+
+--Employee
+CREATE TABLE Employee
+(
+C_EmployeeID_EP INT PRIMARY KEY,
+T_LastName_EP VARCHAR(50) NOT NULL,
+T_MiddleInitial_EP VARCHAR(2),
+T_FirstName_EP VARCHAR(50) NOT NULL,
+D_HireDate_EP DATETIME NOT NULL,
+C_RegionID_EP INT NOT NULL CONSTRAINT FK_RegionID_EP REFERENCES Region(C_RegionID_RG)
+);
+
+--Skill
+CREATE TABLE Skill
+(
+C_SkillID_SK INT PRIMARY KEY,
+T_SkillDescription_SK VARCHAR(100) NOT NULL,
+N_PayRate_SK NUMBER NOT NULL
+);
+
+--EmployeeSkill
+CREATE TABLE EmployeeSkill
+(
+C_EmployeeID_ES INT NOT NULL CONSTRAINT FK_EmployeeID_ES REFERENCES Employee(C_EmployeeID_EP),
+C_SkillID_ES INT NOT NULL CONSTRAINT FK_SkillID_ES REFERENCES Skill(C_SkillID_SK),
+PRIMARY KEY(C_EmployeeID_ES, C_SkillID_ES)
+);
+
+--Customer
+CREATE TABLE Customer
+(
+C_CustomerID_CU INT PRIMARY KEY,
+T_CustomerName_CU VARCHAR(200) NOT NULL,
+T_CustomerPhoneNumber_CU VARCHAR(50) NOT NULL,
+C_RegionID_CU INT NOT NULL CONSTRAINT FK_RegionID_CU REFERENCES Region(C_RegionID_RG)
+);
+
+--Project
+CREATE TABLE Project
+(
+C_ProjectID_PJ INT PRIMARY KEY,
+T_ProjectDescription_PJ VARCHAR(255) NOT NULL,
+D_ProjectContractDate_PJ DATETIME,
+D_ProjectEstimatedStartDate_PJ DATETIME,
+D_ProjectEstimatedEndDate_PJ DATETIME,
+N_ProjectEstimatedBudget_PJ NUMBER,
+D_ProjectActualStartDate_PJ DATETIME,
+D_ProjectActualEndDate_PJ DATETIME,
+N_ProjectActualCost_PJ NUMBER,
+C_CustomerID_PJ INT NOT NULL CONSTRAINT FK_CustomerID_PJ REFERENCES Customer(C_CustomerID_CU),
+C_EmployeeID_PJ INT NOT NULL CONSTRAINT FK_EmployeeID_PJ REFERENCES Employee(C_EmployeeID_EP)
+);
+
+--Task
+CREATE TABLE Task
+(
+C_TaskID_TK INT PRIMARY KEY,
+T_TaskDescription_TK VARCHAR(255) NOT NULL
+);
+
+--Project Schedule
+CREATE TABLE ProjectSchedule
+(
+C_ProjectID_PS INT NOT NULL CONSTRAINT FK_ProjectID_PS REFERENCES Project(C_ProjectID_PJ),
+C_TaskID_PS INT NOT NULL CONSTRAINT FK_TaskID_PS REFERENCES Task(C_TaskID_TK),
+D_TaskStartDate_PS DATETIME,
+D_TaskEndDate_PS DATETIME,
+PRIMARY KEY(C_ProjectID_PS, C_TaskID_PS)
+);
+
+--TaskSkill
+CREATE TABLE TaskSkill
+(
+C_ProjectID_TS INT NOT NUll CONSTRAINT FK_ProjectID_TS REFERENCES Project(C_ProjectID_PJ),
+C_SkillID_TS INT NOT NULL CONSTRAINT FK_SkillID_TS REFERENCES Skill(C_SkillID_SK),
+C_TaskID_TS INT NOT NULL CONSTRAINT FK_TaskID_TS REFERENCES Task(C_TaskID_TK),
+I_QuantityRequired_TS INT NOT NULL,
+PRIMARY KEY(C_ProjectID_TS, C_SkillID_TS, C_TaskID_TS)
+);
+
+--Assignment
+CREATE TABLE Assignment
+(
+C_AssignmentID_AS INT PRIMARY KEY,
+C_TaskID_AS INT NOT NULL CONSTRAINT FK_TaskID_AS REFERENCES Task(C_TaskID_TK),
+C_EmployeeID_AS INT CONSTRAINT FK_EmployeeID_AS REFERENCES Employee(C_EmployeeID_EP),
+C_SkillID_AS INT NOT NULL CONSTRAINT FK_SkillID_AS REFERENCES Skill(C_SkillID_SK),
+D_AssignmentStartDate_AS DATETIME,
+D_AssignmentEndDate_AS DATETIME
+);
+
+--Bill
+CREATE TABLE Bill
+(
+C_BillID_BL INT PRIMARY KEY,
+N_TotalHoursWorked_BL NUMBER,
+D_PeriodStartDate_BL DATETIME,
+D_PeriodEndDate_BL DATETIME
+);
+
+--Work Log
+CREATE TABLE WorkLog
+(
+C_WorkLogID_WL INT PRIMARY KEY,
+N_HoursWorked_WL NUMBER,
+D_WeekEndingDate_WL DATETIME,
+C_AssignmentID_WL INT NOT NULL CONSTRAINT FK_AssignmentID_WL REFERENCES Assignment(C_AssignmentID_AS),
+C_BillID_WL INT CONSTRAINT FK_BillID_WL REFERENCES Bill(C_BillID_BL)
+);

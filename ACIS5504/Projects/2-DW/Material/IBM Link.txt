@@ -1,1 +1,0 @@
-http://www.ibm.com/support/knowledgecenter/SS9UM9_9.1.0/com.ibm.datatools.dimensional.ui.doc/topics/c_dm_design_cycle_2_idgrain.html
