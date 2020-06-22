@@ -1,0 +1,17 @@
+/ Example 4.1 
+	ORG 100
+If,	Load	 X	/Load the first value	
+	Subt	 Y	/Subtract the value of Y, store result in AC	
+	Skipcond 400	/If AC=0, skip the next instruction
+	Jump	 Else	/Jump to Else part if AC is not equal to 0	
+Then,	Load	 X	/Reload X so it can be doubled
+	Add	 X	/Double X
+	Store 	 X	/Store the new value
+	Jump 	 Endif	/Skip over the false, or else, part to end of if
+Else,	Load	 Y	/Start the else part by loading Y
+	Subt	 X	/Subtract X from Y
+	Store 	 Y	/Store Y-X in Y
+Endif,	Halt		/Terminate program (it doesn't do much!)
+X,	Dec	 12	/Load the loop control variable
+Y,	Dec	 20	/Subtract one from the loop control variable
+	END

@@ -1,0 +1,19 @@
+/ Example 4.3 
+	ORG	100 
+	Load	X       / Load the first number to be doubled.
+	Store 	Temp	/ Use Temp as a parameter to pass value to Subr.
+	JnS	Subr    / Store the return address, and jump to the procedure.
+	Store	X       / Store the first number, doubled
+	Load	Y       / Load the second number to be doubled.
+	Store	Temp	
+	JnS	Subr    / Store the return address and jump to the procedure.
+Loop,	Store Y         / Store the second number doubled.
+	Halt            / End program.
+X,	DEC	20
+Y,	DEC	48
+Temp,	DEC	0
+Subr,	HEX	0	/ Store return address here.
+	Load	Temp	/ Actual subroutine to double numbers.
+	Add	Temp	/ AC now holds double the value of Temp.
+	JumpI	Subr	/ Return to calling code.
+	END

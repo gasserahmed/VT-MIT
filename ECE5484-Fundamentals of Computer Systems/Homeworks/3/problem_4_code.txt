@@ -1,0 +1,7 @@
+Load  X 
+Add   Y
+Store Z
+Halt
+X, hex 0023
+Y, hex FFE9
+Z, hex 0000
