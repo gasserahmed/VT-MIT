@@ -1,0 +1,34 @@
+     Assembly listing for: p1.mas
+                Assembled: Tue Jul 07 01:07:49 EDT 2020
+
+         |         ORG 100           
+100 1109 |  Begin  LOAD Base         
+101 310A |         ADD Offs          
+102 410B |  Loop   SUBT Two          
+103 210C |         STORE Addr        
+104 8800 |         SKIPCOND 800      
+105 9108 |         JUMP Done         
+106 A000 |         CLEAR             
+107 110A |         LOAD Offs         
+108 7000 |  Done   HALT              
+109 0200 |  Base   HEX 200           
+10A 000B |  Offs   DEC 11            
+10B 0002 |  Two    HEX 0002          
+10C 0007 |  Addr   HEX 007           
+
+Assembly successful.
+
+         SYMBOL TABLE
+         --------------------------------------------------
+          Symbol | Defined | References 
+         --------+---------+-------------------------------
+          Addr   |   10C   | 103
+          Base   |   109   | 100
+          Begin  |   100   | 
+          Done   |   108   | 105
+          Loop   |   102   | 
+          Offs   |   10A   | 101, 107
+          Two    |   10B   | 102
+         --------------------------------------------------
+
+

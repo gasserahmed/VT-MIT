@@ -1,0 +1,20 @@
+ORG 100
+If,	Load 		X	/Load X
+ 	Subt 		One 	/Subtract 1, store result in AC
+ 	Skipcond 	000	/If AC<0 (X<1), skip the next instruction
+ 	Jump 		Endif	/Jump to Endif if X is not less than 1
+Then, 	Load 		X	/Reload X so it can be subtracted
+ 	Subt 		Two	/Subtract 2 from X
+ 	Store 		Y	/Y= X - 2
+ 	Clear 			/Move 0 into AC
+ 	Store 		X 	/Set X to 0
+Endif, 	Load 		Y 	/Load Y into AC
+ 	Add 		Seven	/Add 7 to Y
+ 	Store 		Y	/Y = Y + 7
+	LOAD Y
+ 	Halt			/Terminate program
+X, 	Dec -9 			/X has starting value, not given in problem
+Y, 	Dec 2 			/Y has starting value, not given in problem
+One, 	Dec 1 			/Use as a constant
+Two,	Dec 2			/Use as a constant
+Seven,	Dec 7			/Use as a constant
