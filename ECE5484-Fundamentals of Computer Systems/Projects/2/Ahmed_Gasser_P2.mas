@@ -1,0 +1,84 @@
+/ *****
+/ Gasser Ahmed
+/ ECE 5484, Project 2
+/ *****
+
+	ORG		100		/ Start the program at location 100 hexadecimal
+
+/ -----
+/ Input characters, transform, and store in memory until '.' is input
+/ -----
+	Load		Start		/ Initialize character pointer to start of block
+	Store		Ptr
+
+/>>>>> Input Phase
+InPhase, Input
+	 Store		InVal		/ Store value to be transformed into InVal
+	 Subt		 ChPe 
+	 Skipcond	     400		  / If character is period '.', jump to output phase
+	 Jump		 Process	      / Otherwise, proceed with the operation.
+	 Load	         Start		/ Reset Ptr to the start of the string
+	 Store		Ptr
+	 Jump		 OutPhase	     / Jump to Output phase
+Process, Jns		  ROT13		/ Jump to the ROT13 subroutine
+						   / Upon return, the transformed character is in AC
+	 StoreI		Ptr		 / Store result in memory
+	 Load		  Ptr
+	 Add		   One		 / Increment Ptr for next input character
+	 Store		 Ptr
+	 Jump		  InPhase	     / Repeat the process for next input character
+	 
+/>>>>> Output Phase
+OutPhase, LoadI	        Ptr	/ Load the character found at address ptr.
+	  Skipcond   	  400        / If the character is a null, we are done.
+	  Jump	         Outp       / Otherwise, proceed with operation.
+	  Load		 ChSp       / Add space to separate current output from next run's output
+	  Output
+	  Halt
+Outp,     Output			  / Output the character.
+	  / Comment next 2 lines (Clear & StoreI) to see output values in their corresponding memory locations
+	  Clear
+	  StoreI	       Ptr	/ Clearing outputted character from the memory for the next program run 
+					  / to avoid printing previous run values in the next new run 
+	  Load	         Ptr	/ Move pointer to next character.
+	  Add	          One		
+	  Store	        Ptr
+	  Jump	         OutPhase
+
+/ -----
+/ Rotate-13 subroutine: Apply ROT13 to input character in location InVal and return in AC
+/ -----
+
+ROT13,  HEX		 0
+	Load		InVal		/ Get character
+	Add		 Val13		/ Add 13
+	Store	       Hold		 / Save it
+	Subt		ChZ		  / Check if modulo adjust is needed (past 'Z')
+	Skipcond	    800		  / No adjust needed if past 'Z'
+	Jump		NoAdj
+	Add		 ChA		  / Add 'A' back to difference to perform modulo
+	Subt		One		  / Subtract 1
+	Jump		Done		 / Result is in AC
+
+NoAdj,	Load		Hold	   / No adjust needed, get result
+
+Done,	JumpI		ROT13	  / Return with result in AC
+
+
+/ -----
+/ Constants (the program should not write to these locations)
+/ -----
+ChA,	HEX		0041		/ Constant value 'A' for modulo adjust in subroutine
+ChZ,	HEX		005A		/ Constant value 'Z' for modulo check in subroutine
+ChPe,	HEX		2E		/ Constant period character that marks end of input
+ChSp,	HEX		20		/ Constant space character to separate multiple outputs
+Val13,	DEC		13		/ Constant rotate value of 13 for subroutine
+One,	HEX		1		/ Constant value 1
+Start,	HEX		200		/ Constant address for start of character block
+
+/ -----
+/ Data area (these locations are for reading and writing)
+/ -----
+InVal,	HEX		0		/ Reserved for subroutine input value
+Hold,	HEX		0		/ Reserved for temporary variable for subroutine
+Ptr,	HEX		0		/ Reserved for character pointer

@@ -1,0 +1,62 @@
+/ *****
+/ This is starting code for Project 2 for ECE 5484
+/ Remove this header and identify your project name and your name.
+/
+/ *****
+
+	ORG		100		/ Start the program at location 100 hexadecimal
+
+/ -----
+/ Input characters, transform, and store in memory until '.' is input
+/ -----
+	Load		Start		/ Initialize character pointer to start of block
+	Store		Ptr
+
+/>>>>> Add code to accomplish the input and output phases. <<<<<
+
+/>>>>> Here's an example of how subroutine ROT13 is called. <<<<<
+/>>>>> We'll just transform 'A' in this example then halt.  	Load		ChA		/ Put 'A' in AC
+	Store		InVal		/ Store value to be transformed into InVal
+	Jns		ROT13		/ Jump to the ROT13 subroutine
+					/ Upon return, the transformed character is in AC
+	StoreI		Ptr		/ Store result in memory
+	Halt
+
+
+/ -----
+/ Rotate-13 subroutine: Apply ROT13 to input character in location InVal and return in AC
+/ -----
+
+/>>>>> WARNING:  This subroutine *almost* works.  You need to fix a bug.
+
+ROT13,	HEX		0
+	Load		InVal		/ Get character
+	Add		Val13		/ Add 13
+	Store		Hold		/ Save it
+	Subt		ChZ		/ Check if modulo adjust is needed (past 'Z')
+	Skipcond	800		/ No adjust needed if past 'Z'
+	Jump		NoAdj
+	Add		ChA		/ Add 'A' back to difference to perform modulo
+	Jump		Done		/ Result is in AC
+
+NoAdj,	Load		Hold		/ No adjust needed, get result
+
+Done,	JumpI		ROT13		/ Return with result in AC
+
+
+/ -----
+/ Constants (the program should not write to these locations)
+/ -----
+ChA,	HEX		0041		/ Constant value 'A' for modulo adjust in subroutine
+ChZ,	HEX		005A		/ Constant value 'Z' for modulo check in subroutine
+ChPe,	HEX		2E		/ Constant period character that marks end of input
+Val13,	DEC		13		/ Constant rotate value of 13 for subroutine
+One,	HEX		1		/ Constant value 1
+Start,	HEX		200		/ Constant address for start of character block
+
+/ -----
+/ Data area (these locations are for reading and writing)
+/ -----
+InVal,	HEX		0		/ Reserved for subroutine input value
+Hold,	HEX		0		/ Reserved for temporary variable for subroutine
+Ptr,	HEX		0		/ Reserved for character pointer

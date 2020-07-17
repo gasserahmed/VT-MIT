@@ -1,0 +1,21 @@
+ -------------------
+ Symbol   | Location
+ ---------+---------
+ ChA      |   129
+ ChPe     |   12B
+ ChSp     |   12C
+ ChZ      |   12A
+ Done     |   128
+ Hold     |   131
+ InPhase  |   102
+ InVal    |   130
+ NoAdj    |   127
+ One      |   12E
+ OutPhase |   110
+ Outp     |   116
+ Process  |   10A
+ Ptr      |   132
+ ROT13    |   11D
+ Start    |   12F
+ Val13    |   12D
+

@@ -1,0 +1,115 @@
+     Assembly listing for: Ahmed_Gasser_P2.mas
+                Assembled: Tue Jul 14 00:35:23 EDT 2020
+
+         |                              / *****
+         |                              / Gasser Ahmed
+         |                              / ECE 5484, Project 2
+         |                              / *****
+         |                              
+         |           ORG 100            / Start the program at location 100 hexadecimal
+         |                              
+         |                              / -----
+         |                              / Input characters, transform, and store in memory until '.' is input
+         |                              / -----
+100 112F |           LOAD Start         / Initialize character pointer to start of block
+101 2132 |           STORE Ptr           
+         |                              
+         |                              />>>>> Input Phase
+102 5000 |  InPhase  INPUT               
+103 2130 |           STORE InVal        / Store value to be transformed into InVal
+104 412B |           SUBT ChPe           
+105 8400 |           SKIPCOND 400       / If character is period '.', jump to output phase
+106 910A |           JUMP Process       / Otherwise, proceed with the operation.
+107 112F |           LOAD Start         / Reset Ptr to the start of the string
+108 2132 |           STORE Ptr           
+109 9110 |           JUMP OutPhase      / Jump to Output phase
+10A 011D |  Process  JNS ROT13          / Jump to the ROT13 subroutine
+         |                              						   / Upon return, the transformed character is in AC
+10B E132 |           STOREI Ptr         / Store result in memory
+10C 1132 |           LOAD Ptr            
+10D 312E |           ADD One            / Increment Ptr for next input character
+10E 2132 |           STORE Ptr           
+10F 9102 |           JUMP InPhase       / Repeat the process for next input character
+         |                              	 
+         |                              />>>>> Output Phase
+110 D132 |  OutPhase LOADI Ptr          / Load the character found at address ptr.
+111 8400 |           SKIPCOND 400       / If the character is a null, we are done.
+112 9116 |           JUMP Outp          / Otherwise, proceed with operation.
+113 112C |           LOAD ChSp          / Add space to separate current output from next run's output
+114 6000 |           OUTPUT              
+115 7000 |           HALT                
+116 6000 |  Outp     OUTPUT             / Output the character.
+         |                              	  / Comment next 2 lines (Clear & StoreI) to see output values in their corresponding memory locations
+117 A000 |           CLEAR               
+118 E132 |           STOREI Ptr         / Clearing outputted character from the memory for the next program run 
+         |                              					  / to avoid printing previous run values in the next new run 
+119 1132 |           LOAD Ptr           / Move pointer to next character.
+11A 312E |           ADD One             
+11B 2132 |           STORE Ptr           
+11C 9110 |           JUMP OutPhase       
+         |                              
+         |                              / -----
+         |                              / Rotate-13 subroutine: Apply ROT13 to input character in location InVal and return in AC
+         |                              / -----
+         |                              
+11D 0000 |  ROT13    HEX 0               
+11E 1130 |           LOAD InVal         / Get character
+11F 312D |           ADD Val13          / Add 13
+120 2131 |           STORE Hold         / Save it
+121 412A |           SUBT ChZ           / Check if modulo adjust is needed (past 'Z')
+122 8800 |           SKIPCOND 800       / No adjust needed if past 'Z'
+123 9127 |           JUMP NoAdj          
+124 3129 |           ADD ChA            / Add 'A' back to difference to perform modulo
+125 412E |           SUBT One           / Subtract 1
+126 9128 |           JUMP Done          / Result is in AC
+         |                              
+127 1131 |  NoAdj    LOAD Hold          / No adjust needed, get result
+         |                              
+128 C11D |  Done     JUMPI ROT13        / Return with result in AC
+         |                              
+         |                              
+         |                              / -----
+         |                              / Constants (the program should not write to these locations)
+         |                              / -----
+129 0041 |  ChA      HEX 0041           / Constant value 'A' for modulo adjust in subroutine
+12A 005A |  ChZ      HEX 005A           / Constant value 'Z' for modulo check in subroutine
+12B 002E |  ChPe     HEX 2E             / Constant period character that marks end of input
+12C 0020 |  ChSp     HEX 20             / Constant space character to separate multiple outputs
+12D 000D |  Val13    DEC 13             / Constant rotate value of 13 for subroutine
+12E 0001 |  One      HEX 1              / Constant value 1
+12F 0200 |  Start    HEX 200            / Constant address for start of character block
+         |                              
+         |                              / -----
+         |                              / Data area (these locations are for reading and writing)
+         |                              / -----
+130 0000 |  InVal    HEX 0              / Reserved for subroutine input value
+131 0000 |  Hold     HEX 0              / Reserved for temporary variable for subroutine
+132 0000 |  Ptr      HEX 0              / Reserved for character pointer
+
+Assembly successful.
+
+         SYMBOL TABLE
+         ----------------------------------------------------
+          Symbol   | Defined | References 
+         ----------+---------+-------------------------------
+          ChA      |   129   | 124
+          ChPe     |   12B   | 104
+          ChSp     |   12C   | 113
+          ChZ      |   12A   | 121
+          Done     |   128   | 126
+          Hold     |   131   | 120, 127
+          InPhase  |   102   | 10F
+          InVal    |   130   | 103, 11E
+          NoAdj    |   127   | 123
+          One      |   12E   | 10D, 11A, 125
+          OutPhase |   110   | 109, 11C
+          Outp     |   116   | 112
+          Process  |   10A   | 106
+          Ptr      |   132   | 101, 108, 10B, 10C, 10E, 110, 
+                   |         | 118, 119, 11B
+          ROT13    |   11D   | 10A, 128
+          Start    |   12F   | 100, 107
+          Val13    |   12D   | 11F
+         ----------------------------------------------------
+
+
