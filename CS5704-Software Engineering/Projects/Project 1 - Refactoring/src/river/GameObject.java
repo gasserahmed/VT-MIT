@@ -1,7 +1,5 @@
 package river;
 
-import river.GameEngine.Location;
-
 public class GameObject {
 
     private String name;
