@@ -43,9 +43,9 @@ public class GameEngine {
     }
 
     public void loadBoat(Item id) {
-        if (gameObjects.get(id).getLocation() == boatLocation
+        if (getItemLocation(id) == boatLocation
                 && gameObjects.values().stream().anyMatch(
-                        gameObject -> !gameObject.getName().equals(gameObjects.get(id).getName()) 
+                        gameObject -> !gameObject.getName().equals(getItemName(id)) 
                         && gameObject.getLocation() != Location.BOAT
                         )
                 ) {
@@ -54,7 +54,7 @@ public class GameEngine {
     }
 
     public void unloadBoat(Item id) {
-        if (gameObjects.get(id).getLocation() == Location.BOAT) {
+        if (getItemLocation(id) == Location.BOAT) {
             gameObjects.get(id).setLocation(boatLocation);
         }        
     }
