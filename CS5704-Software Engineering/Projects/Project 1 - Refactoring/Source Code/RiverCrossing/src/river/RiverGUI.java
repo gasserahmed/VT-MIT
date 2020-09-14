@@ -7,37 +7,40 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import river.GameEngine.Item;
-import river.GameEngine.Location;
 
 /**
  * Graphical interface for the River application
  * 
  * @author Gregory Kulczycki
  */
-public class RiverGUI extends JPanel implements MouseListener {
+public class RiverGUI extends JPanel implements MouseListener
+{
 
     // ==========================================================
     // Fields (hotspots)
     // ==========================================================
 
-    private final Rectangle leftFarmerRect = new Rectangle(80, 215, 50, 50);
-    private final Rectangle leftWolfRect = new Rectangle(20, 215, 50, 50);
-    private final Rectangle leftGooseRect = new Rectangle(20, 275, 50, 50);
-    private final Rectangle leftBeansRect = new Rectangle(80, 275, 50, 50);
-    private final Rectangle leftBoatRect = new Rectangle(140, 275, 110, 50);
-    private final Rectangle leftBoatDriverRect = new Rectangle(140, 215, 50, 50);
-    private final Rectangle leftBoatPassengerRect = new Rectangle(200, 215, 50, 50);
-
-    private final Rectangle rightFarmerRect = new Rectangle(730, 215, 50, 50);
-    private final Rectangle rightWolfRect = new Rectangle(670, 215, 50, 50);
-    private final Rectangle rightGooseRect = new Rectangle(670, 275, 50, 50);
-    private final Rectangle rightBeansRect = new Rectangle(730, 275, 50, 50);
-    private final Rectangle rightBoatRect = new Rectangle(550, 275, 110, 50);
-    private final Rectangle rightBoatDriverRect = new Rectangle(550, 215, 50, 50);
-    private final Rectangle rightBoatPassengerRect = new Rectangle(610, 215, 50, 50);
+    private Map<Item, Rectangle> itemRectangleMap;
+    private Rectangle boatRectangle = new Rectangle(140, 275, 110, 50);
+    private int numberOfObjectsInBoat = 0;
+    private boolean passenger2IsEmpty = true;
+    private final static int leftBaseX = 80;
+    private final static int leftBaseY = 275;
+    private final static int leftBoatX = 140;
+    private final static int leftBoatY = 275;
+    private final static int rightBaseX = 730;
+    private final static int rightBaseY = 275;
+    private final static int rightBoatX = 550;
+    private final static int rightBoatY = 275;
+    private final static int[] dx =
+    { 0, -60, -60, 0 };
+    private final static int[] dy =
+    { 0, 0, -60, -60 };
 
     private final Rectangle restartButtonRect = new Rectangle(350, 120, 100, 30);
 
@@ -52,9 +55,11 @@ public class RiverGUI extends JPanel implements MouseListener {
     // Constructor
     // ==========================================================
 
-    public RiverGUI() {
+    public RiverGUI()
+    {
 
         engine = new GameEngine();
+        resetItemRectangleMap();
         addMouseListener(this);
     }
 
@@ -63,122 +68,121 @@ public class RiverGUI extends JPanel implements MouseListener {
     // ==========================================================
 
     @Override
-    public void paintComponent(Graphics g) {
-
+    public void paintComponent(Graphics g)
+    {
         g.setColor(Color.GRAY);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
-
-        paintObjectsOnLeft(g);
-        paintObjectsOnRight(g);
-        paintObjectsOnBoat(g);
+        paintItem(g, Item.ITEM_0);
+        paintItem(g, Item.ITEM_1);
+        paintItem(g, Item.ITEM_2);
+        paintItem(g, Item.ITEM_3);
+        paintBoat(g);
+        
         String message = "";
-        if (engine.gameIsLost()) {
+        if (engine.gameIsLost())
+        {
             message = "You Lost!";
             restart = true;
         }
-        if (engine.gameIsWon()) {
+        if (engine.gameIsWon())
+        {
             message = "You Won!";
             restart = true;
         }
         paintMessage(message, g);
-        if (restart) {
+        if (restart)
+        {
             paintRestartButton(g);
         }
-
     }
 
-    public void paintObjectsOnLeft(Graphics g) {
-
-        if (engine.getLocation(Item.PLAYER) == Location.START) {
-            g.setColor(Color.MAGENTA);
-            g.fillRect(80, 215, 50, 50);
+    private void paintItem(Graphics g, Item item)
+    {
+        Rectangle rect;
+        // Item at start
+        if (engine.getItemLocation(item) == Location.START)
+        {
+            rect = new Rectangle(leftBaseX + dx[item.ordinal()], leftBaseY + dy[item.ordinal()], 50,
+                    50);
         }
-        if (engine.getLocation(Item.TOP) == Location.START) {
-            g.setColor(Color.CYAN);
-            g.fillRect(20, 215, 50, 50);
-            paintStringInRectangle("W", 20, 215, 50, 50, g);
+        // Item at finish
+        else if (engine.getItemLocation(item) == Location.FINISH)
+        {
+            rect = new Rectangle(rightBaseX + dx[item.ordinal()], rightBaseY + dy[item.ordinal()],
+                    50, 50);
         }
-        if (engine.getLocation(Item.MID) == Location.START) {
-            g.setColor(Color.CYAN);
-            g.fillRect(20, 275, 50, 50);
-            paintStringInRectangle("G", 20, 275, 50, 50, g);
-        }
-        if (engine.getLocation(Item.BOTTOM) == Location.START) {
-            g.setColor(Color.CYAN);
-            g.fillRect(80, 275, 50, 50);
-            paintStringInRectangle("B", 80, 275, 50, 50, g);
-        }
-    }
-
-    public void paintObjectsOnRight(Graphics g) {
-
-        if (engine.getLocation(Item.PLAYER) == Location.FINISH) {
-            g.setColor(Color.MAGENTA);
-            g.fillRect(730, 215, 50, 50);
-        }
-        if (engine.getLocation(Item.TOP) == Location.FINISH) {
-            g.setColor(Color.CYAN);
-            g.fillRect(670, 215, 50, 50);
-            paintStringInRectangle("W", 670, 215, 50, 50, g);
-        }
-        if (engine.getLocation(Item.MID) == Location.FINISH) {
-            g.setColor(Color.CYAN);
-            g.fillRect(670, 275, 50, 50);
-            paintStringInRectangle("G", 670, 275, 50, 50, g);
-        }
-        if (engine.getLocation(Item.BOTTOM) == Location.FINISH) {
-            g.setColor(Color.CYAN);
-            g.fillRect(730, 275, 50, 50);
-            paintStringInRectangle("B", 730, 275, 50, 50, g);
-        }
-    }
-
-    public void paintObjectsOnBoat(Graphics g) {
-        if (engine.getCurrentLocation() == Location.START) {
-            g.setColor(Color.ORANGE);
-            g.fillRect(140, 275, 110, 50);
-            if (engine.getLocation(Item.PLAYER) == Location.BOAT) {
-                g.setColor(Color.MAGENTA);
-                g.fillRect(140, 215, 50, 50);
+        // Item in boat
+        else
+        {
+            if (engine.getBoatLocation() == Location.START)
+            {
+                if (item == Item.ITEM_3)
+                {
+                    rect = new Rectangle(leftBoatX, leftBoatY - 60, 50, 50);
+                }
+                else
+                {
+                    rect = new Rectangle(leftBoatX + 60, leftBoatY - 60, 50, 50);
+                }
             }
-            if (engine.getLocation(Item.TOP) == Location.BOAT) {
-                g.setColor(Color.CYAN);
-                g.fillRect(200, 215, 50, 50);
-                paintStringInRectangle("W", 200, 215, 50, 50, g);
-            } else if (engine.getLocation(Item.MID) == Location.BOAT) {
-                g.setColor(Color.CYAN);
-                g.fillRect(200, 215, 50, 50);
-                paintStringInRectangle("G", 200, 215, 50, 50, g);
-            } else if (engine.getLocation(Item.BOTTOM) == Location.BOAT) {
-                g.setColor(Color.CYAN);
-                g.fillRect(200, 215, 50, 50);
-                paintStringInRectangle("B", 200, 215, 50, 50, g);
+            // Boat at finish
+            else
+            {
+                if (item == Item.ITEM_3)
+                {
+                    rect = new Rectangle(rightBoatX, rightBoatY - 60, 50, 50);
+                }
+                else
+                {
+                    rect = new Rectangle(rightBoatX + 60, rightBoatY - 60, 50, 50);
+                }
             }
+
         }
-        if (engine.getCurrentLocation() == Location.FINISH) {
-            g.setColor(Color.ORANGE);
-            g.fillRect(550, 275, 110, 50);
-            if (engine.getLocation(Item.PLAYER) == Location.BOAT) {
-                g.setColor(Color.MAGENTA);
-                g.fillRect(550, 215, 50, 50);
-            }
-            if (engine.getLocation(Item.TOP) == Location.BOAT) {
-                g.setColor(Color.CYAN);
-                g.fillRect(610, 215, 50, 50);
-                paintStringInRectangle("W", 610, 215, 50, 50, g);
-            } else if (engine.getLocation(Item.MID) == Location.BOAT) {
-                g.setColor(Color.CYAN);
-                g.fillRect(610, 215, 50, 50);
-                paintStringInRectangle("G", 610, 215, 50, 50, g);
-            } else if (engine.getLocation(Item.BOTTOM) == Location.BOAT) {
-                g.setColor(Color.CYAN);
-                g.fillRect(610, 215, 50, 50);
-                paintStringInRectangle("B", 610, 215, 50, 50, g);
-            }
+
+        itemRectangleMap.put(item, rect);
+        paintRectangle(g, engine.getItemColor(item), rect);
+        if (!engine.getItemLabel(item).equals("Farmer"))
+        {
+            paintStringInRectangle(engine.getItemLabel(item).substring(0, 1), rect.x, rect.y,
+                    rect.width, rect.height, g);
         }
     }
 
-    public void paintStringInRectangle(String str, int x, int y, int width, int height, Graphics g) {
+    private void paintBoat(Graphics g)
+    {
+        if (engine.getBoatLocation() == Location.START)
+        {
+            boatRectangle = new Rectangle(leftBoatX, leftBoatY, 110, 50);
+        }
+        else
+        {
+            boatRectangle = new Rectangle(rightBoatX, rightBoatY, 110, 50);
+        }
+
+        paintRectangle(g, engine.getBoatColor(), boatRectangle);
+    }
+
+    private void paintRectangle(Graphics g, Color color, Rectangle rect)
+    {
+        g.setColor(color);
+        g.fillRect(rect.x, rect.y, rect.width, rect.height);
+    }
+
+    private void resetItemRectangleMap() {
+        itemRectangleMap = new HashMap<Item, Rectangle>()
+        {
+            {
+                put(Item.ITEM_0, new Rectangle(80, 275, 50, 50));
+                put(Item.ITEM_1, new Rectangle(20, 275, 50, 50));
+                put(Item.ITEM_2, new Rectangle(20, 215, 50, 50));
+                put(Item.ITEM_3, new Rectangle(80, 215, 50, 50));
+            }
+        };
+    }
+    
+    public void paintStringInRectangle(String str, int x, int y, int width, int height, Graphics g)
+    {
         g.setColor(Color.BLACK);
         int fontSize = (height >= 40) ? 36 : 18;
         g.setFont(new Font("Verdana", Font.BOLD, fontSize));
@@ -188,7 +192,8 @@ public class RiverGUI extends JPanel implements MouseListener {
         g.drawString(str, strXCoord, strYCoord);
     }
 
-    public void paintMessage(String message, Graphics g) {
+    public void paintMessage(String message, Graphics g)
+    {
         g.setColor(Color.BLACK);
         g.setFont(new Font("Verdana", Font.BOLD, 36));
         FontMetrics fm = g.getFontMetrics();
@@ -197,20 +202,27 @@ public class RiverGUI extends JPanel implements MouseListener {
         g.drawString(message, strXCoord, strYCoord);
     }
 
-    public void paintRestartButton(Graphics g) {
+    public void paintRestartButton(Graphics g)
+    {
         g.setColor(Color.BLACK);
         paintBorder(restartButtonRect, 3, g);
         g.setColor(Color.PINK);
         paintRectangle(restartButtonRect, g);
-        paintStringInRectangle("Restart", restartButtonRect.x, restartButtonRect.y, restartButtonRect.width,
-                restartButtonRect.height, g);
+        paintStringInRectangle("Restart", restartButtonRect.x, restartButtonRect.y,
+                restartButtonRect.width, restartButtonRect.height, g);
     }
 
-    public void paintBorder(Rectangle r, int thickness, Graphics g) {
-        g.fillRect(r.x - thickness, r.y - thickness, r.width + (2 * thickness), r.height + (2 * thickness));
+    /**
+     * Remove this comment: this method is for restart button
+     */
+    public void paintBorder(Rectangle r, int thickness, Graphics g)
+    {
+        g.fillRect(r.x - thickness, r.y - thickness, r.width + (2 * thickness),
+                r.height + (2 * thickness));
     }
 
-    public void paintRectangle(Rectangle r, Graphics g) {
+    public void paintRectangle(Rectangle r, Graphics g)
+    {
         g.fillRect(r.x, r.y, r.width, r.height);
     }
 
@@ -219,10 +231,11 @@ public class RiverGUI extends JPanel implements MouseListener {
     // ==========================================================
 
     /**
-     * Create the GUI and show it. For thread safety, this method should be invoked
-     * from the event-dispatching thread.
+     * Create the GUI and show it. For thread safety, this method should be invoked from the
+     * event-dispatching thread.
      */
-    private static void createAndShowGUI() {
+    private static void createAndShowGUI()
+    {
 
         // Create and set up the window
         JFrame frame = new JFrame("RiverCrossing");
@@ -238,7 +251,8 @@ public class RiverGUI extends JPanel implements MouseListener {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
 
         // Schedule a job for the event-dispatching thread:
         // creating and showing this application's GUI.
@@ -250,88 +264,59 @@ public class RiverGUI extends JPanel implements MouseListener {
     // ==========================================================
 
     @Override
-    public void mouseClicked(MouseEvent e) {
+    public void mouseClicked(MouseEvent e)
+    {
 
-        if (restart) {
-            if (this.restartButtonRect.contains(e.getPoint())) {
+        if (restart)
+        {
+            if (this.restartButtonRect.contains(e.getPoint()))
+            {
                 engine.resetGame();
                 restart = false;
+                numberOfObjectsInBoat = 0;
+                passenger2IsEmpty = true;
+                resetItemRectangleMap();
                 repaint();
             }
             return;
         }
 
-        if (leftFarmerRect.contains(e.getPoint())) {
-            if (engine.getLocation(Item.PLAYER) == Location.START) {
-                engine.loadBoat(Item.PLAYER);
-            }
-        } else if (leftWolfRect.contains(e.getPoint())) {
-            if (engine.getLocation(Item.TOP) == Location.START) {
-                engine.loadBoat(Item.TOP);
-            }
-        } else if (leftGooseRect.contains(e.getPoint())) {
-            if (engine.getLocation(Item.MID) == Location.START) {
-                engine.loadBoat(Item.MID);
-            }
-        } else if (leftBeansRect.contains(e.getPoint())) {
-            if (engine.getLocation(Item.BOTTOM) == Location.START) {
-                engine.loadBoat(Item.BOTTOM);
-            }
-        } else if (leftBoatDriverRect.contains(e.getPoint())) {
-            if (engine.getCurrentLocation() == Location.START && engine.getLocation(Item.PLAYER) == Location.BOAT) {
-                engine.unloadBoat(Item.PLAYER);
-            }
-        } else if (leftBoatPassengerRect.contains(e.getPoint())) {
-            if (engine.getCurrentLocation() == Location.START) {
-                if (engine.getLocation(Item.TOP) == Location.BOAT) {
-                    engine.unloadBoat(Item.TOP);
-                } else if (engine.getLocation(Item.MID) == Location.BOAT) {
-                    engine.unloadBoat(Item.MID);
-                } else if (engine.getLocation(Item.BOTTOM) == Location.BOAT) {
-                    engine.unloadBoat(Item.BOTTOM);
+        for (Map.Entry<Item, Rectangle> itemRectangle : itemRectangleMap.entrySet())
+        {
+            if ((itemRectangle.getValue()).contains(e.getPoint()))
+            {
+                if (engine.getItemLocation(itemRectangle.getKey()) == Location.BOAT)
+                {
+                    engine.unloadBoat(itemRectangle.getKey());
+                    numberOfObjectsInBoat--;
+                    if (itemRectangle.getKey() != Item.ITEM_3)
+                    {
+                        passenger2IsEmpty = true;
+                    }
+                }
+                else
+                {
+                    if (engine.getBoatLocation() == engine.getItemLocation(itemRectangle.getKey())
+                            && numberOfObjectsInBoat < 2
+                            && (itemRectangle.getKey() == Item.ITEM_3 || passenger2IsEmpty))
+                    {
+                        engine.loadBoat(itemRectangle.getKey());
+                        numberOfObjectsInBoat++;
+                        if (itemRectangle.getKey() != Item.ITEM_3)
+                        {
+                            passenger2IsEmpty = false;
+                        }
+                    }
                 }
             }
-        } else if (leftBoatRect.contains(e.getPoint())) {
-            if (engine.getCurrentLocation() == Location.START && engine.getLocation(Item.PLAYER) == Location.BOAT) {
-                engine.rowBoat();
-            }
-        } else if (rightFarmerRect.contains(e.getPoint())) {
-            if (engine.getLocation(Item.PLAYER) == Location.FINISH) {
-                engine.loadBoat(Item.PLAYER);
-            }
-        } else if (rightWolfRect.contains(e.getPoint())) {
-            if (engine.getLocation(Item.TOP) == Location.FINISH) {
-                engine.loadBoat(Item.TOP);
-            }
-        } else if (rightGooseRect.contains(e.getPoint())) {
-            if (engine.getLocation(Item.MID) == Location.FINISH) {
-                engine.loadBoat(Item.MID);
-            }
-        } else if (rightBeansRect.contains(e.getPoint())) {
-            if (engine.getLocation(Item.BOTTOM) == Location.FINISH) {
-                engine.loadBoat(Item.BOTTOM);
-            }
-        } else if (rightBoatDriverRect.contains(e.getPoint())) {
-            if (engine.getCurrentLocation() == Location.FINISH && engine.getLocation(Item.PLAYER) == Location.BOAT) {
-                engine.unloadBoat(Item.PLAYER);
-            }
-        } else if (rightBoatPassengerRect.contains(e.getPoint())) {
-            if (engine.getCurrentLocation() == Location.FINISH) {
-                if (engine.getLocation(Item.TOP) == Location.BOAT) {
-                    engine.unloadBoat(Item.TOP);
-                } else if (engine.getLocation(Item.MID) == Location.BOAT) {
-                    engine.unloadBoat(Item.MID);
-                } else if (engine.getLocation(Item.BOTTOM) == Location.BOAT) {
-                    engine.unloadBoat(Item.BOTTOM);
-                }
-            }
-        } else if (rightBoatRect.contains(e.getPoint())) {
-            if (engine.getCurrentLocation() == Location.FINISH && engine.getLocation(Item.PLAYER) == Location.BOAT) {
-                engine.rowBoat();
-            }
-        } else {
-            return;
         }
+
+        if (boatRectangle.contains(e.getPoint())
+                && engine.getItemLocation(Item.ITEM_3) == Location.BOAT)
+        {
+            engine.rowBoat();
+        }
+
         repaint();
     }
 
@@ -340,22 +325,26 @@ public class RiverGUI extends JPanel implements MouseListener {
     // ----------------------------------------------------------
 
     @Override
-    public void mousePressed(MouseEvent e) {
+    public void mousePressed(MouseEvent e)
+    {
         //
     }
 
     @Override
-    public void mouseReleased(MouseEvent e) {
+    public void mouseReleased(MouseEvent e)
+    {
         //
     }
 
     @Override
-    public void mouseEntered(MouseEvent e) {
+    public void mouseEntered(MouseEvent e)
+    {
         //
     }
 
     @Override
-    public void mouseExited(MouseEvent e) {
+    public void mouseExited(MouseEvent e)
+    {
         //
     }
 }

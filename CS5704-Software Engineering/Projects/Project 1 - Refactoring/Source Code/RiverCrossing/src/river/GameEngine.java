@@ -1,165 +1,124 @@
 package river;
 
-public class GameEngine {
+import java.awt.Color;
+import java.util.HashMap;
+import java.util.Map;
 
-    public enum Item {
-        TOP, MID, BOTTOM, PLAYER;
+public class GameEngine
+{
+
+    private Map<Item, GameObject> gameObjects;
+    private Location boatLocation;
+    
+    private final static Item BEANS = Item.ITEM_0;
+    private final static Item GOOSE = Item.ITEM_1;
+    private final static Item WOLF  = Item.ITEM_2;
+    private final static Item FARMER  = Item.ITEM_3;
+    private final static Color boatColor = Color.ORANGE;
+
+    public GameEngine()
+    {
+        gameObjects = new HashMap<Item, GameObject>()
+        {
+            {
+                put(BEANS, new GameObject("Beans", Color.CYAN, Location.START));
+                put(GOOSE, new GameObject("Goose", Color.CYAN, Location.START));
+                put(WOLF, new GameObject("Wolf", Color.CYAN, Location.START));
+                put(FARMER, new GameObject("Farmer", Color.MAGENTA, Location.START));
+            }
+        };
+        boatLocation = Location.START;
     }
 
-    public enum Location {
-        START, FINISH, BOAT;
+    public String getItemLabel(Item id)
+    {
+        return gameObjects.get(id).getLabel();
     }
 
-    private GameObject top;
-    private GameObject mid;
-    private GameObject bottom;
-    private GameObject player;
-    private Location currentLocation;
-
-    public GameEngine() {
-        top = new Wolf();
-        mid = new Goose();
-        bottom = new Beans();
-        player = new Farmer();
-        currentLocation = Location.START;
+    public Location getItemLocation(Item id)
+    {
+        return gameObjects.get(id).getLocation();
     }
 
-    public String getName(Item id) {
-        switch (id) {
-        case TOP:
-            return top.getName();
-        case MID:
-            return mid.getName();
-        case BOTTOM:
-            return bottom.getName();
-        default:
-            return player.getName();
+    public Color getItemColor(Item id)
+    {
+        return gameObjects.get(id).getColor();
+    }
+
+    public Location getBoatLocation()
+    {
+        return boatLocation;
+    }
+    
+    public Color getBoatColor()
+    {
+        return boatColor;
+    }
+
+    public void loadBoat(Item id)
+    {
+        if (getItemLocation(id) == boatLocation && getItemLocation(id) != Location.BOAT)
+        {
+            gameObjects.get(id).setLocation(Location.BOAT);
         }
     }
 
-    public Location getLocation(Item id) {
-        switch (id) {
-        case TOP:
-            return top.getLocation();
-        case MID:
-            return mid.getLocation();
-        case BOTTOM:
-            return bottom.getLocation();
-        default:
-            return player.getLocation();
+    public void unloadBoat(Item id)
+    {
+        if (getItemLocation(id) == Location.BOAT)
+        {
+            gameObjects.get(id).setLocation(boatLocation);
         }
     }
 
-    public String getSound(Item id) {
-        switch (id) {
-        case TOP:
-            return top.getSound();
-        case MID:
-            return mid.getSound();
-        case BOTTOM:
-            return bottom.getSound();
-        default:
-            return player.getSound();
+    public void rowBoat()
+    {
+        if (boatLocation == Location.START)
+        {
+            boatLocation = Location.FINISH;
+        }
+        else
+        {
+            boatLocation = Location.START;
         }
     }
 
-    public Location getCurrentLocation() {
-        return currentLocation;
+    public boolean gameIsWon()
+    {
+
+        return getItemLocation(WOLF) == Location.FINISH && getItemLocation(GOOSE) == Location.FINISH
+                && getItemLocation(BEANS) == Location.FINISH && getItemLocation(FARMER) == Location.FINISH;
     }
 
-    public void loadBoat(Item id) {
-
-        switch (id) {
-        case TOP:
-            if (top.getLocation() == currentLocation && mid.getLocation() != Location.BOAT
-                    && bottom.getLocation() != Location.BOAT) {
-                top.setLocation(Location.BOAT);
-            }
-            break;
-        case MID:
-            if (mid.getLocation() == currentLocation && top.getLocation() != Location.BOAT
-                    && bottom.getLocation() != Location.BOAT) {
-                mid.setLocation(Location.BOAT);
-            }
-            break;
-        case BOTTOM:
-            if (bottom.getLocation() == currentLocation && top.getLocation() != Location.BOAT
-                    && mid.getLocation() != Location.BOAT) {
-                bottom.setLocation(Location.BOAT);
-            }
-            break;
-        case PLAYER:
-            if (player.getLocation() == currentLocation) {
-                player.setLocation(Location.BOAT);
-            }
-        default: // do nothing
-        }
-    }
-
-    public void unloadBoat(Item id) {
-        switch (id) {
-        case TOP:
-            if (top.getLocation() == Location.BOAT) {
-                top.setLocation(currentLocation);
-            }
-            break;
-        case MID:
-            if (mid.getLocation() == Location.BOAT) {
-                mid.setLocation(currentLocation);
-            }
-            break;
-        case BOTTOM:
-            if (bottom.getLocation() == Location.BOAT) {
-                bottom.setLocation(currentLocation);
-            }
-            break;
-        case PLAYER:
-            if (player.getLocation() == Location.BOAT) {
-                player.setLocation(currentLocation);
-            }
-        default: // do nothing
-        }
-    }
-
-    public void rowBoat() {
-        assert (currentLocation != Location.BOAT);
-        if (currentLocation == Location.START) {
-            currentLocation = Location.FINISH;
-        } else {
-            currentLocation = Location.START;
-        }
-    }
-
-    public boolean gameIsWon() {
-        return top.getLocation() == Location.FINISH && mid.getLocation() == Location.FINISH
-                && bottom.getLocation() == Location.FINISH && player.getLocation() == Location.FINISH;
-    }
-
-    public boolean gameIsLost() {
-        if (mid.getLocation() == Location.BOAT) {
+    public boolean gameIsLost()
+    {
+        if (getItemLocation(GOOSE) == Location.BOAT)
+        {
             return false;
         }
-        if (mid.getLocation() == player.getLocation()) {
+        if (getItemLocation(GOOSE) == getItemLocation(FARMER))
+        {
             return false;
         }
-        if (mid.getLocation() == currentLocation) {
+        if (getItemLocation(GOOSE) == boatLocation)
+        {
             return false;
         }
-        if (mid.getLocation() == top.getLocation()) {
+        if (getItemLocation(GOOSE) == getItemLocation(WOLF))
+        {
             return true;
         }
-        if (mid.getLocation() == bottom.getLocation()) {
+        if (getItemLocation(GOOSE) == getItemLocation(BEANS))
+        {
             return true;
         }
         return false;
     }
 
-    public void resetGame() {
-        top.setLocation(Location.START);
-        mid.setLocation(Location.START);
-        bottom.setLocation(Location.START);
-        player.setLocation(Location.START);
-        currentLocation = Location.START;
+    public void resetGame()
+    {
+        gameObjects.forEach((id, gameObject) -> gameObject.setLocation(Location.START));
+        boatLocation = Location.START;
     }
 
 }
