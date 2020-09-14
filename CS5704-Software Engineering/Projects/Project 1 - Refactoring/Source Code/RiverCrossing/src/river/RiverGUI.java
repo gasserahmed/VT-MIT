@@ -28,7 +28,6 @@ public class RiverGUI extends JPanel implements MouseListener
     private Map<Item, Rectangle> itemRectangleMap;
     private Rectangle boatRectangle = new Rectangle(140, 275, 110, 50);
     private int numberOfObjectsInBoat = 0;
-    private boolean passenger2IsEmpty = true;
     private final static int leftBaseX = 80;
     private final static int leftBaseY = 275;
     private final static int leftBoatX = 140;
@@ -41,7 +40,8 @@ public class RiverGUI extends JPanel implements MouseListener
     { 0, -60, -60, 0 };
     private final static int[] dy =
     { 0, 0, -60, -60 };
-
+    private boolean isFirstSeatAvailable = true;
+    
     private final Rectangle restartButtonRect = new Rectangle(350, 120, 100, 30);
 
     // ==========================================================
@@ -58,7 +58,7 @@ public class RiverGUI extends JPanel implements MouseListener
     public RiverGUI()
     {
 
-        engine = new GameEngine();
+        engine = new FarmerGameEngine();
         resetItemRectangleMap();
         addMouseListener(this);
     }
@@ -72,6 +72,7 @@ public class RiverGUI extends JPanel implements MouseListener
     {
         g.setColor(Color.GRAY);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
+        isFirstSeatAvailable = true;
         paintItem(g, Item.ITEM_0);
         paintItem(g, Item.ITEM_1);
         paintItem(g, Item.ITEM_2);
@@ -116,9 +117,12 @@ public class RiverGUI extends JPanel implements MouseListener
         {
             if (engine.getBoatLocation() == Location.START)
             {
-                if (item == Item.ITEM_3)
+                // Put item on first seat if available, otherwise, put on second seat
+                
+                if (isFirstSeatAvailable == true)
                 {
                     rect = new Rectangle(leftBoatX, leftBoatY - 60, 50, 50);
+                    isFirstSeatAvailable = false;
                 }
                 else
                 {
@@ -128,9 +132,10 @@ public class RiverGUI extends JPanel implements MouseListener
             // Boat at finish
             else
             {
-                if (item == Item.ITEM_3)
+                if (isFirstSeatAvailable == true)
                 {
                     rect = new Rectangle(rightBoatX, rightBoatY - 60, 50, 50);
+                    isFirstSeatAvailable = false;
                 }
                 else
                 {
@@ -142,9 +147,9 @@ public class RiverGUI extends JPanel implements MouseListener
 
         itemRectangleMap.put(item, rect);
         paintRectangle(g, engine.getItemColor(item), rect);
-        if (!engine.getItemLabel(item).equals("Farmer"))
+        if (item != Item.ITEM_3)
         {
-            paintStringInRectangle(engine.getItemLabel(item).substring(0, 1), rect.x, rect.y,
+            paintStringInRectangle(engine.getItemLabel(item), rect.x, rect.y,
                     rect.width, rect.height, g);
         }
     }
@@ -274,7 +279,6 @@ public class RiverGUI extends JPanel implements MouseListener
                 engine.resetGame();
                 restart = false;
                 numberOfObjectsInBoat = 0;
-                passenger2IsEmpty = true;
                 resetItemRectangleMap();
                 repaint();
             }
@@ -289,23 +293,14 @@ public class RiverGUI extends JPanel implements MouseListener
                 {
                     engine.unloadBoat(itemRectangle.getKey());
                     numberOfObjectsInBoat--;
-                    if (itemRectangle.getKey() != Item.ITEM_3)
-                    {
-                        passenger2IsEmpty = true;
-                    }
                 }
                 else
                 {
                     if (engine.getBoatLocation() == engine.getItemLocation(itemRectangle.getKey())
-                            && numberOfObjectsInBoat < 2
-                            && (itemRectangle.getKey() == Item.ITEM_3 || passenger2IsEmpty))
+                            && numberOfObjectsInBoat < 2)
                     {
                         engine.loadBoat(itemRectangle.getKey());
-                        numberOfObjectsInBoat++;
-                        if (itemRectangle.getKey() != Item.ITEM_3)
-                        {
-                            passenger2IsEmpty = false;
-                        }
+                        numberOfObjectsInBoat++;                       
                     }
                 }
             }
