@@ -58,6 +58,7 @@ public class RiverGUI extends JPanel implements MouseListener
     public RiverGUI()
     {
         engine = new FarmerGameEngine();
+        itemRectangleMap = new HashMap<Item, Rectangle>();
         itemRectangleMap.put(Item.ITEM_0, new Rectangle(80, 275, 50, 50));
         itemRectangleMap.put(Item.ITEM_1, new Rectangle(20, 275, 50, 50));
         itemRectangleMap.put(Item.ITEM_2, new Rectangle(20, 215, 50, 50));
