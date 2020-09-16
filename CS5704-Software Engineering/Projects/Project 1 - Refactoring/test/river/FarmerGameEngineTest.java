@@ -37,6 +37,9 @@ public class FarmerGameEngineTest {
         Assert.assertEquals("B", engine.getItemLabel(BEANS));
         Assert.assertEquals(Location.START, engine.getItemLocation(BEANS));
         Assert.assertEquals(Color.CYAN, engine.getItemColor(BEANS));
+        
+        Assert.assertEquals(Location.START, engine.getBoatLocation());
+        Assert.assertEquals(Color.ORANGE, engine.getBoatColor());
     }
 
     @Test
@@ -91,6 +94,13 @@ public class FarmerGameEngineTest {
         Assert.assertFalse(engine.gameIsLost());
         Assert.assertTrue(engine.gameIsWon());
     }
+    
+    @Test
+    public void testLoadingObjectAfterWinningGame() {
+        testWinningGame();
+        engine.loadBoat(FARMER);
+        Assert.assertFalse(engine.gameIsWon());
+    }
 
     @Test
     public void testLosingGame() {
@@ -114,6 +124,20 @@ public class FarmerGameEngineTest {
         goBackAlone();
         Assert.assertTrue(engine.gameIsLost());
         Assert.assertFalse(engine.gameIsWon());
+    }
+    
+    @Test
+    public void testLosingGameWhenGooseOnBoat() {
+        engine.loadBoat(GOOSE);
+        Assert.assertFalse(engine.gameIsLost());
+    }
+    
+    @Test
+    public void testLosingGameWhenGooseWithBeansAlone() {
+        engine.loadBoat(FARMER);
+        engine.loadBoat(WOLF);
+        engine.rowBoat();
+        Assert.assertTrue(engine.gameIsLost());
     }
 
     @Test
@@ -140,6 +164,34 @@ public class FarmerGameEngineTest {
         Assert.assertEquals(midLoc, engine.getItemLocation(GOOSE));
         Assert.assertEquals(bottomLoc, engine.getItemLocation(BEANS));
         Assert.assertEquals(playerLoc, engine.getItemLocation(FARMER));
+    }
+    
+    @Test
+    public void testRowBoatWithNoObjects() {
+        engine.rowBoat();
+        Assert.assertEquals(Location.START, engine.getBoatLocation());
+    }
+    
+    @Test
+    public void testLoadBoatWithMoreThanTwoObjects() {
+        engine.loadBoat(FARMER);
+        engine.loadBoat(GOOSE);
+        engine.loadBoat(BEANS);
+        
+        Assert.assertEquals(Location.START, engine.getItemLocation(BEANS));
+    }
+    
+    @Test
+    public void testUnLoadBoatWithObjectAlreadyNotOnBoat() {
+        engine.unloadBoat(FARMER);
+        Assert.assertEquals(Location.START, engine.getItemLocation(FARMER));
+    }
+    
+    @Test
+    public void testResettingGame() {
+        testWinningGame();
+        engine.resetGame();
+        Assert.assertEquals(Location.START, engine.getItemLocation(FARMER));
     }
     
     private void transport(Item item) {

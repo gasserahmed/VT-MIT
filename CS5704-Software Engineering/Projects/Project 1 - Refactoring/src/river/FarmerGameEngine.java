@@ -83,8 +83,7 @@ public class FarmerGameEngine implements GameEngine
     @Override
     public void loadBoat(Item id)
     {
-        if (getItemLocation(id) == boatLocation && getItemLocation(id) != Location.BOAT
-                && numberOfObjectsInBoat < 2)
+        if (getItemLocation(id) == boatLocation && numberOfObjectsInBoat < 2)
         {
             gameObjects.get(id).setLocation(Location.BOAT);
             numberOfObjectsInBoat++;

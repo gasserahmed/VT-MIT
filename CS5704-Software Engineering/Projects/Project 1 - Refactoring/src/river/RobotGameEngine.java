@@ -83,8 +83,9 @@ public class RobotGameEngine implements GameEngine
     @Override
     public void loadBoat(Item id)
     {
-        if (getItemLocation(id) == boatLocation && getItemLocation(id) != Location.BOAT
-                && !isAnyTallRobotOnBoat() && numberOfObjectsInBoat < 2 && canLoadTallRobot(id))
+        if (getItemLocation(id) == boatLocation && !isAnyTallRobotOnBoat()
+                && numberOfObjectsInBoat < 2 
+                && canLoadTallRobot(id))
         {
             gameObjects.get(id).setLocation(Location.BOAT);
             numberOfObjectsInBoat++;
@@ -156,7 +157,8 @@ public class RobotGameEngine implements GameEngine
 
     private boolean isAnyTallRobotOnBoat()
     {
-        return getItemLocation(TALLBOT_1) == Location.BOAT || getItemLocation(TALLBOT_2) == Location.BOAT;
+        return getItemLocation(TALLBOT_1) == Location.BOAT
+                || getItemLocation(TALLBOT_2) == Location.BOAT;
     }
 
     private boolean canLoadTallRobot(Item id)

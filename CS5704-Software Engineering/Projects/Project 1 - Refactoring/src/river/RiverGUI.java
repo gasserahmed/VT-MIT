@@ -58,7 +58,10 @@ public class RiverGUI extends JPanel implements MouseListener
     public RiverGUI()
     {
         engine = new FarmerGameEngine();
-        resetItemRectangleMap();
+        itemRectangleMap.put(Item.ITEM_0, new Rectangle(80, 275, 50, 50));
+        itemRectangleMap.put(Item.ITEM_1, new Rectangle(20, 275, 50, 50));
+        itemRectangleMap.put(Item.ITEM_2, new Rectangle(20, 215, 50, 50));
+        itemRectangleMap.put(Item.ITEM_3, new Rectangle(80, 215, 50, 50));
         addMouseListener(this);
     }
 
@@ -171,19 +174,6 @@ public class RiverGUI extends JPanel implements MouseListener
         g.fillRect(rect.x, rect.y, rect.width, rect.height);
     }
 
-    private void resetItemRectangleMap()
-    {
-        itemRectangleMap = new HashMap<Item, Rectangle>()
-        {
-            {
-                put(Item.ITEM_0, new Rectangle(80, 275, 50, 50));
-                put(Item.ITEM_1, new Rectangle(20, 275, 50, 50));
-                put(Item.ITEM_2, new Rectangle(20, 215, 50, 50));
-                put(Item.ITEM_3, new Rectangle(80, 215, 50, 50));
-            }
-        };
-    }
-
     public void paintStringInRectangle(String str, int x, int y, int width, int height, Graphics g)
     {
         g.setColor(Color.BLACK);
@@ -281,7 +271,6 @@ public class RiverGUI extends JPanel implements MouseListener
             }
 
             restart = false;
-            resetItemRectangleMap();
             repaint();
             return;
         }
