@@ -22,7 +22,7 @@ public class FarmerGameEngineTest {
 
     @Test
     public void testObjectCallThroughs() {
-        Assert.assertEquals("F", engine.getItemLabel(FARMER));
+        Assert.assertEquals("", engine.getItemLabel(FARMER));
         Assert.assertEquals(Location.START, engine.getItemLocation(FARMER));
         Assert.assertEquals(Color.MAGENTA, engine.getItemColor(FARMER));
         
@@ -42,6 +42,7 @@ public class FarmerGameEngineTest {
     @Test
     public void testMidTransport() {
         Assert.assertEquals(Location.START, engine.getItemLocation(GOOSE));
+        engine.loadBoat(FARMER);
         engine.loadBoat(GOOSE);
         engine.rowBoat();
         engine.unloadBoat(GOOSE);
@@ -93,7 +94,7 @@ public class FarmerGameEngineTest {
 
     @Test
     public void testLosingGame() {
-
+        engine.loadBoat(FARMER);
         // transport the goose
         transport(GOOSE);
         Assert.assertFalse(engine.gameIsLost());
@@ -119,6 +120,7 @@ public class FarmerGameEngineTest {
     public void testError() {
 
         // transport the goose
+        engine.loadBoat(FARMER);
         transport(GOOSE);
         Assert.assertFalse(engine.gameIsLost());
         Assert.assertFalse(engine.gameIsWon());
@@ -132,7 +134,7 @@ public class FarmerGameEngineTest {
         // This action should do nothing since the wolf is not on the same shore as the
         // boat
         engine.loadBoat(WOLF);
-
+        
         // check that the state has not changed
         Assert.assertEquals(topLoc, engine.getItemLocation(WOLF));
         Assert.assertEquals(midLoc, engine.getItemLocation(GOOSE));
