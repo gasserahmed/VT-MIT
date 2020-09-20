@@ -39,7 +39,6 @@ public class RiverGUI extends JPanel implements MouseListener
     { 0, -60, -60, 0 };
     private final static int[] dy =
     { 0, 0, -60, -60 };
-    private boolean isFirstSeatAvailable = true;
 
     private final Rectangle farmerRestartButtonRect = new Rectangle(290, 120, 100, 30);
     private final Rectangle robotRestartButtonRect = new Rectangle(410, 120, 100, 30);
@@ -75,7 +74,6 @@ public class RiverGUI extends JPanel implements MouseListener
     {
         g.setColor(Color.GRAY);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
-        isFirstSeatAvailable = true;
         paintItem(g, Item.ITEM_0);
         paintItem(g, Item.ITEM_1);
         paintItem(g, Item.ITEM_2);
@@ -121,12 +119,10 @@ public class RiverGUI extends JPanel implements MouseListener
         {
             if (engine.getBoatLocation() == Location.START)
             {
-                // Put item on first seat if available, otherwise, put on second seat
-
-                if (isFirstSeatAvailable == true)
+                // Put passenger 1 on the left and passenger 2 on the right
+                if (item == engine.getPassenger1())
                 {
                     rect = new Rectangle(leftBoatX, leftBoatY - 60, 50, 50);
-                    isFirstSeatAvailable = false;
                 }
                 else
                 {
@@ -136,10 +132,9 @@ public class RiverGUI extends JPanel implements MouseListener
             // Boat at finish
             else
             {
-                if (isFirstSeatAvailable == true)
+                if (item == engine.getPassenger1())
                 {
                     rect = new Rectangle(rightBoatX, rightBoatY - 60, 50, 50);
-                    isFirstSeatAvailable = false;
                 }
                 else
                 {

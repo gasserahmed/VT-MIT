@@ -14,6 +14,8 @@ public class FarmerGameEngine implements GameEngine
     private final static Item GOOSE = Item.ITEM_1;
     private final static Item WOLF = Item.ITEM_2;
     private final static Item FARMER = Item.ITEM_3;
+    private Item passenger1;
+    private Item passenger2;
     private final static Color boatColor = Color.ORANGE;
     private int numberOfObjectsInBoat;
 
@@ -85,6 +87,13 @@ public class FarmerGameEngine implements GameEngine
     {
         if (getItemLocation(id) == boatLocation && numberOfObjectsInBoat < 2)
         {
+            if (passenger1 == null) {
+                passenger1 = id;
+            }
+            else {
+                passenger2 = id;
+            }
+            
             gameObjects.get(id).setLocation(Location.BOAT);
             numberOfObjectsInBoat++;
         }
@@ -98,6 +107,13 @@ public class FarmerGameEngine implements GameEngine
     {
         if (getItemLocation(id) == Location.BOAT)
         {
+            if (passenger1 == id) {
+                passenger1 = null;
+            }
+            else {
+                passenger2 = null;
+            }
+            
             gameObjects.get(id).setLocation(boatLocation);
             numberOfObjectsInBoat--;
         }
@@ -171,5 +187,20 @@ public class FarmerGameEngine implements GameEngine
         gameObjects.forEach((id, gameObject) -> gameObject.setLocation(Location.START));
         boatLocation = Location.START;
     }
-
+    
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Item getPassenger1() {
+        return passenger1;
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Item getPassenger2() {
+        return passenger2;
+    }
 }

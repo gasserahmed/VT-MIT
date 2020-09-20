@@ -41,6 +41,12 @@ public class RobotGameEngineTest {
         Assert.assertEquals(Location.START, engine.getBoatLocation());
         Assert.assertEquals(Color.ORANGE, engine.getBoatColor());
     }
+    
+    @Test
+    public void testPassengerSeatsAreEmptyAtGameStart() {
+        Assert.assertEquals(null, engine.getPassenger1());
+        Assert.assertEquals(null, engine.getPassenger2());
+    }
 
     @Test
     public void testMidTransport() {

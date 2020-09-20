@@ -14,6 +14,8 @@ public class RobotGameEngine implements GameEngine
     private final static Item SMALLBOT_1 = Item.ITEM_1;
     private final static Item TALLBOT_1 = Item.ITEM_2;
     private final static Item TALLBOT_2 = Item.ITEM_3;
+    private Item passenger1;
+    private Item passenger2;
     private final static Color boatColor = Color.ORANGE;
     private int numberOfObjectsInBoat = 0;
 
@@ -87,6 +89,13 @@ public class RobotGameEngine implements GameEngine
                 && numberOfObjectsInBoat < 2 
                 && canLoadTallRobot(id))
         {
+            if (passenger1 == null) {
+                passenger1 = id;
+            }
+            else {
+                passenger2 = id;
+            }
+            
             gameObjects.get(id).setLocation(Location.BOAT);
             numberOfObjectsInBoat++;
         }
@@ -100,6 +109,13 @@ public class RobotGameEngine implements GameEngine
     {
         if (getItemLocation(id) == Location.BOAT)
         {
+            if (passenger1 == id) {
+                passenger1 = null;
+            }
+            else {
+                passenger2 = null;
+            }
+            
             gameObjects.get(id).setLocation(boatLocation);
             numberOfObjectsInBoat--;
         }
@@ -164,5 +180,21 @@ public class RobotGameEngine implements GameEngine
     private boolean canLoadTallRobot(Item id)
     {
         return (id != TALLBOT_1 && id != TALLBOT_2) || numberOfObjectsInBoat == 0;
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Item getPassenger1() {
+        return passenger1;
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Item getPassenger2() {
+        return passenger2;
     }
 }

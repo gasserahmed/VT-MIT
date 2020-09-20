@@ -91,4 +91,20 @@ public interface GameEngine
      * Resets the game.
      */
     void resetGame();
+    
+    /**
+     * 
+     * Get passenger 1 item.
+     *
+     * @return passenger 1
+     */
+    Item getPassenger1();
+    
+    /**
+     * 
+     * Get passenger 2 item.
+     *
+     * @return passenger 2
+     */
+    Item getPassenger2();
 }
