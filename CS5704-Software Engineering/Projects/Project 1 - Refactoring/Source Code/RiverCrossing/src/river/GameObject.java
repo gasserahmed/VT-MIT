@@ -1,24 +1,20 @@
 package river;
 
-import java.awt.Color;
+import river.GameEngine.Location;
 
 public class GameObject {
 
-    private String label;
-    private Color color;
-    private Location location;
+    protected String name;
+    protected Location location;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     
-    public GameObject(String label, Color color, Location location) {
-        super();
-        this.label = label;
-        this.color = color;
-        this.location = location;
-    }
-
-    public String getLabel() {
-        return label;
-    }
-
     public Location getLocation() {
         return location;
     }
@@ -27,7 +23,15 @@ public class GameObject {
         this.location = loc;
     }
 
-    public Color getColor() {
-        return color;
+    public String getSound() {
+        switch (name) {
+        case "Wolf":
+            return "Howl";
+        case "Goose":
+            return "Honk";
+        default:
+            return "";
+        }
     }
+
 }

@@ -1,99 +1,165 @@
 package river;
 
-import java.awt.Color;
+public class GameEngine {
 
-public interface GameEngine {
+    public enum Item {
+        TOP, MID, BOTTOM, PLAYER;
+    }
 
-    /**
-     * Returns the label of the specified item. This method may be used by a GUI
-     * (for example) to put the label string inside of a rectangle. A label is
-     * typically one or two characters long.
-     * 
-     * @param item the item with the desired label 
-     * @return the label of the specified item
-     */
-    String getItemLabel(Item item);
+    public enum Location {
+        START, FINISH, BOAT;
+    }
 
-    /**
-     * Returns the color of the specified item. This method may be used by a GUI
-     * (for example) to color a rectangle that represents the item.
-     * 
-     * @param item the item with the desired color 
-     * @return the color of the specified item
-     */
-    Color getItemColor(Item item);
+    private GameObject top;
+    private GameObject mid;
+    private GameObject bottom;
+    private GameObject player;
+    private Location currentLocation;
 
-    /**
-     * Returns the location of the specified item. The location may be START,
-     * FINISH, or BOAT.
-     * 
-     * @param item the item with the desired location 
-     * @return the location of the specified item
-     */
-    Location getItemLocation(Item item);
+    public GameEngine() {
+        top = new Wolf();
+        mid = new Goose();
+        bottom = new Beans();
+        player = new Farmer();
+        currentLocation = Location.START;
+    }
 
-    /**
-     * Returns the color of the boat
-     * 
-     * @return the color of the boat
-     */
-    Color getBoatColor();
-    
-    /**
-     * Returns the location of the boat.
-     * 
-     * @return the location of the boat
-     */
-    Location getBoatLocation();
+    public String getName(Item id) {
+        switch (id) {
+        case TOP:
+            return top.getName();
+        case MID:
+            return mid.getName();
+        case BOTTOM:
+            return bottom.getName();
+        default:
+            return player.getName();
+        }
+    }
 
-    /**
-     * Loads the specified item onto the boat. Assuming that all the
-     * required conditions are met, this method will change the location
-     * of the specified item to BOAT. Typically, the following conditions
-     * must be met: (1) the item's location and the boat's location
-     * must be the same, and (2) there must be room on the boat for the
-     * item. If any condition is not met, this method does nothing.
-     * 
-     * @param item the item to load onto the boat
-     */
-    void loadBoat(Item item);
+    public Location getLocation(Item id) {
+        switch (id) {
+        case TOP:
+            return top.getLocation();
+        case MID:
+            return mid.getLocation();
+        case BOTTOM:
+            return bottom.getLocation();
+        default:
+            return player.getLocation();
+        }
+    }
 
-    /**
-     * Unloads the specified item from the boat. If the item is on the boat
-     * (the item's location is BOAT), then the item's location is changed to
-     * the boat's location. If the item is not on the boat, then this method
-     * does nothing.
-     * 
-     * @param item the item to be unloaded
-     */
-    void unloadBoat(Item item);
+    public String getSound(Item id) {
+        switch (id) {
+        case TOP:
+            return top.getSound();
+        case MID:
+            return mid.getSound();
+        case BOTTOM:
+            return bottom.getSound();
+        default:
+            return player.getSound();
+        }
+    }
 
-    /**
-     * Rows the boat to the other shore. This method will only change the
-     * location of the boat if the boat has a passenger that can drive the boat.
-     */
-    void rowBoat();
+    public Location getCurrentLocation() {
+        return currentLocation;
+    }
 
-    /**
-     * True when the location of all the game items is FINISH.
-     * 
-     * @return true if all game items of a location of FINISH, false otherwise
-     */
-    boolean gameIsWon();
+    public void loadBoat(Item id) {
 
-    /**
-     * True when one or more implementation-specific conditions are met.
-     * The conditions have to do with which items are on which side of the
-     * river. If an item is in the boat, it is typically still considered
-     * to be on the same side of the river as the boat.
-     * 
-     * @return true when one or more game-specific conditions are met, false
-     * otherwise
-     */
-    boolean gameIsLost();
+        switch (id) {
+        case TOP:
+            if (top.getLocation() == currentLocation && mid.getLocation() != Location.BOAT
+                    && bottom.getLocation() != Location.BOAT) {
+                top.setLocation(Location.BOAT);
+            }
+            break;
+        case MID:
+            if (mid.getLocation() == currentLocation && top.getLocation() != Location.BOAT
+                    && bottom.getLocation() != Location.BOAT) {
+                mid.setLocation(Location.BOAT);
+            }
+            break;
+        case BOTTOM:
+            if (bottom.getLocation() == currentLocation && top.getLocation() != Location.BOAT
+                    && mid.getLocation() != Location.BOAT) {
+                bottom.setLocation(Location.BOAT);
+            }
+            break;
+        case PLAYER:
+            if (player.getLocation() == currentLocation) {
+                player.setLocation(Location.BOAT);
+            }
+        default: // do nothing
+        }
+    }
 
-        /**
-         * Resets the game.
-         */
-        void resetGame();
+    public void unloadBoat(Item id) {
+        switch (id) {
+        case TOP:
+            if (top.getLocation() == Location.BOAT) {
+                top.setLocation(currentLocation);
+            }
+            break;
+        case MID:
+            if (mid.getLocation() == Location.BOAT) {
+                mid.setLocation(currentLocation);
+            }
+            break;
+        case BOTTOM:
+            if (bottom.getLocation() == Location.BOAT) {
+                bottom.setLocation(currentLocation);
+            }
+            break;
+        case PLAYER:
+            if (player.getLocation() == Location.BOAT) {
+                player.setLocation(currentLocation);
+            }
+        default: // do nothing
+        }
+    }
+
+    public void rowBoat() {
+        assert (currentLocation != Location.BOAT);
+        if (currentLocation == Location.START) {
+            currentLocation = Location.FINISH;
+        } else {
+            currentLocation = Location.START;
+        }
+    }
+
+    public boolean gameIsWon() {
+        return top.getLocation() == Location.FINISH && mid.getLocation() == Location.FINISH
+                && bottom.getLocation() == Location.FINISH && player.getLocation() == Location.FINISH;
+    }
+
+    public boolean gameIsLost() {
+        if (mid.getLocation() == Location.BOAT) {
+            return false;
+        }
+        if (mid.getLocation() == player.getLocation()) {
+            return false;
+        }
+        if (mid.getLocation() == currentLocation) {
+            return false;
+        }
+        if (mid.getLocation() == top.getLocation()) {
+            return true;
+        }
+        if (mid.getLocation() == bottom.getLocation()) {
+            return true;
+        }
+        return false;
+    }
+
+    public void resetGame() {
+        top.setLocation(Location.START);
+        mid.setLocation(Location.START);
+        bottom.setLocation(Location.START);
+        player.setLocation(Location.START);
+        currentLocation = Location.START;
+    }
+
 }
