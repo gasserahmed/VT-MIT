@@ -18,8 +18,7 @@ public class CircArrayPipe<E> extends AbstractPipe<E> {
 	private int last = -1;
 
 	@SuppressWarnings("unchecked")
-	public CircArrayPipe(int max) throws 
-			IllegalArgumentException {
+	public CircArrayPipe(int max) throws IllegalArgumentException {
 		super(max);
 		if (max < 1) {
 			throw new IllegalArgumentException();
@@ -29,8 +28,24 @@ public class CircArrayPipe<E> extends AbstractPipe<E> {
 
 	@Override
 	public void prepend(E element) throws IllegalStateException, IllegalArgumentException {
-		// TODO Auto-generated method stub
+		if (element == null) {
+			throw new IllegalArgumentException();
+		}
 
+		if (isFull()) {
+			throw new IllegalStateException();
+		}
+
+		// Empty pipe
+		if (last == -1) {
+			first = last = 0;
+		} else if (first == 0) {
+			first = capacity() - 1;
+		} else {
+			first--;
+		}
+
+		elements[first] = element;
 	}
 
 	@Override
@@ -38,16 +53,16 @@ public class CircArrayPipe<E> extends AbstractPipe<E> {
 		if (element == null) {
 			throw new IllegalArgumentException();
 		}
-		
+
 		if (isFull()) {
 			throw new IllegalStateException();
 		}
-		
+
 		// Increment first if first append
 		if (last == -1) {
 			first++;
-		}
-		
+		}		
+
 		elements[++last] = element;
 	}
 
@@ -56,56 +71,67 @@ public class CircArrayPipe<E> extends AbstractPipe<E> {
 		if (first == -1) {
 			throw new IllegalStateException();
 		}
-		
+
 		E removedElement = elements[first];
-		elements[first] = null;
-		if (last == 0) {
-			first--;
-			last--;
-		}
-		else if (first == capacity() - 1) {
+		if (first == last) {
+			first = last = -1;
+		} else if (first + 1 == capacity()) {
 			first = 0;
-		}
-		else {
+		} else {
 			first++;
 		}
-		
-//		System.out.println(first);
-		if (first != -1 && elements[first] == null) {
-			first = last;
-		}
-		
+
 		return removedElement;
 	}
 
 	@Override
-	public E removeLast() {
-		// TODO Auto-generated method stub
-		return null;
+	public E removeLast() throws IllegalStateException {
+		if (last == -1) {
+			throw new IllegalStateException();
+		}
+
+		E removedElement = elements[last];
+		if (first == last) {
+			first = last = -1;
+		} else if (last == 0) {
+			last = capacity() - 1;
+		} else {
+			last--;
+		}
+
+		return removedElement;
 	}
 
 	@Override
 	public int length() {
-		int len = last + 1;
-		
-		// If prepend occurred
-		if (first > 0) {
-			len += capacity() - first;
+		if (first == -1) {
+			return 0;
 		}
-		
-		return len;
+
+		if (first == last) {
+			return 1;
+		}
+
+		if (first < last) {
+			return last - first + 1;
+		}
+
+		// first > last
+		return capacity() - first + last + 1;
 	}
 
 	@Override
 	public Pipe<E> newInstance() {
-		// TODO Auto-generated method stub
-		return null;
+		return new CircArrayPipe<>(capacity());
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-
+		first = -1;
+		last = -1;
+		Iterator<E> itr = iterator();
+		E elem = itr.next();
+		elem = null;		
 	}
 
 	@Override
@@ -116,7 +142,28 @@ public class CircArrayPipe<E> extends AbstractPipe<E> {
 
 	@Override
 	public Iterator<E> iterator() {
-		return Arrays.stream(elements).iterator();
+		return new CircArrayIterator();
+	}
+	
+	private class CircArrayIterator implements Iterator<E> {
+
+		// for the pipe:
+		// 1. starting index could be in the middle of the array
+		// 2. ending index could be less than your starting index
+		// 3. you will have to use modulo operator %
+		
+		private int currentIndex = 0;
+		
+		@Override
+		public boolean hasNext() {
+			return currentIndex < length();
+		}
+
+		@Override
+		public E next() {
+			return elements[currentIndex++];
+		}
+		
 	}
 
 }

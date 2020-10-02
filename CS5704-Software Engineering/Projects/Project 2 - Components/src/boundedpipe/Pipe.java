@@ -74,11 +74,24 @@ public interface Pipe<E> extends Iterable<E>{
 	 */
 	public int capacity();
 	
-	
+	/**
+	 * Returns a new empty pipe with the same capacity as this pipe
+	 * @return
+	 */
 	public Pipe<E> newInstance();
+	
+	/**
+	 * Clear this pipe
+	 */
 	public void clear();
 	public boolean isEmpty();
 	public boolean isFull();
 	public void append(Pipe<E> that);
+	
+	/**
+	 * Returns a copy of this pipe. The elements in the copy are
+	 * references to the elements in this pipe.
+	 * @return
+	 */
 	public Pipe<E> copy();
 }

@@ -3,6 +3,8 @@
  */
 package boundedpipe;
 
+import java.util.Iterator;
+
 /**
  * @author Gasser Ahmed
  * @param <E>
@@ -26,7 +28,6 @@ public abstract class AbstractPipe<E> implements Pipe<E> {
 	}
 
 	public boolean isFull() {
-		System.out.println(capacity);
 		return length() == capacity;
 	}
 
@@ -35,8 +36,15 @@ public abstract class AbstractPipe<E> implements Pipe<E> {
 //		this.
 //	}
 
+	@Override
 	public Pipe<E> copy() {
-		return this.copy();
+		Pipe<E> result = this.newInstance();
+		Iterator<E> itr = this.iterator();
+		while (itr.hasNext()) {
+			result.append(itr.next());
+		}
+			
+		return result;
 	}
 
 	@Override
