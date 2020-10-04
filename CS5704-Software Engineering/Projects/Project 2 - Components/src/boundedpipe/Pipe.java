@@ -75,8 +75,8 @@ public interface Pipe<E> extends Iterable<E>{
 	public int capacity();
 	
 	/**
-	 * Returns a new empty pipe with the same capacity as this pipe
-	 * @return
+	 * Returns a new empty pipe with the same capacity as this pipe.
+	 * @return a new empty pipe with the same capacity as this pipe
 	 */
 	public Pipe<E> newInstance();
 	
@@ -84,14 +84,61 @@ public interface Pipe<E> extends Iterable<E>{
 	 * Clear this pipe
 	 */
 	public void clear();
+	
+	/**
+	 * Returns true if this pipe is empty, otherwise, false.
+	 * @return true if this pipe is empty, otherwise, false 
+	 */
 	public boolean isEmpty();
+	
+	/**
+	 * Returns true if this pipe is full, otherwise, true.
+	 * @return true if this pipe is full, otherwise, true
+	 */
 	public boolean isFull();
+	
+	/**
+	 * Append elements of pipe into another pipe then empty that pipe.
+	 * @param that pipe to be appended
+	 */
 	public void append(Pipe<E> that);
 	
 	/**
 	 * Returns a copy of this pipe. The elements in the copy are
 	 * references to the elements in this pipe.
-	 * @return
+	 * @return a copy of this pipe
 	 */
 	public Pipe<E> copy();
+	
+	/**
+	 * Returns true if the specified object is equal to this pipe.
+	 * To be equal, the specified object must be a bounded pipe with the
+	 * same capacity, and it must contain the same number of elements with
+	 * the same values in the same order.
+	 * @param obj the object to be tested for equality to this pipe
+	 * @return true if the specified object is equal to this pipe, false otherwise
+	 */
+	@Override
+	public boolean equals(Object obj);
+
+	/**
+	 * Returns the hash code of this pipe.
+	 * @return the hash code of this pipe
+	 */
+	@Override
+	public int hashCode();
+
+	/**
+	 * Returns the string representation of this pipe. The string 
+	 * representation contains a list of this pipe's element from start to
+	 * end and the pipe's capacity. The list is enclosed in square brackets
+	 * and adjacent elements are separated by a comma and a space. The list
+	 * and capacity are separated by a colon. For example, the string
+	 * <code>[A, B, C]:6</code> represents a pipe with 3 elements, where
+	 * A is start element, C is the last element, and the pipe has a 
+	 * capacity of 6.
+	 * @return the string representation of this pipe
+	 */
+	@Override
+	public String toString();
 }

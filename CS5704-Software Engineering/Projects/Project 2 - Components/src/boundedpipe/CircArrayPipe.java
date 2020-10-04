@@ -134,11 +134,6 @@ public class CircArrayPipe<E> extends AbstractPipe<E> {
 		elem = null;		
 	}
 
-	@Override
-	public void append(Pipe<E> that) {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public Iterator<E> iterator() {

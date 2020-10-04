@@ -1,6 +1,7 @@
 package boundedpipe;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -33,10 +34,139 @@ public class CircArrayPipeTest {
 		CircArrayPipe<String> arr = new CircArrayPipe<>(-1);
 		fail();
 	}
+	
+	@Test
+	public void testEmptyToString() {
+		assertEquals("[]:3", arr_empty_3.toString());
+	}
+	
+	@Test
+	public void testABCToString() {
+		assertEquals("[A, B, C]:6", arr_ABC_6.toString());
+	}
+	
+	@Test
+	public void testABCEqualsNull() {
+		Pipe<String> p = null;
+		assertFalse(arr_ABC_6.equals(p));
+	}
+	
+	@Test
+	public void testABCEqualsSelf() {
+		assertTrue(arr_ABC_6.equals(arr_ABC_6));
+	}
+	
+	@Test
+	public void testABCEqualsNonPipe() {
+		assertFalse(arr_ABC_6.equals("[A, B, C]:6"));
+	}
+	
+	@Test
+	public void testABC6EqualsDifferentABC6() {
+		Pipe<String> arr_ABC_6_dup = new CircArrayPipe<>(6);
+		arr_ABC_6_dup.append("A");
+		arr_ABC_6_dup.append("B");
+		arr_ABC_6_dup.append("C");
+		
+		assertTrue(arr_ABC_6.equals(arr_ABC_6_dup));
+	}
+	
+	@Test
+	public void testABC6EqualsABC10() {
+		Pipe<String> arr_ABC_10 = new CircArrayPipe<>(10);
+		arr_ABC_10.append("A");
+		arr_ABC_10.append("B");
+		arr_ABC_10.append("C");
+		
+		assertFalse(arr_ABC_6.equals(arr_ABC_10));
+	}
+	
+	@Test
+	public void testABC6EqualsAB6() {
+		Pipe<String> arr_AB_6 = new CircArrayPipe<>(6);
+		arr_AB_6.append("A");
+		arr_AB_6.append("B");
+		
+		assertFalse(arr_ABC_6.equals(arr_AB_6));
+	}
+	
+	@Test
+	public void testEmpty3EqualsDifferentEmpty3() {
+		Pipe<String> arr_empty_6_dup = new CircArrayPipe<>(3);
+		
+		assertTrue(arr_empty_3.equals(arr_empty_6_dup));
+	}
+	
+	@Test
+	public void testEmpty3EqualsEmpty5() {
+		Pipe<String> arr_empty_5 = new CircArrayPipe<>(5);
+		
+		assertFalse(arr_empty_3.equals(arr_empty_5));
+	}
+	
+	@Test
+	public void testABC6EqualsDEF6() {
+		Pipe<String> arr_DEF_6 = new CircArrayPipe<>(6);
+		arr_DEF_6.append("D");
+		arr_DEF_6.append("E");
+		arr_DEF_6.append("F");
+		
+		assertFalse(arr_ABC_6.equals(arr_DEF_6));
+	}
+	
+//	@Test
+//	public void testABC6ListBasedEqualsABC6ArrayBased() {
+//		Pipe<String> arr_ABC_6_array = new CircArrayPipe<>(6);
+//		arr_ABC_6_array.append("D");
+//		arr_ABC_6_array.append("E");
+//		arr_ABC_6_array.append("F");
+//		
+//		assertTrue(arr_ABC_6.equals(arr_ABC_6_array));
+//	}
+	
+	@Test
+	public void testHashCodeABC6AndAB6() {
+		Pipe<String> arr_AB_6 = new CircArrayPipe<>(6);
+		arr_AB_6.append("A");
+		arr_AB_6.append("B");
+		
+		assertFalse(arr_ABC_6.hashCode() == arr_AB_6.hashCode());
+	}
+	
+	@Test
+	public void testHashCodeABC6AndDifferentABC6() {
+		Pipe<String> arr_ABC_6_dup = new CircArrayPipe<>(6);
+		arr_ABC_6_dup.append("A");
+		arr_ABC_6_dup.append("B");
+		arr_ABC_6_dup.append("C");
+		
+		assertTrue(arr_ABC_6.hashCode() == arr_ABC_6_dup.hashCode());
+	}
 
+	@Test
+	public void testHashCodeABC6AndABC10() {
+		Pipe<String> arr_ABC_10 = new CircArrayPipe<>(10);
+		arr_ABC_10.append("A");
+		arr_ABC_10.append("B");
+		arr_ABC_10.append("C");
+		
+		assertFalse(arr_ABC_6.hashCode() == arr_ABC_10.hashCode());
+	}
+	
+//	@Test
+//	public void testHashCodeABC6ListBasedAndABC6ArrayBased() {
+//		Pipe<String> arr_ABC_6_array = new CircArrayPipe<>(6);
+//		arr_ABC_6_array.append("D");
+//		arr_ABC_6_array.append("E");
+//		arr_ABC_6_array.append("F");
+//		
+//		assertTrue(arr_ABC_6.hashCode() == arr_ABC_6_array.hashCode());
+//	}
+	
 	@Test
 	public void testEmptyLength() {
 		assertEquals(0, arr_empty_3.length());
+		assertTrue(arr_empty_3.isEmpty());
 	}
 
 	@Test
@@ -48,6 +178,7 @@ public class CircArrayPipeTest {
 	public void testEmptyAppendA() {
 		arr_empty_3.append("A");
 		assertEquals(1, arr_empty_3.length());
+		assertFalse(arr_empty_3.isEmpty());
 	}
 
 	@Test
@@ -266,5 +397,49 @@ public class CircArrayPipeTest {
 		assertEquals(0, arr_ABC_6.length());
 		assertEquals(6, arr_ABC_6.capacity());
 		assertEquals("", result);
+	}
+	
+	@Test
+	public void testEmptyAppendArray() {
+		arr_empty_3.append(arr_ABC_6);
+		String emptyResult = "";
+		for (String s : arr_empty_3) {
+			if (s != null) {
+				emptyResult += s;	
+			}
+		}
+		
+		String abcResult = "";
+		for (String s : arr_ABC_6) {
+			if (s != null) {
+				abcResult += s;	
+			}
+		}
+		
+		assertEquals(3, arr_empty_3.length());
+		assertEquals(3, arr_empty_3.capacity());
+		assertEquals("ABC", emptyResult);
+		assertEquals(0, arr_ABC_6.length());
+		assertEquals(6, arr_ABC_6.capacity());
+		assertEquals("", abcResult);
+	}
+	
+	@Test
+	public void testEmptyAppendArrayWhenFull() {
+		testEmptyAppendArray();
+		CircArrayPipe<String> testArr = new CircArrayPipe<String>(2);
+		testArr.append("X");
+		testArr.append("Y");
+		arr_empty_3.append(testArr);
+		String emptyResult = "";
+		for (String s : arr_empty_3) {
+			if (s != null) {
+				emptyResult += s;	
+			}
+		}
+		
+		assertEquals(3, arr_empty_3.length());
+		assertEquals(3, arr_empty_3.capacity());
+		assertEquals("ABC", emptyResult);
 	}
 }
