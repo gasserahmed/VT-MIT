@@ -53,24 +53,24 @@ public abstract class AbstractPipe<E> implements Pipe<E> {
 		if (obj == null) {
 			return false;
 		}
-		
-		if  (obj == this) {
+
+		if (obj == this) {
 			return true;
 		}
-		
-		if (! (obj instanceof Pipe)) {
+
+		if (!(obj instanceof Pipe)) {
 			return false;
 		}
-		
+
 		Pipe<?> that = (Pipe) obj;
 		if (this.capacity != that.capacity()) {
 			return false;
 		}
-		
+
 		if (this.length() != that.length()) {
 			return false;
 		}
-		
+
 		Iterator<E> thisItr = this.iterator();
 		Iterator<?> thatItr = that.iterator();
 		while (thisItr.hasNext()) {
@@ -80,7 +80,7 @@ public abstract class AbstractPipe<E> implements Pipe<E> {
 				return false;
 			}
 		}
-		
+
 		return true;
 	}
 
@@ -90,9 +90,9 @@ public abstract class AbstractPipe<E> implements Pipe<E> {
 		for (E element : this) {
 			result = 31 * result + element.hashCode();
 		}
-		
+
 		result = 31 * result + capacity;
-		
+
 		return result;
 	}
 

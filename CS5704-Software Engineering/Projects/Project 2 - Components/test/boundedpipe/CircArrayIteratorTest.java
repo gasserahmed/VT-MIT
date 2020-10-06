@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class CircArrayIteratorTest {
-	
+
 	private Pipe<String> arr_ABC_6;
 
 	@Before
@@ -22,10 +22,10 @@ public class CircArrayIteratorTest {
 		String result = "";
 		for (String s : arr_ABC_6) {
 			if (s != null) {
-				result += s;	
+				result += s;
 			}
 		}
-		
+
 		assertEquals("ABC", result);
 	}
 

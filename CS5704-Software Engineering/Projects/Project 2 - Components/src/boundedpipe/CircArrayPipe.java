@@ -3,7 +3,6 @@
  */
 package boundedpipe;
 
-import java.util.Arrays;
 import java.util.Iterator;
 
 /**
@@ -61,7 +60,7 @@ public class CircArrayPipe<E> extends AbstractPipe<E> {
 		// Increment first if first append
 		if (last == -1) {
 			first++;
-		}		
+		}
 
 		elements[++last] = element;
 	}
@@ -131,24 +130,23 @@ public class CircArrayPipe<E> extends AbstractPipe<E> {
 		last = -1;
 		Iterator<E> itr = iterator();
 		E elem = itr.next();
-		elem = null;		
+		elem = null;
 	}
-
 
 	@Override
 	public Iterator<E> iterator() {
 		return new CircArrayIterator();
 	}
-	
+
 	private class CircArrayIterator implements Iterator<E> {
 
 		// for the pipe:
 		// 1. starting index could be in the middle of the array
 		// 2. ending index could be less than your starting index
 		// 3. you will have to use modulo operator %
-		
+
 		private int currentIndex = 0;
-		
+
 		@Override
 		public boolean hasNext() {
 			return currentIndex < length();
@@ -158,7 +156,7 @@ public class CircArrayPipe<E> extends AbstractPipe<E> {
 		public E next() {
 			return elements[currentIndex++];
 		}
-		
+
 	}
 
 }
