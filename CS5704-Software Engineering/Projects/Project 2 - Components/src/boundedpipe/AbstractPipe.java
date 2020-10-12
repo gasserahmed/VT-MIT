@@ -7,109 +7,134 @@ import java.util.Iterator;
 
 /**
  * @author Gasser Ahmed
+ * @version Fall 2020
  * @param <E>
  *
  */
 public abstract class AbstractPipe<E> implements Pipe<E> {
-	private int capacity;
+    private int capacity;
 
-	public AbstractPipe(int capacity) {
-		this.capacity = capacity;
-	}
+    /**
+     * Create a new object of abstract pipe
+     * 
+     * @param capacity the number of elements that this pipe can hold
+     */
+    public AbstractPipe(int capacity) {
+        this.capacity = capacity;
+    }
 
-	public int capacity() {
-		return capacity;
-	}
+    /**
+     * {@inheritDoc}
+     */
+    public int capacity() {
+        return capacity;
+    }
 
-	public boolean isEmpty() {
-		return length() == 0;
-	}
+    /**
+     * {@inheritDoc}
+     */
+    public boolean isEmpty() {
+        return length() == 0;
+    }
 
-	public boolean isFull() {
-		return length() == capacity;
-	}
+    /**
+     * {@inheritDoc}
+     */
+    public boolean isFull() {
+        return length() == capacity;
+    }
 
-	public void append(Pipe<E> that) {
-		if (that.length() > 0 && this.length() < this.capacity) {
-			E element = that.removeFirst();
-			this.append(element);
-			append(that);
-		}
-	}
+    /**
+     * {@inheritDoc}
+     */
+    public void appendAll(Pipe<E> that) {
+        if (that == null) {
+            throw new IllegalArgumentException();
+        }
 
-	@Override
-	public Pipe<E> copy() {
-		Pipe<E> result = this.newInstance();
-		Iterator<E> itr = this.iterator();
-		while (itr.hasNext()) {
-			result.append(itr.next());
-		}
+        if (this.isFull()) {
+            throw new IllegalStateException();
+        }
 
-		return result;
-	}
+        E element = that.removeFirst();
+        this.append(element);
+        if (that.length() > 0) {
+            appendAll(that);
+        }
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (obj == null) {
-			return false;
-		}
+    @Override
+    public Pipe<E> copy() {
+        Pipe<E> result = this.newInstance();
+        Iterator<E> itr = this.iterator();
+        while (itr.hasNext()) {
+            result.append(itr.next());
+        }
 
-		if (obj == this) {
-			return true;
-		}
+        return result;
+    }
 
-		if (!(obj instanceof Pipe)) {
-			return false;
-		}
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
 
-		Pipe<?> that = (Pipe) obj;
-		if (this.capacity != that.capacity()) {
-			return false;
-		}
+        if (obj == this) {
+            return true;
+        }
 
-		if (this.length() != that.length()) {
-			return false;
-		}
+        if (!(obj instanceof Pipe)) {
+            return false;
+        }
 
-		Iterator<E> thisItr = this.iterator();
-		Iterator<?> thatItr = that.iterator();
-		while (thisItr.hasNext()) {
-			E elem = thisItr.next();
-			Object o = thatItr.next();
-			if (!elem.equals(o)) {
-				return false;
-			}
-		}
+        Pipe<?> that = (Pipe) obj;
+        if (this.capacity != that.capacity()) {
+            return false;
+        }
 
-		return true;
-	}
+        if (this.length() != that.length()) {
+            return false;
+        }
 
-	@Override
-	public int hashCode() {
-		int result = 17;
-		for (E element : this) {
-			result = 31 * result + element.hashCode();
-		}
+        Iterator<E> thisItr = this.iterator();
+        Iterator<?> thatItr = that.iterator();
+        while (thisItr.hasNext()) {
+            E elem = thisItr.next();
+            Object o = thatItr.next();
+            if (!elem.equals(o)) {
+                return false;
+            }
+        }
 
-		result = 31 * result + capacity;
+        return true;
+    }
 
-		return result;
-	}
+    @Override
+    public int hashCode() {
+        int result = 17;
+        for (E element : this) {
+            result = 31 * result + element.hashCode();
+        }
 
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("[");
-		Iterator<E> itr = this.iterator();
-		while (itr.hasNext()) {
-			sb.append(itr.next());
-			if (itr.hasNext()) {
-				sb.append(", ");
-			}
-		}
+        result = 31 * result + capacity;
+        return result;
+    }
 
-		sb.append("]:");
-		sb.append(capacity);
-		return sb.toString();
-	}
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        Iterator<E> itr = this.iterator();
+        while (itr.hasNext()) {
+            sb.append(itr.next());
+            if (itr.hasNext()) {
+                sb.append(", ");
+            }
+        }
+
+        sb.append("]:");
+        sb.append(capacity);
+        return sb.toString();
+    }
 }

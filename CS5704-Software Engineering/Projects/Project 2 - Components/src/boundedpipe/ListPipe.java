@@ -9,100 +9,124 @@ import java.util.List;
 
 /**
  * @author Gasser Ahmed
+ * @version Fall 2020
  * @param <E>
  *
  */
 public class ListPipe<E> extends AbstractPipe<E> {
 
-	private List<E> list;
+    private List<E> list;
 
-	@SuppressWarnings("unchecked")
-	public ListPipe(int max) throws IllegalArgumentException {
-		super(max);
-		if (max < 1) {
-			throw new IllegalArgumentException();
-		}
+    /**
+     * Create a new object of list pipe
+     * 
+     * @param max the maximum number of elements that this pipe can hold
+     */
+    @SuppressWarnings("unchecked")
+    public ListPipe(int max) throws IllegalArgumentException {
+        super(max);
+        if (max < 1)
+        {
+            throw new IllegalArgumentException();
+        }
 
-		list = new LinkedList<>();
-	}
+        list = new LinkedList<>();
+    }
 
-	@Override
-	public void prepend(E element) throws IllegalStateException, IllegalArgumentException {
-		if (element == null) {
-			throw new IllegalArgumentException();
-		}
+    @Override
+    public void prepend(E element)
+            throws IllegalStateException, IllegalArgumentException {
+        if (element == null)
+        {
+            throw new IllegalArgumentException();
+        }
 
-		if (isFull()) {
-			throw new IllegalStateException();
-		}
+        if (isFull())
+        {
+            throw new IllegalStateException();
+        }
 
-		list.add(0, element);
-	}
+        list.add(0, element);
+    }
 
-	@Override
-	public void append(E element) throws IllegalStateException, IllegalArgumentException {
-		if (element == null) {
-			throw new IllegalArgumentException();
-		}
+    @Override
+    public void append(E element)
+            throws IllegalStateException, IllegalArgumentException {
+        if (element == null)
+        {
+            throw new IllegalArgumentException();
+        }
 
-		if (isFull()) {
-			throw new IllegalStateException();
-		}
+        if (isFull())
+        {
+            throw new IllegalStateException();
+        }
 
-		list.add(element);
-	}
+        list.add(element);
+    }
 
-	@Override
-	public E removeFirst() throws IllegalStateException {
-		if (list.isEmpty()) {
-			throw new IllegalStateException();
-		}
+    @Override
+    public E removeFirst() throws IllegalStateException {
+        if (list.isEmpty())
+        {
+            throw new IllegalStateException();
+        }
 
-		return list.remove(0);
-	}
+        return list.remove(0);
+    }
 
-	@Override
-	public E removeLast() throws IllegalStateException {
-		if (list.isEmpty()) {
-			throw new IllegalStateException();
-		}
+    @Override
+    public E removeLast() throws IllegalStateException {
+        if (list.isEmpty())
+        {
+            throw new IllegalStateException();
+        }
 
-		return list.remove(list.size() - 1);
-	}
+        return list.remove(list.size() - 1);
+    }
 
-	@Override
-	public int length() {
-		return list.size();
-	}
+    @Override
+    public int length() {
+        return list.size();
+    }
 
-	@Override
-	public Pipe<E> newInstance() {
-		return new ListPipe<>(capacity());
-	}
+    @Override
+    public Pipe<E> newInstance() {
+        return new ListPipe<>(capacity());
+    }
 
-	@Override
-	public void clear() {
-		list.clear();
-	}
+    @Override
+    public void clear() {
+        list.clear();
+    }
 
-	@Override
-	public Iterator<E> iterator() {
-		return new ListPipeIterator();
-	}
+    @Override
+    public E first() {
+        return (isEmpty()) ? null : list.get(0);
+    }
 
-	private class ListPipeIterator implements Iterator<E> {
+    @Override
+    public E last() {
+        return (isEmpty()) ? null : list.get(list.size() - 1);
+    }
 
-		private int currentIndex = 0;
+    @Override
+    public Iterator<E> iterator() {
+        return new ListPipeIterator();
+    }
 
-		@Override
-		public boolean hasNext() {
-			return currentIndex < length();
-		}
+    private class ListPipeIterator implements Iterator<E> {
 
-		@Override
-		public E next() {
-			return list.get(currentIndex++);
-		}
-	}
+        private int currentIndex = 0;
 
+        @Override
+        public boolean hasNext() {
+            return currentIndex < length();
+        }
+
+        @Override
+        public E next() {
+            return list.get(currentIndex++);
+        }
+    }
 }

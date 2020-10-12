@@ -116,7 +116,7 @@ public class ListPipeTest {
 		pipe_ABC_6_array.append("B");
 		pipe_ABC_6_array.append("C");
 
-		assertTrue(list_ABC_6.equals(pipe_ABC_6_array));
+        assertTrue(list_ABC_6.equals(pipe_ABC_6_array));
 	}
 
 	@Test
@@ -404,8 +404,28 @@ public class ListPipeTest {
 	}
 
 	@Test
-	public void testEmptyAppendList() {
-		list_empty_3.append(list_ABC_6);
+	public void testEmptyFirst() {
+		assertEquals(null, list_empty_3.first());
+	}
+
+	@Test
+	public void testABCFirst() {
+		assertEquals("A", list_ABC_6.first());
+	}
+
+	@Test
+	public void testEmptyLast() {
+		assertEquals(null, list_empty_3.last());
+	}
+
+	@Test
+	public void testABCLast() {
+		assertEquals("C", list_ABC_6.last());
+	}
+
+	@Test
+	public void testEmptyAppendAllList() {
+		list_empty_3.appendAll(list_ABC_6);
 		String emptyResult = "";
 		for (String s : list_empty_3) {
 			if (s != null) {
@@ -428,23 +448,14 @@ public class ListPipeTest {
 		assertEquals("", abcResult);
 	}
 
-	@Test
-	public void testEmptyAppendListWhenFull() {
-		testEmptyAppendList();
+	@Test(expected = IllegalStateException.class)
+	public void testEmptyAppendAllListWhenFull() {
+		testEmptyAppendAllList();
 		ListPipe<String> testList = new ListPipe<String>(2);
 		testList.append("X");
 		testList.append("Y");
-		list_empty_3.append(testList);
-		String emptyResult = "";
-		for (String s : list_empty_3) {
-			if (s != null) {
-				emptyResult += s;
-			}
-		}
-
-		assertEquals(3, list_empty_3.length());
-		assertEquals(3, list_empty_3.capacity());
-		assertEquals("ABC", emptyResult);
+		list_empty_3.appendAll(testList);
+		fail();
 	}
 
 }

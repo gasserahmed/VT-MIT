@@ -4,159 +4,207 @@
 package boundedpipe;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * @author Gasser Ahmed
+ * @version Fall 2020
  * @param <E>
  *
  */
 public class CircArrayPipe<E> extends AbstractPipe<E> {
 
-	private E[] elements;
-	private int first = -1;
-	private int last = -1;
+    private E[] elements;
+    private int first = -1;
+    private int last = -1;
 
-	@SuppressWarnings("unchecked")
-	public CircArrayPipe(int max) throws IllegalArgumentException {
-		super(max);
-		if (max < 1) {
-			throw new IllegalArgumentException();
-		}
-		elements = (E[]) new Object[max];
-	}
+    /**
+     * Create a new object of circular array pipe
+     * 
+     * @param max the maximum number of elements that this pipe can hold
+     */
+    @SuppressWarnings("unchecked")
+    public CircArrayPipe(int max) throws IllegalArgumentException {
+        super(max);
+        if (max < 1)
+        {
+            throw new IllegalArgumentException();
+        }
+        elements = (E[]) new Object[max];
+    }
 
-	@Override
-	public void prepend(E element) throws IllegalStateException, IllegalArgumentException {
-		if (element == null) {
-			throw new IllegalArgumentException();
-		}
+    @Override
+    public void prepend(E element)
+            throws IllegalStateException, IllegalArgumentException {
+        if (element == null)
+        {
+            throw new IllegalArgumentException();
+        }
 
-		if (isFull()) {
-			throw new IllegalStateException();
-		}
+        if (isFull())
+        {
+            throw new IllegalStateException();
+        }
 
-		// Empty pipe
-		if (last == -1) {
-			first = last = 0;
-		} else if (first == 0) {
-			first = capacity() - 1;
-		} else {
-			first--;
-		}
+        // Empty pipe
+        if (last == -1)
+        {
+            first = 0;
+            last = 0;
+        } 
+        else if (first == 0)
+        {
+            first = capacity() - 1;
+        }
+        else
+        {
+            first--;
+        }
 
-		elements[first] = element;
-	}
+        elements[first] = element;
+    }
 
-	@Override
-	public void append(E element) throws IllegalStateException, IllegalArgumentException {
-		if (element == null) {
-			throw new IllegalArgumentException();
-		}
+    @Override
+    public void append(E element)
+            throws IllegalStateException, IllegalArgumentException {
+        if (element == null)
+        {
+            throw new IllegalArgumentException();
+        }
 
-		if (isFull()) {
-			throw new IllegalStateException();
-		}
+        if (isFull())
+        {
+            throw new IllegalStateException();
+        }
 
-		// Increment first if first append
-		if (last == -1) {
-			first++;
-		}
+        // Increment first if first append
+        if (last == -1)
+        {
+            first++;
+        }
 
-		elements[++last] = element;
-	}
+        elements[++last] = element;
+    }
 
-	@Override
-	public E removeFirst() throws IllegalStateException {
-		if (first == -1) {
-			throw new IllegalStateException();
-		}
+    @Override
+    public E removeFirst() throws IllegalStateException {
+        if (first == -1)
+        {
+            throw new IllegalStateException();
+        }
 
-		E removedElement = elements[first];
-		if (first == last) {
-			first = last = -1;
-		} else if (first + 1 == capacity()) {
-			first = 0;
-		} else {
-			first++;
-		}
+        E removedElement = elements[first];
 
-		return removedElement;
-	}
+        int secondElement = first + 1;
 
-	@Override
-	public E removeLast() throws IllegalStateException {
-		if (last == -1) {
-			throw new IllegalStateException();
-		}
+        if (first == last)
+        {
+            first = -1;
+            last = -1;
+        } 
+        else if (secondElement == capacity())
+        {
+            first = 0;
+        } 
+        else
+        {
+            first++;
+        }
 
-		E removedElement = elements[last];
-		if (first == last) {
-			first = last = -1;
-		} else if (last == 0) {
-			last = capacity() - 1;
-		} else {
-			last--;
-		}
+        return removedElement;
+    }
 
-		return removedElement;
-	}
+    @Override
+    public E removeLast() throws IllegalStateException {
+        if (last == -1)
+        {
+            throw new IllegalStateException();
+        }
 
-	@Override
-	public int length() {
-		if (first == -1) {
-			return 0;
-		}
+        E removedElement = elements[last];
+        if (first == last)
+        {
+            first = -1;
+            last = -1;
+        } 
+        else if (last == 0)
+        {
+            last = capacity() - 1;
+        } 
+        else
+        {
+            last--;
+        }
 
-		if (first == last) {
-			return 1;
-		}
+        return removedElement;
+    }
 
-		if (first < last) {
-			return last - first + 1;
-		}
+    @Override
+    public int length() {
+        if (last == -1)
+        {
+            return 0;
+        }
 
-		// first > last
-		return capacity() - first + last + 1;
-	}
+        if (first == last)
+        {
+            return 1;
+        }
 
-	@Override
-	public Pipe<E> newInstance() {
-		return new CircArrayPipe<>(capacity());
-	}
+        if (first < last)
+        {
+            return last - first + 1;
+        }
 
-	@Override
-	public void clear() {
-		first = -1;
-		last = -1;
-		Iterator<E> itr = iterator();
-		E elem = itr.next();
-		elem = null;
-	}
+        // first > last
+        return capacity() - first + last + 1;
+    }
 
-	@Override
-	public Iterator<E> iterator() {
-		return new CircArrayIterator();
-	}
+    @Override
+    public Pipe<E> newInstance() {
+        return new CircArrayPipe<>(capacity());
+    }
 
-	private class CircArrayIterator implements Iterator<E> {
+    @Override
+    public void clear() {
+        if (last != -1)
+        {
+            elements[last--] = null;            
+            clear();
+        }
+    }
 
-		// for the pipe:
-		// 1. starting index could be in the middle of the array
-		// 2. ending index could be less than your starting index
-		// 3. you will have to use modulo operator %
+    @Override
+    public E first() {
+        return (isEmpty()) ? null : elements[0];
+    }
 
-		private int currentIndex = 0;
+    @Override
+    public E last() {
+        return (isEmpty()) ? null : elements[length() - 1];
+    }
 
-		@Override
-		public boolean hasNext() {
-			return currentIndex < length();
-		}
+    @Override
+    public Iterator<E> iterator() {
+        return new CircArrayIterator();
+    }
 
-		@Override
-		public E next() {
-			return elements[currentIndex++];
-		}
+    private class CircArrayIterator implements Iterator<E> {
 
-	}
+        private int currentIndex = 0;
 
+        @Override
+        public boolean hasNext() {
+            return currentIndex < length();
+        }
+
+        @Override
+        public E next() {
+            if (hasNext()) {
+                return elements[currentIndex++];
+            }
+            
+            throw new NoSuchElementException();
+        }
+    }
 }
