@@ -33,8 +33,7 @@ package boundedpipe;
 public interface Pipe<E> extends Iterable<E> {
     /**
      * Adds the specified element into the beginning of this pipe.
-     * </p>
-     * 
+     *  
      * @param element the element to be prepended into this pipe
      * @throws IllegalStateException    if this pipe is full
      * @throws IllegalArgumentException if the specified element is null
