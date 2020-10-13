@@ -1,14 +1,11 @@
-/**
- * 
- */
 package boundedpipe;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-import org.w3c.dom.Node;
-
 /**
+ * LinkedPipe Class
+ * 
  * @author Gasser Ahmed
  * @version Fall 2020
  * @param <E>

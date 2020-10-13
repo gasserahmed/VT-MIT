@@ -1,11 +1,10 @@
-/**
- * 
- */
 package boundedpipe;
 
 import java.util.Iterator;
 
 /**
+ * AbstractPipe Class
+ * 
  * @author Gasser Ahmed
  * @version Fall 2020
  * @param <E>

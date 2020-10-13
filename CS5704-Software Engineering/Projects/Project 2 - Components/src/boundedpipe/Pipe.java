@@ -1,6 +1,3 @@
-/**
- * Pipe Interface
- */
 package boundedpipe;
 
 /**
