@@ -4,6 +4,7 @@
 package boundedpipe;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 import org.w3c.dom.Node;
 
@@ -31,9 +32,6 @@ public class LinkedPipe<E> extends AbstractPipe<E> {
         {
             throw new IllegalArgumentException();
         }
-
-        first = null;
-        last = null;
     }
 
     @Override
@@ -50,7 +48,7 @@ public class LinkedPipe<E> extends AbstractPipe<E> {
         }
 
         Node newNode = new Node(element);
-        if (first == null)
+        if (length == 0)
         {
             first = newNode;
             last = newNode;
@@ -79,7 +77,7 @@ public class LinkedPipe<E> extends AbstractPipe<E> {
         }
 
         Node newNode = new Node(element);
-        if (last == null)
+        if (length == 0)
         {
             last = newNode;
             first = newNode;
@@ -169,12 +167,15 @@ public class LinkedPipe<E> extends AbstractPipe<E> {
 
         @Override
         public E next() {
-            E currentNodeElem = itrNode.contents;
-            itrNode = itrNode.next;
-            currentIndex++;
-            return currentNodeElem;
+            if (hasNext()) {
+                E currentNodeElem = itrNode.contents;
+                itrNode = itrNode.next;
+                currentIndex++;
+                return currentNodeElem;
+            }
+            
+            throw new NoSuchElementException();
         }
-
     }
 
     private class Node {

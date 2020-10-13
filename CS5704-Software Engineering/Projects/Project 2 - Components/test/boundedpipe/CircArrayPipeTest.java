@@ -21,11 +21,14 @@ public class CircArrayPipeTest {
 
     private Pipe<String> arr_empty_3;
     private Pipe<String> arr_ABC_6;
+    private Pipe<String> arr_ABC_6_test;
 
     @Before
     public void setUp() throws Exception {
         arr_empty_3 = new CircArrayPipe<>(3);
         arr_ABC_6 = new CircArrayPipe<>(6);
+        arr_ABC_6_test = new CircArrayPipe<>(6);
+
         arr_ABC_6.append("A");
         arr_ABC_6.append("B");
         arr_ABC_6.append("C");
@@ -64,16 +67,6 @@ public class CircArrayPipeTest {
     }
 
     @Test
-    public void testABC6EqualsDifferentABC6() {
-        Pipe<String> arr_ABC_6_dup = new CircArrayPipe<>(6);
-        arr_ABC_6_dup.append("A");
-        arr_ABC_6_dup.append("B");
-        arr_ABC_6_dup.append("C");
-
-        assertTrue(arr_ABC_6.equals(arr_ABC_6_dup));
-    }
-
-    @Test
     public void testABC6EqualsABC10() {
         Pipe<String> arr_ABC_10 = new CircArrayPipe<>(10);
         arr_ABC_10.append("A");
@@ -100,13 +93,6 @@ public class CircArrayPipeTest {
     }
 
     @Test
-    public void testEmpty3EqualsEmpty5() {
-        Pipe<String> arr_empty_5 = new CircArrayPipe<>(5);
-
-        assertFalse(arr_empty_3.equals(arr_empty_5));
-    }
-
-    @Test
     public void testABC6EqualsDEF6() {
         Pipe<String> arr_DEF_6 = new CircArrayPipe<>(6);
         arr_DEF_6.append("D");
@@ -125,15 +111,18 @@ public class CircArrayPipeTest {
 
         assertTrue(arr_ABC_6.equals(pipe_ABC_6_list));
     }
-
+    
     @Test
-    public void testABC6LinkedBasedEqualsABC6ArrayBased() {
-        Pipe<String> pipe_ABC_6_linked = new LinkedPipe<>(6);
-        pipe_ABC_6_linked.append("A");
-        pipe_ABC_6_linked.append("B");
-        pipe_ABC_6_linked.append("C");
+    public void testABCD6EqualsDifferentABCD6() {
+        arr_ABC_6.append("D");
+        Pipe<String> arr_ABC_6_dup = new CircArrayPipe<>(6);
+        arr_ABC_6_dup.append("A");
+        arr_ABC_6_dup.append("B");
+        arr_ABC_6_dup.append("C");
+        arr_ABC_6_dup.append(" ");
+        arr_ABC_6_dup.append("D");
 
-        assertTrue(arr_ABC_6.equals(pipe_ABC_6_linked));
+        assertFalse(arr_ABC_6.equals(arr_ABC_6_dup));
     }
 
     @Test
@@ -329,7 +318,7 @@ public class CircArrayPipeTest {
 
     @Test
     public void testABCPrependZ() {
-        arr_ABC_6.prepend("F");
+        arr_ABC_6.prepend("Z");
         assertEquals(4, arr_ABC_6.length());
     }
 

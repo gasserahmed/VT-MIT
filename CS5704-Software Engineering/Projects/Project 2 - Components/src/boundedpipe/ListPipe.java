@@ -6,6 +6,7 @@ package boundedpipe;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * @author Gasser Ahmed
@@ -126,7 +127,11 @@ public class ListPipe<E> extends AbstractPipe<E> {
 
         @Override
         public E next() {
-            return list.get(currentIndex++);
+            if (hasNext()) {
+                return list.get(currentIndex++);
+            }
+            
+            throw new NoSuchElementException();
         }
     }
 }

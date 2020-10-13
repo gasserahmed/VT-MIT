@@ -2,6 +2,8 @@ package boundedpipe;
 
 import static org.junit.Assert.*;
 
+import java.util.NoSuchElementException;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -57,39 +59,12 @@ public class LinkedPipeTest {
     }
 
     @Test
-    public void testABC6EqualsDifferentABC6() {
-        Pipe<String> linked_ABC_6_dup = new LinkedPipe<>(6);
-        linked_ABC_6_dup.append("A");
-        linked_ABC_6_dup.append("B");
-        linked_ABC_6_dup.append("C");
-
-        assertTrue(linked_ABC_6.equals(linked_ABC_6_dup));
-    }
-
-    @Test
-    public void testABC6EqualsABC10() {
-        Pipe<String> linked_ABC_10 = new LinkedPipe<>(10);
-        linked_ABC_10.append("A");
-        linked_ABC_10.append("B");
-        linked_ABC_10.append("C");
-
-        assertFalse(linked_ABC_6.equals(linked_ABC_10));
-    }
-
-    @Test
     public void testABC6EqualsAB6() {
         Pipe<String> linked_AB_6 = new LinkedPipe<>(6);
         linked_AB_6.append("A");
         linked_AB_6.append("B");
 
         assertFalse(linked_ABC_6.equals(linked_AB_6));
-    }
-
-    @Test
-    public void testEmpty3EqualsDifferentEmpty3() {
-        Pipe<String> linked_empty_6_dup = new LinkedPipe<>(3);
-
-        assertTrue(linked_empty_3.equals(linked_empty_6_dup));
     }
 
     @Test
@@ -108,25 +83,18 @@ public class LinkedPipeTest {
 
         assertFalse(linked_ABC_6.equals(linked_DEF_6));
     }
-
+    
     @Test
-    public void testABC6ArrayBasedEqualsABC6LinkedBased() {
-        Pipe<String> pipe_ABC_6_array = new CircArrayPipe<>(6);
-        pipe_ABC_6_array.append("A");
-        pipe_ABC_6_array.append("B");
-        pipe_ABC_6_array.append("C");
+    public void testABCD6EqualsDifferentABCD6() {
+        linked_ABC_6.append("D");
+        Pipe<String> list_ABC_6_dup = new LinkedPipe<>(6);
+        list_ABC_6_dup.append("A");
+        list_ABC_6_dup.append("B");
+        list_ABC_6_dup.append("C");
+        list_ABC_6_dup.append(" ");
+        list_ABC_6_dup.append("D");
 
-        assertTrue(linked_ABC_6.equals(pipe_ABC_6_array));
-    }
-
-    @Test
-    public void testABC6ListBasedEqualsABC6LinkedBased() {
-        Pipe<String> pipe_ABC_6_list = new ListPipe<>(6);
-        pipe_ABC_6_list.append("A");
-        pipe_ABC_6_list.append("B");
-        pipe_ABC_6_list.append("C");
-
-        assertTrue(linked_ABC_6.equals(pipe_ABC_6_list));
+        assertFalse(linked_ABC_6.equals(list_ABC_6_dup));
     }
 
     @Test
@@ -462,5 +430,10 @@ public class LinkedPipeTest {
         linked_empty_3.appendAll(testList);
         fail();
     }
-
+    
+    @Test(expected = NoSuchElementException.class)
+    public void testIteratorNextOnEmptyLinked() {
+        linked_empty_3.iterator().next();
+        fail();
+    }
 }
