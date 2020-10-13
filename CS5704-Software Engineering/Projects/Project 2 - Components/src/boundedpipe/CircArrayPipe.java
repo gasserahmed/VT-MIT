@@ -85,13 +85,13 @@ public class CircArrayPipe<E> extends AbstractPipe<E> {
             first++;
         }
 
-        elements[++last] = element;
+        elements[++last % capacity()] = element;
         length++;
     }
 
     @Override
     public E removeFirst() throws IllegalStateException {
-        if (length == 0)
+        if (isEmpty())
         {
             throw new IllegalStateException();
         }
@@ -121,12 +121,12 @@ public class CircArrayPipe<E> extends AbstractPipe<E> {
 
     @Override
     public E removeLast() throws IllegalStateException {
-        if (last == -1)
+        if (isEmpty())
         {
             throw new IllegalStateException();
         }
 
-        E removedElement = elements[last];
+        E removedElement = elements[last % capacity()];
         if (first == last)
         {
             first = -1;
@@ -154,7 +154,7 @@ public class CircArrayPipe<E> extends AbstractPipe<E> {
 
     @Override
     public void clear() {
-        if (length != 0)
+        if (!isEmpty())
         {
             elements[last--] = null;   
             length--;
@@ -169,7 +169,7 @@ public class CircArrayPipe<E> extends AbstractPipe<E> {
 
     @Override
     public E last() {
-        return (isEmpty()) ? null : elements[last];
+        return (isEmpty()) ? null : elements[last % capacity()];
     }
 
     @Override

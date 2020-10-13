@@ -68,7 +68,7 @@ public class ListPipe<E> extends AbstractPipe<E> {
 
     @Override
     public E removeFirst() throws IllegalStateException {
-        if (list.isEmpty())
+        if (isEmpty())
         {
             throw new IllegalStateException();
         }
@@ -78,7 +78,7 @@ public class ListPipe<E> extends AbstractPipe<E> {
 
     @Override
     public E removeLast() throws IllegalStateException {
-        if (list.isEmpty())
+        if (isEmpty())
         {
             throw new IllegalStateException();
         }

@@ -48,7 +48,7 @@ public class LinkedPipe<E> extends AbstractPipe<E> {
         }
 
         Node newNode = new Node(element);
-        if (length == 0)
+        if (isEmpty())
         {
             first = newNode;
             last = newNode;
@@ -77,7 +77,7 @@ public class LinkedPipe<E> extends AbstractPipe<E> {
         }
 
         Node newNode = new Node(element);
-        if (length == 0)
+        if (isEmpty())
         {
             last = newNode;
             first = newNode;
@@ -94,7 +94,7 @@ public class LinkedPipe<E> extends AbstractPipe<E> {
 
     @Override
     public E removeFirst() throws IllegalStateException {
-        if (first == null)
+        if (isEmpty())
         {
             throw new IllegalStateException();
         }
@@ -107,7 +107,7 @@ public class LinkedPipe<E> extends AbstractPipe<E> {
 
     @Override
     public E removeLast() throws IllegalStateException {
-        if (last == null)
+        if (isEmpty())
         {
             throw new IllegalStateException();
         }
@@ -130,7 +130,7 @@ public class LinkedPipe<E> extends AbstractPipe<E> {
 
     @Override
     public void clear() {
-        if (first != null)
+        if (!isEmpty())
         {
             Node temp = first.next;
             first = null;

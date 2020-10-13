@@ -55,16 +55,18 @@ public interface Pipe<E> extends Iterable<E> {
     /**
      * Removes the first element of this pipe.
      * 
+     * @throws IllegalStateException if this pipe is empty
      * @return the first element of this pipe
      */
-    public E removeFirst();
+    public E removeFirst() throws IllegalStateException;
 
     /**
      * Removes the last element of this pipe.
      * 
+     * @throws IllegalStateException if this pipe is empty
      * @return the last element of this pipe
      */
-    public E removeLast();
+    public E removeLast() throws IllegalStateException;
 
     /**
      * Returns the number of elements in this pipe.
@@ -109,6 +111,7 @@ public interface Pipe<E> extends Iterable<E> {
     /**
      * Append elements of pipe into another pipe then empty that pipe.
      * 
+     * @throws IllegalStateException if this pipe is full
      * @param that pipe to be appended
      */
     public void appendAll(Pipe<E> that)

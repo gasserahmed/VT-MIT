@@ -476,4 +476,23 @@ public class CircArrayPipeTest {
         arr_empty_3.iterator().next();
         fail();
     }
+    
+    @Test
+    public void testMultipleAppendRemoveAppend() {
+        arr_empty_3.append("A");
+        arr_empty_3.append("B");
+        arr_empty_3.append("C");
+        arr_empty_3.removeFirst();
+        arr_empty_3.removeFirst();
+        arr_empty_3.append("X");
+        arr_empty_3.append("Y");
+        String emptyResult = "";
+        for (String s : arr_empty_3) {
+            if (s != null) {
+                emptyResult += s;
+            }
+        }
+
+        assertEquals("CXY", emptyResult);
+    }
 }
