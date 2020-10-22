@@ -53,8 +53,7 @@ public class LinkedPipe<E> extends AbstractPipe<E> {
         else
         {
             first.prev = newNode;
-            newNode.next = first;
-            first = newNode;
+            first = first.prev;
         }
 
         length++;
@@ -82,8 +81,7 @@ public class LinkedPipe<E> extends AbstractPipe<E> {
         else
         {
             last.next = newNode;
-            newNode.prev = last;
-            last = newNode;
+            last = last.next;
         }
 
         length++;

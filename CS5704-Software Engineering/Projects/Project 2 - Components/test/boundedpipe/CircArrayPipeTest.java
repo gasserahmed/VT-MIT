@@ -495,4 +495,29 @@ public class CircArrayPipeTest {
 
         assertEquals("CXY", emptyResult);
     }
+    
+    @Test
+    public void testProject2X() {
+        Pipe<String> pipe = new CircArrayPipe<>(4);
+        pipe.append("W");
+        pipe.append("X");
+        String s1 = pipe.removeFirst();
+        pipe.prepend("Y");
+        String s2 = pipe.removeLast();
+        pipe.prepend("Z");
+        pipe.prepend(s2);
+
+        String result = "";
+        for (String s : pipe) {
+            if (s != null) {
+                result += s;
+            }
+        }
+
+        assertEquals("XZY", result);
+        assertEquals("X", pipe.first());
+        assertEquals("Y", pipe.last());
+        assertEquals(3, pipe.length());
+        assertEquals("[X, Z, Y]:4", pipe.toString());
+    }
 }
