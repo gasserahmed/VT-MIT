@@ -293,7 +293,7 @@ public class LinkedPipeTest {
 
     @Test
     public void testABCPrependZ() {
-        linked_ABC_6.prepend("F");
+        linked_ABC_6.prepend("Z");
         assertEquals(4, linked_ABC_6.length());
     }
 
