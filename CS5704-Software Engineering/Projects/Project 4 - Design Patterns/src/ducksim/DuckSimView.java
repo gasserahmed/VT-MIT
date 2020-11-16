@@ -189,9 +189,9 @@ public class DuckSimView extends JPanel {
 		g.fillRect(x + 5, y + 5, 90, 90);
 
 		// Paint the body of the square.
-		// If the duck is selected, paint it black, otherwise paint it white.
+		// If the duck is selected, paint it with its color, otherwise paint it white.
 		if (model.isSelected(pos)) {
-			g.setColor(Color.BLACK);
+			g.setColor(model.getDuck(pos).getColor());
 		} else {
 			g.setColor(Color.WHITE);
 		}
@@ -215,12 +215,14 @@ public class DuckSimView extends JPanel {
 		FontMetrics fm = g.getFontMetrics();
 		int totalWidth;
 
-		// If the duck is on the DuckSim welcoming committee and the duck
-		// has state "welcoming", the string "Welcome!" will be printed
-		// in blue near the top of the square.
-		g.setColor(Color.BLUE);
+		// If the duck is on the DuckSim welcoming committee, put a pink "w" in the lower 
+		// left corner of the square. If the duck also has state "welcoming", the string "Welcome!" will be printed
+        // in blue near the top of the square.
 		if (model.getDuck(pos).isOnDSWC()) {
-			if (model.getDuck(pos).getState() == State.WELCOMING) {
+		    g.setColor(Color.MAGENTA);
+            g.drawString("w", x + 15, y + 85);
+		    if (model.getDuck(pos).getState() == State.WELCOMING) {
+		        g.setColor(Color.BLUE);
 				totalWidth = fm.stringWidth("Welcome!");
 				g.drawString("Welcome!", x + 50 - totalWidth / 2, y + 35);
 				model.getDuck(pos).swim();
