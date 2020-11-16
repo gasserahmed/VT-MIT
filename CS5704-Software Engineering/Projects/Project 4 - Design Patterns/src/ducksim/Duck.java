@@ -4,7 +4,8 @@ package ducksim;
 import java.awt.Color;
 
 public abstract class Duck {
-    
+    private FlyBehavior flyBehavior;
+    private QuackBehavior quackBehavior;
     private Color color = Color.BLACK;
     private State state = State.SWIMMING;
     private boolean isFree = true;
@@ -17,15 +18,15 @@ public abstract class Duck {
     }
     
     public void quack() {
-        state = State.QUACKING;
+        state = quackBehavior.getState();
     }
     
     public String getQuack() {
-        return "Quack!";
+        return quackBehavior.getQuack();
     }
     
     public void fly() {
-        state = State.FLYING;
+        state = flyBehavior.getState();
     }
     
     public State getState() {
@@ -44,8 +45,16 @@ public abstract class Duck {
         return color;
     }
     
-    // join / quit and capture / release commands
+    public void setFlyBehavior(FlyBehavior flyBehavior) {
+        this.flyBehavior = flyBehavior;
+    }
+
+    public void setQuackBehavior(QuackBehavior quackBehavior) {
+        this.quackBehavior = quackBehavior;
+    }
     
+    // join / quit and capture / release commands    
+
     public void joinDSWC() {
         isOnDSWC = true;
     }
