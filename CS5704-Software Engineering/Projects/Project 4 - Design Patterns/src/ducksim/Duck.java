@@ -4,9 +4,11 @@ package ducksim;
 import java.awt.Color;
 
 public abstract class Duck {
-    private FlyBehavior flyBehavior;
-    private QuackBehavior quackBehavior;
-    private Color color = Color.BLACK;
+    protected FlyBehavior originalFlyBehavior;
+    protected FlyBehavior currentFlyBehavior;
+    protected QuackBehavior originalQuackBehavior;
+    protected QuackBehavior currentQuackBehavior = originalQuackBehavior;
+    protected Color color = Color.BLACK;
     private State state = State.SWIMMING;
     private boolean isFree = true;
     private boolean isOnDSWC = false;
@@ -18,15 +20,15 @@ public abstract class Duck {
     }
     
     public void quack() {
-        state = quackBehavior.getState();
+        state = currentQuackBehavior.getState();
     }
     
     public String getQuack() {
-        return quackBehavior.getQuack();
+        return currentQuackBehavior.getQuack();
     }
     
     public void fly() {
-        state = flyBehavior.getState();
+        state = currentFlyBehavior.getState();
     }
     
     public State getState() {
@@ -45,14 +47,6 @@ public abstract class Duck {
         return color;
     }
     
-    public void setFlyBehavior(FlyBehavior flyBehavior) {
-        this.flyBehavior = flyBehavior;
-    }
-
-    public void setQuackBehavior(QuackBehavior quackBehavior) {
-        this.quackBehavior = quackBehavior;
-    }
-    
     // join / quit and capture / release commands    
 
     public void joinDSWC() {
@@ -68,10 +62,14 @@ public abstract class Duck {
     }
     
     public void capture() {
+        currentFlyBehavior = new FlyNoWay();
+        currentQuackBehavior = new QuackNoWay();
         isFree = false;
     }
     
     public void release() {
+        currentFlyBehavior = originalFlyBehavior;
+        currentQuackBehavior = originalQuackBehavior;
         isFree = true;
     }
     

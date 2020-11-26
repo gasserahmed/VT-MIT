@@ -7,8 +7,10 @@ public class MallardDuck extends Duck {
 
     public MallardDuck() {
         setColor(Color.GREEN);
-        setFlyBehavior(new FlyWithWings());
-        setQuackBehavior(new QuackNormal());
+        originalFlyBehavior = new FlyWithWings();
+        currentFlyBehavior = originalFlyBehavior;
+        originalQuackBehavior = new QuackNormal();
+        currentQuackBehavior = originalQuackBehavior;
     }
     
     @Override

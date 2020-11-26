@@ -7,8 +7,10 @@ public class RedheadDuck extends Duck {
     
     public RedheadDuck() {
         setColor(Color.RED);
-        setFlyBehavior(new FlyWithWings());
-        setQuackBehavior(new QuackNormal());
+        originalFlyBehavior = new FlyWithWings();
+        currentFlyBehavior = originalFlyBehavior;
+        originalQuackBehavior = new QuackNormal();
+        currentQuackBehavior = originalQuackBehavior;
     }
     
     @Override

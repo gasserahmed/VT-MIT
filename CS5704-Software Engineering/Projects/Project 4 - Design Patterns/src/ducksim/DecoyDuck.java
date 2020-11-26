@@ -7,8 +7,10 @@ public class DecoyDuck extends Duck {
     
     public DecoyDuck() {
         setColor(Color.ORANGE);
-        setFlyBehavior(new FlyNoWay());
-        setQuackBehavior(new QuackNoWay());
+        originalFlyBehavior = new FlyNoWay();
+        currentFlyBehavior = originalFlyBehavior;
+        originalQuackBehavior = new QuackNoWay();
+        currentQuackBehavior = originalQuackBehavior;
     }
     
     @Override

@@ -7,8 +7,10 @@ public class RubberDuck extends Duck {
     
     public RubberDuck() {
         setColor(Color.YELLOW);
-        setFlyBehavior(new FlyNoWay());
-        setQuackBehavior(new QuackSqueek());
+        originalFlyBehavior = new FlyNoWay();
+        currentFlyBehavior = originalFlyBehavior;
+        originalQuackBehavior = new QuackSqueek();
+        currentQuackBehavior = originalQuackBehavior;
     }
     
     @Override

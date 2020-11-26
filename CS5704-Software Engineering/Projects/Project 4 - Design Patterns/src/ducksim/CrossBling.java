@@ -5,7 +5,8 @@ public class CrossBling extends Bling {
         super(duck);
     }
     
+    @Override
     public String display() {
-        return super.display() + ":+";
+        return duck.display() + ":+";
     }
 }
