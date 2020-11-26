@@ -12,10 +12,10 @@ public class MallardDuck extends Duck {
         originalQuackBehavior = new QuackNormal();
         currentQuackBehavior = originalQuackBehavior;
     }
-    
+
     @Override
     public String display() {
         return "Mallard";
     }
-    
+
 }

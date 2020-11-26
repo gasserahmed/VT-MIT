@@ -16,7 +16,7 @@ public class MakeDuckDialog extends JDialog {
     private final JPanel duckPanel = new JPanel();
     private final JLabel duckLabel = new JLabel("Duck");
     private final String[] duckStrings = { "Mallard", "Redhead", "Rubber",
-            "Decoy" };
+            "Decoy", "Goose" };
     private final JComboBox duckOptions = new JComboBox(duckStrings);
 
     // Bling panel
@@ -129,11 +129,11 @@ public class MakeDuckDialog extends JDialog {
             // makeDuckDialog
             Duck duck = DuckFactory.getInstance().createDuck(duckType,
                     starCount, moonCount, crossCount);
-
             if (duck != null)
             {
                 model.addNewDuck(duck);
             }
+
             view.repaint();
             this.dispose();
         });

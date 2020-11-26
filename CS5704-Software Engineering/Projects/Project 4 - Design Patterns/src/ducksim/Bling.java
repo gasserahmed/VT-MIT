@@ -2,7 +2,7 @@ package ducksim;
 
 public abstract class Bling extends Duck {
     protected Duck duck;
-    
+
     public Bling(Duck duck) {
         this.duck = duck;
         originalFlyBehavior = duck.originalFlyBehavior;
@@ -11,9 +11,9 @@ public abstract class Bling extends Duck {
         currentQuackBehavior = originalQuackBehavior;
         color = duck.color;
     }
-    
-//    @Override
-//  public String getQuack() {
-//      return duck.getQuack();
-//  }
+
+    @Override
+    public String getQuack() {
+        return duck.getQuack();
+    }
 }
