@@ -222,10 +222,12 @@ public class DuckSimView extends JPanel {
 		    g.setColor(Color.MAGENTA);
             g.drawString("w", x + 15, y + 85);
 		    if (model.getDuck(pos).getState() == State.WELCOMING) {
-		        g.setColor(Color.BLUE);
-				totalWidth = fm.stringWidth("Welcome!");
-				g.drawString("Welcome!", x + 50 - totalWidth / 2, y + 35);
-				model.getDuck(pos).swim();
+		        String welcomeMessage = model.getDuck(pos).isFree() ? "Welcome!"
+                        : "Beware!";
+                g.setColor(Color.BLUE);
+                totalWidth = fm.stringWidth(welcomeMessage);
+                g.drawString(welcomeMessage, x + 50 - totalWidth / 2, y + 35);
+                model.getDuck(pos).swim();
 			}
 		}
 

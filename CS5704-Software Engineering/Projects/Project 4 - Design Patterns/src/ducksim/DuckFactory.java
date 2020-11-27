@@ -1,7 +1,10 @@
 package ducksim;
 
-public class DuckFactory {
+import java.util.ArrayList;
+
+public class DuckFactory implements Subject {
     private static final DuckFactory duckFactory = new DuckFactory();
+    private ArrayList<Observer> observers = new ArrayList<Observer>();
 
     public static DuckFactory getInstance() {
         return duckFactory;
@@ -47,6 +50,26 @@ public class DuckFactory {
         {
             duck = new CrossBling(duck);
         }
+        
+        notifyObservers();
         return duck;
+    }
+
+    @Override
+    public void registerObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        int index = observers.indexOf(observer);
+        observers.remove(index);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update();
+        }
     }
 }
