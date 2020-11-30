@@ -162,10 +162,7 @@ public class DuckSimController implements MouseListener {
             int idx = view.getClickedDuck(e);
             if (idx == -1) { // no duck was clicked
                 if (view.clickedNewDuckButton(e)) {
-                    Duck duck;
-                    MakeDuckDialog makeDuckDialog = new MakeDuckDialog(model, view);
-                    makeDuckDialog.setSize(300, 200);
-                    makeDuckDialog.setVisible(true);
+                    new NewDuckController(view, model).createNewDuck();
                 }
             } else {
                 if (model.isSelected(idx)) {

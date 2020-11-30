@@ -1,10 +1,11 @@
 package ducksim;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DuckFactory implements Subject {
     private static final DuckFactory duckFactory = new DuckFactory();
-    private ArrayList<Observer> observers = new ArrayList<Observer>();
+    private List<Observer> observers = new ArrayList<>();
 
     public static DuckFactory getInstance() {
         return duckFactory;

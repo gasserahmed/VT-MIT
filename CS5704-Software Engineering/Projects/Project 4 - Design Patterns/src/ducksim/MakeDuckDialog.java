@@ -20,7 +20,7 @@ public class MakeDuckDialog extends JDialog {
     private final JComboBox duckOptions = new JComboBox(duckStrings);
 
     // Bling panel
-    JPanel blingPanel = new JPanel();
+    JPanel blingPanel = new JPanel(new GridLayout(3, 4, 5, 5));
     private final JLabel starTitleLbl = new JLabel("Star");
     private final JLabel starCountLbl = new JLabel("0");
     private final JButton starPlusBtn = new JButton("+");
@@ -63,7 +63,6 @@ public class MakeDuckDialog extends JDialog {
         this.add(duckPanel);
 
         // add bling panel
-        blingPanel.setLayout(new GridLayout(3, 4));
         blingPanel.add(starTitleLbl);
         blingPanel.add(starCountLbl);
         blingPanel.add(starPlusBtn);

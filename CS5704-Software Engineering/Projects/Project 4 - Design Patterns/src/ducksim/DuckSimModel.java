@@ -96,6 +96,14 @@ public class DuckSimModel implements Iterable<Duck> {
         return selected.isEmpty();
     }
     
+    public List<Duck> getSelectedDucks() {
+        List<Duck> result = new ArrayList<>();
+        for (Integer i : selected) {
+            result.add(ducks.get(i));
+        }
+        return result;
+    }
+    
     @Override
     public Iterator<Duck> iterator() {
         return ducks.iterator();
