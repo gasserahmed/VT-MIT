@@ -1,0 +1,56 @@
+val list = List("This", "is", "a", "Scala", "List")
+list.isEmpty
+list.head
+list.tail
+list.init
+list.last
+list.length
+list.drop(2)
+list.filter(s => s.length == 4)
+list.map(s => s.length)
+list.mkString("[", ":", "]")
+list.exists(s => s.length > 5)
+list.foreach(s => print(s))
+val list2 = "This"::"is"::"a" :: Nil
+
+def length(list: List[_]): Int = {
+  if (list.isEmpty) 0
+  else 1 + length(list.tail)
+}
+
+def length2(list: List[_]): Int = list match {
+  case Nil => 0
+  case x::xs => 1 + length2(xs)
+}
+
+def get[T](list: List[T], idx: Int): T = list match {
+  case Nil => throw new NoSuchElementException
+  case x::xs => if (idx == 0) x else get(xs, idx-1)
+}
+
+def exists[T](list: List[T], pred: T=>Boolean): Boolean = list match {
+  case Nil => false
+  case x::xs => if (pred(x)) true else exists(xs, pred)
+}
+
+def drop[T](list: List[T], n: Int): List[T] = list match {
+  case Nil => Nil
+  case x::xs => n match {
+    case 0 => list
+    case 1 => xs
+    case _ => drop(xs, n-1)
+  }
+}
+
+def last[T](list: List[T]): T = list match {
+  case Nil => throw new NoSuchElementException
+  case x :: Nil => x
+  case _ :: xs => last(xs)
+}
+
+last(List("x", "y", "z"))
+last(list)
+length2(list)
+get(list, 2)
+exists(list, (elem: String) => elem.length == 4)
+drop(list, 2)
