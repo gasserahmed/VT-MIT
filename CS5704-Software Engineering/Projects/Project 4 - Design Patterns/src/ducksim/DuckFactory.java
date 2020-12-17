@@ -7,6 +7,8 @@ public class DuckFactory implements Subject {
     private static final DuckFactory duckFactory = new DuckFactory();
     private List<Observer> observers = new ArrayList<>();
 
+    private DuckFactory () {}
+    
     public static DuckFactory getInstance() {
         return duckFactory;
     }
