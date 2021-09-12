@@ -1,0 +1,48 @@
+.header-dropdown {
+  position: relative;
+}
+
+.categories-button {
+  position: relative;
+  z-index: 2;
+}
+
+.categories-button::after {
+  font-family: FontAwesome; font-size: 14px; content: "\f0d7";
+  margin-left: 5px;
+}
+
+.header-dropdown ul {
+  background-color: rgb(158 98 4 / 60%);
+  color: black;
+  display: none;
+  border-radius: 0 0 10px 10px;
+}
+
+.header-dropdown li {
+  padding: 0.25em 0.5em;
+}
+
+.header-dropdown a {
+  color: black;
+  text-decoration: none;
+}
+
+.header-dropdown li:hover {
+  background: rgb(114 71 3 / 30%);
+}
+
+.header-dropdown li:last-child:hover {
+  border-radius: 0 0 10px 10px;
+}
+
+.header-dropdown:hover ul {
+  display: block;
+  position: absolute;
+  min-width: 8.15em;
+  z-index: 1;
+  cursor: pointer;
+  margin-top: -12%;
+  padding-top: 12%;
+  z-index: 1;
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kitab Lab</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="The homepage for Kitab Lab" />
+
+    <!-- Import font-awesome icons -->
+    <link
+      href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"
+      rel="stylesheet"
+    />
+
+    <!-- order of CSS files is important (this is the "Cascade" part of CSS) -->
+
+    <!-- global.css contains resets, custom properties, and utility classes -->
+    <link rel="stylesheet" href="css/global.css" />
+
+    <!-- start from the top-level component and work your way down -->
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/app-header.css" />
+    <link rel="stylesheet" href="css/header-dropdown.css" />
+    <link rel="stylesheet" href="css/app-footer.css" />
+    <link rel="stylesheet" href="css/category.css" />
+    <link rel="stylesheet" href="css/category-book-list.css" />
+  </head>
+
+  <body>
+    <main>
+      <header class="container">
+        <section class="bookstore-logo">
+          <a href="index.html">
+            <img
+              src="images/site/kitab-lab-logo.png"
+              alt="Kitab Lab Logo"
+              width="150px"
+              height="auto"
+            />
+          </a>
+        </section>
+        <section class="title-and-search-bar">
+          <h1 class="text-logo">KITAB LAB</h1>
+          <form action="category.html">
+            <input type="text" class="search-bar" /><br />
+            <input type="submit" class="button search-button" value="Search" />
+          </form>
+        </section>
+        <section class="header-dropdown-and-cart">
+          <button class="button">cart (0)</button>
+          <button class="button">login</button>
+          <div class="header-dropdown">
+            <button class="button categories-button">Categories</button>
+            <ul>
+              <li><a href="category.html?category=Classics">Classics</a></li>
+              <li><a href="category.html?category=Fantasy">Fantasy</a></li>
+              <li><a href="category.html?category=Mystery">Mystery</a></li>
+              <li><a href="category.html?category=Romance">Romance</a></li>
+            </ul>
+          </div>
+        </section>
+      </header>
+      <div class="category-page">
+        <nav class="category-nav">
+          <ul class="category-buttons">
+            <li class="button selected-category-button">Classics</li>
+            <li>
+              <a class="button unselected-category-button" href="category.html"
+                >Fantasy</a
+              >
+            </li>
+            <li>
+              <a class="button unselected-category-button" href="category.html"
+                >Mystery</a
+              >
+            </li>
+            <li>
+              <a class="button unselected-category-button" href="category.html"
+                >Romance</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <section class="category-book-list">
+          <ul id="book-boxes">
+            <li class="book-box">
+              <div class="book-image">
+                <a href="#">
+                  <img src="images/books/the-iliad.gif" alt="The Iliad" />
+                </a>
+              </div>
+              <div class="book-title">The Iliad</div>
+              <div class="book-author">Homer</div>
+              <div class="book-price">$6.99</div>
+              <button class="button">Add to Cart</button>
+              <button class="button">Read Now</button>
+            </li>
+            <li class="book-box">
+              <div class="book-image">
+                <a href="#">
+                  <img
+                    src="images/books/the-brothers-karamazov.gif"
+                    alt="The Brothers Karamazov"
+                  />
+                </a>
+              </div>
+              <div class="book-title">The Brothers Karamazov</div>
+              <div class="book-author">Fyodor Dostoyevski</div>
+              <div class="book-price">$13.99</div>
+              <button class="button">Add to Cart</button>
+              <button class="button">Read Now</button>
+            </li>
+            <li class="book-box">
+              <div class="book-image">
+                <a href="#">
+                  <img
+                    src="images/books/little-dorrit.gif"
+                    alt="Little Dorrit"
+                  />
+                </a>
+              </div>
+              <div class="book-title">Little Dorrit</div>
+              <div class="book-author">Charles Dickens</div>
+              <div class="book-price">$5.99</div>
+              <button class="button">Add to Cart</button>
+              <button class="button">Read Now</button>
+            </li>
+            <li class="book-box">
+              <div class="book-image">
+                <a href="#">
+                  <img src="images/books/moby-dick.gif" alt="Moby Dick" />
+                </a>
+              </div>
+              <div class="book-title">Moby Dick</div>
+              <div class="book-author">Herman Melville</div>
+              <div class="book-price">$6.99</div>
+              <button class="button">Add to Cart</button>
+              <button class="button">Read Now</button>
+            </li>
+          </ul>
+        </section>
+      </div>
+      <footer class="container">
+        <section class="links">
+          <a href="index.html">about</a>
+          <a href="index.html">contact</a>
+          <a href="index.html">directions</a>
+        </section>
+        <section class="social-media-icons">
+          <a class="button" href="index.html">Facebook</a>
+          <a class="button" href="index.html">Twitter</a>
+        </section>
+      </footer>
+    </main>
+  </body>
+</html>

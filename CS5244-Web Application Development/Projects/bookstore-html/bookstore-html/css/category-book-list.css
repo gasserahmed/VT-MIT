@@ -1,0 +1,22 @@
+#book-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1em;
+  gap: 1em;
+}
+
+.book-box {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-background-color);
+  padding: 1em;
+  gap: 0.25em;
+}
+
+.book-title {
+  font-weight: bold;
+}
+
+.book-author {
+  font-style: italic;
+}

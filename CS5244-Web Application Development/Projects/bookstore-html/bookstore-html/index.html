@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kitab Lab</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="The homepage for Kitab Lab" />
+
+    <!-- Import font-awesome icons -->
+    <script src="https://kit.fontawesome.com/7cbb8263c1.js" crossorigin="anonymous"></script>
+
+    <!-- order of CSS files is important (this is the "Cascade" part of CSS) -->
+
+    <!-- global.css contains resets, custom properties, and utility classes -->
+    <link rel="stylesheet" href="css/global.css" />
+
+    <!-- start from the top-level component and work your way down -->
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/app-header.css" />
+    <link rel="stylesheet" href="css/header-dropdown.css" />
+    <link rel="stylesheet" href="css/app-footer.css" />
+    <link rel="stylesheet" href="css/home.css" />
+  </head>
+
+  <body>
+    <main>
+      <header class="container">
+        <section class="bookstore-logo-title flex-centered-container">
+          <a href="index.html">
+            <img
+              src="images/site/kitab-lab-logo.png"
+              alt="Kitab Lab Logo"
+              width="57px"
+              height="auto"
+            />
+          </a>
+          <span class="logo-title-divider"></span>
+          <a href="index.html">
+            <h1 class="text-logo">KITAB LAB</h1>
+          </a>
+        </section>
+        <section class="search-bar flex-centered-container">
+          <form action="category.html" class="flex-centered-container">
+            <input type="text" class="search-bar-text" placeholder="Search books"/><br />
+            <input type="submit" class="button icon-inside-button" value="&#xf002;" />
+          </form>
+        </section>
+        <section class="header-dropdown-and-cart flex-centered-container">
+          <div class="header-dropdown">
+            <button class="button categories-button">Categories</button>
+            <ul>
+              <li><a href="category.html?category=Arts">Arts</a></li>
+              <li><a href="category.html?category=Computers">Computers</a></li>
+              <li><a href="category.html?category=Entertainment">Entertainment</a></li>
+              <li><a href="category.html?category=Kids">Kids</a></li>
+              <li><a href="category.html?category=Religion">Religion</a></li>
+              <li><a href="category.html?category=Romance">Romance</a></li>
+              <li><a href="category.html?category=Sports">Sports</a></li>
+            </ul>
+          </div>
+          <button class="button icon-only-button">
+            <i class="fas fa-shopping-cart icon-only-button-icon">
+              <span class="icon-only-button-text">0</span>
+            </i>
+          </button>
+          <button class="button"><i class="fas fa-sign-in-alt icon-with-text-button"></i>Login</button>          
+        </section>
+      </header>
+      <div class="home-page">
+        <section class="welcome-text flow-content container">
+          <h2>KITAB LAB</h2>
+          <p>
+            where every book is a new experiment
+          </p>
+        </section>
+      </div>
+      <footer class="container">
+        <section class="links">
+          <a href="index.html">about</a>
+          <a href="index.html">contact</a>
+          <a href="index.html">directions</a>
+        </section>
+        <section class="social-media-icons">
+          <a class="button">Facebook</a>
+          <a class="button">Twitter</a>
+        </section>
+      </footer>
+    </main>
+  </body>
+</html>
