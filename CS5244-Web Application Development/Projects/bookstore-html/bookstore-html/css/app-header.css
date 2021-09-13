@@ -4,12 +4,8 @@ header {
   justify-content: space-between;
   padding: 1em;
   gap: 1em;
-  border-bottom: 1px solid #F0F2F5;
-}
-
-.flex-centered-container {
-  display: flex;
-  align-items: center;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  z-index: 1;
 }
 
 header a {
@@ -18,56 +14,18 @@ header a {
   color: white !important;
 }
 
-.text-logo {
-  font-family: var(--title-font-family);
-  color: var(--neutral-color-dark);
-  text-shadow: none;
-}
-
 .search-bar-text {
   padding: 0.5em 1.5em;
-  border-radius: 50px;
+  border-radius: 50px 0px 0px 50px;
   border: 0;
   background: var(--primary-background-color);
   width: 350px;
 }
 
-.icon-inside-button {
-  font-family: FontAwesome;
-  padding: 0px 12px;
-}
-
-.icon-with-text-button {
-  margin-right: 5px;
-}
-
-.icon-only-button {
-  background: transparent;
-  color: var(--primary-color);
+.search-bar-button {
+  margin-left: -5%;
   box-shadow: none;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  padding: 0 5px;
-}
-
-.icon-only-button:hover {
-  background: transparent;
-  color: var(--primary-color-dark);
-}
-
-.icon-only-button-icon {
-  font-size: 2em;
-  position: relative;
-}
-
-.icon-only-button-text {
-  color: white;
-  position: absolute;
-  text-align: center;
-  margin-left: -53%;
-  margin-top: 10%;
-  font-size: 0.5em;
+  border-left: 1px solid;
 }
 
 .logo-title-divider {

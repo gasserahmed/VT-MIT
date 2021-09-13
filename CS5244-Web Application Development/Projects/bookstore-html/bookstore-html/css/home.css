@@ -6,7 +6,24 @@
 }
 
 .welcome-text {
-  width: 20em;
+  width: 30em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 2rem;
+}
+
+.welcome-text h2 {
+  color: var(--neutral-color-dark);
+  font-size: 3.5em;
+  font-family: 'Proza Libre';
+  font-weight: 100;
+}
+
+.welcome-text p {
+  color: var(--neutral-color);
+  font-size: 1.5em;
+  font-weight: 100;
 }
 
 .category-image-items {
@@ -27,4 +44,9 @@
   color: white;
   transform: translateY(-2.25em);
   margin-bottom: -2em;
+}
+
+.shop-button {
+  width: 15em;
+  margin-top: 2rem;
 }

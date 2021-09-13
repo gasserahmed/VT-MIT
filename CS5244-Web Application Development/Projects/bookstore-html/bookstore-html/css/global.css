@@ -123,7 +123,7 @@ textarea {
   to the first elem only when it is followed by another elem.
 */
 .flow-content > * + * {
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
 }
 
 /*
@@ -132,6 +132,11 @@ textarea {
 */
 .container {
   padding: 1rem;
+}
+
+.flex-centered-container {
+  display: flex;
+  align-items: center;
 }
 
 /*
@@ -176,12 +181,51 @@ body {
   border-radius: 50px;
   border: 0;
   height: 37px;
+  font-weight: bold;
 }
 
 .button:hover,
 .button:active {
   background: var(--primary-color-dark);
   color: white;
+}
+
+.icon-inside-button {
+  font-family: FontAwesome;
+  padding: 0px 12px;
+}
+
+.icon-with-text-button {
+  margin-right: 5px;
+}
+
+.icon-only-button {
+  background: transparent;
+  color: var(--primary-color);
+  box-shadow: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
+
+.icon-only-button:hover {
+  background: transparent;
+  color: var(--primary-color-dark);
+}
+
+.icon-only-button-icon {
+  font-size: 2em;
+  position: relative;
+}
+
+.icon-only-button-text {
+  color: white;
+  position: absolute;
+  text-align: center;
+  margin-left: -53%;
+  margin-top: 10%;
+  font-size: 0.5em;
 }
 
 /* LINKS */
@@ -201,4 +245,13 @@ a:visited {
 a:hover,
 a:active {
   color: var(--primary-color-dark);
+}
+
+/*
+  Logo
+*/
+.logo-text {
+  font-family: var(--title-font-family);
+  color: var(--neutral-color-dark);
+  text-shadow: none;
 }
