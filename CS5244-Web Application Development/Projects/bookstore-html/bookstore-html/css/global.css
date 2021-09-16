@@ -21,7 +21,7 @@
     For example, if you want 20px, then set the size to 20/16 = 1.25rem.
   */
   --default-font-size: 1.0rem;
-  --default-text-color: #363a3a;
+  --default-text-color: #3C797B;
   --neutral-color: #3C797B;
   --neutral-color-dark: #2B5658;
   --primary-color: #9E6204;
@@ -181,7 +181,6 @@ body {
   border-radius: 50px;
   border: 0;
   height: 37px;
-  font-weight: bold;
 }
 
 .button:hover,

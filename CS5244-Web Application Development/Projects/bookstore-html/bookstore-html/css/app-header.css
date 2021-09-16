@@ -26,6 +26,7 @@ header a {
   margin-left: -5%;
   box-shadow: none;
   border-left: 1px solid;
+  border-radius: 50%;
 }
 
 .logo-title-divider {
