@@ -2,16 +2,35 @@ footer {
   background: var(--tertiary-background-color);
   display: flex;
   justify-content: space-between;
-  gap: 1em;
+  padding: 1.5rem !important;
 }
 
-.links,
-.social-media-icons {
+footer .links a:not(:first-child) {
+  padding-left: 0.5em;
+  border-left: 1px solid white;
+}
+
+.copyright, .links,
+.social-media-icons, footer a {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  color: white !important;
+  gap: 0.5em;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
 }
 
 .social-media-icons {
   text-align: center;
-  gap: 0.25em;
+  cursor: pointer;
+  font-size: 0.7em;
+  gap: 1.5em;
+}
+
+.social-media-icons a:hover {
+  color: #f1d3a4 !important;
 }
