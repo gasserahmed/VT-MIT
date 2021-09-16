@@ -40,7 +40,7 @@
   display: block;
   position: absolute;
   min-width: 8.15em;
-  z-index: 1;
+  z-index: 3;
   cursor: pointer;
   margin-top: -12%;
   padding-top: 16%;

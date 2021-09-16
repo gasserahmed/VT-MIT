@@ -25,54 +25,84 @@
   <body>
     <main>
       <header class="container">
-        <section class="bookstore-logo">
+        <section class="bookstore-logo-title flex-centered-container">
           <a href="index.html">
             <img
               src="images/site/kitab-lab-logo.png"
               alt="Kitab Lab Logo"
-              width="150px"
+              width="57px"
               height="auto"
             />
           </a>
+          <span class="logo-title-divider"></span>
+          <a href="index.html">
+            <h1 class="logo-text">KITAB LAB</h1>
+          </a>
         </section>
-        <section class="title-and-search-bar">
-          <h1 class="text-logo">KITAB LAB</h1>
-          <form action="category.html">
-            <input type="text" class="search-bar" /><br />
-            <input type="submit" class="button search-button" value="Search" />
+        <section class="search-bar flex-centered-container">
+          <form action="category.html" class="flex-centered-container">
+            <input type="text" class="search-bar-text" placeholder="Search books"/><br />
+            <input type="submit" class="button icon-inside-button search-bar-button" value="&#xf002;" />
           </form>
         </section>
-        <section class="header-dropdown-and-cart">
-          <button class="button">cart (0)</button>
-          <button class="button">login</button>
+        <section class="header-dropdown-and-cart flex-centered-container">
           <div class="header-dropdown">
             <button class="button categories-button">Categories</button>
             <ul>
-              <li><a href="category.html?category=Classics">Classics</a></li>
-              <li><a href="category.html?category=Fantasy">Fantasy</a></li>
-              <li><a href="category.html?category=Mystery">Mystery</a></li>
+              <li><a href="category.html?category=Arts">Arts</a></li>
+              <li><a href="category.html?category=Computers">Computers</a></li>
+              <li><a href="category.html?category=Entertainment">Entertainment</a></li>
+              <li><a href="category.html?category=Kids">Kids</a></li>
+              <li><a href="category.html?category=Religion">Religion</a></li>
               <li><a href="category.html?category=Romance">Romance</a></li>
+              <li><a href="category.html?category=Sports">Sports</a></li>
             </ul>
           </div>
+          <button class="button icon-only-button">
+            <i class="fas fa-shopping-cart icon-only-button-icon">
+              <span class="icon-only-button-text">0</span>
+            </i>
+          </button>
+          <button class="button"><i class="fas fa-sign-in-alt icon-with-text-button"></i>Login</button>          
         </section>
       </header>
       <div class="category-page">
         <nav class="category-nav">
           <ul class="category-buttons">
-            <li class="button selected-category-button">Classics</li>
+            <li class="button unselected-category-button">Arts</li>
             <li>
-              <a class="button unselected-category-button" href="category.html"
-                >Fantasy</a
+              <a class="button selected-category-button" href="category.html"
+                >Computers</a
               >
             </li>
             <li>
               <a class="button unselected-category-button" href="category.html"
-                >Mystery</a
+                >Entertainment</a
+              >
+            </li>
+            <li>
+              <a class="button unselected-category-button" href="category.html"
+                >Kids</a
+              >
+            </li>
+            <li>
+              <a class="button unselected-category-button" href="category.html"
+                >Religion</a
               >
             </li>
             <li>
               <a class="button unselected-category-button" href="category.html"
                 >Romance</a
+              >
+            </li>
+            <li>
+              <a class="button unselected-category-button" href="category.html"
+                >Sports</a
+              >
+            </li>
+            <li>
+              <a class="button unselected-category-button" href="category.html"
+                >Travel</a
               >
             </li>
           </ul>
@@ -82,12 +112,12 @@
             <li class="book-box">
               <div class="book-image">
                 <a href="#">
-                  <img src="images/books/the-iliad.gif" alt="The Iliad" />
+                  <img src="images/books/cracking-gayle.jpg" alt="Cracking the Coding Interview" />
                 </a>
               </div>
-              <div class="book-title">The Iliad</div>
-              <div class="book-author">Homer</div>
-              <div class="book-price">$6.99</div>
+              <div class="book-title">Cracking the Coding Interview</div>
+              <div class="book-author">by Gayle McDowell</div>
+              <div class="book-price">$24.49</div>
               <button class="button add-to-cart-button">Add to Cart</button>
               <button class="button read-now-button"><i class="fab fa-readme"></i></button>
             </li>
@@ -95,41 +125,39 @@
               <div class="book-image">
                 <a href="#">
                   <img
-                    src="images/books/the-brothers-karamazov.gif"
-                    alt="The Brothers Karamazov"
+                    src="images/books/bitcoin-saifedean.jpg"
+                    alt="The Bitcoin Standard"
                   />
                 </a>
               </div>
-              <div class="book-title">The Brothers Karamazov</div>
-              <div class="book-author">Fyodor Dostoyevski</div>
+              <div class="book-title">The Bitcoin Standard: The Decentralized Alternative to Central Banking</div>
+              <div class="book-author">by Saifedean Ammous</div>
               <div class="book-price">$13.99</div>
               <button class="button add-to-cart-button">Add to Cart</button>
-              <button class="button read-now-button"><i class="fab fa-readme"></i></button>
             </li>
             <li class="book-box">
               <div class="book-image">
                 <a href="#">
                   <img
-                    src="images/books/little-dorrit.gif"
-                    alt="Little Dorrit"
+                    src="images/books/crypto-ian.jpg"
+                    alt="Crypto Investing Guide"
                   />
                 </a>
               </div>
-              <div class="book-title">Little Dorrit</div>
-              <div class="book-author">Charles Dickens</div>
-              <div class="book-price">$5.99</div>
+              <div class="book-title">Crypto Investing Guide: How to Invest in Bitcoin, DeFi, NFTs, and More</div>
+              <div class="book-author">by Ian Balina</div>
+              <div class="book-price">$22.99</div>
               <button class="button add-to-cart-button">Add to Cart</button>
-              <button class="button read-now-button"><i class="fab fa-readme"></i></button>
             </li>
             <li class="book-box">
               <div class="book-image">
                 <a href="#">
-                  <img src="images/books/moby-dick.gif" alt="Moby Dick" />
+                  <img src="images/books/launch-jeff.jpg" alt="Launch" />
                 </a>
               </div>
-              <div class="book-title">Moby Dick</div>
-              <div class="book-author">Herman Melville</div>
-              <div class="book-price">$6.99</div>
+              <div class="book-title">Launch: How to Sell Almost Anything Online, Build a Business You Love, and Live the Life of Your Dream</div>
+              <div class="book-author">by Jeff Walker</div>
+              <div class="book-price">$12.99</div>
               <button class="button add-to-cart-button">Add to Cart</button>
               <button class="button read-now-button"><i class="fab fa-readme"></i></button>
             </li>
