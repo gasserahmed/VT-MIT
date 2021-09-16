@@ -17,7 +17,7 @@
 }
 
 .button.selected-category-button {
-  background-color: rgb(158 98 4 / 25%);
+  background-color: rgb(158 98 4 / 22%);
   color: var(--primary-color-dark);
   font-weight: bold;
 }
@@ -30,5 +30,5 @@
 
 .button.unselected-category-button:hover,
 .button.unselected-category-button:active {
-  background-color: rgb(158 98 4 / 10%);
+  background-color: rgb(158 98 4 / 7%);
 }
