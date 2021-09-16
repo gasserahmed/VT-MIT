@@ -18,7 +18,7 @@
 
 .button.selected-category-button {
   background-color: rgb(158 98 4 / 22%);
-  color: var(--primary-color-dark);
+  color: var(--primary-color);
   font-weight: bold;
 }
 
