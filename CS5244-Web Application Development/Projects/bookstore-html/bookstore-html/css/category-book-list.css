@@ -29,6 +29,14 @@
   -webkit-box-orient: vertical;
 }
 
+.book-author {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
 .book-price {
   font-weight: bold;
   font-size: 1.5rem;
@@ -38,13 +46,14 @@
 .book-image {
   grid-column: 1 / 2;
   grid-row: 1 / -1;
-  border-radius: 25px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .book-image img {
+  height: 200px;
+  width: 100%;
   min-height: 100%;
-  padding: 1em;
+  border-radius: 25px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .read-now-button {

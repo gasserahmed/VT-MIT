@@ -10,6 +10,10 @@ footer .links a:not(:first-child) {
   border-left: 1px solid white;
 }
 
+footer a:hover {
+  color: #f1d3a4 !important;
+}
+
 .copyright, .links,
 .social-media-icons, footer a {
   display: flex;
@@ -29,8 +33,4 @@ footer .links a:not(:first-child) {
   cursor: pointer;
   font-size: 0.7em;
   gap: 1.5em;
-}
-
-.social-media-icons a:hover {
-  color: #f1d3a4 !important;
 }

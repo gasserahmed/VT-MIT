@@ -13,7 +13,7 @@
 }
 
 .header-dropdown ul {
-  background-color: rgb(158 98 4 / 60%);
+  background-color: #f1f6f6;
   color: black;
   display: none;
   border-radius: 0 0 10px 10px;
@@ -24,12 +24,14 @@
 }
 
 .header-dropdown a {
-  color: black;
+  color: var(--neutral-color) !important;
   text-decoration: none;
+  text-shadow: none;
 }
 
 .header-dropdown li:hover {
-  background: rgb(114 71 3 / 30%);
+  background: #d4e2e2;
+  font-weight: bold;
 }
 
 .header-dropdown li:last-child:hover {

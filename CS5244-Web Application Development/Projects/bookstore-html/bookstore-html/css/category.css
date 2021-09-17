@@ -17,18 +17,18 @@
 }
 
 .button.selected-category-button {
-  background-color: rgb(158 98 4 / 22%);
-  color: var(--primary-color);
+  background-color: rgb(60 121 123 / 22%);
+  color: var(--neutral-color);
   font-weight: bold;
 }
 
 .button.unselected-category-button,
 .button.unselected-category-button:visited {
   background-color: white;
-  color: var(--primary-color);
+  color: var(--neutral-color);
 }
 
 .button.unselected-category-button:hover,
 .button.unselected-category-button:active {
-  background-color: rgb(158 98 4 / 7%);
+  background-color: rgb(60 121 123 / 7%);
 }
