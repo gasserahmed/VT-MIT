@@ -1,0 +1,60 @@
+.book-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  padding: 1em;
+}
+
+.book-box {
+  display: grid;
+  grid-template-columns: 1fr minmax(8em, 12em);
+  grid-template-rows: min-content min-content min-content 1fr min-content;
+  background-color: gainsboro;
+  column-gap: 0.5em;
+  row-gap: 0.25em;
+  padding: 1em;
+}
+
+img {
+  grid-column: 1 / 2;
+  grid-row: 1 / -1;
+}
+
+.read-now-button {
+  grid-column: 1 / 2;
+  grid-row: 1 / -1;
+  background-color: black;
+  color: white;
+  width: min-content;
+  height: min-content;
+  justify-self: end;
+  margin-top: .5em;
+  margin-right: .5em;
+  border-radius: 50%;
+  padding: .5em;
+  font-size: .8rem;
+}
+
+.book-title {
+  font-weight: bold;
+}
+
+.book-price {
+  font-style: italic;
+}
+
+.buy-now-button {
+  grid-row: -2 / -1;
+  justify-self: end;
+  background-color: gold;
+  border: solid black 2px;
+  white-space: no-wrap;
+  font-weight: bold;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  padding: 0.5em 1em;
+}
+
+.buy-now-button:hover {
+  cursor: pointer;
+}

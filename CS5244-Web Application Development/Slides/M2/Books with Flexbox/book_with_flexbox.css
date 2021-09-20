@@ -1,0 +1,60 @@
+.book-boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
+  gap: 1em;
+}
+
+.book-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1em;
+  background-color: gainsboro;
+  max-width: 12em;
+  padding: 1em;
+}
+
+.book-image-and-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.book-image {
+  width: fit-content;
+}
+
+.read-now-button {
+  background-color: #0008;
+  color: white;
+  transform: translateY(-1.6em);
+  margin-bottom: -1.6em;
+  text-align: center;
+  padding: 0.1em;
+}
+
+.read-now-button:hover,
+.buy-now-button:hover {
+  cursor: pointer;
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+}
+
+.book-title {
+  font-weight: bold;
+}
+
+.book-price {
+  font-style: italic;
+}
+
+.buy-now-button {
+  background-color: gold;
+  padding: 0.25em 1em;
+  align-self: end;
+  border: solid black 2px;
+}
