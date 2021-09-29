@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="62aec5a7-8d1f-4b82-9ad1-691524640fc8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreVue.war" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/.browserslistrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/client.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/css/global.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/bitcoin-saifedean.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/cracking-gayle.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/crypto-ian.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/experience-dan.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/launch-jeff.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/system-rob.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/images/site/background-book.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/images/site/kitab-lab-logo-white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/images/site/kitab-lab-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/AppFooter.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/AppHeader.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/CategoryBookList.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/CategoryBookListItem.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/CategoryNav.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/HeaderDropdown.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/HeaderSearchBar.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/router.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/views/Category.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/views/Home.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/vue.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/css/app.fd76c0f1.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/img/background-book.d57a119b.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/img/bitcoin-saifedean.a2ee099a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/img/cracking-gayle.0eb3f915.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/img/crypto-ian.df5f7270.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/img/experience-dan.5f143c2d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/img/kitab-lab-logo-white.73e1a38c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/img/kitab-lab-logo.16d96d9d.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/img/launch-jeff.20f23edb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/img/system-rob.4520843c.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/js/app.af7bf3c2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/js/app.af7bf3c2.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/js/chunk-vendors.bd0bf3e1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/js/chunk-vendors.bd0bf3e1.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/._bookstore-html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/._category.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/._css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/._images" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/._index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/css/._app-footer.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/css/._app-header.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/css/._app.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/css/._category-book-list.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/css/._category.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/css/._header-dropdown.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/css/._home.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/images/._books" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/images/._categories" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/images/._site" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/images/site/._.DS_Store" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/images/site/._bookstore-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/category.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/css/app-footer.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/css/app-header.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/css/app.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/css/category-book-list.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/css/category.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/css/global.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/css/header-dropdown.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/css/home.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/books/bitcoin-saifedean.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/books/cracking-gayle.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/books/crypto-ian.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/books/experience-dan.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/books/launch-jeff.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/books/system-rob.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/categories/classics.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/categories/fantasy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/categories/mystery.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/categories/romance.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/site/background-book.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/site/kitab-lab-logo-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/site/kitab-lab-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/index.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="1yYLd73EN0U6KKSifoEBoYGB0ec" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Gasser Ahmed\VT-MIT\CS5244-Web Application Development\Projects\CS5244\GasserBookstoreVue\server\src\main\webapp" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.Client: run serve">
+    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:8080">
+      <method v="2" />
+    </configuration>
+    <configuration name="Tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.53" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/GasserBookstoreVue/" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="Gradle : GasserBookstoreVue : server.war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/GasserBookstoreVue" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="6961ff09-f695-455a-9b69-436951c4c0af" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="65479" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Gradle : GasserBookstoreVue : server.war" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="Client: run serve" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/client/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="serve" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.Debug Application" />
+      <item itemvalue="npm.Client: run serve" />
+      <item itemvalue="Tomcat Server.Tomcat" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="62aec5a7-8d1f-4b82-9ad1-691524640fc8" name="Changes" comment="" />
+      <created>1632423658332</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1632423658332</updated>
+      <workItem from="1632423659802" duration="12928000" />
+      <workItem from="1632500694028" duration="6613000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
