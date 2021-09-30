@@ -87,7 +87,7 @@ public class ApiResource {
         try {
             return bookDao.findRandomByCategoryId(categoryId, limit);
         } catch (Exception e) {
-            throw new ApiException("products lookup via categoryName failed", e);
+            throw new ApiException("Suggested books lookup via categoryName failed", e);
         }
     }
 
@@ -123,11 +123,20 @@ public class ApiResource {
         }
     }
 
-    // once you do category-name just get the cat ID from the name and use cat ID
-
-    // TODO Implement the following APIs
-    //
-    // categories/name/{category-name}/suggested-books
-    // categories/name/{category-name}/suggested-books?limit=#
-
+    @GET
+    @Path("categories/name/{category-name}/suggested-books")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Book> suggestedBooksByCategoryName(@PathParam("category-name") String categoryName,
+                                     @QueryParam("limit") @DefaultValue("3") int limit,
+                                     @Context HttpServletRequest request) {
+        try {
+            Category category = categoryDao.findByName(categoryName);
+            if (category == null) {
+                throw new ApiException(String.format("No such category name: %s", categoryName));
+            }
+            return bookDao.findRandomByCategoryId(category.getCategoryId(), limit);
+        } catch (Exception e) {
+            throw new ApiException("Suggested books lookup via categoryName failed", e);
+        }
+    }
 }

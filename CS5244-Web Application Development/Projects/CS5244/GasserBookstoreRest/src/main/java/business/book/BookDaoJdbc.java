@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import business.BookstoreDbException.BookstoreQueryDbException;
 
@@ -68,8 +69,19 @@ public class BookDaoJdbc implements BookDao {
     @Override
     public List<Book> findRandomByCategoryId(long categoryId, int limit) {
         List<Book> books = new ArrayList<>();
-
-        // TODO Implement this method
+        try (Connection connection = JdbcUtils.getConnection();
+             PreparedStatement statement = connection.prepareStatement(FIND_BY_CATEGORY_ID_SQL)) {
+            statement.setLong(1, categoryId);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    books.add(readBook(resultSet));
+                }
+                Collections.shuffle(books);
+                books = books.subList(0, limit);
+            }
+        } catch (SQLException e) {
+            throw new BookstoreQueryDbException("Encountered a problem finding random books by category ID " + categoryId, e);
+        }
 
         return books;
     }
