@@ -5,109 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62aec5a7-8d1f-4b82-9ad1-691524640fc8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../GasserBookstoreVue.war" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/.browserslistrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/.eslintrc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/client.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/css/global.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/bitcoin-saifedean.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/cracking-gayle.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/crypto-ian.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/experience-dan.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/launch-jeff.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/system-rob.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/site/background-book.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/site/kitab-lab-logo-white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/site/kitab-lab-logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/AppFooter.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/AppHeader.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/CategoryBookList.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/CategoryBookListItem.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/CategoryNav.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/HeaderDropdown.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/HeaderSearchBar.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/views/Category.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/views/Home.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/vue.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/css/app.fd76c0f1.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/img/background-book.d57a119b.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/img/bitcoin-saifedean.a2ee099a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/img/cracking-gayle.0eb3f915.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/img/crypto-ian.df5f7270.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/img/experience-dan.5f143c2d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/img/kitab-lab-logo-white.73e1a38c.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/img/kitab-lab-logo.16d96d9d.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/img/launch-jeff.20f23edb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/img/system-rob.4520843c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/js/app.af7bf3c2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/js/app.af7bf3c2.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/js/chunk-vendors.bd0bf3e1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../tomcat/webapps/GasserBookstoreVue/js/chunk-vendors.bd0bf3e1.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/._bookstore-html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/._category.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/._css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/._images" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/._index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/css/._app-footer.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/css/._app-header.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/css/._app.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/css/._category-book-list.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/css/._category.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/css/._header-dropdown.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/css/._home.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/images/._books" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/images/._categories" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/images/._site" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/images/site/._.DS_Store" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/__MACOSX/bookstore-html/images/site/._bookstore-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/category.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/css/app-footer.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/css/app-header.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/css/app.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/css/category-book-list.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/css/category.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/css/global.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/css/header-dropdown.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/css/home.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/books/bitcoin-saifedean.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/books/cracking-gayle.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/books/crypto-ian.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/books/experience-dan.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/books/launch-jeff.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/books/system-rob.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/categories/classics.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/categories/fantasy.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/categories/mystery.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/categories/romance.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/site/background-book.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/site/kitab-lab-logo-white.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/images/site/kitab-lab-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../bookstore-html/bookstore-html/index.html" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/src/main/db/bookstore-tables.mysql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/src/main/db/gasser-bookstore-data.mysql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Project Part 4 - DAO Pattern and REST API/bookstore-tables.mysql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,6 +66,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -284,6 +199,8 @@
       <updated>1632423658332</updated>
       <workItem from="1632423659802" duration="12928000" />
       <workItem from="1632500694028" duration="6613000" />
+      <workItem from="1632949253189" duration="154000" />
+      <workItem from="1632959124642" duration="646000" />
     </task>
     <servers />
   </component>
