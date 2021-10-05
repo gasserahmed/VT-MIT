@@ -5,23 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62aec5a7-8d1f-4b82-9ad1-691524640fc8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/src/main/db/bookstore-tables.mysql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../GasserBookstoreRest/src/main/db/gasser-bookstore-data.mysql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Project Part 4 - DAO Pattern and REST API/bookstore-tables.mysql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/libs/server.war" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/libs/server.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build/tmp/war/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/tmp/war/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tomcat/bin/catalina.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../tomcat/bin/catalina.bat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +70,10 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -81,12 +81,11 @@
       <recent name="C:\Users\Gasser Ahmed\VT-MIT\CS5244-Web Application Development\Projects\CS5244\GasserBookstoreVue\server\src\main\webapp" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.Client: run serve">
+  <component name="RunManager" selected="Tomcat Server.Tomcat">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:8080">
       <method v="2" />
     </configuration>
     <configuration name="Tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.53" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/GasserBookstoreVue/" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="Gradle : GasserBookstoreVue : server.war">
@@ -201,6 +200,9 @@
       <workItem from="1632500694028" duration="6613000" />
       <workItem from="1632949253189" duration="154000" />
       <workItem from="1632959124642" duration="646000" />
+      <workItem from="1633465978389" duration="865000" />
+      <workItem from="1633467348614" duration="145000" />
+      <workItem from="1633467686997" duration="145000" />
     </task>
     <servers />
   </component>

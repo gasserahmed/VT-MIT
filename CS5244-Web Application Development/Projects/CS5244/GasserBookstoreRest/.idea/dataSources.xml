@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="GasserBookstoreDB@cs5244.cs.vt.edu" uuid="3de3bf4b-f50f-4f2b-bfb8-fab2cb999627">
+    <data-source source="LOCAL" name="GasserBookstoreDB@cs5244.cs.vt.edu" uuid="e6bffa87-9c82-42ca-8533-e01f445a2a8f">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
