@@ -1,0 +1,50 @@
+DELETE FROM book;
+ALTER TABLE book AUTO_INCREMENT = 1001;
+
+DELETE FROM category;
+ALTER TABLE category AUTO_INCREMENT = 1001;
+
+INSERT INTO `category` (`name`) VALUES ('Arts'), ('Computers'), ('Entertainment'), ('Kids'), ('Religion'), ('Romance'), ('Sports'), ('Travel');
+
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('A Portrait of Walt Disney World: 50 Years of The Most Magical Place on Earth', 'Kevin Kern', '', 5399, 4, TRUE, FALSE, 1001);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('Chanel: Collections and Creations', 'Daniele Bott', '', 2400, 4, FALSE, FALSE, 1001);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('How to Save a Life: The Inside Story of Grey''s Anatomy', 'Lynette Rice', '', 1914, 4, TRUE, FALSE, 1001);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('Mr. B''s Coloring Book: for when life gets so fricking fricked you just say frick and decide to fricking color.', ' Cody Robert Bentley', '', 1425, 4, TRUE, FALSE, 1001);
+
+
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('Cracking the Coding Interview', 'Gayle McDowell', '', 2449, 5, TRUE, FALSE, 1002);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('The Bitcoin Standard: The Decentralized Alternative to Central Banking', 'Saifedean Ammous', '', 1399, 3, FALSE, FALSE, 1002);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('Crypto Investing Guide: How to Invest in Bitcoin, DeFi, NFTs, and More', 'Ian Balina', '', 2299, 2, FALSE, FALSE, 1002);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('Launch: How to Sell Almost Anything Online, Build a Business You Love, and Live the Life of Your Dream', 'Jeff Walker', '', 1299, 4, FALSE, FALSE, 1002);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('System Error: Where Big Tech Went Wrong and How We Can Reboot', 'Rob Reich, Mehran Sahami, Jeremy M. Weinstein', '', 2349, 5, TRUE, FALSE, 1002);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('The Experience Maker: How to Create Remarkable Experiences That Your Customers Can’t Wait to Share', 'Dan Gingiss', '', 2695, 4, TRUE, FALSE, 1002);
+
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('Difficult Riddles For Smart Kids: 300 Difficult Riddles And Brain Teasers Families Will Love', 'M Prefontaine', '', 0599, 4, TRUE, FALSE, 1003);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('Rosie Revere, Engineer (The Questioneers)', 'Andrea Beaty', '', 1256, 4, TRUE, TRUE, 1003);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('The Ultimate Brain Health Puzzle Book for Adults: Crosswords, Sudoku, Cryptograms, Word Searches, and More!', 'Phil Fraas', '', 0966, 4, FALSE, FALSE, 1003);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('Player''s Handbook (Dungeons & Dragons)', 'Wizards RPG Team', '', 3130, 4, FALSE, FALSE, 1003);
+
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('Change Sings: A Children''s Anthem', 'Amanda Gorman', '', 1275, 4, TRUE, FALSE, 1004);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('Little Blue Truck''s Halloween', 'Alice Schertle', '', 0786, 4, FALSE, FALSE, 1004);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('My First Learn to Write Workbook: Practice for Kids with Pen Control, Line Tracing, Letters, and More!', 'Crystal Radke', '', 0458, 4, TRUE, FALSE, 1004);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('Big Shot (Diary of a Wimpy Kid Book 16)', 'Jeff Kinney', '', 1049, 4, TRUE, FALSE, 1004);
+
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('The Holy Qur''an', 'Abdullah Yusuf Ali', '', 0799, 4, TRUE, FALSE, 1005);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('The Autobiography of Malcolm X: As Told to Alex Haley', 'Malcolm X, Alex Haley', '', 0699, 4, FALSE, FALSE, 1005);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('Secrets of Divine Love: A Spiritual Journey into the Heart of Islam', 'A. Helwa', '', 1599, 4, FALSE, FALSE, 1005);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('The Essential Rumi', 'Jalal al-Din Rumi', '', 1149, 4, FALSE, FALSE, 1005);
+
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('The Wish', 'Nicholas Sparks', '', 1599, 4, FALSE, FALSE, 1006);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('Ugly Love: A Novel', 'Colleen Hoover', '', 1019, 4, FALSE, FALSE, 1006);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('When Sparks Fly', 'Helena Hunting', '', 0799, 4, TRUE, FALSE, 1006);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('It Happened One Summer: A Novel', 'Tessa Bailey', '', 1349, 5, TRUE, FALSE, 1006);
+
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('The Barcelona Complex: Lionel Messi and the Making--and Unmaking--of the World''s Greatest Soccer Club', 'Simon Kuper', '', 2099, 4, TRUE, FALSE, 1007);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('"TERRIBLE CALL!": How I Survived as a Youth Soccer Referee', 'Bill Hagerty', '', 1499, 4, FALSE, FALSE, 1007);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('She the Confident: The Mindset Advantage for Female Athletes', 'Shay Haddow', '', 1199, 4, TRUE, FALSE, 1007);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('Inverting The Pyramid: The History of Soccer Tactics', 'Jonathan Wilson', '', 1699, 5, TRUE, FALSE, 1007);
+
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('Rand McNally 2022 Road Atlas & National Park Guide (Rand McNally National Park Road Atlas and Travel Guide)', 'Rand McNally', '', 2095, 4, TRUE, FALSE, 1008);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('Finding the Mother Tree: Discovering the Wisdom of the Forest', 'Suzanne Simard', '', 2136, 4, TRUE, FALSE, 1008);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('Travels with George: In Search of Washington and His Legacy', 'Nathaniel Philbrick', '', 2549, 4, FALSE, FALSE, 1008);
+INSERT INTO `book` (title, author, description, price, rating, is_public, is_featured, category_id) VALUES ('Gastro Obscura: A Food Adventurer''s Guide', ' Cecily Wong', '', 3199, 3, FALSE, FALSE, 1008);

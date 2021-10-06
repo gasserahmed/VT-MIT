@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="85a4158d-c254-4288-93e8-36b2a4ee7527" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/.browserslistrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/client.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/css/global.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/bitcoin-saifedean.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/cracking-gayle.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/crypto-ian.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/experience-dan.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/launch-jeff.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/system-rob.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/images/site/background-book.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/images/site/kitab-lab-logo-white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/images/site/kitab-lab-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/AppFooter.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/AppHeader.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/CategoryBookList.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/CategoryBookListItem.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/CategoryNav.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/HeaderDropdown.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/HeaderSearchBar.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/router.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/views/Category.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/views/Home.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/vue.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/db/bookstore-tables.mysql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/db/gasser-bookstore-data.mysql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/api/ApiException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/api/ApiResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/api/ApiResponseFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/business/ApplicationContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/business/BookstoreDbException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/business/JdbcUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/business/book/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/business/book/BookDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/business/book/BookDaoJdbc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/business/category/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/business/category/CategoryDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/business/category/CategoryDaoJdbc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/META-INF/context.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GasserBookstoreVue/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GasserBookstoreVue/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="1z6uGuSMdk8we2Zj8Bc4Z8Nd19k" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/public" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/public" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.serve">
+    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:8080">
+      <method v="2" />
+    </configuration>
+    <configuration name="Tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.53" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/GasserBookstoreFetch/" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="Gradle : GasserBookstoreFetch : server.war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/GasserBookstoreFetch" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="f97c1125-d46c-41e9-8a6a-831d42aca506" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="54297" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Gradle : GasserBookstoreFetch : server.war" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="serve" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/client/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="serve" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.Debug Application" />
+      <item itemvalue="npm.serve" />
+      <item itemvalue="Tomcat Server.Tomcat" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="85a4158d-c254-4288-93e8-36b2a4ee7527" name="Changes" comment="" />
+      <created>1633480766008</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1633480766008</updated>
+      <workItem from="1633480768330" duration="886000" />
+      <workItem from="1633481660473" duration="149000" />
+      <workItem from="1633481877841" duration="1541000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
