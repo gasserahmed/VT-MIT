@@ -20,7 +20,7 @@
           placeholder="Search books"
         /><br />
         <router-link
-          to="../category/computers"
+          :to="'/category/' + defaultCategory.name"
           tag="li"
           class="button icon-inside-button search-bar-button"
         >
@@ -42,11 +42,35 @@
 
 <script>
 import HeaderDropdownMenu from "@/components/HeaderDropdown";
+import ApiService from "@/services/ApiService";
 export default {
   name: "AppHeader",
   components: { HeaderDropdownMenu },
   component: {
     HeaderDropdownMenu,
+  },
+  data: function () {
+    return {
+      defaultCategory: Object,
+    };
+  },
+  created: function () {
+    console.log("Start fetchDefaultCategory");
+    this.fetchDefaultCategory();
+    console.log("Finish fetchDefaultCategory");
+  },
+  methods: {
+    fetchDefaultCategory() {
+      const vm = this;
+      ApiService.fetchDefaultCategory()
+        .then((data) => {
+          console.log("Data: " + data);
+          vm.defaultCategory = data;
+        })
+        .catch((reason) => {
+          console.log("Error: " + reason);
+        });
+    },
   },
 };
 </script>

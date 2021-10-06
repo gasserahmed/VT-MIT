@@ -4,7 +4,7 @@
       <h2>KITAB LAB</h2>
       <p>where every book is a new experiment</p>
       <router-link
-        to="../category/computers"
+        :to="'/category/' + defaultCategory.name"
         tag="li"
         class="button shop-button"
       >
@@ -15,8 +15,33 @@
 </template>
 
 <script>
+import ApiService from "@/services/ApiService";
+
 export default {
   name: "Home",
+  data: function () {
+    return {
+      defaultCategory: Object,
+    };
+  },
+  created: function () {
+    console.log("Start fetchDefaultCategory");
+    this.fetchDefaultCategory();
+    console.log("Finish fetchDefaultCategory");
+  },
+  methods: {
+    fetchDefaultCategory() {
+      const vm = this;
+      ApiService.fetchDefaultCategory()
+        .then((data) => {
+          console.log("Data: " + data);
+          vm.defaultCategory = data;
+        })
+        .catch((reason) => {
+          console.log("Error: " + reason);
+        });
+    },
+  },
 };
 </script>
 

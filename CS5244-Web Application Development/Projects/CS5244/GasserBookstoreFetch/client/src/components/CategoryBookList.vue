@@ -1,11 +1,10 @@
 <template>
   <ul>
-    <category-book-list-item :book="books[0]"></category-book-list-item>
-    <category-book-list-item :book="books[1]"></category-book-list-item>
-    <category-book-list-item :book="books[2]"></category-book-list-item>
-    <category-book-list-item :book="books[3]"></category-book-list-item>
-    <category-book-list-item :book="books[4]"></category-book-list-item>
-    <category-book-list-item :book="books[5]"></category-book-list-item>
+    <category-book-list-item
+      v-for="book in books"
+      :key="book.bookId"
+      :book="book"
+    ></category-book-list-item>
   </ul>
 </template>
 

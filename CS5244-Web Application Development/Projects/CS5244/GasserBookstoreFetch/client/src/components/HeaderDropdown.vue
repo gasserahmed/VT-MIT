@@ -2,22 +2,46 @@
   <div class="header-dropdown">
     <button class="button categories-button">Categories</button>
     <ul>
-      <router-link to="../category/arts" tag="li">Arts </router-link>
-      <router-link to="../category/computers" tag="li">Computers </router-link>
-      <router-link to="../category/entertainment" tag="li"
-        >Entertainment
+      <router-link
+        v-for="category in categories"
+        :key="category.categoryId"
+        :to="'/category/' + category.name"
+        tag="li"
+      >
+        {{ category.name }}
       </router-link>
-      <router-link to="../category/kids" tag="li">Kids </router-link>
-      <router-link to="../category/religion" tag="li">Religion </router-link>
-      <router-link to="../category/romance" tag="li">Romance </router-link>
-      <router-link to="../category/sports" tag="li">Sports </router-link>
     </ul>
   </div>
 </template>
 
 <script>
+import ApiService from "@/services/ApiService";
+
 export default {
   name: "HeaderDropdownMenu",
+  data: function () {
+    return {
+      categories: [],
+    };
+  },
+  created: function () {
+    console.log("Start fetchCategories");
+    this.fetchCategories();
+    console.log("Finish fetchCategories");
+  },
+  methods: {
+    fetchCategories() {
+      const vm = this;
+      ApiService.fetchCategories()
+        .then((data) => {
+          console.log("Data: " + data);
+          vm.categories = data;
+        })
+        .catch((reason) => {
+          console.log("Error: " + reason);
+        });
+    },
+  },
 };
 </script>
 
@@ -50,7 +74,6 @@ button {
 
 .header-dropdown ul {
   background-color: #f1f6f6;
-  color: black;
   display: none;
   border-radius: 0 0 10px 10px;
 }

@@ -3,7 +3,7 @@
     <div class="book-image">
       <router-link to="#">
         <img
-          :src="require('@/assets/images/books/' + book.imageFile)"
+          :src="require('@/assets/images/books/' + book.bookId + '.jpg')"
           :alt="book.title"
         />
       </router-link>

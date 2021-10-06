@@ -1,63 +1,57 @@
 <template>
   <nav class="category-nav">
     <ul class="category-buttons">
-      <router-link
-        to="../category/arts"
-        tag="li"
-        class="button unselected-category-button"
-      >
-        Arts
-      </router-link>
-      <li class="button selected-category-button">Computers</li>
-      <router-link
-        to="../category/entertainment"
-        tag="li"
-        class="button unselected-category-button"
-      >
-        Entertainment
-      </router-link>
-      <router-link
-        to="../category/kids"
-        tag="li"
-        class="button unselected-category-button"
-      >
-        Kids
-      </router-link>
-      <router-link
-        to="../category/religion"
-        tag="li"
-        class="button unselected-category-button"
-      >
-        Religion
-      </router-link>
-      <router-link
-        to="../category/romance"
-        tag="li"
-        class="button unselected-category-button"
-      >
-        Romance
-      </router-link>
-      <router-link
-        to="../category/sports"
-        tag="li"
-        class="button unselected-category-button"
-      >
-        Sports
-      </router-link>
-      <router-link
-        to="../category/travel"
-        tag="li"
-        class="button unselected-category-button"
-      >
-        Travel
-      </router-link>
+      <template v-for="category in categories">
+        <router-link
+          v-if="category.name === $route.params.name"
+          :key="category.categoryId"
+          :to="'/category/' + category.name"
+          tag="li"
+          class="button selected-category-button"
+        >
+          {{ category.name }}
+        </router-link>
+        <router-link
+          v-else
+          :key="category.categoryId"
+          :to="'/category/' + category.name"
+          tag="li"
+          class="button unselected-category-button"
+        >
+          {{ category.name }}
+        </router-link>
+      </template>
     </ul>
   </nav>
 </template>
 
 <script>
+import ApiService from "@/services/ApiService";
 export default {
   name: "CategoryNav",
+  data: function () {
+    return {
+      categories: [],
+    };
+  },
+  created: function () {
+    console.log("Start fetchCategories");
+    this.fetchCategories();
+    console.log("Finish fetchCategories");
+  },
+  methods: {
+    fetchCategories() {
+      const vm = this;
+      ApiService.fetchCategories()
+        .then((data) => {
+          console.log("Data: " + data);
+          vm.categories = data;
+        })
+        .catch((reason) => {
+          console.log("Error: " + reason);
+        });
+    },
+  },
 };
 </script>
 
