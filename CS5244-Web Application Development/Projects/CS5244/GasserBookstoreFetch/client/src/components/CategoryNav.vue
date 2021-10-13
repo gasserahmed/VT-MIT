@@ -86,4 +86,10 @@ export default {
 .button.unselected-category-button:active {
   background-color: rgb(60 121 123 / 7%);
 }
+
+@media (max-width: 855px) {
+  .category-buttons {
+    display: block;
+  }
+}
 </style>

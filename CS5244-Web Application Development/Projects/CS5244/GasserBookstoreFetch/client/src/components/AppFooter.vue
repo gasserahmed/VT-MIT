@@ -74,4 +74,12 @@ footer a {
   font-size: 0.7em;
   gap: 1.5em;
 }
+
+@media (max-width: 500px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+  }
+}
 </style>

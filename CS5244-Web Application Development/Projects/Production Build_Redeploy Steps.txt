@@ -1,0 +1,8 @@
+To build/redeploy for production: 
+1. Go to client directory
+2. Run the following command in terminal: npm run build
+3. Copy all files under client > dist
+4. Paste copied files into server > src > webapp
+5. Run/build tomcat
+6. A new server.war file will be generated under server > build > libs
+7. Upload/use that war file for redeployment

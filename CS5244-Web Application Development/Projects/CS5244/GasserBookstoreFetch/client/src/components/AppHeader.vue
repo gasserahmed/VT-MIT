@@ -129,8 +129,6 @@ header a {
   justify-content: center;
   align-items: center;
   margin-left: 0.4em;
-  box-shadow: none;
-  border-left: 1px solid;
   border-radius: 50%;
 }
 
@@ -152,9 +150,16 @@ header a {
   gap: 0.5em;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 785px) {
   header {
     flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .search-bar-text {
+    width: 100%;
   }
 }
 </style>

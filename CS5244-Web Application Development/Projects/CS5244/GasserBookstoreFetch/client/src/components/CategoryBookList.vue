@@ -31,5 +31,6 @@ ul {
   flex-wrap: wrap;
   padding: 1em;
   gap: 1em;
+  justify-content: center;
 }
 </style>

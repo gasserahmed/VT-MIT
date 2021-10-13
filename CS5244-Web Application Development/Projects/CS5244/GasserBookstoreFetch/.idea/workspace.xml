@@ -5,66 +5,69 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85a4158d-c254-4288-93e8-36b2a4ee7527" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1001.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1002.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1003.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1004.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1005.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1006.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1007.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1008.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1009.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1010.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1011.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1012.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1013.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1014.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1015.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1016.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1017.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1018.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1019.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1020.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1021.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1022.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1023.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1024.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1025.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1026.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1027.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1028.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1029.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1030.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1031.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1032.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1033.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/books/1034.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/services/ApiService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/api/CorsFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/css/app.6978b7b0.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/css/app.77169861.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/css/app.e42a6805.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1001.3ad59916.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1002.e097c192.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1003.f329eb54.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1004.8619a783.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1005.0eb3f915.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1006.a2ee099a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1007.df5f7270.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1008.20f23edb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1009.4520843c.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1010.5f143c2d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1011.9ce68ea7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1012.9948e2f3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1013.f38d17a0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1014.234cd01d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1015.cbae8a18.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1016.828d1779.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1017.59c20859.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1018.fbc24ee8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1019.c66dfdc9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1020.9ad05bef.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1021.d420bc6f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1022.f8dfc9c0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1023.001f14eb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1024.e2f1bcbe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1025.657fb6b7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1026.e1608b5d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1027.11b1bd4d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1028.e2f1062a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1029.d65237d2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1030.855d0f91.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1031.1cd3caa2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1032.b3d5653a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1033.2ef96e67.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1034.21465eca.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/background-book.d57a119b.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/kitab-lab-logo-white.73e1a38c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/kitab-lab-logo.16d96d9d.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/js/app.13cc7f23.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/js/app.13cc7f23.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/js/app.2e1a72ae.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/js/app.2e1a72ae.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/js/app.933949b5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/js/app.933949b5.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/js/chunk-vendors.bd0bf3e1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/js/chunk-vendors.bd0bf3e1.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1e235239-eb05-426e-a3d2-69f7d4051c75.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1e235239-eb05-426e-a3d2-69f7d4051c75.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/css/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/css/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/images/books/bitcoin-saifedean.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/images/books/cracking-gayle.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/images/books/crypto-ian.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/images/books/experience-dan.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/images/books/launch-jeff.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/images/books/system-rob.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/AppFooter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AppFooter.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/AppHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AppHeader.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/CategoryBookList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/CategoryBookList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/CategoryBookListItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/CategoryBookListItem.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/CategoryNav.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/CategoryNav.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/HeaderDropdown.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/HeaderDropdown.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/views/Category.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Category.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Home.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/build/libs/server.war" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/libs/server.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +112,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/src/main/webapp" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -121,10 +124,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/src/main/webapp" />
       <recent name="$PROJECT_DIR$/client/public" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.serve">
+  <component name="RunManager" selected="Tomcat Server.Tomcat">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:8080">
       <method v="2" />
     </configuration>
@@ -242,7 +246,8 @@
       <updated>1633480766008</updated>
       <workItem from="1633480768330" duration="886000" />
       <workItem from="1633481660473" duration="149000" />
-      <workItem from="1633481877841" duration="13284000" />
+      <workItem from="1633481877841" duration="13368000" />
+      <workItem from="1634134806323" duration="4583000" />
     </task>
     <servers />
   </component>

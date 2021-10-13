@@ -2,7 +2,7 @@
   <div class="home-page">
     <section class="welcome-text flow-content container">
       <h2>KITAB LAB</h2>
-      <p>where every book is a new experiment</p>
+      <p>Where every book is a new experiment.</p>
       <router-link
         :to="'/category/' + defaultCategory.name"
         tag="li"
@@ -81,5 +81,15 @@ export default {
   align-items: center;
   width: 15em;
   margin-top: 2rem;
+}
+
+@media (max-width: 785px) {
+  .home-page {
+    justify-content: center;
+  }
+  .welcome-text {
+    align-items: center;
+    text-align: center;
+  }
 }
 </style>
