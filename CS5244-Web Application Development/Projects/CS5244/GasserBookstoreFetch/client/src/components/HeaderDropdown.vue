@@ -1,6 +1,8 @@
 <template>
   <div class="header-dropdown">
-    <button class="button categories-button">Categories</button>
+    <button class="button categories-button">
+      Categories <i class="fas fa-caret-right"></i>
+    </button>
     <ul>
       <router-link
         v-for="category in categories"
@@ -63,13 +65,17 @@ button {
 .categories-button {
   position: relative;
   z-index: 2;
+  display: flex;
+  align-items: center;
 }
 
-.categories-button::after {
-  font-family: FontAwesome;
-  font-size: 14px;
-  content: "\f0d7";
+.fa-caret-right {
   margin-left: 5px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.header-dropdown:hover .fa-caret-right {
+  transform: rotate(90deg);
 }
 
 .header-dropdown ul {

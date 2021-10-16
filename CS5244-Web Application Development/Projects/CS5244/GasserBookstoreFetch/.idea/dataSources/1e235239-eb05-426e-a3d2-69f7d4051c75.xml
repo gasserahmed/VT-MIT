@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="GasserBookstoreDB@cs5244.cs.vt.edu">
   <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.23">
-    <root id="1">
-      <ServerVersion>8.0.25</ServerVersion>
-      <Grants>GasserBookstoreDB|schema||gasser18||ALTER|G
-GasserBookstoreDB|schema||gasser18||ALTER ROUTINE|G
-GasserBookstoreDB|schema||gasser18||CREATE|G
-GasserBookstoreDB|schema||gasser18||CREATE ROUTINE|G
-GasserBookstoreDB|schema||gasser18||CREATE TEMPORARY TABLES|G
-GasserBookstoreDB|schema||gasser18||CREATE VIEW|G
-GasserBookstoreDB|schema||gasser18||DELETE|G
-GasserBookstoreDB|schema||gasser18||DROP|G
-GasserBookstoreDB|schema||gasser18||EVENT|G
-GasserBookstoreDB|schema||gasser18||EXECUTE|G
-GasserBookstoreDB|schema||gasser18||INDEX|G
-GasserBookstoreDB|schema||gasser18||INSERT|G
-GasserBookstoreDB|schema||gasser18||LOCK TABLES|G
-GasserBookstoreDB|schema||gasser18||REFERENCES|G
-GasserBookstoreDB|schema||gasser18||SELECT|G
-GasserBookstoreDB|schema||gasser18||SHOW VIEW|G
-GasserBookstoreDB|schema||gasser18||TRIGGER|G
-GasserBookstoreDB|schema||gasser18||UPDATE|G</Grants>
-      <DefaultEngine>InnoDB</DefaultEngine>
-      <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
-      <DefaultCasing>exact</DefaultCasing>
-    </root>
+    <root id="1"/>
     <schema id="2" parent="1" name="GasserBookstoreDB">
       <Current>1</Current>
       <Collation>utf8mb4_0900_ai_ci</Collation>
