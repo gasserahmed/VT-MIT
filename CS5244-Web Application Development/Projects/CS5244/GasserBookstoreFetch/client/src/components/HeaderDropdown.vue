@@ -71,7 +71,7 @@ button {
 
 .fa-caret-right {
   margin-left: 5px;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .header-dropdown:hover .fa-caret-right {

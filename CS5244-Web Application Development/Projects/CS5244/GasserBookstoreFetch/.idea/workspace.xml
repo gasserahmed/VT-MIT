@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85a4158d-c254-4288-93e8-36b2a4ee7527" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/client/src/assets/css/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/css/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/HeaderDropdown.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/HeaderDropdown.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +189,7 @@
       <workItem from="1634134806323" duration="4583000" />
       <workItem from="1634417066953" duration="73000" />
       <workItem from="1634420497859" duration="3781000" />
-      <workItem from="1634424725829" duration="7000" />
+      <workItem from="1634424725829" duration="313000" />
     </task>
     <servers />
   </component>
