@@ -181,9 +181,9 @@ body {
   border-radius: 50px;
   border: 0;
   height: 37px;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .button:hover,

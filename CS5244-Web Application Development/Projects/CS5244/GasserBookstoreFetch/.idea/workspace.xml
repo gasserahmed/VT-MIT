@@ -5,28 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85a4158d-c254-4288-93e8-36b2a4ee7527" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/css/app.85d9b453.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/css/app.a608054d.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/js/app.6e84b763.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/js/app.6e84b763.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GasserBookstoreFetch.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1e235239-eb05-426e-a3d2-69f7d4051c75.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1e235239-eb05-426e-a3d2-69f7d4051c75.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/assets/css/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/css/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/HeaderDropdown.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/HeaderDropdown.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/build/libs/server.war" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/libs/server.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/webapp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/webapp/js/chunk-vendors.bd0bf3e1.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/webapp/js/chunk-vendors.bd0bf3e1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GasserBookstoreVue/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GasserBookstoreVue/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,6 +189,7 @@
       <workItem from="1634134806323" duration="4583000" />
       <workItem from="1634417066953" duration="73000" />
       <workItem from="1634420497859" duration="3781000" />
+      <workItem from="1634424725829" duration="7000" />
     </task>
     <servers />
   </component>
