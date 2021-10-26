@@ -5,6 +5,141 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85a4158d-c254-4288-93e8-36b2a4ee7527" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.gradle/7.1/dependencies-accessors/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.gradle/7.1/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.gradle/7.1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.gradle/vcs-1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.idea/dataSources/cf700fb2-3e0d-4776-9bc8-317f222268a8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.idea/dataSources/cf700fb2-3e0d-4776-9bc8-317f222268a8/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/.browserslistrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/client.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/css/global.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1001.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1002.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1003.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1004.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1005.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1006.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1007.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1008.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1009.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1010.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1011.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1012.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1013.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1014.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1015.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1016.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1017.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1018.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1019.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1020.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1021.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1022.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1023.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1024.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1025.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1026.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1027.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1028.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1029.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1030.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1031.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1032.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1033.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/books/1034.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/site/background-book.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/site/kitab-lab-logo-white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/images/site/kitab-lab-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/assets/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/components/AppFooter.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/components/AppHeader.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/components/CategoryBookList.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/components/CategoryBookListItem.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/components/CategoryNav.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/components/HeaderDropdown.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/components/HeaderSearchBar.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/components/HelloWorld.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/models/ShoppingCart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/models/ShoppingCartItem.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/router.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/services/ApiService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/store.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/views/About.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/views/Category.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/src/views/Home.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/client/vue.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/build/classes/java/main/api/ApiException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/build/classes/java/main/api/ApiResource.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/build/classes/java/main/api/ApiResponseFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/build/classes/java/main/api/CorsFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/build/classes/java/main/business/ApplicationContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/build/classes/java/main/business/BookstoreDbException$BookstoreConnectionDbException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/build/classes/java/main/business/BookstoreDbException$BookstoreQueryDbException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/build/classes/java/main/business/BookstoreDbException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/build/classes/java/main/business/JdbcUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/build/classes/java/main/business/book/Book.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/build/classes/java/main/business/book/BookDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/build/classes/java/main/business/book/BookDaoJdbc.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/build/classes/java/main/business/category/Category.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/build/classes/java/main/business/category/CategoryDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/build/classes/java/main/business/category/CategoryDaoJdbc.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/build/libs/server.war" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/build/tmp/war/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/src/main/db/bookstore-tables.mysql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/src/main/db/gasser-bookstore-data.mysql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/src/main/java/api/ApiException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/src/main/java/api/ApiResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/src/main/java/api/ApiResponseFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/src/main/java/api/CorsFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/src/main/java/business/ApplicationContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/src/main/java/business/BookstoreDbException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/src/main/java/business/JdbcUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/src/main/java/business/book/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/src/main/java/business/book/BookDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/src/main/java/business/book/BookDaoJdbc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/src/main/java/business/category/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/src/main/java/business/category/CategoryDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/src/main/java/business/category/CategoryDaoJdbc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/src/main/webapp/META-INF/context.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/server/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GasserBookstoreSession/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1e235239-eb05-426e-a3d2-69f7d4051c75.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1e235239-eb05-426e-a3d2-69f7d4051c75.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,6 +192,9 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -191,6 +329,9 @@
       <workItem from="1634420497859" duration="3781000" />
       <workItem from="1634424725829" duration="650000" />
       <workItem from="1634914873035" duration="288000" />
+      <workItem from="1635272772073" duration="250000" />
+      <workItem from="1635273163416" duration="35000" />
+      <workItem from="1635274272554" duration="741000" />
     </task>
     <servers />
   </component>

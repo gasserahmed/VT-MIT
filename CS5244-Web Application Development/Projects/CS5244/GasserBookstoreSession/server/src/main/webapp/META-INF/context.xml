@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/">
+    <Resource name="jdbc/GasserBookstore"
+              auth="Container"
+              type="javax.sql.DataSource"
+              maxTotal="4"
+              maxIdle="0"
+              maxWaitMillis="10000"
+              username="gasser18"
+              password="9353"
+              driverClassName="com.mysql.cj.jdbc.Driver"
+              removeAbandonedOnBorrow="true"
+              removeAbandonedOnMaintenance="true"
+              removeAbandonedTimeout="60"
+              logAbandoned="true"
+              minEvictableIdleTimeMillis="300000"
+              timeBetweenEvictionRunsMillis="300000"
+              url="jdbc:mysql://cs5244.cs.vt.edu:3306/GasserBookstoreDB"/>
+</Context>
