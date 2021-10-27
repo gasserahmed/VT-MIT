@@ -25,6 +25,12 @@ export default new Vuex.Store({
     ADD_TO_CART(state, book) {
       state.cart.addItem(book, 1);
     },
+    UPDATE_CART(state, { book, quantity }) {
+      state.cart.update(book, quantity);
+    },
+    CLEAR_CART(state) {
+      state.cart.clear();
+    },
   },
   actions: {
     fetchCategories(context) {
@@ -52,6 +58,12 @@ export default new Vuex.Store({
     },
     addToCart(context, book) {
       context.commit("ADD_TO_CART", book);
+    },
+    updateCart(context, { book, quantity }) {
+      context.commit("UPDATE_CART", { book, quantity });
+    },
+    clearCart(context) {
+      context.commit("CLEAR_CART");
     },
   },
 });

@@ -28,7 +28,8 @@
   --primary-color-dark: #724703;
   --primary-background-color: #F0F2F5;
   --secondary-background-color: white;
-  --tertiary-background-color: #285152;
+  --tertiary-background-color: #1C3839;
+  --tertiary-background-color-dark: #3A1D25;
   --card-background-color: white;
 }
 
@@ -228,6 +229,24 @@ body {
   margin-left: -53%;
   margin-top: 10%;
   font-size: 0.5em;
+}
+
+.secondary-button {
+  background: var(--secondary-background-color);
+  border: 1px solid var(--neutral-color);
+  color: var(--neutral-color);
+}
+
+.secondary-button:hover {
+  background: var(--neutral-color);
+}
+
+.tertiary-button {
+  background: var(--tertiary-background-color);
+}
+
+.tertiary-button:hover {
+  background: var(--tertiary-background-color-dark);
 }
 
 /* LINKS */

@@ -30,13 +30,13 @@
     </section>
     <section class="header-dropdown-and-cart flex-centered-container">
       <header-dropdown-menu></header-dropdown-menu>
-      <button class="button icon-only-button">
+      <router-link to="/cart" class="button icon-only-button" tag="button">
         <i class="fas fa-shopping-cart icon-only-button-icon">
           <span class="icon-only-button-text">{{
             $store.state.cart.numberOfItems
           }}</span>
         </i>
-      </button>
+      </router-link>
       <button class="button" style="padding: 7px">GA</button>
     </section>
   </header>
