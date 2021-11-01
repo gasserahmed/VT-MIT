@@ -5,65 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98d3ba88-fe0d-4e42-9877-296b1c81e6bc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/CartTable.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/views/Cart.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/views/Checkout.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/css/app.6ef88b94.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1001.3ad59916.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1002.e097c192.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1003.f329eb54.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1004.8619a783.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1005.0eb3f915.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1006.a2ee099a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1007.df5f7270.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1008.20f23edb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1009.4520843c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1010.5f143c2d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1011.9ce68ea7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1012.9948e2f3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1013.f38d17a0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1014.234cd01d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1015.cbae8a18.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1016.828d1779.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1017.59c20859.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1018.fbc24ee8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1019.c66dfdc9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1020.9ad05bef.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1021.d420bc6f.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1022.f8dfc9c0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1023.001f14eb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1024.e2f1bcbe.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1025.657fb6b7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1026.e1608b5d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1027.11b1bd4d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1028.e2f1062a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1029.d65237d2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1030.855d0f91.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1031.1cd3caa2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1032.b3d5653a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1033.2ef96e67.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/1034.21465eca.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/background-book.d57a119b.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/kitab-lab-logo-white.73e1a38c.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/img/kitab-lab-logo.16d96d9d.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/js/app.719a7726.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/js/app.719a7726.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/js/chunk-vendors.c2b4f6df.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/js/chunk-vendors.c2b4f6df.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/css/app.15af8be7.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/css/app.a20f6cf4.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/js/app.20a16c28.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/js/app.20a16c28.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/js/app.2810d3d5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/js/app.2810d3d5.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/js/app.a08b2b89.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/js/app.a08b2b89.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cf700fb2-3e0d-4776-9bc8-317f222268a8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/cf700fb2-3e0d-4776-9bc8-317f222268a8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/assets/css/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/css/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/AppFooter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AppFooter.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/AppHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AppHeader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/CartTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/CartTable.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/CategoryBookListItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/CategoryBookListItem.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/HelloWorld.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/Cart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Cart.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/Category.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Category.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/Checkout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Checkout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Home.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/build/libs/server.war" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/libs/server.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/webapp/css/app.6ef88b94.css" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/webapp/css/app.3a91f2f7.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/webapp/js/app.719a7726.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/webapp/js/app.719a7726.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-9.0.53/webapps/GasserBookstoreSession/css/app.6ef88b94.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-9.0.53/webapps/GasserBookstoreSession/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../apache-tomcat-9.0.53/webapps/GasserBookstoreSession/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-9.0.53/webapps/GasserBookstoreSession/js/app.719a7726.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apache-tomcat-9.0.53/webapps/GasserBookstoreSession/js/app.719a7726.js.map" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,6 +103,11 @@
     <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/src/main/webapp" />
+    </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat">
     <configuration name="Tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.53" ALTERNATIVE_JRE_ENABLED="false">
@@ -250,7 +233,9 @@
       <option name="presentableId" value="Default" />
       <updated>1635274565535</updated>
       <workItem from="1635274567650" duration="159000" />
-      <workItem from="1635274915389" duration="18392000" />
+      <workItem from="1635274915389" duration="18510000" />
+      <workItem from="1635386107059" duration="469000" />
+      <workItem from="1635718829333" duration="12617000" />
     </task>
     <servers />
   </component>
@@ -267,6 +252,19 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/src/components/AppHeader.vue</url>
+          <line>142</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

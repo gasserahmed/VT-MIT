@@ -1,5 +1,5 @@
 <template>
-  <div class="checkout-container">
+  <div class="checkout-container content-container">
     <router-link class="button" to="/cart" tag="button">
       Back to Cart
     </router-link>

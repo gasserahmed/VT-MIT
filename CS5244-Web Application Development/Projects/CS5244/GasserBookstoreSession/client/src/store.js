@@ -5,16 +5,22 @@ import { ShoppingCart } from "@/models/ShoppingCart";
 
 Vue.use(Vuex);
 
+export const CART_STORAGE_KEY = "";
+
 export default new Vuex.Store({
   state: {
     categories: [],
     selectedCategoryName: "",
     selectedCategoryBooks: [],
+    defaultCategoryName: "",
     cart: new ShoppingCart(),
   },
   mutations: {
     SET_CATEGORIES(state, newCategories) {
       state.categories = newCategories;
+    },
+    SET_DEFAULT_CATEGORY(state, defaultCategoryName) {
+      state.defaultCategoryName = defaultCategoryName;
     },
     SELECT_CATEGORY(state, selectedCategoryName) {
       state.selectedCategoryName = selectedCategoryName;
@@ -24,12 +30,23 @@ export default new Vuex.Store({
     },
     ADD_TO_CART(state, book) {
       state.cart.addItem(book, 1);
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(this.state.cart));
     },
     UPDATE_CART(state, { book, quantity }) {
       state.cart.update(book, quantity);
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(this.state.cart));
     },
     CLEAR_CART(state) {
       state.cart.clear();
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(this.state.cart));
+    },
+    SET_CART(state, shoppingCart) {
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(shoppingCart));
+      let newCart = new ShoppingCart();
+      shoppingCart.items.forEach((item) => {
+        newCart.addItem(item.book, item.quantity);
+      });
+      state.cart = newCart;
     },
   },
   actions: {
@@ -38,6 +55,16 @@ export default new Vuex.Store({
         .then((categories) => {
           console.log("Categories: ", categories);
           context.commit("SET_CATEGORIES", categories);
+        })
+        .catch((reason) => {
+          console.log("Error: " + reason);
+        });
+    },
+    fetchDefaultCategory(context) {
+      ApiService.fetchDefaultCategory()
+        .then((category) => {
+          console.log("Default Category Name: ", category.name);
+          context.commit("SET_DEFAULT_CATEGORY", category.name);
         })
         .catch((reason) => {
           console.log("Error: " + reason);

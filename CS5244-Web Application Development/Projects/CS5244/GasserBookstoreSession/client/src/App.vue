@@ -18,8 +18,15 @@ export default {
   },
   created: function () {
     this.$store.dispatch("fetchCategories");
+    this.$store.dispatch("fetchDefaultCategory");
   },
 };
 </script>
 
-<style></style>
+<style>
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+</style>

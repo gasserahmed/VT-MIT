@@ -10,7 +10,7 @@
     </div>
     <div class="book-title">{{ book.title }}</div>
     <div class="book-author">by {{ book.author }}</div>
-    <div class="book-price">${{ (book.price / 100).toFixed(2) }}</div>
+    <div class="book-price">{{ book.price | asDollarsAndCents }}</div>
     <button class="button add-to-cart-button" @click="addToCart(book)">
       Add to Cart
     </button>

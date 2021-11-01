@@ -7,6 +7,7 @@
           alt="Kitab Lab Logo"
           width="57px"
           height="auto"
+          class="logo-image"
         />
       </router-link>
       <span class="logo-title-divider"></span>
@@ -20,7 +21,7 @@
           placeholder="Search books"
         /><br />
         <router-link
-          :to="'/category/' + defaultCategory.name"
+          :to="'/category/' + $store.state.defaultCategoryName"
           tag="li"
           class="button icon-inside-button search-bar-button"
         >
@@ -44,35 +45,11 @@
 
 <script>
 import HeaderDropdownMenu from "@/components/HeaderDropdown";
-import ApiService from "@/services/ApiService";
 export default {
   name: "AppHeader",
   components: { HeaderDropdownMenu },
   component: {
     HeaderDropdownMenu,
-  },
-  data: function () {
-    return {
-      defaultCategory: Object,
-    };
-  },
-  created: function () {
-    console.log("Start fetchDefaultCategory");
-    this.fetchDefaultCategory();
-    console.log("Finish fetchDefaultCategory");
-  },
-  methods: {
-    fetchDefaultCategory() {
-      const vm = this;
-      ApiService.fetchDefaultCategory()
-        .then((data) => {
-          console.log("Data: " + data);
-          vm.defaultCategory = data;
-        })
-        .catch((reason) => {
-          console.log("Error: " + reason);
-        });
-    },
   },
 };
 </script>
@@ -110,6 +87,10 @@ header a {
   text-decoration: none;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   color: white !important;
+}
+
+.logo-image {
+  min-width: 57px;
 }
 
 .search-bar-text {
@@ -152,7 +133,7 @@ header a {
   gap: 0.5em;
 }
 
-@media (max-width: 785px) {
+@media (max-width: 840px) {
   header {
     flex-direction: column;
     align-items: center;

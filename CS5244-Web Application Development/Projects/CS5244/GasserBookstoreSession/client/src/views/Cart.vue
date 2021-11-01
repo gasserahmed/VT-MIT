@@ -1,5 +1,5 @@
 <template>
-  <div class="cart-page">
+  <div class="cart-page content-container">
     <section
       v-if="$store.state.cart.numberOfItems === 0"
       class="empty-cart-page"
@@ -7,7 +7,12 @@
       <span class="empty-cart-text">Your cart is currently empty!</span>
       <div class="cart-buttons">
         <router-link
-          :to="'/category/' + $store.state.selectedCategoryName"
+          :to="
+            '/category/' +
+            ($store.state.selectedCategoryName === ''
+              ? $store.state.defaultCategoryName
+              : $store.state.selectedCategoryName)
+          "
           class="button secondary-button"
           tag="button"
         >
@@ -16,23 +21,36 @@
       </div>
     </section>
     <section v-else class="non-empty-cart-page">
+      <div class="cart-page-title-container">
+        <h2 class="cart-title">Here's What You're Getting!</h2>
+        <div class="row-separator"></div>
+        <div class="cart-description">
+          You have {{ $store.state.cart.numberOfItems }}
+          <span v-if="$store.state.cart.numberOfItems == 1">item</span>
+          <span v-else>items</span>
+          in your cart.
+        </div>
+      </div>
       <cart-table></cart-table>
       <div class="cart-footer">
         <button class="button clear-button" @click="clearCart">
           Clear the Cart
         </button>
         <div class="cart-total">
-          <span>Total Items: {{ $store.state.cart.numberOfItems }}</span>
           <span class="subtotal"
-            >Subtotal: ${{
-              ($store.state.cart.subtotal / 100).toFixed(2)
-            }}</span
+            >Subtotal:
+            {{ $store.state.cart.subtotal | asDollarsAndCents }}</span
           >
         </div>
       </div>
       <div class="cart-buttons">
         <router-link
-          :to="'/category/' + $store.state.selectedCategoryName"
+          :to="
+            '/category/' +
+            ($store.state.selectedCategoryName === ''
+              ? $store.state.defaultCategoryName
+              : $store.state.selectedCategoryName)
+          "
           class="button secondary-button"
           tag="button"
         >
@@ -68,12 +86,31 @@ export default {
   padding: 1em 5em 2.5em 5em;
 }
 
+.cart-page-title-container {
+  background: var(--secondary-background-color);
+}
+
+.cart-title,
+.cart-description {
+  color: var(--neutral-color-dark);
+  padding: 1em;
+}
+
+.cart-description {
+  font-weight: 100;
+  font-size: 1.2em;
+}
+
 .cart-buttons,
 .cart-footer {
   display: flex;
   background-color: var(--secondary-background-color);
   justify-content: space-between;
   padding: 1em;
+}
+
+.cart-buttons {
+  padding: 2em 1em;
 }
 
 .clear-button {
@@ -92,6 +129,7 @@ export default {
 
 .cart-footer {
   margin-bottom: 2px;
+  padding-right: 1.5em;
 }
 
 .cart-total {

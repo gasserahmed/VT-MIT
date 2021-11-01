@@ -41,6 +41,7 @@ footer {
   display: flex;
   justify-content: space-between;
   padding: 1.5rem !important;
+  flex-shrink: 0;
 }
 
 footer .links a:not(:first-child) {

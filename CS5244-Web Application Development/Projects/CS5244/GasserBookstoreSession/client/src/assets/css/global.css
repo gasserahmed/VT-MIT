@@ -218,15 +218,17 @@ body {
 }
 
 .icon-only-button-icon {
+  display: flex;
   font-size: 2em;
   position: relative;
+  justify-content: center;
 }
 
 .icon-only-button-text {
   color: white;
   position: absolute;
   text-align: center;
-  margin-left: -53%;
+  margin-left: 0.4em;
   margin-top: 10%;
   font-size: 0.5em;
 }
@@ -269,4 +271,25 @@ a:visited {
 a:hover,
 a:active {
   color: var(--primary-color-dark);
+}
+
+/* BODY */
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-container {
+  flex: 1 0 auto;
+}
+
+/* ROW SEPARATOR */
+.row-separator {
+  grid-column: 1 / -1;
+  background-color: var(--primary-background-color);
+  height: 2px;
 }

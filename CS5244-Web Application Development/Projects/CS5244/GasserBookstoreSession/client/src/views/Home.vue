@@ -1,10 +1,10 @@
 <template>
-  <div class="home-page">
+  <div class="home-page content-container">
     <section class="welcome-text flow-content container">
       <h2>KITAB LAB</h2>
       <p>Where every book is a new experiment.</p>
       <router-link
-        :to="'/category/' + defaultCategory.name"
+        :to="'/category/' + $store.state.defaultCategoryName"
         tag="li"
         class="button shop-button"
       >
@@ -15,33 +15,8 @@
 </template>
 
 <script>
-import ApiService from "@/services/ApiService";
-
 export default {
   name: "Home",
-  data: function () {
-    return {
-      defaultCategory: Object,
-    };
-  },
-  created: function () {
-    console.log("Start fetchDefaultCategory");
-    this.fetchDefaultCategory();
-    console.log("Finish fetchDefaultCategory");
-  },
-  methods: {
-    fetchDefaultCategory() {
-      const vm = this;
-      ApiService.fetchDefaultCategory()
-        .then((data) => {
-          console.log("Data: " + data);
-          vm.defaultCategory = data;
-        })
-        .catch((reason) => {
-          console.log("Error: " + reason);
-        });
-    },
-  },
 };
 </script>
 

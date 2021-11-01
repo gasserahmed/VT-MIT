@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content-container">
     <category-nav></category-nav>
     <category-book-list></category-book-list>
   </div>
