@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98d3ba88-fe0d-4e42-9877-296b1c81e6bc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/views/Cart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Cart.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -202,7 +200,7 @@
       <workItem from="1635274915389" duration="18510000" />
       <workItem from="1635386107059" duration="469000" />
       <workItem from="1635718829333" duration="13007000" />
-      <workItem from="1635826781505" duration="4061000" />
+      <workItem from="1635826781505" duration="4310000" />
     </task>
     <servers />
   </component>

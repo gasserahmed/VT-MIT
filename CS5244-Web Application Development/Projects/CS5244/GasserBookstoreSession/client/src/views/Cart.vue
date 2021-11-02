@@ -176,5 +176,9 @@ export default {
   .clear-button {
     align-self: center;
   }
+
+  .cart-page-title-container {
+    text-align: center;
+  }
 }
 </style>
