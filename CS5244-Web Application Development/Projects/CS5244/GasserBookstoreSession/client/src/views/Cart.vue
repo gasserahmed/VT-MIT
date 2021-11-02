@@ -167,9 +167,14 @@ export default {
     padding: 1em 1em 2.5em 1em;
   }
 
-  .cart-buttons {
+  .cart-buttons,
+  .cart-footer {
     flex-direction: column;
     row-gap: 0.5em;
+  }
+
+  .clear-button {
+    align-self: center;
   }
 }
 </style>

@@ -5,27 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98d3ba88-fe0d-4e42-9877-296b1c81e6bc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/js/app.d4c4787e.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/webapp/js/app.d4c4787e.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/css/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/css/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/CartTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/CartTable.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/views/Cart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Cart.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/build/libs/server.war" beforeDir="false" afterPath="$PROJECT_DIR$/server/build/libs/server.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/webapp/css/app.15af8be7.css" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/webapp/css/app.c1743f9e.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/webapp/css/app.3a91f2f7.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/webapp/css/app.a20f6cf4.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/webapp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/webapp/js/app.20a16c28.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/webapp/js/app.20a16c28.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/webapp/js/app.2810d3d5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/webapp/js/app.2810d3d5.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/webapp/js/app.a08b2b89.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/webapp/js/app.a08b2b89.js.map" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +202,7 @@
       <workItem from="1635274915389" duration="18510000" />
       <workItem from="1635386107059" duration="469000" />
       <workItem from="1635718829333" duration="13007000" />
-      <workItem from="1635826781505" duration="2923000" />
+      <workItem from="1635826781505" duration="4061000" />
     </task>
     <servers />
   </component>
