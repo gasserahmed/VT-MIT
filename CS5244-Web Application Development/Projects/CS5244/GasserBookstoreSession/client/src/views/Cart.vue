@@ -26,7 +26,7 @@
         <div class="row-separator"></div>
         <div class="cart-description">
           You have {{ $store.state.cart.numberOfItems }}
-          <span v-if="$store.state.cart.numberOfItems == 1">item</span>
+          <span v-if="$store.state.cart.numberOfItems === 1">item</span>
           <span v-else>items</span>
           in your cart.
         </div>
@@ -96,6 +96,10 @@ export default {
   padding: 1em;
 }
 
+.cart-title {
+  padding-left: 0.75em;
+}
+
 .cart-description {
   font-weight: 100;
   font-size: 1.2em;
@@ -107,6 +111,7 @@ export default {
   background-color: var(--secondary-background-color);
   justify-content: space-between;
   padding: 1em;
+  align-items: center;
 }
 
 .cart-buttons {
@@ -130,6 +135,7 @@ export default {
 .cart-footer {
   margin-bottom: 2px;
   padding-right: 1.5em;
+  padding-top: 0;
 }
 
 .cart-total {
@@ -153,5 +159,17 @@ export default {
 .empty-cart-page .cart-buttons {
   justify-content: center;
   padding: 0 2em 2em 2em;
+}
+
+@media (max-width: 750px) {
+  .empty-cart-page,
+  .non-empty-cart-page {
+    padding: 1em 1em 2.5em 1em;
+  }
+
+  .cart-buttons {
+    flex-direction: column;
+    row-gap: 0.5em;
+  }
 }
 </style>

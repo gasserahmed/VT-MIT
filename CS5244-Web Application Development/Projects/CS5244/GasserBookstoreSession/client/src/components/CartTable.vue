@@ -19,9 +19,11 @@
         </div>
         <div class="cart-book-title">{{ item.book.title }}</div>
         <div class="cart-book-price">
+          <span class="column-label">Price:</span>
           {{ item.book.price | asDollarsAndCents }}
         </div>
         <div class="cart-book-quantity">
+          <span class="column-label">Quantity:</span>
           <button
             class="button icon-only-button dec-button"
             @click="updateCart(item.book, item.quantity - 1)"
@@ -37,6 +39,7 @@
           </button>
         </div>
         <div class="subtotal">
+          <span class="column-label">Total:</span>
           {{ (item.quantity * item.book.price) | asDollarsAndCents }}
         </div>
         <div class="row-separator"></div>
@@ -143,5 +146,35 @@ li {
 
 .dec-button:hover {
   color: darkgrey !important;
+}
+
+.column-label {
+  display: none;
+  color: var(--neutral-color-dark);
+}
+
+@media (max-width: 750px) {
+  .cart-heading {
+    display: none;
+  }
+
+  .column-label {
+    display: inline;
+  }
+
+  .cart-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .row-separator {
+    width: 100%;
+  }
+
+  .cart-book-title {
+    text-align: center;
+  }
 }
 </style>
