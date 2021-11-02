@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: "/GasserBookstoreVue",
+  publicPath: "/GasserBookstoreSession",
   chainWebpack: (config) => {
     config.plugin("html").tap((args) => {
       args[0].title = "Kitab Lab";

@@ -1,0 +1,4 @@
+rootProject.name = 'GasserBookstoreValidate'
+include 'server'
+include 'server'
+
