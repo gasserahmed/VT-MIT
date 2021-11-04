@@ -22,6 +22,7 @@
   */
   --default-font-size: 1.0rem;
   --default-text-color: #3C797B;
+  --default-error-color: #ee0000;
   --neutral-color: #3C797B;
   --neutral-color-dark: #2B5658;
   --primary-color: #9E6204;
@@ -292,4 +293,10 @@ body {
   grid-column: 1 / -1;
   background-color: var(--primary-background-color);
   height: 2px;
+}
+
+/* ERROR FIELD */
+.error {
+  color: var(--default-error-color);
+  font-size: 0.9rem;
 }

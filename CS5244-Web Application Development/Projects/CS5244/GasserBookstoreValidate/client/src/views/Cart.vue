@@ -21,10 +21,10 @@
       </div>
     </section>
     <section v-else class="non-empty-cart-page">
-      <div class="cart-page-title-container">
-        <h2 class="cart-title">Here's What You're Getting!</h2>
+      <div class="page-title-container">
+        <h2 class="page-title">Here's What You're Getting!</h2>
         <div class="row-separator"></div>
-        <div class="cart-description">
+        <div class="page-description">
           You have {{ $store.state.cart.numberOfItems }}
           <span v-if="$store.state.cart.numberOfItems === 1">item</span>
           <span v-else>items</span>
@@ -86,21 +86,21 @@ export default {
   padding: 1em 5em 2.5em 5em;
 }
 
-.cart-page-title-container {
+.page-title-container {
   background: var(--secondary-background-color);
 }
 
-.cart-title,
-.cart-description {
+.page-title,
+.page-description {
   color: var(--neutral-color-dark);
   padding: 1em;
 }
 
-.cart-title {
-  padding-left: 0.75em;
+.page-title {
+  padding-left: 0.72em;
 }
 
-.cart-description {
+.page-description {
   font-weight: 100;
   font-size: 1.2em;
 }

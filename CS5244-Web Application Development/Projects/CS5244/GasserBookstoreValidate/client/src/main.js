@@ -3,6 +3,8 @@ import App from "./App.vue";
 import router from "./router";
 import "@/assets/css/global.css";
 import store, { CART_STORAGE_KEY } from "./store";
+import Vuelidate from "vuelidate";
+import TreeView from "vue-json-tree-view";
 
 Vue.config.productionTip = false;
 
@@ -16,6 +18,9 @@ const PriceFormatter = new Intl.NumberFormat("en-US", {
 Vue.filter("asDollarsAndCents", function (cents) {
   return PriceFormatter.format(cents / 100.0);
 });
+
+Vue.use(Vuelidate);
+Vue.use(TreeView);
 
 new Vue({
   router,
