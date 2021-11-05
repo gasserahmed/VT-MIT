@@ -1,25 +1,9 @@
 <template>
   <div class="cart-page content-container">
-    <section
-      v-if="$store.state.cart.numberOfItems === 0"
-      class="empty-cart-page"
-    >
-      <span class="empty-cart-text">Your cart is currently empty!</span>
-      <div class="cart-buttons">
-        <router-link
-          :to="
-            '/category/' +
-            ($store.state.selectedCategoryName === ''
-              ? $store.state.defaultCategoryName
-              : $store.state.selectedCategoryName)
-          "
-          class="button secondary-button"
-          tag="button"
-        >
-          Continue Shopping
-        </router-link>
-      </div>
-    </section>
+    <EmptyCart
+      v-if="$store.state.cart.empty"
+      :text="'You need an item to checkout.'"
+    />
     <section v-else class="non-empty-cart-page">
       <div class="page-title-container">
         <h2 class="page-title">Here's What You're Getting!</h2>
@@ -33,7 +17,7 @@
       </div>
       <cart-table></cart-table>
       <div class="cart-footer">
-        <button class="button clear-button" @click="clearCart">
+        <button class="button link-like-button clear-button" @click="clearCart">
           Clear the Cart
         </button>
         <div class="cart-total">
@@ -66,9 +50,10 @@
 
 <script>
 import CartTable from "@/components/CartTable";
+import EmptyCart from "@/components/EmptyCart";
 export default {
   name: "Cart",
-  components: { CartTable },
+  components: { EmptyCart, CartTable },
   methods: {
     clearCart() {
       this.$store.dispatch("clearCart");
@@ -78,8 +63,7 @@ export default {
 </script>
 
 <style scoped>
-.non-empty-cart-page,
-.empty-cart-page {
+.non-empty-cart-page {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -120,16 +104,6 @@ export default {
 
 .clear-button {
   align-self: start;
-  color: dodgerblue;
-  background: transparent;
-  box-shadow: none;
-}
-
-.clear-button:hover {
-  background: transparent;
-  box-shadow: none;
-  color: darkblue;
-  text-decoration: underline;
 }
 
 .cart-footer {
@@ -141,28 +115,18 @@ export default {
 .cart-total {
   display: flex;
   flex-direction: column;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 1.2rem;
   color: var(--neutral-color-dark);
   padding-right: 5px;
   text-align: right;
 }
 
-.empty-cart-text {
-  padding: 1em;
-  background: var(--secondary-background-color);
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--neutral-color-dark);
-}
-.empty-cart-page .cart-buttons {
-  justify-content: center;
-  padding: 0 2em 2em 2em;
-}
-
 @media (max-width: 750px) {
-  .empty-cart-page,
+  .page-title-container {
+    text-align: center;
+  }
+
   .non-empty-cart-page {
     padding: 1em 1em 2.5em 1em;
   }
@@ -175,10 +139,6 @@ export default {
 
   .clear-button {
     align-self: center;
-  }
-
-  .cart-page-title-container {
-    text-align: center;
   }
 }
 </style>

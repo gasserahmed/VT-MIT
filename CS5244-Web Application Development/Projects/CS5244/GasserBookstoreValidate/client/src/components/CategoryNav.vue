@@ -49,7 +49,7 @@ export default {
 .button.selected-category-button {
   background-color: rgb(60 121 123 / 22%);
   color: var(--neutral-color);
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .button.unselected-category-button,

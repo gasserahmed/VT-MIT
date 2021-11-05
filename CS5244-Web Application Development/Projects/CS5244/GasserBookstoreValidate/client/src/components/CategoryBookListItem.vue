@@ -53,7 +53,7 @@ export default {
 }
 
 .book-title {
-  font-weight: bold;
+  font-weight: 600;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -70,7 +70,7 @@ export default {
 }
 
 .book-price {
-  font-weight: bold;
+  font-weight: 600;
   font-size: 1.5rem;
   color: var(--neutral-color-dark);
 }

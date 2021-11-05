@@ -1,165 +1,209 @@
 <template>
-  <div class="checkout-page content-container">
-    <!-- TODO: Add an HTML section to display when checking out with an empty cart -->
-    <div class="page-title-container">
-      <h2 class="page-title">Checkout</h2>
-      <div class="row-separator"></div>
-    </div>
-    <section class="checkout-page-body" v-if="!cart.empty">
-      <form @submit.prevent="submitOrder">
-        <div>
-          <label for="name">Name</label>
-          <div>
+  <div class="content-container">
+    <EmptyCart v-if="cart.empty" />
+    <div class="checkout-page" v-else>
+      <section class="checkout-page-body" v-if="!cart.empty">
+        <section class="checkout-container">
+          <h2 class="checkout-title">Checkout</h2>
+          <div class="row-separator"></div>
+          <form id="checkout-form" @submit.prevent="submitOrder">
+            <div>
+              <label for="name">Name</label>
+              <div>
+                <input
+                  type="text"
+                  size="20"
+                  id="name"
+                  name="name"
+                  placeholder="Full Name"
+                  v-model.lazy="$v.name.$model"
+                />
+                <template v-if="$v.name.$error">
+                  <span class="error" v-if="!$v.name.required"
+                    >Name is required</span
+                  >
+                  <span class="error" v-else-if="!$v.name.minLength">
+                    Name must have at least
+                    {{ $v.name.$params.minLength.min }} letters.
+                  </span>
+                  <span class="error" v-else-if="!$v.name.maxLength">
+                    Name can have at most
+                    {{ $v.name.$params.maxLength.max }} letters.
+                  </span>
+                  <span class="error" v-else>
+                    An unexpected error occurred.
+                  </span>
+                </template>
+              </div>
+            </div>
+            <div>
+              <label for="name">Address</label>
+              <div>
+                <input
+                  type="text"
+                  size="20"
+                  id="address"
+                  name="address"
+                  placeholder="Street, City, State, Zip Code"
+                  v-model.lazy="$v.address.$model"
+                />
+                <template v-if="$v.address.$error">
+                  <span class="error" v-if="!$v.address.required"
+                    >Address is required</span
+                  >
+                  <span class="error" v-else-if="!$v.address.minLength">
+                    Address must have at least
+                    {{ $v.address.$params.minLength.min }} letters.
+                  </span>
+                  <span class="error" v-else-if="!$v.address.maxLength">
+                    Address can have at most
+                    {{ $v.address.$params.maxLength.max }} letters.
+                  </span>
+                  <span class="error" v-else>
+                    An unexpected error occurred.
+                  </span>
+                </template>
+              </div>
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <div>
+                <input
+                  class="textField"
+                  type="text"
+                  size="20"
+                  id="phone"
+                  name="phone"
+                  placeholder="Phone Number"
+                  v-model.lazy="$v.phone.$model"
+                />
+                <template v-if="$v.phone.$error">
+                  <span class="error" v-if="!$v.phone.required"
+                    >Phone is required</span
+                  >
+                  <span class="error" v-else-if="!$v.phone.isValidPhone"
+                    >Please enter a valid phone number.</span
+                  >
+                  <span class="error" v-else>
+                    An unexpected error occurred.
+                  </span>
+                </template>
+              </div>
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <div>
+                <input
+                  type="text"
+                  size="20"
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                  v-model.lazy="$v.email.$model"
+                />
+                <template v-if="$v.email.$error">
+                  <span class="error" v-if="!$v.email.required"
+                    >Email is required</span
+                  >
+                  <span class="error" v-else-if="!$v.email.email"
+                    >Please enter a valid email.</span
+                  >
+                  <span class="error" v-else>
+                    An unexpected error occurred.
+                  </span>
+                </template>
+              </div>
+            </div>
+            <div>
+              <label for="ccNumber">Credit Card</label>
+              <div>
+                <input
+                  type="text"
+                  size="20"
+                  id="ccNumber"
+                  name="ccNumber"
+                  placeholder="xxxx-xxxx-xxxx-xxxx"
+                  v-model.lazy="$v.ccNumber.$model"
+                />
+                <template v-if="$v.ccNumber.$error">
+                  <span class="error" v-if="!$v.ccNumber.required"
+                    >Credit card is required</span
+                  >
+                  <span class="error" v-else-if="!$v.ccNumber.isValidCreditCard"
+                    >Please enter a valid credit card.</span
+                  >
+                  <span class="error" v-else>
+                    An unexpected error occurred.
+                  </span>
+                </template>
+              </div>
+            </div>
+            <div>
+              <label>Exp. Date</label>
+              <div class="expiration-date-input-container">
+                <select v-model="ccExpiryMonth">
+                  <option
+                    v-for="(month, index) in months"
+                    :key="index"
+                    :value="index + 1"
+                  >
+                    {{ month }} ({{ index + 1 }})
+                  </option>
+                </select>
+                <select>
+                  <option v-for="(year, index) in 15" :key="index">
+                    {{ yearFrom(index) }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </form>
+        </section>
+        <section class="checkout-summary-container">
+          <div class="checkout-summary-header">
+            <h2 class="checkout-title">
+              {{ $store.state.cart.numberOfItems }}
+              <span v-if="$store.state.cart.numberOfItems === 1">item</span>
+              <span v-else>items</span>
+            </h2>
+            <router-link
+              class="button link-like-button edit-cart-button"
+              to="/cart"
+              tag="button"
+            >
+              Edit Cart
+            </router-link>
+          </div>
+          <div class="row-separator"></div>
+          <div class="checkout-summary" v-if="!cart.empty">
+            <div>
+              <div class="bold-text">
+                <span>Subtotal</span>
+                <span>{{ cart.subtotal | asDollarsAndCents }}</span>
+              </div>
+              <div>
+                <span>Shipping</span>
+                <span>{{ cart.surcharge | asDollarsAndCents }}</span>
+              </div>
+              <div class="row-separator"></div>
+              <div class="bold-text">
+                <span>Total</span>
+                <span>{{
+                  (cart.subtotal + cart.surcharge) | asDollarsAndCents
+                }}</span>
+              </div>
+            </div>
             <input
-              type="text"
-              size="20"
-              id="name"
-              name="name"
-              v-model.lazy="$v.name.$model"
+              type="submit"
+              name="submit"
+              class="button"
+              :disabled="checkoutStatus == 'PENDING'"
+              value="Complete Purchase"
+              form="checkout-form"
             />
-            <template v-if="$v.name.$error">
-              <span class="error" v-if="!$v.name.required"
-                >Name is required</span
-              >
-              <span class="error" v-else-if="!$v.name.minLength">
-                Name must have at least
-                {{ $v.name.$params.minLength.min }} letters.
-              </span>
-              <span class="error" v-else-if="!$v.name.maxLength">
-                Name can have at most
-                {{ $v.name.$params.maxLength.max }} letters.
-              </span>
-              <span class="error" v-else> An unexpected error occurred. </span>
-            </template>
           </div>
-        </div>
-        <div>
-          <label for="name">Address</label>
-          <div>
-            <input
-              type="text"
-              size="20"
-              id="address"
-              name="address"
-              v-model.lazy="$v.address.$model"
-            />
-            <template v-if="$v.address.$error">
-              <span class="error" v-if="!$v.address.required"
-                >Address is required</span
-              >
-              <span class="error" v-else-if="!$v.address.minLength">
-                Address must have at least
-                {{ $v.address.$params.minLength.min }} letters.
-              </span>
-              <span class="error" v-else-if="!$v.address.maxLength">
-                Address can have at most
-                {{ $v.address.$params.maxLength.max }} letters.
-              </span>
-              <span class="error" v-else> An unexpected error occurred. </span>
-            </template>
-          </div>
-        </div>
-        <div>
-          <label for="phone">Phone</label>
-          <div>
-            <input
-              class="textField"
-              type="text"
-              size="20"
-              id="phone"
-              name="phone"
-              v-model.lazy="$v.phone.$model"
-            />
-            <template v-if="$v.phone.$error">
-              <span class="error" v-if="!$v.phone.required"
-                >Phone is required</span
-              >
-              <span class="error" v-else-if="!$v.phone.isValidPhone"
-                >Please enter a valid phone number.</span
-              >
-              <span class="error" v-else> An unexpected error occurred. </span>
-            </template>
-          </div>
-        </div>
-        <div>
-          <label for="email">Email</label>
-          <div>
-            <input
-              type="text"
-              size="20"
-              id="email"
-              name="email"
-              v-model.lazy="$v.email.$model"
-            />
-            <template v-if="$v.email.$error">
-              <span class="error" v-if="!$v.email.required"
-                >Email is required</span
-              >
-              <span class="error" v-else-if="!$v.email.email"
-                >Please enter a valid email.</span
-              >
-              <span class="error" v-else> An unexpected error occurred. </span>
-            </template>
-          </div>
-        </div>
-        <div>
-          <label for="ccNumber">Credit Card</label>
-          <div>
-            <input
-              type="text"
-              size="20"
-              id="ccNumber"
-              name="ccNumber"
-              v-model.lazy="$v.ccNumber.$model"
-            />
-            <template v-if="$v.ccNumber.$error">
-              <span class="error" v-if="!$v.ccNumber.required"
-                >Credit card is required</span
-              >
-              <span class="error" v-else-if="!$v.ccNumber.isValidCreditCard"
-                >Please enter a valid credit card.</span
-              >
-              <span class="error" v-else> An unexpected error occurred. </span>
-            </template>
-          </div>
-        </div>
-        <div>
-          <label>Exp. Date</label>
-          <div class="expiration-date-input-container">
-            <select v-model="ccExpiryMonth">
-              <option
-                v-for="(month, index) in months"
-                :key="index"
-                :value="index + 1"
-              >
-                {{ month }} ({{ index + 1 }})
-              </option>
-            </select>
-            <select>
-              <option v-for="(year, index) in 15" :key="index">
-                {{ yearFrom(index) }}
-              </option>
-            </select>
-          </div>
-        </div>
-        <input
-          type="submit"
-          name="submit"
-          class="button"
-          :disabled="checkoutStatus == 'PENDING'"
-          value="Complete Purchase"
-        />
-        <!-- TODO (style): The submit button should not take up the entire width of the form. -->
-        <!-- TODO (style): The submit button should be styled consistent with your own site. -->
-      </form>
-      <!-- TODO (style): Fix error message placement so they nearer to the correct fields. -->
-      <!-- TODO (style): HINT: Use another <div> and label, input, and error, and use flexbox to style. -->
-
-      Your credit card will be charged
-      {{ (cart.subtotal + cart.surcharge) | asDollarsAndCents }}
-      <br />({{ cart.subtotal | asDollarsAndCents }} +
-      {{ cart.surcharge | asDollarsAndCents }}
-      shipping)
+        </section>
+      </section>
       <section v-show="checkoutStatus != ''" class="checkoutStatusBox">
         <div v-if="checkoutStatus == 'ERROR'">
           Error: Please fix the problems above and try again.
@@ -174,7 +218,7 @@
           An unexpected error occurred, please try again.
         </div>
       </section>
-    </section>
+    </div>
     <!--    <div-->
     <!--      style="-->
     <!--        border: 1px solid black;-->
@@ -199,6 +243,7 @@ import {
   maxLength,
 } from "vuelidate/lib/validators";
 
+import EmptyCart from "@/components/EmptyCart";
 import isMobilePhone from "validator/lib/isMobilePhone";
 import email from "vuelidate/lib/validators/email";
 import isCreditCard from "validator/lib/isCreditCard";
@@ -207,6 +252,7 @@ const isValidPhone = (value) => isMobilePhone(value, "en-US");
 const isValidCreditCard = (value) => isCreditCard(value);
 
 export default {
+  components: { EmptyCart },
   data() {
     return {
       name: "",
@@ -242,7 +288,6 @@ export default {
       required,
       isValidCreditCard,
     },
-    // TODO: Add more validations for the other fields that need validation.
   },
 
   computed: {
@@ -293,44 +338,66 @@ export default {
 </script>
 
 <style scoped>
-/* TODO: Adapt these styles to your page */
 .checkout-page {
   display: flex;
   flex-direction: column;
-  /*margin: 0 auto;*/
   padding: 1em 5em 2.5em 5em;
-}
-
-.page-title-container {
-  background: var(--secondary-background-color);
-}
-
-.page-title {
-  color: var(--neutral-color-dark);
-  padding: 1em;
-  padding-left: 0.72em;
 }
 
 .checkout-page-body {
   display: flex;
   padding: 1em;
+  justify-content: space-around;
+  gap: 1.5em;
+}
+
+.checkout-container {
+  background: var(--secondary-background-color);
+  width: 70%;
+  box-shadow: 0 0 5px #ccc;
+}
+
+.checkout-summary-container {
+  background: var(--secondary-background-color);
+  box-shadow: 0 0 5px #ccc;
+  width: 30%;
+  height: 100%;
+}
+
+.checkout-summary-header {
+  display: flex;
+  align-items: baseline;
   justify-content: space-between;
-  background-color: var(--secondary-background-color);
+}
+
+.checkout-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+  justify-content: space-between;
+}
+
+.checkout-title {
+  color: var(--neutral-color-dark);
+  padding: 1em 1em 1em 0.72em;
 }
 
 form {
   display: flex;
   flex-direction: column;
+  padding: 1em 2em;
+  max-width: 30em;
 }
 
 form > div {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 4fr;
   margin-bottom: 0.5em;
+  align-items: baseline;
 }
 
 form > div > div {
-  /*background-color: var(--primary-background-color);*/
   margin-left: 0.5em;
   display: flex;
   flex-direction: column;
@@ -340,10 +407,35 @@ form > div > div > input,
 form > div > div > select {
   background-color: var(--primary-background-color);
   border: none;
+  padding: 6px 12px;
+  color: var(--neutral-color-dark);
+  text-overflow: ellipsis;
 }
 
 form > div > div > .error {
   margin-top: 0.2em;
+}
+
+.expiration-date-input-container {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-column-gap: 0.3em;
+}
+
+.checkout-summary > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.checkout-summary > div > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkout-summary > .button {
+  align-self: center;
+  margin-top: 1em;
 }
 
 .checkoutStatusBox {
@@ -352,9 +444,41 @@ form > div > div > .error {
   text-align: center;
 }
 
-.expiration-date-input-container {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  grid-column-gap: 0.3em;
+@media (min-width: 841px) and (max-width: 960px) {
+  .checkout-summary-header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .checkout-summary-header .checkout-title {
+    padding-bottom: 0;
+    padding-top: 0.5em;
+  }
+}
+
+@media (max-width: 840px) {
+  .checkout-page-body {
+    flex-direction: column;
+  }
+
+  .checkout-page,
+  .checkout-page-body,
+  .checkout-container,
+  .checkout-summary-container {
+    width: 100%;
+    padding: 0.5em;
+  }
+
+  form {
+    padding: 1em;
+  }
+
+  form > div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  form > div > div {
+    margin-left: 0;
+  }
 }
 </style>
