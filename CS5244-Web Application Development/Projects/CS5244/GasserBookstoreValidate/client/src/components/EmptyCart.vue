@@ -3,12 +3,7 @@
     <span class="empty-cart-text">Your cart is currently empty!</span>
     <div class="cart-buttons">
       <router-link
-        :to="
-          '/category/' +
-          ($store.state.selectedCategoryName === ''
-            ? $store.state.defaultCategoryName
-            : $store.state.selectedCategoryName)
-        "
+        :to="'/category/' + $store.state.selectedCategoryName"
         class="button secondary-button"
         tag="button"
       >

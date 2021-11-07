@@ -4,7 +4,7 @@
       <h2>KITAB LAB</h2>
       <p>Where every book is a new experiment.</p>
       <router-link
-        :to="'/category/' + $store.state.defaultCategoryName"
+        :to="'/category/' + $store.state.selectedCategoryName"
         tag="li"
         class="button shop-button"
       >

@@ -21,7 +21,7 @@
           placeholder="Search books"
         /><br />
         <router-link
-          :to="'/category/' + $store.state.defaultCategoryName"
+          :to="'/category/' + $store.state.selectedCategoryName"
           tag="li"
           class="button icon-inside-button search-bar-button"
         >

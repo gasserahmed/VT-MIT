@@ -25,20 +25,6 @@ export default {
         console.log("Error fetching category data", reason);
       });
   },
-  fetchDefaultCategory() {
-    const url = apiUrl + "/categories/1001";
-    console.log("GET from " + url);
-    return fetch(url)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error("Network response was not ok.");
-      })
-      .catch((reason) => {
-        console.log("Error fetching default category data", reason);
-      });
-  },
   fetchSelectedCategoryBooks(selectedCategory) {
     const url = apiUrl + "/categories/name/" + selectedCategory + "/books";
     console.log("GET from " + url);

@@ -10,17 +10,13 @@ export const CART_STORAGE_KEY = "";
 export default new Vuex.Store({
   state: {
     categories: [],
-    selectedCategoryName: "",
+    selectedCategoryName: "Arts",
     selectedCategoryBooks: [],
-    defaultCategoryName: "",
     cart: new ShoppingCart(),
   },
   mutations: {
     SET_CATEGORIES(state, newCategories) {
       state.categories = newCategories;
-    },
-    SET_DEFAULT_CATEGORY(state, defaultCategoryName) {
-      state.defaultCategoryName = defaultCategoryName;
     },
     SELECT_CATEGORY(state, selectedCategoryName) {
       state.selectedCategoryName = selectedCategoryName;
@@ -55,16 +51,6 @@ export default new Vuex.Store({
         .then((categories) => {
           console.log("Categories: ", categories);
           context.commit("SET_CATEGORIES", categories);
-        })
-        .catch((reason) => {
-          console.log("Error: " + reason);
-        });
-    },
-    fetchDefaultCategory(context) {
-      ApiService.fetchDefaultCategory()
-        .then((category) => {
-          console.log("Default Category Name: ", category.name);
-          context.commit("SET_DEFAULT_CATEGORY", category.name);
         })
         .catch((reason) => {
           console.log("Error: " + reason);

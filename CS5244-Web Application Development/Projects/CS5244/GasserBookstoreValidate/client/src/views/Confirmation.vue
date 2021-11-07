@@ -2,7 +2,7 @@
   <div class="confirmation-container content-container">
     <router-link
       class="button"
-      :to="'/category/' + $store.state.defaultCategoryName"
+      :to="'/category/' + $store.state.selectedCategoryName"
       tag="button"
     >
       Shop for More Experiments

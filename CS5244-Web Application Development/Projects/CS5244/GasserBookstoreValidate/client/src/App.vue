@@ -18,7 +18,6 @@ export default {
   },
   created: function () {
     this.$store.dispatch("fetchCategories");
-    this.$store.dispatch("fetchDefaultCategory");
   },
 };
 </script>
