@@ -13,6 +13,7 @@ export default new Vuex.Store({
     selectedCategoryName: "Arts",
     selectedCategoryBooks: [],
     cart: new ShoppingCart(),
+    loadingStatus: false,
   },
   mutations: {
     SET_CATEGORIES(state, newCategories) {
@@ -44,6 +45,9 @@ export default new Vuex.Store({
       });
       state.cart = newCart;
     },
+    SET_LOADING_STATUS(state, loadingStatus) {
+      state.loadingStatus = loadingStatus;
+    },
   },
   actions: {
     fetchCategories(context) {
@@ -60,10 +64,12 @@ export default new Vuex.Store({
       context.commit("SELECT_CATEGORY", selectedCategoryName);
     },
     fetchSelectedCategoryBooks(context) {
+      context.commit("SET_LOADING_STATUS", true);
       ApiService.fetchSelectedCategoryBooks(this.state.selectedCategoryName)
         .then((books) => {
           console.log("Books: ", books);
           context.commit("SET_SELECTED_CATEGORY_BOOKS", books);
+          context.commit("SET_LOADING_STATUS", false);
         })
         .catch((reason) => {
           console.log("Error: " + reason);

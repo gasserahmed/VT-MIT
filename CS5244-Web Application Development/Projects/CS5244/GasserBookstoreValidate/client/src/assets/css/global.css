@@ -327,3 +327,8 @@ body {
 .bold-text {
   font-weight: 700;
 }
+
+/* LOADING SPINNER */
+.loading-spinner-container {
+  padding: 5em;
+}

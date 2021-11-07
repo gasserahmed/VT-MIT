@@ -66,7 +66,6 @@ export default {
   row-gap: 1em;
   background-color: var(--secondary-background-color);
   padding: 1em;
-  overflow: scroll;
 }
 
 ul,
