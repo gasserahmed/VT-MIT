@@ -198,6 +198,10 @@ body {
   color: white;
 }
 
+.button:active {
+  transform: scale(0.95);
+}
+
 .icon-inside-button {
   font-family: FontAwesome;
   padding: 7px 10px;
