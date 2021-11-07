@@ -219,19 +219,6 @@
         </div>
       </section>
     </div>
-    <!--    <div-->
-    <!--      style="-->
-    <!--        border: 1px solid black;-->
-    <!--        padding: 1em;-->
-    <!--        margin-left: 1em;-->
-    <!--        text-align: left;-->
-    <!--      "-->
-    <!--    >-->
-    <!--      <tree-view-->
-    <!--        :data="$v"-->
-    <!--        :options="{ rootObjectKey: '$v', maxDepth: 1 }"-->
-    <!--      ></tree-view>-->
-    <!--    </div>-->
   </div>
 </template>
 
