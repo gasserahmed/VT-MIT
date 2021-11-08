@@ -193,14 +193,15 @@
                 }}</span>
               </div>
             </div>
-            <input
+            <button
               type="submit"
               name="submit"
               class="button"
               :disabled="checkoutStatus == 'PENDING'"
-              value="Complete Purchase"
               form="checkout-form"
-            />
+            >
+              Complete Purchase
+            </button>
           </div>
         </section>
       </section>
