@@ -1,0 +1,4 @@
+Host: cs5244.cs.vt.edu
+Database: GasserBookstoreDB
+User: gasser18
+Password: 9353
