@@ -37,7 +37,7 @@
               </div>
             </div>
             <div>
-              <label for="name">Address</label>
+              <label for="address">Address</label>
               <div>
                 <input
                   type="text"
@@ -123,7 +123,9 @@
                   id="ccNumber"
                   name="ccNumber"
                   placeholder="xxxx-xxxx-xxxx-xxxx"
+                  inputmode="numeric"
                   v-model.lazy="$v.ccNumber.$model"
+                  v-model="ccNumber"
                 />
                 <template v-if="$v.ccNumber.$error">
                   <span class="error" v-if="!$v.ccNumber.required"
@@ -277,7 +279,6 @@ export default {
       isValidCreditCard,
     },
   },
-
   computed: {
     cart() {
       return this.$store.state.cart;
@@ -299,7 +300,6 @@ export default {
       ];
     },
   },
-
   methods: {
     submitOrder() {
       console.log("Submit order");
@@ -309,17 +309,43 @@ export default {
       } else {
         this.checkoutStatus = "PENDING";
         setTimeout(() => {
-          this.checkoutStatus = "OK";
-          setTimeout(() => {
-            this.$router.push({ name: "confirmation" });
-          }, 1000);
-        }, 1000);
+          this.$store
+            .dispatch("placeOrder", {
+              name: this.name,
+              address: this.address,
+              phone: this.phone,
+              email: this.email,
+              ccNumber: this.ccNumber,
+              ccExpiryMonth: this.ccExpiryMonth,
+              ccExpiryYear: this.ccExpiryYear,
+            })
+            .then(() => {
+              this.checkoutStatus = "OK";
+              this.$router.push({ name: "confirmation" });
+            })
+            .catch((reason) => {
+              this.checkoutStatus = "SERVER_ERROR";
+              console.log("Error placing order", reason);
+            });
+        }, 2000);
       }
     },
 
     /* NOTE: For example yearFrom(0) == 2021 */
     yearFrom(index) {
       return new Date().getFullYear() + index;
+    },
+  },
+  watch: {
+    // auto-dash credit card number input
+    ccNumber() {
+      let realNumber = this.ccNumber.replace(/-/gi, "");
+
+      // Generate dashed number
+      let dashedNumber = realNumber.match(/.{1,4}/g);
+
+      // Replace the dashed number with the real one
+      this.ccNumber = dashedNumber.join("-");
     },
   },
 };

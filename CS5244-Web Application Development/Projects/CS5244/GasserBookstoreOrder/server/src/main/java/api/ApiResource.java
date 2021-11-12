@@ -5,6 +5,9 @@ import business.category.Category;
 import business.category.CategoryDao;
 import business.book.Book;
 import business.book.BookDao;
+import business.order.OrderDetails;
+import business.order.OrderForm;
+import business.order.OrderService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
@@ -18,6 +21,7 @@ public class ApiResource {
 
     private final BookDao bookDao = ApplicationContext.INSTANCE.getBookDao();
     private final CategoryDao categoryDao = ApplicationContext.INSTANCE.getCategoryDao();
+    private final OrderService orderService = ApplicationContext.INSTANCE.getOrderService();
 
     @GET
     @Path("categories")
@@ -137,6 +141,26 @@ public class ApiResource {
             return bookDao.findRandomByCategoryId(category.getCategoryId(), limit);
         } catch (Exception e) {
             throw new ApiException("Suggested books lookup via categoryName failed", e);
+        }
+    }
+
+    @POST
+    @Path("orders")
+    @Consumes(javax.ws.rs.core.MediaType.APPLICATION_JSON)
+    @Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
+    public OrderDetails placeOrder(OrderForm orderForm) {
+
+        try {
+            long orderId = orderService.placeOrder(orderForm.getCustomerForm(), orderForm.getCart());
+            throw new ApiException.InvalidParameter("Transactions have not been implemented yet.");
+
+            // NOTE: MORE CODE PROVIDED NEXT PROJECT
+
+        } catch (ApiException e) {
+            // NOTE: all validation errors go through here
+            throw e;
+        } catch (Exception e) {
+            throw new ApiException("order placement failed", e);
         }
     }
 }
