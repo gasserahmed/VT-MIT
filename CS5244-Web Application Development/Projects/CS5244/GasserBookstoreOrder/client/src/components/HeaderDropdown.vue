@@ -4,10 +4,7 @@
       Categories <i class="fas fa-caret-right"></i>
     </button>
     <ul>
-      <div
-        v-if="$store.state.categories.length === 0"
-        class="loading-spinner-container"
-      >
+      <div v-if="$store.state.loadingStatus" class="loading-spinner-container">
         <vue-spinner
           line-bg-color="#D4D5D8"
           line-fg-color="#2B5658"
@@ -15,6 +12,7 @@
         />
       </div>
       <router-link
+        v-else
         v-for="category in $store.state.categories"
         :key="category.categoryId"
         :to="'/category/' + category.name"

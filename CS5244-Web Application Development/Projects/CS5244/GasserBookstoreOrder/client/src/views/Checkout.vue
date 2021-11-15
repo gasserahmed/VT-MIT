@@ -457,7 +457,7 @@ form > div > div > .error {
   justify-content: space-between;
 }
 
-.checkout-summary > .button {
+.checkout-summary .button {
   align-self: center;
   margin-top: 1em;
 }

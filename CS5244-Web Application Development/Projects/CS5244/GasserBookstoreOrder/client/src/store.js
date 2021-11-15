@@ -51,13 +51,16 @@ export default new Vuex.Store({
   },
   actions: {
     fetchCategories(context) {
+      context.commit("SET_LOADING_STATUS", true);
       ApiService.fetchCategories()
         .then((categories) => {
           console.log("Categories: ", categories);
           context.commit("SET_CATEGORIES", categories);
+          context.commit("SET_LOADING_STATUS", false);
         })
         .catch((reason) => {
           console.log("Error: " + reason);
+          context.commit("SET_LOADING_STATUS", false);
         });
     },
     selectCategory(context, selectedCategoryName) {
@@ -73,6 +76,7 @@ export default new Vuex.Store({
         })
         .catch((reason) => {
           console.log("Error: " + reason);
+          context.commit("SET_LOADING_STATUS", false);
         });
     },
     addToCart(context, book) {
