@@ -195,15 +195,20 @@
                 }}</span>
               </div>
             </div>
-            <button
-              type="submit"
-              name="submit"
-              class="button"
-              :disabled="checkoutStatus == 'PENDING'"
-              form="checkout-form"
+            <div
+              class="button-wrapper"
+              :class="{ disabled: checkoutStatus == 'PENDING' }"
             >
-              Complete Purchase
-            </button>
+              <button
+                type="submit"
+                name="submit"
+                class="button"
+                :disabled="checkoutStatus == 'PENDING'"
+                form="checkout-form"
+              >
+                Complete Purchase
+              </button>
+            </div>
             <section v-show="checkoutStatus != ''" class="checkoutStatusBox">
               <div v-if="checkoutStatus == 'ERROR'">
                 Error: Please fix the problems and try again.
