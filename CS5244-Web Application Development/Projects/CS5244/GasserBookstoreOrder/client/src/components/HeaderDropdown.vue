@@ -4,6 +4,16 @@
       Categories <i class="fas fa-caret-right"></i>
     </button>
     <ul>
+      <div
+        v-if="$store.state.categories.length === 0"
+        class="loading-spinner-container"
+      >
+        <vue-spinner
+          line-bg-color="#D4D5D8"
+          line-fg-color="#2B5658"
+          size="26"
+        />
+      </div>
       <router-link
         v-for="category in $store.state.categories"
         :key="category.categoryId"
@@ -17,8 +27,11 @@
 </template>
 
 <script>
+import Spinner from "vue-simple-spinner";
+
 export default {
   name: "HeaderDropdownMenu",
+  components: { vueSpinner: Spinner },
 };
 </script>
 
@@ -84,5 +97,9 @@ button {
   padding-top: 16%;
   z-index: 1;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.loading-spinner-container {
+  padding: 0.5em 0;
 }
 </style>

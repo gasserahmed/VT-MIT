@@ -332,3 +332,8 @@ body {
 .loading-spinner-container {
   padding: 5em;
 }
+
+.loading-spinner-container div {
+  font-size: 1rem !important;
+  color: var(--neutral-color-dark) !important;
+}

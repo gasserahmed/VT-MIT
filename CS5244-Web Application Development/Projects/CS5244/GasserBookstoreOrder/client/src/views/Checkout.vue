@@ -204,45 +204,50 @@
             >
               Complete Purchase
             </button>
+            <section v-show="checkoutStatus != ''" class="checkoutStatusBox">
+              <div v-if="checkoutStatus == 'ERROR'">
+                Error: Please fix the problems and try again.
+              </div>
+
+              <div
+                v-else-if="checkoutStatus == 'PENDING'"
+                class="loading-spinner-container"
+              >
+                <vue-spinner
+                  line-bg-color="#D4D5D8"
+                  line-fg-color="#2B5658"
+                  message="Processing..."
+                />
+              </div>
+
+              <div v-else-if="checkoutStatus == 'OK'">Order placed...</div>
+
+              <div v-else>
+                <!-- "checkoutStatus == 'SERVER_ERROR'" -->
+                An unexpected error occurred, please try again.
+              </div>
+            </section>
           </div>
         </section>
-      </section>
-      <section v-show="checkoutStatus != ''" class="checkoutStatusBox">
-        <div v-if="checkoutStatus == 'ERROR'">
-          Error: Please fix the problems above and try again.
-        </div>
-
-        <div v-else-if="checkoutStatus == 'PENDING'">Processing...</div>
-
-        <div v-else-if="checkoutStatus == 'OK'">Order placed...</div>
-
-        <div v-else>
-          <!-- "checkoutStatus == 'SERVER_ERROR'" -->
-          An unexpected error occurred, please try again.
-        </div>
       </section>
     </div>
   </div>
 </template>
 
 <script>
-import {
-  required,
-  // email,
-  minLength,
-  maxLength,
-} from "vuelidate/lib/validators";
+import { required, minLength, maxLength } from "vuelidate/lib/validators";
 
 import EmptyCart from "@/components/EmptyCart";
 import isMobilePhone from "validator/lib/isMobilePhone";
 import email from "vuelidate/lib/validators/email";
 import isCreditCard from "validator/lib/isCreditCard";
+import Spinner from "vue-simple-spinner";
 
 const isValidPhone = (value) => isMobilePhone(value, "en-US");
 const isValidCreditCard = (value) => isCreditCard(value);
 
 export default {
-  components: { EmptyCart },
+  components: { EmptyCart, vueSpinner: Spinner },
   data() {
     return {
       name: "",
@@ -456,6 +461,10 @@ form > div > div > .error {
   margin: 1em;
   padding: 1em;
   text-align: center;
+}
+
+.loading-spinner-container {
+  padding: 0 !important;
 }
 
 @media (min-width: 841px) and (max-width: 960px) {
