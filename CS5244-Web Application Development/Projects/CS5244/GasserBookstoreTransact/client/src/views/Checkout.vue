@@ -4,8 +4,7 @@
     <div class="checkout-page" v-else>
       <section class="checkout-page-body" v-if="!cart.empty">
         <section class="checkout-container">
-          <h2 class="checkout-title">Checkout</h2>
-          <div class="row-separator"></div>
+          <section-header :title="'Checkout'"></section-header>
           <form id="checkout-form" @submit.prevent="submitOrder">
             <div>
               <label for="name">Name</label>
@@ -162,21 +161,14 @@
           </form>
         </section>
         <section class="checkout-summary-container">
-          <div class="checkout-summary-header">
-            <h2 class="checkout-title">
-              {{ $store.state.cart.numberOfItems }}
-              <span v-if="$store.state.cart.numberOfItems === 1">item</span>
-              <span v-else>items</span>
-            </h2>
-            <router-link
-              class="button link-like-button edit-cart-button"
-              to="/cart"
-              tag="button"
-            >
-              Edit Cart
-            </router-link>
-          </div>
-          <div class="row-separator"></div>
+          <section-header
+            :title="
+              $store.state.cart.numberOfItems +
+              ' ' +
+              ($store.state.cart.numberOfItems === 1 ? 'item' : 'items')
+            "
+            :button="{ text: 'Edit cart', routeTo: '/cart' }"
+          ></section-header>
           <div class="checkout-summary" v-if="!cart.empty">
             <div>
               <div class="bold-text">
@@ -187,7 +179,7 @@
                 <span>Shipping</span>
                 <span>{{ cart.surcharge | asDollarsAndCents }}</span>
               </div>
-              <div class="row-separator"></div>
+              <row-separator></row-separator>
               <div class="bold-text">
                 <span>Total</span>
                 <span>{{
@@ -247,12 +239,19 @@ import isMobilePhone from "validator/lib/isMobilePhone";
 import email from "vuelidate/lib/validators/email";
 import isCreditCard from "validator/lib/isCreditCard";
 import Spinner from "vue-simple-spinner";
+import RowSeparator from "@/components/RowSeparator";
+import SectionHeader from "@/components/SectionHeader";
 
 const isValidPhone = (value) => isMobilePhone(value, "en-US");
 const isValidCreditCard = (value) => isCreditCard(value);
 
 export default {
-  components: { EmptyCart, vueSpinner: Spinner },
+  components: {
+    SectionHeader,
+    EmptyCart,
+    vueSpinner: Spinner,
+    RowSeparator,
+  },
   data() {
     return {
       name: "",
@@ -388,23 +387,12 @@ export default {
   height: 100%;
 }
 
-.checkout-summary-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-}
-
 .checkout-summary {
   display: flex;
   flex-direction: column;
   gap: 1em;
   padding: 1em;
   justify-content: space-between;
-}
-
-.checkout-title {
-  color: var(--neutral-color-dark);
-  padding: 1em 1em 1em 0.72em;
 }
 
 form {
@@ -472,18 +460,7 @@ form > div > div > .error {
   padding: 0 !important;
 }
 
-@media (min-width: 841px) and (max-width: 960px) {
-  .checkout-summary-header {
-    flex-direction: column;
-    align-items: center;
-  }
-  .checkout-summary-header .checkout-title {
-    padding-bottom: 0;
-    padding-top: 0.5em;
-  }
-}
-
-@media (max-width: 840px) {
+@media (max-width: 920px) {
   .checkout-page-body {
     flex-direction: column;
   }

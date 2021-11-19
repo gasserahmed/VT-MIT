@@ -5,16 +5,16 @@
       :text="'You need an item to checkout.'"
     />
     <section v-else class="non-empty-cart-page">
-      <div class="page-title-container">
-        <h2 class="page-title">Here's What You're Getting!</h2>
-        <div class="row-separator"></div>
-        <div class="page-description">
-          You have {{ $store.state.cart.numberOfItems }}
-          <span v-if="$store.state.cart.numberOfItems === 1">item</span>
-          <span v-else>items</span>
-          in your cart.
-        </div>
-      </div>
+      <section-header
+        :title="'Here\'s What You\'re Getting!'"
+        :description="
+          'You have ' +
+          $store.state.cart.numberOfItems +
+          ' ' +
+          ($store.state.cart.numberOfItems === 1 ? 'item' : 'items') +
+          ' in your cart.'
+        "
+      ></section-header>
       <cart-table></cart-table>
       <div class="cart-footer">
         <button class="button link-like-button clear-button" @click="clearCart">
@@ -46,9 +46,10 @@
 <script>
 import CartTable from "@/components/CartTable";
 import EmptyCart from "@/components/EmptyCart";
+import SectionHeader from "@/components/SectionHeader";
 export default {
   name: "Cart",
-  components: { EmptyCart, CartTable },
+  components: { SectionHeader, EmptyCart, CartTable },
   methods: {
     clearCart() {
       this.$store.dispatch("clearCart");
@@ -63,25 +64,6 @@ export default {
   flex-direction: column;
   margin: 0 auto;
   padding: 1em 5em 2.5em 5em;
-}
-
-.page-title-container {
-  background: var(--secondary-background-color);
-}
-
-.page-title,
-.page-description {
-  color: var(--neutral-color-dark);
-  padding: 1em;
-}
-
-.page-title {
-  padding-left: 0.72em;
-}
-
-.page-description {
-  font-weight: 100;
-  font-size: 1.2em;
 }
 
 .cart-buttons,
@@ -118,10 +100,6 @@ export default {
 }
 
 @media (max-width: 750px) {
-  .page-title-container {
-    text-align: center;
-  }
-
   .non-empty-cart-page {
     padding: 1em 1em 2.5em 1em;
   }

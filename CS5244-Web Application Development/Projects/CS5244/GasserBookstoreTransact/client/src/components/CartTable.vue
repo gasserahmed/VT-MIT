@@ -7,7 +7,7 @@
         <div class="cart-heading-quantity">Quantity</div>
         <div class="cart-heading-subtotal">Total</div>
       </li>
-      <div class="row-separator header-row-separator"></div>
+      <row-separator style="margin-top: -1em"></row-separator>
       <li v-for="item in $store.state.cart.items" :key="item.book.bookId">
         <div class="cart-book-image">
           <img
@@ -42,15 +42,17 @@
           <span class="column-label">Total:</span>
           {{ (item.quantity * item.book.price) | asDollarsAndCents }}
         </div>
-        <div class="row-separator"></div>
+        <row-separator></row-separator>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import RowSeparator from "@/components/RowSeparator";
 export default {
   name: "CartTable",
+  components: { RowSeparator },
   methods: {
     updateCart(book, quantity) {
       this.$store.dispatch("updateCart", { book, quantity });
@@ -71,10 +73,6 @@ export default {
 ul,
 li {
   display: contents;
-}
-
-.header-row-separator {
-  margin-top: -1em;
 }
 
 .cart-heading {
@@ -166,10 +164,6 @@ li {
     flex-direction: column;
     align-items: center;
     gap: 0.5em;
-  }
-
-  .row-separator {
-    width: 100%;
   }
 
   .cart-book-title {
