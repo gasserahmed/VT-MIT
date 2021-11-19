@@ -8,14 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static business.JdbcUtils.getConnection;
-import business.BookstoreDbException;
+
 import business.BookstoreDbException.BookstoreQueryDbException;
 import business.BookstoreDbException.BookstoreUpdateDbException;
 
 public class LineItemDaoJdbc implements LineItemDao {
 
     private static final String CREATE_LINE_ITEM_SQL =
-            "INSERT INTO customer_order_line_item (book_id, customer_order_id, quantity) " +
+            "INSERT INTO customer_order_line_item (customer_order_id, book_id, quantity) " +
                     "VALUES (?, ?, ?)";
 
     private static final String FIND_BY_CUSTOMER_ORDER_ID_SQL =
@@ -23,23 +23,15 @@ public class LineItemDaoJdbc implements LineItemDao {
                     "FROM customer_order_line_item WHERE customer_order_id = ?";
 
     @Override
-    public long create(Connection connection, long bookId, long orderId, int quantity) {
+    public void create(Connection connection, long orderId, long bookId, int quantity) {
         try (PreparedStatement statement = connection.prepareStatement(CREATE_LINE_ITEM_SQL)) {
-            statement.setLong(1, bookId);
-            statement.setLong(2, orderId);
+            statement.setLong(1, orderId);
+            statement.setLong(2, bookId);
             statement.setInt(3, quantity);
             int affected = statement.executeUpdate();
             if (affected != 1) {
                 throw new BookstoreUpdateDbException("Failed to insert an order line item, affected row count = " + affected);
             }
-            long lineItemId;
-            ResultSet rs = statement.getGeneratedKeys();
-            if (rs.next()) {
-                lineItemId = rs.getLong(1);
-            } else {
-                throw new BookstoreUpdateDbException("Failed to retrieve customerId auto-generated key");
-            }
-            return lineItemId;
         } catch (SQLException e) {
             throw new BookstoreUpdateDbException("Encountered problem creating a new line item ", e);
         }

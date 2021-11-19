@@ -1,38 +1,112 @@
 package business.order;
 
 import api.ApiException;
+import business.BookstoreDbException;
+import business.JdbcUtils;
 import business.book.Book;
 import business.book.BookDao;
 import business.cart.ShoppingCart;
+import business.cart.ShoppingCartItem;
+import business.customer.Customer;
+import business.customer.CustomerDao;
 import business.customer.CustomerForm;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.YearMonth;
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class DefaultOrderService implements OrderService {
 
     private BookDao bookDao;
+    private CustomerDao customerDao;
+    private OrderDao orderDao;
+    private LineItemDao lineItemDao;
 
     public void setBookDao(BookDao bookDao) {
         this.bookDao = bookDao;
     }
 
+    public void setCustomerDao(CustomerDao customerDao) {
+        this.customerDao = customerDao;
+    }
+
+    public void setOrderDao(OrderDao orderDao) {
+        this.orderDao = orderDao;
+    }
+
+    public void setLineItemDao(LineItemDao lineItemDao) {
+        this.lineItemDao = lineItemDao;
+    }
+
     @Override
     public OrderDetails getOrderDetails(long orderId) {
-        // NOTE: THIS METHOD PROVIDED NEXT PROJECT
-        return null;
+        Order order = orderDao.findByOrderId(orderId);
+        Customer customer = customerDao.findByCustomerId(order.getCustomerId());
+        List<LineItem> lineItems = lineItemDao.findByOrderId(orderId);
+        List<Book> books = lineItems
+                .stream()
+                .map(lineItem -> bookDao.findByBookId(lineItem.getBookId()))
+                .collect(Collectors.toList());
+        return new OrderDetails(order, customer, lineItems, books);
     }
 
     @Override
     public long placeOrder(CustomerForm customerForm, ShoppingCart cart) {
         validateCustomer(customerForm);
         validateCart(cart);
-
-        // NOTE: MORE CODE PROVIDED NEXT PROJECT
-
-        return -1;
+        try (Connection connection = JdbcUtils.getConnection()) {
+            Date date = getDate(
+                    customerForm.getCcExpiryMonth(),
+                    customerForm.getCcExpiryYear());
+            return performPlaceOrderTransaction(
+                    customerForm.getName(),
+                    customerForm.getAddress(),
+                    customerForm.getPhone(),
+                    customerForm.getEmail(),
+                    customerForm.getCcNumber(),
+                    date, cart, connection);
+        } catch (SQLException e) {
+            throw new BookstoreDbException("Error during close connection for customer order", e);
+        } catch (ParseException e) {
+            throw new ApiException("Error during parse credit card date for customer order", e);
+        }
     }
 
+    private long performPlaceOrderTransaction(
+            String name, String address, String phone,
+            String email, String ccNumber, Date date,
+            ShoppingCart cart, Connection connection) {
+        try {
+            connection.setAutoCommit(false);
+            long customerId = customerDao.create(
+                    connection, name, address, phone, email,
+                    ccNumber, date);
+            long customerOrderId = orderDao.create(
+                    connection,
+                    cart.getComputedSubtotal() + cart.getSurcharge(),
+                    generateConfirmationNumber(), customerId);
+            for (ShoppingCartItem item : cart.getItems()) {
+                lineItemDao.create(connection, customerOrderId,
+                        item.getBookId(), item.getQuantity());
+            }
+            connection.commit();
+            return customerOrderId;
+        } catch (Exception e) {
+            try {
+                connection.rollback();
+            } catch (SQLException e1) {
+                throw new BookstoreDbException("Failed to roll back transaction", e1);
+            }
+            return 0;
+        }
+    }
 
     private void validateCustomer(CustomerForm customerForm) {
         String name = customerForm.getName();
@@ -147,5 +221,15 @@ public class DefaultOrderService implements OrderService {
 
     private boolean stringIsNullOrEmpty(String value) {
         return value == null || value.equals("");
+    }
+
+    private Date getDate(String monthString, String yearString) throws ParseException {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy/MM");
+        return simpleDateFormat.parse(yearString + "/" + monthString);
+    }
+
+    private int generateConfirmationNumber() {
+        Random randomNumber = new Random();
+        return randomNumber.nextInt(999999999);
     }
 }

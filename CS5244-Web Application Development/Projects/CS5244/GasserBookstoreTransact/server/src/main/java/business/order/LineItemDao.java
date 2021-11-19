@@ -8,7 +8,7 @@ import java.util.List;
  */
 public interface LineItemDao {
 
-    public long create(Connection connection, long bookId, long orderId, int quantity);
+    public void create(Connection connection, long orderId, long bookId, int quantity);
 
     public List<LineItem> findByOrderId(long orderId);
 }

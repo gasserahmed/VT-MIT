@@ -27,7 +27,7 @@ public class CustomerDaoJdbc implements CustomerDao {
 
     private static final String FIND_BY_CUSTOMER_ID_SQL =
             "SELECT customer_id, name, address, " +
-                    "phone, address, cc_number, cc_exp_date " +
+                    "phone, email, cc_number, cc_exp_date " +
                     "FROM customer WHERE customer_id = ?";
 
     @Override
@@ -45,7 +45,7 @@ public class CustomerDaoJdbc implements CustomerDao {
             statement.setString(3, phone);
             statement.setString(4, email);
             statement.setString(5, ccNumber);
-            statement.setDate(6, (java.sql.Date) ccExpDate);
+            statement.setDate(6, new java.sql.Date(ccExpDate.getTime()));
             int affected = statement.executeUpdate();
             if (affected != 1) {
                 throw new BookstoreUpdateDbException("Failed to insert a customer, affected row count = " + affected);
