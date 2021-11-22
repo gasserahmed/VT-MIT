@@ -2,7 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import "@/assets/css/global.css";
-import store, { CART_STORAGE_KEY } from "./store";
+import store, { CART_STORAGE_KEY, ORDER_DETAILS_STORAGE_KEY } from "./store";
 import Vuelidate from "vuelidate";
 
 Vue.config.productionTip = false;
@@ -37,9 +37,15 @@ new Vue({
   },
   created() {
     const cartString = localStorage.getItem(CART_STORAGE_KEY);
+    const orderDetailsString = localStorage.getItem(ORDER_DETAILS_STORAGE_KEY);
     if (cartString) {
       const shoppingCart = JSON.parse(cartString);
       this.$store.commit("SET_CART", shoppingCart);
+    }
+
+    if (orderDetailsString) {
+      const orderDetails = JSON.parse(orderDetailsString);
+      this.$store.commit("SET_ORDER_DETAILS", orderDetails);
     }
   },
 }).$mount("#app");

@@ -5,7 +5,8 @@ import { ShoppingCart } from "@/models/ShoppingCart";
 
 Vue.use(Vuex);
 
-export const CART_STORAGE_KEY = "";
+export const CART_STORAGE_KEY = "cart";
+export const ORDER_DETAILS_STORAGE_KEY = "order_details";
 
 export default new Vuex.Store({
   state: {
@@ -14,6 +15,7 @@ export default new Vuex.Store({
     selectedCategoryBooks: [],
     cart: new ShoppingCart(),
     loadingStatus: false,
+    orderDetails: null,
   },
   mutations: {
     SET_CATEGORIES(state, newCategories) {
@@ -48,13 +50,26 @@ export default new Vuex.Store({
     SET_LOADING_STATUS(state, loadingStatus) {
       state.loadingStatus = loadingStatus;
     },
+    CLEAR_ORDER_DETAILS(state) {
+      state.orderDetails = null;
+      localStorage.setItem(
+        ORDER_DETAILS_STORAGE_KEY,
+        JSON.stringify(this.state.orderDetails)
+      );
+    },
+    SET_ORDER_DETAILS(state, orderDetails) {
+      state.orderDetails = orderDetails;
+      localStorage.setItem(
+        ORDER_DETAILS_STORAGE_KEY,
+        JSON.stringify(this.state.orderDetails)
+      );
+    },
   },
   actions: {
     fetchCategories(context) {
       context.commit("SET_LOADING_STATUS", true);
       ApiService.fetchCategories()
         .then((categories) => {
-          console.log("Categories: ", categories);
           context.commit("SET_CATEGORIES", categories);
           context.commit("SET_LOADING_STATUS", false);
         })
@@ -70,7 +85,6 @@ export default new Vuex.Store({
       context.commit("SET_LOADING_STATUS", true);
       ApiService.fetchSelectedCategoryBooks(this.state.selectedCategoryName)
         .then((books) => {
-          console.log("Books: ", books);
           context.commit("SET_SELECTED_CATEGORY_BOOKS", books);
           context.commit("SET_LOADING_STATUS", false);
         })
@@ -92,8 +106,9 @@ export default new Vuex.Store({
       return ApiService.placeOrder({
         cart: state.cart,
         customerForm: customerForm,
-      }).then(() => {
+      }).then((orderDetails) => {
         commit("CLEAR_CART");
+        commit("SET_ORDER_DETAILS", orderDetails);
       });
     },
   },
