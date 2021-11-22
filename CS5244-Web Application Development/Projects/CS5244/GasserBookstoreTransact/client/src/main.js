@@ -18,6 +18,15 @@ Vue.filter("asDollarsAndCents", function (cents) {
   return PriceFormatter.format(cents / 100.0);
 });
 
+Vue.filter("formatCcLastFour", function (ccNumber) {
+  return "**" + ccNumber.substring(ccNumber.length - 4);
+});
+
+Vue.filter("formatCcExpDate", function (ccExpDate) {
+  const date = new Date(ccExpDate);
+  return date.getMonth() + 1 + "/" + date.getFullYear();
+});
+
 Vue.use(Vuelidate);
 
 new Vue({
