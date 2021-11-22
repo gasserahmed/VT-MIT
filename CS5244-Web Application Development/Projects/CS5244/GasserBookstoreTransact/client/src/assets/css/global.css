@@ -11,27 +11,27 @@
   custom properties are always defined in :root (not in html).
 */
 :root {
-  --title-font-family: "Proza Libre", serif;
-  --default-font-family: "Nunito", sans-serif;
-  /* 
-    16px is the default font size set by browswers in the html tag.
-    This should never be changed so that vision-impared users can override it.
-    Therefore, 1rem (root em) is the width of an em-dash at 16px.
-    If you want a differnt default size for your site, change it in the body tag.
-    For example, if you want 20px, then set the size to 20/16 = 1.25rem.
-  */
-  --default-font-size: 1.0rem;
-  --default-text-color: #3C797B;
-  --default-error-color: #A94442;
-  --neutral-color: #3C797B;
-  --neutral-color-dark: #2B5658;
-  --primary-color: #9E6204;
-  --primary-color-dark: #724703;
-  --primary-background-color: #F0F2F5;
-  --secondary-background-color: white;
-  --tertiary-background-color: #1C3839;
-  --tertiary-background-color-dark: #3A1D25;
-  --card-background-color: white;
+    --title-font-family: "Proza Libre", serif;
+    --default-font-family: "Nunito", sans-serif;
+    /*
+      16px is the default font size set by browswers in the html tag.
+      This should never be changed so that vision-impared users can override it.
+      Therefore, 1rem (root em) is the width of an em-dash at 16px.
+      If you want a differnt default size for your site, change it in the body tag.
+      For example, if you want 20px, then set the size to 20/16 = 1.25rem.
+    */
+    --default-font-size: 1.0rem;
+    --default-text-color: #3C797B;
+    --default-error-color: #A94442;
+    --neutral-color: #3C797B;
+    --neutral-color-dark: #2B5658;
+    --primary-color: #9E6204;
+    --primary-color-dark: #724703;
+    --primary-background-color: #F0F2F5;
+    --secondary-background-color: white;
+    --tertiary-background-color: #1C3839;
+    --tertiary-background-color-dark: #3A1D25;
+    --card-background-color: white;
 }
 
 /* RESET */
@@ -49,31 +49,31 @@ h1,
 h2,
 h3,
 p {
-  margin: 0;
+    margin: 0;
 }
 
 /* For large text sizes, you typically want to decrease your line height. */
 h1,
 h2,
 h3 {
-  line-height: 1;
+    line-height: 1;
 }
 
 h2 {
-  font-weight: 500;
+    font-weight: 500;
 }
 
 /* For small text sizes, you typically want to increase your line height. */
 p {
-  line-height: 1.5;
+    line-height: 1.5;
 }
 
 /* Get rid of styling (numbers, bullets, and spacing) for lists. */
 ol,
 ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 /*
@@ -83,7 +83,7 @@ ul {
   See the box model (content/padding/border/margin) for details.
 */
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /*
@@ -92,9 +92,9 @@ ul {
   A height of auto will ensure the aspect ratio is preserved.
 */
 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /*
@@ -112,9 +112,9 @@ input,
 optgroup,
 select,
 textarea {
-  color: inherit;
-  font: inherit;
-  margin: 0;
+    color: inherit;
+    font: inherit;
+    margin: 0;
 }
 
 /* UTILITY CLASSES */
@@ -129,7 +129,7 @@ textarea {
   to the first elem only when it is followed by another elem.
 */
 .flow-content > * + * {
-  /* margin-top: 1rem; */
+    /* margin-top: 1rem; */
 }
 
 /*
@@ -137,12 +137,12 @@ textarea {
   will ensure a nice padding around the contents.
 */
 .container {
-  padding: 1rem;
+    padding: 1rem;
 }
 
 .flex-centered-container {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 /*
@@ -151,19 +151,19 @@ textarea {
   This utility class does that.
 */
 .dark-background {
-  background-color: var(--neutral-color);
-  color: whitesmoke;
+    background-color: var(--neutral-color);
+    color: whitesmoke;
 }
 
 /* LAYOUT */
 
 /* These global font properties with be inherited by child elements. */
 body {
-  background: var(--primary-background-color);
-  color: var(--default-text-color);
-  font-family: var(--default-font-family);
-  font-size: var(--default-font-size);
-  margin: 0 auto;
+    background: var(--primary-background-color);
+    color: var(--default-text-color);
+    font-family: var(--default-font-family);
+    font-size: var(--default-font-size);
+    margin: 0 auto;
 }
 
 /* BUTTONS */
@@ -177,109 +177,109 @@ body {
 
 .button,
 .button:visited {
-  display: inline-block;
-  background: var(--primary-color);
-  color: white;
-  text-decoration: none;
-  padding: 5px 20px;
-  cursor: pointer;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 50px;
-  border: 0;
-  height: 37px;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    padding: 5px 20px;
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    border: 0;
+    height: 37px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
 }
 
 .button:hover,
 .button:active {
-  background: var(--primary-color-dark);
-  color: white;
+    background: var(--primary-color-dark);
+    color: white;
 }
 
 .button:active {
-  transform: scale(0.95);
+    transform: scale(0.95);
 }
 
 .button:disabled {
-  pointer-events: none;
+    pointer-events: none;
 }
 
 .button-wrapper.disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
+    cursor: not-allowed;
+    opacity: 0.5;
 }
 
 .icon-inside-button {
-  font-family: FontAwesome;
-  padding: 7px 10px;
+    font-family: FontAwesome;
+    padding: 7px 10px;
 }
 
 .icon-with-text-button {
-  margin-right: 5px;
+    margin-right: 5px;
 }
 
 .icon-only-button {
-  background: transparent;
-  color: var(--primary-color);
-  box-shadow: none;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  padding: 0 5px;
+    background: transparent;
+    color: var(--primary-color);
+    box-shadow: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
 }
 
 .icon-only-button:hover {
-  background: transparent;
-  color: var(--primary-color-dark);
+    background: transparent;
+    color: var(--primary-color-dark);
 }
 
 .icon-only-button-icon {
-  display: flex;
-  font-size: 2em;
-  position: relative;
-  justify-content: center;
+    display: flex;
+    font-size: 2em;
+    position: relative;
+    justify-content: center;
 }
 
 .icon-only-button-text {
-  color: white;
-  position: absolute;
-  text-align: center;
-  padding-left: 0.4em;
-  margin-top: 10%;
-  font-size: 0.5em;
+    color: white;
+    position: absolute;
+    text-align: center;
+    padding-left: 0.4em;
+    margin-top: 10%;
+    font-size: 0.5em;
 }
 
 .secondary-button {
-  background: var(--secondary-background-color);
-  border: 1px solid var(--neutral-color);
-  color: var(--neutral-color);
+    background: var(--secondary-background-color);
+    border: 1px solid var(--neutral-color);
+    color: var(--neutral-color);
 }
 
 .secondary-button:hover {
-  background: var(--neutral-color);
+    background: var(--neutral-color);
 }
 
 .tertiary-button {
-  background: var(--tertiary-background-color);
+    background: var(--tertiary-background-color);
 }
 
 .tertiary-button:hover {
-  background: var(--tertiary-background-color-dark);
+    background: var(--tertiary-background-color-dark);
 }
 
 .link-like-button {
-  color: dodgerblue;
-  background: transparent;
-  box-shadow: none;
+    color: dodgerblue;
+    background: transparent;
+    box-shadow: none;
 }
 
 .link-like-button:hover {
-  background: transparent;
-  box-shadow: none;
-  color: darkblue;
-  text-decoration: underline;
+    background: transparent;
+    box-shadow: none;
+    color: darkblue;
+    text-decoration: underline;
 }
 
 /* LINKS */
@@ -293,49 +293,88 @@ body {
 
 a,
 a:visited {
-  color: var(--primary-color);
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
+    color: var(--primary-color);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
 }
 
 a:hover,
 a:active {
-  color: var(--primary-color-dark);
+    color: var(--primary-color-dark);
 }
 
 /* BODY */
 html, body {
-  height: 100%;
+    height: 100%;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
-.content-container {
-  flex: 1 0 auto;
-  box-shadow: inset 0 4px 4px rgb(0 0 0 / 25%);
+.page-container {
+    flex: 1 0 auto;
+    box-shadow: inset 0 4px 4px rgb(0 0 0 / 25%);
+}
+
+.page-body {
+    padding: 1em 5em 2.5em 5em;
+}
+
+.page-body > * {
+    display: flex;
+    width: 100%;
+}
+
+/* ATTACHED SECTIONS*/
+.page-body.attached-sections {
+    margin: 2em 5em 2.5em 5em;
+    padding: 0;
+    box-shadow: 0 0 5px #ccc;
+}
+
+.page-body.attached-sections .section-container {
+    padding: 0;
+}
+
+.page-body.attached-sections .section-container > section {
+    box-shadow: none;
+}
+
+@media (max-width: 920px) {
+    .page-body {
+        padding: 0.5em;
+    }
+
+    .page-body.attached-sections {
+        padding: 0;
+        margin: 0.5em;
+    }
+
+    .page-body, .page-body > * {
+        flex-direction: column;
+    }
 }
 
 /* ERROR FIELD */
 .error {
-  color: var(--default-error-color);
-  font-size: 0.9rem;
+    color: var(--default-error-color);
+    font-size: 0.9rem;
 }
 
 /* SEMI-BOLD TEXT */
 .bold-text {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 /* LOADING SPINNER */
 .loading-spinner-container {
-  padding: 5em;
+    padding: 5em;
 }
 
 .loading-spinner-container div {
-  font-size: 1rem !important;
-  color: var(--neutral-color-dark) !important;
+    font-size: 1rem !important;
+    color: var(--neutral-color-dark) !important;
 }
