@@ -1,5 +1,5 @@
 <template>
-  <div class="content-container">
+  <div class="page-container">
     <category-nav></category-nav>
     <div v-if="$store.state.loadingStatus" class="loading-spinner-container">
       <vue-spinner line-bg-color="#D4D5D8" line-fg-color="#2B5658" />

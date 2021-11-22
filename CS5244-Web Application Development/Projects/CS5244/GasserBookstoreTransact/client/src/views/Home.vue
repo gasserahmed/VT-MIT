@@ -1,5 +1,5 @@
 <template>
-  <div class="home-page content-container">
+  <div class="home-page page-container">
     <section class="welcome-text flow-content container">
       <h2>KITAB LAB</h2>
       <p>Where every book is a new experiment.</p>

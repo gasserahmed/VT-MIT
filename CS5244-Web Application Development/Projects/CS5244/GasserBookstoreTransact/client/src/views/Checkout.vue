@@ -1,10 +1,9 @@
 <template>
-  <div class="content-container">
-    <EmptyCart v-if="cart.empty" />
-    <div class="checkout-page" v-else>
-      <section class="checkout-page-body" v-if="!cart.empty">
-        <section class="checkout-container">
-          <section-header :title="'Checkout'"></section-header>
+  <div class="page-container">
+    <div class="page-body">
+      <EmptyCart v-if="cart.empty" />
+      <div v-else>
+        <section-container title="Checkout">
           <form id="checkout-form" @submit.prevent="submitOrder">
             <div>
               <label for="name">Name</label>
@@ -159,16 +158,15 @@
               </div>
             </div>
           </form>
-        </section>
-        <section class="checkout-summary-container">
-          <section-header
-            :title="
-              $store.state.cart.numberOfItems +
-              ' ' +
-              ($store.state.cart.numberOfItems === 1 ? 'item' : 'items')
-            "
-            :button="{ text: 'Edit cart', routeTo: '/cart' }"
-          ></section-header>
+        </section-container>
+        <section-container
+          :title="
+            $store.state.cart.numberOfItems +
+            ' ' +
+            ($store.state.cart.numberOfItems === 1 ? 'item' : 'items')
+          "
+          :button="{ text: 'Edit cart', routeTo: '/cart' }"
+        >
           <div class="checkout-summary" v-if="!cart.empty">
             <div>
               <div class="bold-text">
@@ -225,8 +223,8 @@
               </div>
             </section>
           </div>
-        </section>
-      </section>
+        </section-container>
+      </div>
     </div>
   </div>
 </template>
@@ -240,14 +238,14 @@ import email from "vuelidate/lib/validators/email";
 import isCreditCard from "validator/lib/isCreditCard";
 import Spinner from "vue-simple-spinner";
 import RowSeparator from "@/components/RowSeparator";
-import SectionHeader from "@/components/SectionHeader";
+import SectionContainer from "@/components/SectionContainer";
 
 const isValidPhone = (value) => isMobilePhone(value, "en-US");
 const isValidCreditCard = (value) => isCreditCard(value);
 
 export default {
   components: {
-    SectionHeader,
+    SectionContainer,
     EmptyCart,
     vueSpinner: Spinner,
     RowSeparator,
@@ -311,7 +309,6 @@ export default {
   },
   methods: {
     submitOrder() {
-      console.log("Submit order");
       this.$v.$touch(); // Ensures validators always run
       if (this.$v.$invalid) {
         this.checkoutStatus = "ERROR";
@@ -361,44 +358,25 @@ export default {
 </script>
 
 <style scoped>
-.checkout-page {
-  display: flex;
-  flex-direction: column;
-  padding: 1em 5em 2.5em 5em;
-}
-
-.checkout-page-body {
-  display: flex;
-  padding: 1em;
-  justify-content: space-around;
-  gap: 1.5em;
-}
-
-.checkout-container {
-  background: var(--secondary-background-color);
+.section-container:nth-child(1) {
   width: 70%;
-  box-shadow: 0 0 5px #ccc;
 }
 
-.checkout-summary-container {
-  background: var(--secondary-background-color);
-  box-shadow: 0 0 5px #ccc;
+.section-container:nth-child(2) {
   width: 30%;
-  height: 100%;
 }
 
 .checkout-summary {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  padding: 1em;
   justify-content: space-between;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  padding: 1em 2em;
+  padding: 0 2em;
   max-width: 30em;
 }
 
@@ -461,20 +439,8 @@ form > div > div > .error {
 }
 
 @media (max-width: 920px) {
-  .checkout-page-body {
-    flex-direction: column;
-  }
-
-  .checkout-page,
-  .checkout-page-body,
-  .checkout-container,
-  .checkout-summary-container {
-    width: 100%;
-    padding: 0.5em;
-  }
-
   form {
-    padding: 1em;
+    padding: 0 1em;
   }
 
   form > div {
