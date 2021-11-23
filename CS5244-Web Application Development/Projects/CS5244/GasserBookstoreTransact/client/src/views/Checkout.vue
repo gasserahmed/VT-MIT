@@ -74,6 +74,7 @@
                   name="phone"
                   placeholder="Phone Number"
                   v-model.lazy="$v.phone.$model"
+                  v-model="phone"
                 />
                 <template v-if="$v.phone.$error">
                   <span class="error" v-if="!$v.phone.required"
@@ -319,9 +320,9 @@ export default {
             .dispatch("placeOrder", {
               name: this.name,
               address: this.address,
-              phone: this.phone,
+              phone: this.phone.replace(/\D/g, ""), // Remove all non-numeric characters before submitting
               email: this.email,
-              ccNumber: this.ccNumber,
+              ccNumber: this.ccNumber.replace(/\D/g, ""),
               ccExpiryMonth: this.ccExpiryMonth,
               ccExpiryYear: this.ccExpiryYear,
             })
@@ -352,6 +353,9 @@ export default {
 
       // Replace the dashed number with the real one
       this.ccNumber = dashedNumber.join("-");
+    },
+    phone() {
+      this.phone = this.$options.filters.formatPhoneNumber(this.phone);
     },
   },
 };
