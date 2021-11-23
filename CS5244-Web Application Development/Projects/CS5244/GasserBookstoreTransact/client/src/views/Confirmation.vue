@@ -9,6 +9,14 @@
               {{ $store.state.orderDetails.order.confirmationNumber }}
             </strong>
           </span>
+          <span
+            >Date:
+            <strong>
+              {{
+                $store.state.orderDetails.order.dateCreated | formatDisplayDate
+              }}
+            </strong>
+          </span>
           <span>
             Once your order is processed, we'll send a receipt and any related
             instructions to
@@ -28,8 +36,8 @@
             <span> {{ $store.state.orderDetails.customer.phone }}</span>
             <span> {{ $store.state.orderDetails.customer.email }}</span>
           </section>
-          <section class="payment-section">
-            <span><strong>Payment</strong></span>
+          <section class="payment-method-section">
+            <span><strong>Payment Method</strong></span>
             <span>{{ $store.state.orderDetails.customer.customerName }}</span>
             <span>
               {{
@@ -73,17 +81,17 @@
       <section-container title="Order details">
         <confirmation-table></confirmation-table>
       </section-container>
-      <!--      <section-container>-->
-      <!--        <section class="footer-section">-->
-      <!--          <router-link-->
-      <!--            class="button"-->
-      <!--            :to="'/category/' + $store.state.selectedCategoryName"-->
-      <!--            tag="button"-->
-      <!--          >-->
-      <!--            Shop for More Experiments-->
-      <!--          </router-link>-->
-      <!--        </section>-->
-      <!--      </section-container>-->
+      <section-container>
+        <section class="footer-section">
+          <router-link
+            class="button"
+            :to="'/category/' + $store.state.selectedCategoryName"
+            tag="button"
+          >
+            Shop for More Experiments
+          </router-link>
+        </section>
+      </section-container>
     </div>
   </div>
 </template>
@@ -120,5 +128,21 @@ export default {
 .order-summary-section > div {
   display: flex;
   justify-content: space-between;
+}
+
+.footer-section {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 750px) {
+  .invoice-section {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .invoice-section > section {
+    width: 100%;
+  }
 }
 </style>

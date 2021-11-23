@@ -27,6 +27,19 @@ Vue.filter("formatCcExpDate", function (ccExpDate) {
   return date.getMonth() + 1 + "/" + date.getFullYear();
 });
 
+Vue.filter("formatDisplayDate", function (displayDate) {
+  const date = new Date(displayDate);
+  const dateTime = date.toUTCString().split("GMT")[0];
+  const timeZoneWords = date
+    .toTimeString()
+    .split("(")[1]
+    .replace(")", "")
+    .split(" ");
+  const timeZoneAbbreviation =
+    timeZoneWords[0][0] + timeZoneWords[1][0] + timeZoneWords[2][0];
+  return dateTime + timeZoneAbbreviation;
+});
+
 Vue.use(Vuelidate);
 
 new Vue({

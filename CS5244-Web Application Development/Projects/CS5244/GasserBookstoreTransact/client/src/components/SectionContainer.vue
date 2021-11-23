@@ -1,7 +1,7 @@
 <template>
   <div class="section-container">
     <section>
-      <div class="section-header">
+      <div class="section-header" v-if="title">
         <div>
           <h2 class="section-title">{{ title }}</h2>
           <router-link
