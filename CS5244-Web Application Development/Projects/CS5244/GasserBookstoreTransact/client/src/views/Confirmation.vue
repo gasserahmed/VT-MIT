@@ -33,13 +33,18 @@
               {{ $store.state.orderDetails.customer.customerName }}
             </span>
             <span> {{ $store.state.orderDetails.customer.address }}</span>
-            <span> {{ $store.state.orderDetails.customer.phone }}</span>
+            <span>
+              {{
+                $store.state.orderDetails.customer.phone | formatPhoneNumber
+              }}</span
+            >
             <span> {{ $store.state.orderDetails.customer.email }}</span>
           </section>
           <section class="payment-method-section">
             <span><strong>Payment Method</strong></span>
             <span>{{ $store.state.orderDetails.customer.customerName }}</span>
             <span>
+              <i class="far fa-credit-card"></i>
               {{
                 $store.state.orderDetails.customer.ccNumber | formatCcLastFour
               }}
