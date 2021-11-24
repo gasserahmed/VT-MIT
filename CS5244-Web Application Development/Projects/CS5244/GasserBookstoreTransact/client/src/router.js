@@ -26,6 +26,10 @@ export default new Router({
       props: true,
     },
     {
+      path: "/category",
+      redirect: "/category/Arts",
+    },
+    {
       path: "/cart",
       name: "cart",
       component: Cart,
