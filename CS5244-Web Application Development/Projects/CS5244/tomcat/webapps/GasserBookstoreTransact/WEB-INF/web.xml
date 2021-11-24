@@ -17,4 +17,9 @@
         <servlet-name>Jersey Web Application</servlet-name>
         <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
+    <!-- any unknown requests will be sent to the client application in the browser -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/index.html</location>
+    </error-page>
 </web-app>

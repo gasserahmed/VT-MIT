@@ -1,10 +1,14 @@
 <template>
   <div class="page-container">
     <div class="page-body">
-      <EmptyCart
-        v-if="$store.state.cart.empty"
-        :text="'You need an item to checkout.'"
-      />
+      <warning-container
+        v-if="cart.empty"
+        :warning-image="{ src: 'empty-shopping-cart.png' }"
+        warning-title="Your cart is currently empty!"
+        warning-description="Looks like you haven't added anything to your cart yet."
+        :warning-button-route="'/category/' + $store.state.selectedCategoryName"
+        warning-button-text="Shop Your Experiment"
+      ></warning-container>
       <section-container
         v-else
         :title="'Here\'s what you\'re getting!'"
@@ -50,11 +54,16 @@
 
 <script>
 import CartTable from "@/components/CartTable";
-import EmptyCart from "@/components/EmptyCart";
 import SectionContainer from "@/components/SectionContainer";
+import WarningContainer from "@/components/WarningContainer";
 export default {
   name: "Cart",
-  components: { SectionContainer, EmptyCart, CartTable },
+  components: { WarningContainer, SectionContainer, CartTable },
+  computed: {
+    cart() {
+      return this.$store.state.cart;
+    },
+  },
   methods: {
     clearCart() {
       this.$store.dispatch("clearCart");

@@ -1,7 +1,14 @@
 <template>
   <div class="page-container">
     <div class="page-body">
-      <EmptyCart v-if="cart.empty" />
+      <warning-container
+        v-if="cart.empty"
+        :warning-image="{ src: 'empty-shopping-cart.png' }"
+        warning-title="Your cart is currently empty!"
+        warning-description="Once you have added items to your cart, you can check out from here."
+        :warning-button-route="'/category/' + $store.state.selectedCategoryName"
+        warning-button-text="Shop Your Experiment"
+      />
       <div v-else>
         <section-container title="Checkout">
           <form id="checkout-form" @submit.prevent="submitOrder">
@@ -233,21 +240,21 @@
 <script>
 import { required, minLength, maxLength } from "vuelidate/lib/validators";
 
-import EmptyCart from "@/components/EmptyCart";
 import isMobilePhone from "validator/lib/isMobilePhone";
 import email from "vuelidate/lib/validators/email";
 import isCreditCard from "validator/lib/isCreditCard";
 import Spinner from "vue-simple-spinner";
 import RowSeparator from "@/components/RowSeparator";
 import SectionContainer from "@/components/SectionContainer";
+import WarningContainer from "@/components/WarningContainer";
 
 const isValidPhone = (value) => isMobilePhone(value, "en-US");
 const isValidCreditCard = (value) => isCreditCard(value);
 
 export default {
   components: {
+    WarningContainer,
     SectionContainer,
-    EmptyCart,
     vueSpinner: Spinner,
     RowSeparator,
   },
