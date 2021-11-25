@@ -106,6 +106,7 @@ export default new Vuex.Store({
       context.commit("CLEAR_CART");
     },
     placeOrder({ commit, state }, customerForm) {
+      commit("CLEAR_ORDER_DETAILS");
       return ApiService.placeOrder({
         cart: state.cart,
         customerForm: customerForm,
