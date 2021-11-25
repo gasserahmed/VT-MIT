@@ -16,7 +16,7 @@
         <section-container title="Thank you for your order!">
           <section class="confirmation-section">
             <span
-              >Your confirmation number:
+              >Confirmation number:
               <strong>
                 {{ $store.state.orderDetails.order.confirmationNumber }}
               </strong>
