@@ -83,7 +83,9 @@ export default new Vuex.Store({
     },
     fetchSelectedCategoryBooks(context) {
       context.commit("SET_LOADING_STATUS", true);
-      ApiService.fetchSelectedCategoryBooks(this.state.selectedCategoryName)
+      return ApiService.fetchSelectedCategoryBooks(
+        this.state.selectedCategoryName
+      )
         .then((books) => {
           context.commit("SET_SELECTED_CATEGORY_BOOKS", books);
           context.commit("SET_LOADING_STATUS", false);
@@ -91,6 +93,7 @@ export default new Vuex.Store({
         .catch((reason) => {
           console.log("Error: " + reason);
           context.commit("SET_LOADING_STATUS", false);
+          throw reason;
         });
     },
     addToCart(context, book) {

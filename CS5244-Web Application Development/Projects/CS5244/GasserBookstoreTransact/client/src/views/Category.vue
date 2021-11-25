@@ -21,8 +21,11 @@ export default {
     vueSpinner: Spinner,
   },
   created: function () {
+    const self = this;
     this.$store.dispatch("selectCategory", this.$route.params.name);
-    this.$store.dispatch("fetchSelectedCategoryBooks");
+    this.$store.dispatch("fetchSelectedCategoryBooks").catch(function () {
+      self.$router.push("/404"); // '/404' triggers NotFound
+    });
   },
 };
 </script>

@@ -37,6 +37,7 @@ export default {
       })
       .catch((reason) => {
         console.log("Error fetching selected category books data", reason);
+        throw reason;
       });
   },
   placeOrder(order) {
