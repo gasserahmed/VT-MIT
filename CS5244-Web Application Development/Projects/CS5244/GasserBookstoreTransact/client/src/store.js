@@ -52,14 +52,14 @@ export default new Vuex.Store({
     },
     CLEAR_ORDER_DETAILS(state) {
       state.orderDetails = null;
-      localStorage.setItem(
+      sessionStorage.setItem(
         ORDER_DETAILS_STORAGE_KEY,
         JSON.stringify(this.state.orderDetails)
       );
     },
     SET_ORDER_DETAILS(state, orderDetails) {
       state.orderDetails = orderDetails;
-      localStorage.setItem(
+      sessionStorage.setItem(
         ORDER_DETAILS_STORAGE_KEY,
         JSON.stringify(this.state.orderDetails)
       );
