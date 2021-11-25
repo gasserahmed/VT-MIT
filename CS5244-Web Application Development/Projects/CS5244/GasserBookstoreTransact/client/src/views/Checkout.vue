@@ -7,7 +7,7 @@
         warning-title="Your cart is currently empty!"
         warning-description="Once you have added items to your cart, you can check out from here."
         :warning-button-route="'/category/' + $store.state.selectedCategoryName"
-        warning-button-text="Shop Your Experiment"
+        warning-button-text="Continue Shopping"
       />
       <div v-else>
         <section-container title="Checkout">

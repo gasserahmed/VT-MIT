@@ -7,10 +7,10 @@
       <warning-container
         v-if="!$store.state.orderDetails"
         :warning-image="{ src: 'empty-order-details.png' }"
-        warning-title="You haven't placed any order yet!"
+        warning-title="You haven't placed an order yet!"
         warning-description="Once you have placed your order, you can find your order confirmation here."
         :warning-button-route="'/category/' + $store.state.selectedCategoryName"
-        warning-button-text="Shop Your Experiment"
+        warning-button-text="Continue Shopping"
       ></warning-container>
       <template v-else>
         <section-container title="Thank you for your order!">

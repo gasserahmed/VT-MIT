@@ -14,7 +14,7 @@
       <router-link
         v-if="warningButtonRoute"
         :to="warningButtonRoute"
-        class="button"
+        class="button secondary-button"
         tag="button"
       >
         {{ warningButtonText }}
