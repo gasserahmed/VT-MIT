@@ -61,7 +61,9 @@ new Vue({
   },
   created() {
     const cartString = localStorage.getItem(CART_STORAGE_KEY);
-    const orderDetailsString = localStorage.getItem(ORDER_DETAILS_STORAGE_KEY);
+    const orderDetailsString = sessionStorage.getItem(
+      ORDER_DETAILS_STORAGE_KEY
+    );
     if (cartString) {
       const shoppingCart = JSON.parse(cartString);
       this.$store.commit("SET_CART", shoppingCart);
