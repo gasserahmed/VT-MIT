@@ -128,16 +128,6 @@ li {
   padding: 0 1em;
 }
 
-.confirmation-book-quantity .icon-only-button {
-  height: auto;
-  color: var(--neutral-color);
-}
-
-.confirmation-book-quantity .icon-only-button:hover {
-  height: auto;
-  color: var(--neutral-color-dark);
-}
-
 .column-label {
   display: none;
   color: var(--neutral-color-dark);
