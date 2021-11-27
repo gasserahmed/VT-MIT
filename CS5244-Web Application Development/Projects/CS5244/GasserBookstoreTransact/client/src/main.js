@@ -36,7 +36,9 @@ Vue.filter("formatDisplayDate", function (displayDate) {
     .replace(")", "")
     .split(" ");
   const timeZoneAbbreviation =
-    timeZoneWords[0][0] + timeZoneWords[1][0] + timeZoneWords[2][0];
+    timeZoneWords.length > 2
+      ? timeZoneWords[0][0] + timeZoneWords[1][0] + timeZoneWords[2][0]
+      : timeZoneWords[0]; // handling toTimeString() returning different result in Safari e.g. Eastern Standard Time vs EST
   return dateTime + timeZoneAbbreviation;
 });
 
