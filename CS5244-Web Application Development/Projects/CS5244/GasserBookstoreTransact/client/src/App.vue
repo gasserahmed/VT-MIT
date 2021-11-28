@@ -9,6 +9,7 @@
 <script>
 import AppHeader from "@/components/AppHeader";
 import AppFooter from "@/components/AppFooter";
+import { mapActions } from "vuex";
 
 export default {
   name: "App",
@@ -17,8 +18,9 @@ export default {
     AppFooter,
   },
   created: function () {
-    this.$store.dispatch("fetchCategories");
+    this.fetchCategories();
   },
+  methods: mapActions(["fetchCategories"]),
 };
 </script>
 
