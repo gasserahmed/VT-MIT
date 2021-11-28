@@ -2,10 +2,10 @@
   <div class="page-container">
     <div
       class="page-body"
-      :class="{ 'attached-sections': $store.state.orderDetails !== null }"
+      :class="{ 'attached-sections': orderDetails !== null }"
     >
       <warning-container
-        v-if="!$store.state.orderDetails"
+        v-if="!orderDetails"
         :warning-image="{ src: 'empty-order-details.png' }"
         warning-title="You haven't placed an order yet!"
         warning-description="Once you have placed your order, you can find your order confirmation here."
@@ -18,22 +18,19 @@
             <span
               >Confirmation number:
               <strong>
-                {{ $store.state.orderDetails.order.confirmationNumber }}
+                {{ orderDetails.order.confirmationNumber }}
               </strong>
             </span>
             <span
               >Date:
               <strong>
-                {{
-                  $store.state.orderDetails.order.dateCreated
-                    | formatDisplayDate
-                }}
+                {{ orderDetails.order.dateCreated | formatDisplayDate }}
               </strong>
             </span>
             <span>
               Once your order is processed, we'll send a receipt and any related
               instructions to
-              <strong>{{ $store.state.orderDetails.customer.email }}</strong
+              <strong>{{ orderDetails.customer.email }}</strong
               >.
             </span>
           </section>
@@ -43,29 +40,23 @@
             <section class="shipping-section">
               <span><strong>Ship To</strong></span>
               <span>
-                {{ $store.state.orderDetails.customer.customerName }}
+                {{ orderDetails.customer.customerName }}
               </span>
-              <span> {{ $store.state.orderDetails.customer.address }}</span>
+              <span> {{ orderDetails.customer.address }}</span>
               <span>
-                {{
-                  $store.state.orderDetails.customer.phone | formatPhoneNumber
-                }}</span
+                {{ orderDetails.customer.phone | formatPhoneNumber }}</span
               >
-              <span> {{ $store.state.orderDetails.customer.email }}</span>
+              <span> {{ orderDetails.customer.email }}</span>
             </section>
             <section class="payment-method-section">
               <span><strong>Payment Method</strong></span>
-              <span>{{ $store.state.orderDetails.customer.customerName }}</span>
+              <span>{{ orderDetails.customer.customerName }}</span>
               <span>
                 <i class="far fa-credit-card"></i>
-                {{
-                  $store.state.orderDetails.customer.ccNumber | formatCcLastFour
-                }}
+                {{ orderDetails.customer.ccNumber | formatCcLastFour }}
               </span>
               <span>
-                {{
-                  $store.state.orderDetails.customer.ccExpDate | formatCcExpDate
-                }}
+                {{ orderDetails.customer.ccExpDate | formatCcExpDate }}
               </span>
             </section>
             <section class="order-summary-section">
@@ -74,8 +65,7 @@
                 <span>Subtotal:</span>
                 <span>
                   {{
-                    ($store.state.orderDetails.order.amount -
-                      $store.state.cart.surcharge)
+                    (orderDetails.order.amount - $store.state.cart.surcharge)
                       | asDollarsAndCents
                   }}
                 </span>
@@ -90,9 +80,7 @@
               <div>
                 <span>Total:</span>
                 <span>
-                  {{
-                    $store.state.orderDetails.order.amount | asDollarsAndCents
-                  }}
+                  {{ orderDetails.order.amount | asDollarsAndCents }}
                 </span>
               </div>
             </section>
@@ -122,6 +110,7 @@ import ConfirmationTable from "@/components/ConfirmationTable";
 import SectionContainer from "@/components/SectionContainer";
 import RowSeparator from "@/components/RowSeparator";
 import WarningContainer from "@/components/WarningContainer";
+import { mapState } from "vuex";
 
 export default {
   name: "Confirmation",
@@ -130,6 +119,9 @@ export default {
     RowSeparator,
     SectionContainer,
     ConfirmationTable,
+  },
+  computed: {
+    ...mapState(["orderDetails"]),
   },
 };
 </script>

@@ -1,16 +1,4 @@
 <template>
-  <!--  <table>-->
-  <!--    <tr-->
-  <!--      v-for="(item, index) in this.$store.state.orderDetails.lineItems"-->
-  <!--      :key="item.productId"-->
-  <!--    >-->
-  <!--      <td>-->
-  <!--        {{ $store.state.orderDetails.books[index].title }}-->
-  <!--      </td>-->
-  <!--      <td>{{ item.quantity }}</td>-->
-  <!--      <td>{{ 1299 | asDollarsAndCents }}</td>-->
-  <!--    </tr>-->
-  <!--  </table>-->
   <div class="confirmation-table">
     <ul>
       <li class="confirmation-heading">
@@ -21,23 +9,23 @@
       </li>
       <row-separator></row-separator>
       <li
-        v-for="(item, index) in this.$store.state.orderDetails.lineItems"
+        v-for="(item, index) in this.orderDetails.lineItems"
         :key="item.productId"
       >
         <div class="confirmation-book-image">
           <img
             :src="require('@/assets/images/books/' + item.bookId + '.jpg')"
-            :alt="$store.state.orderDetails.books[index].title"
+            :alt="orderDetails.books[index].title"
             width="100px"
             height="auto"
           />
         </div>
         <div class="confirmation-book-title">
-          {{ $store.state.orderDetails.books[index].title }}
+          {{ orderDetails.books[index].title }}
         </div>
         <div class="confirmation-book-price">
           <span class="column-label">Price:</span>
-          {{ $store.state.orderDetails.books[index].price | asDollarsAndCents }}
+          {{ orderDetails.books[index].price | asDollarsAndCents }}
         </div>
         <div class="confirmation-book-quantity">
           <span class="column-label">Quantity:</span>
@@ -46,7 +34,7 @@
         <div class="subtotal">
           <span class="column-label">Total:</span>
           {{
-            (item.quantity * $store.state.orderDetails.books[index].price)
+            (item.quantity * orderDetails.books[index].price)
               | asDollarsAndCents
           }}
         </div>
@@ -58,10 +46,12 @@
 
 <script>
 import RowSeparator from "@/components/RowSeparator";
+import { mapState } from "vuex";
 
 export default {
   name: "ConfirmationTable",
   components: { RowSeparator },
+  computed: { ...mapState(["orderDetails"]) },
 };
 </script>
 

@@ -14,9 +14,9 @@
         :title="'Here\'s what you\'re getting!'"
         :description="
           'You have ' +
-          $store.state.cart.numberOfItems +
+          cart.numberOfItems +
           ' ' +
-          ($store.state.cart.numberOfItems === 1 ? 'item' : 'items') +
+          (cart.numberOfItems === 1 ? 'item' : 'items') +
           ' in your cart.'
         "
       >
@@ -30,8 +30,7 @@
           </button>
           <div class="cart-total">
             <span class="subtotal"
-              >Subtotal:
-              {{ $store.state.cart.subtotal | asDollarsAndCents }}</span
+              >Subtotal: {{ cart.subtotal | asDollarsAndCents }}</span
             >
           </div>
         </div>
@@ -56,13 +55,15 @@
 import CartTable from "@/components/CartTable";
 import SectionContainer from "@/components/SectionContainer";
 import WarningContainer from "@/components/WarningContainer";
+import { mapState } from "vuex";
 export default {
   name: "Cart",
   components: { WarningContainer, SectionContainer, CartTable },
   computed: {
     cart() {
-      return this.$store.state.cart;
+      return this.cart;
     },
+    ...mapState(["cart"]),
   },
   methods: {
     clearCart() {
