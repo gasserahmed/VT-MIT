@@ -19,7 +19,7 @@
         <div class="confirmation-heading-quantity">Quantity</div>
         <div class="confirmation-heading-subtotal">Total</div>
       </li>
-      <row-separator style="margin-top: -1em"></row-separator>
+      <row-separator></row-separator>
       <li
         v-for="(item, index) in this.$store.state.orderDetails.lineItems"
         :key="item.productId"
@@ -71,6 +71,10 @@ export default {
   grid-template-columns: max-content minmax(10em, 200em) repeat(3, max-content);
   row-gap: 1em;
   background-color: var(--secondary-background-color);
+}
+
+.confirmation-table .row-separator:first-of-type {
+  margin-top: -1em !important;
 }
 
 ul,

@@ -7,7 +7,7 @@
         <div class="cart-heading-quantity">Quantity</div>
         <div class="cart-heading-subtotal">Total</div>
       </li>
-      <row-separator style="margin-top: -1em"></row-separator>
+      <row-separator></row-separator>
       <li v-for="item in $store.state.cart.items" :key="item.book.bookId">
         <div class="cart-book-image">
           <img
@@ -68,6 +68,10 @@ export default {
   row-gap: 1em;
   background-color: var(--secondary-background-color);
   padding: 1em;
+}
+
+.cart-table .row-separator:first-of-type {
+  margin-top: -1em !important;
 }
 
 ul,

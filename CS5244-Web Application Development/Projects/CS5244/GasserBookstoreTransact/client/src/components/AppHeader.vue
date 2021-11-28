@@ -38,7 +38,7 @@
           }}</span>
         </i>
       </router-link>
-      <button class="button" style="padding: 7px">GA</button>
+      <button class="button login-button">GA</button>
     </section>
   </header>
 </template>
@@ -131,6 +131,10 @@ header a {
 
 .header-dropdown-and-cart {
   gap: 0.5em;
+}
+
+.login-button {
+  padding: 7px;
 }
 
 @media (max-width: 840px) {
