@@ -191,7 +191,7 @@ public class DefaultOrderService implements OrderService {
         if (stringIsNullOrEmpty(ccExpiryMonth) || stringIsNullOrEmpty(ccExpiryYear)) {
             return false;
         }
-        
+
         int ccExpiryYearInt = Integer.parseInt(ccExpiryYear);
         int ccExpiryMonthInt = Integer.parseInt(ccExpiryMonth);
         if (ccExpiryMonthInt < 1 || ccExpiryMonthInt > 12) {
