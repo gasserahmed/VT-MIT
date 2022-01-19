@@ -5,19 +5,18 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import edu.vt.cs.cs5254.geoquiz.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var trueButton: Button
-    private lateinit var falseButton: Button
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        trueButton = findViewById(R.id.true_button)
-        falseButton = findViewById(R.id.false_button)
-
-        trueButton.setOnClickListener { view: View ->
+        binding.trueButton.setOnClickListener { view: View ->
             Toast.makeText(
                 this,
                 R.string.correct_toast,
@@ -26,7 +25,7 @@ class MainActivity : AppCompatActivity() {
                 .show()
         }
 
-        falseButton.setOnClickListener { view: View ->
+        binding.falseButton.setOnClickListener { view: View ->
             Toast.makeText(
                 this,
                 R.string.incorrect_toast,
