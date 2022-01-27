@@ -23,10 +23,10 @@ class MainActivity : AppCompatActivity() {
 
     // model fields (only one)
     private val answerList = listOf(
-            Answer(R.string.australia_answer_brisbane, false),
-            Answer(R.string.australia_answer_canberra, true),
-            Answer(R.string.australia_answer_perth, false),
-            Answer(R.string.australia_answer_sydney, false)
+        Answer(R.string.australia_answer_brisbane, false),
+        Answer(R.string.australia_answer_canberra, true),
+        Answer(R.string.australia_answer_perth, false),
+        Answer(R.string.australia_answer_sydney, false)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,9 +45,9 @@ class MainActivity : AppCompatActivity() {
         // ------------------------------------------------------
 
         answerButtonList = binding.answerButtons
-                .children
-                .toList()
-                .filterIsInstance<Button>()
+            .children
+            .toList()
+            .filterIsInstance<Button>()
 
         // ------------------------------------------------------
         // Set text of views
@@ -55,10 +55,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.questionTextView.setText(R.string.australia_question)
 
-        // TODO Use pairs and a zipped list instead of 0..3
-        for (index in 0..3) {
-            answerButtonList[index].setText(answerList[index].textResId)
-        }
+        // TODO Use pairs and a zipped list instead of 0..3 (DONE)
+        val answerButtonPairs = answerList.zip(answerButtonList)
+        answerButtonPairs.forEach { (answer, button) -> button.setText(answer.textResId) }
 
         binding.disableButton.setText(R.string.disable_button)
         binding.resetButton.setText(R.string.reset_button)
@@ -67,12 +66,13 @@ class MainActivity : AppCompatActivity() {
         // Add listeners to buttons
         // ------------------------------------------------------
 
-        // TODO Use pairs and a zipped list instead of 0..3
-        for (index in 0..3) {
-            answerButtonList[index].setOnClickListener {
-                processAnswerButtonClick(answerList[index])
+        // TODO Use pairs and a zipped list instead of 0..3 (DONE)
+        answerButtonPairs.forEach { (answer, button) ->
+            button.setOnClickListener {
+                processAnswerButtonClick(answer)
             }
         }
+
         binding.disableButton.setOnClickListener {
             processDisableButtonClick()
         }
@@ -90,9 +90,9 @@ class MainActivity : AppCompatActivity() {
     private fun processAnswerButtonClick(clickedAnswer: Answer) {
 
         val origIsSelected = clickedAnswer.isSelected
-        // TODO Use forEach instead of for loop
-        for (answer in answerList) {
-            answer.isSelected = false
+        // TODO Use forEach instead of for loop (DONE)
+        answerList.forEach {
+            it.isSelected = false
         }
         clickedAnswer.isSelected = !origIsSelected
 
@@ -101,28 +101,24 @@ class MainActivity : AppCompatActivity() {
 
     private fun processDisableButtonClick() {
 
-        // TODO Use list functions (filter/take/forEach) instead of for loop
-        var count = 0
-        for (answer in answerList) {
-            if (!answer.isCorrect) {
-                answer.isEnabled = false
-                answer.isSelected = false // deselect when answer is disabled
-                count++
-                if (count == 2) {
-                    break
-                }
+        // TODO Use list functions (filter/take/forEach) instead of for loop (DONE)
+        answerList
+            .filter { !it.isCorrect }
+            .take(2)
+            .forEach {
+                it.isEnabled = false
+                it.isSelected = false // deselect when answer is disabled
             }
-        }
 
         refreshView()
     }
 
     private fun processResetButtonClick() {
 
-        // TODO use forEach instead of for loop
-        for (answer in answerList) {
-            answer.isEnabled = true
-            answer.isSelected = false
+        // TODO use forEach instead of for loop (DONE)
+        answerList.forEach {
+            it.isEnabled = true
+            it.isSelected = false
         }
 
         refreshView()
@@ -132,10 +128,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.disableButton.isEnabled = true
 
-        // TODO Use pairs and a zipped list instead of 0..3
-        for (index in 0..3) {
-            val answer = answerList[index]
-            val button = answerButtonList[index]
+        // TODO Use pairs and a zipped list instead of 0..3 (DONE)
+        val answerButtonPairs = answerList.zip(answerButtonList)
+        answerButtonPairs.forEach { (answer, button) ->
             button.isEnabled = answer.isEnabled
             button.isSelected = answer.isSelected
             if (answer.isSelected) {
@@ -143,17 +138,21 @@ class MainActivity : AppCompatActivity() {
             } else {
                 setButtonColor(button, DEFAULT_BUTTON_COLOR)
             }
+
             if (!answer.isEnabled) {
                 button.alpha = .5f
-                // TODO (optional) Handle disable button outside of main loop (use any)
-                binding.disableButton.isEnabled = false // disable if any answers are disabled
             }
+        }
+
+        if (answerButtonPairs.any { (answer) -> !answer.isEnabled }) {
+            // TODO (optional) Handle disable button outside of main loop (use any) (DONE)
+            binding.disableButton.isEnabled = false // disable if any answers are disabled
         }
     }
 
     private fun setButtonColor(button: Button, colorString: String) {
         button.backgroundTintList =
-                ColorStateList.valueOf(Color.parseColor(colorString))
+            ColorStateList.valueOf(Color.parseColor(colorString))
         button.setTextColor(Color.WHITE)
         button.alpha = 1f
     }
