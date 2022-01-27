@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">AnswerButton</string>
+    <string name="question_text">Question</string>
+    <string name="answer_0_button">Answer 0</string>
+    <string name="answer_1_button">Answer 1</string>
+    <string name="answer_2_button">Answer 2</string>
+    <string name="answer_3_button">Answer 3</string>
+    <string name="australia_question">What is the capital of Australia?</string>
+    <string name="australia_answer_brisbane">Brisbane</string>
+    <string name="australia_answer_canberra">Canberra</string>
+    <string name="australia_answer_perth">Perth</string>
+    <string name="australia_answer_sydney">Sydney</string>
+    <string name="disable_button">Disable</string>
+    <string name="reset_button">Reset</string>
+</resources>
