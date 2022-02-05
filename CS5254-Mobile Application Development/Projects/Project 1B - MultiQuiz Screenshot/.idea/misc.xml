@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/gasser18/VT-MIT/CS5254-Mobile Application Development/Projects/Project 1B - MultiQuiz Screenshot/app/src/main/res/layout/activity_quiz.xml" value="0.19756838905775076" />
+        <entry key="..\:/Users/gasser18/VT-MIT/CS5254-Mobile Application Development/Projects/Project 1B - MultiQuiz Screenshot/app/src/main/res/layout/activity_results.xml" value="0.33" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

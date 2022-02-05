@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MultiQuiz">
         <activity
-            android:name=".MainActivity"
+            android:name=".ResultsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".QuizActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
