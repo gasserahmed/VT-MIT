@@ -1,5 +1,6 @@
 package edu.vt.cs.cs5254.dreamcatcher
 
+import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,12 +12,24 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import edu.vt.cs.cs5254.dreamcatcher.databinding.FragmentDreamListBinding
 import edu.vt.cs.cs5254.dreamcatcher.databinding.ListItemDreamBinding
+import java.util.*
 
 class DreamListFragment : Fragment() {
+    interface Callbacks {
+        fun onDreamSelected(dreamId: UUID)
+    }
+
+    private var callbacks: Callbacks? = null
+
     private var _binding: FragmentDreamListBinding? = null
     private val binding get() = _binding!!
     private val viewModel: DreamListViewModel by lazy {
         ViewModelProvider(this).get(DreamListViewModel::class.java)
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        callbacks = context as Callbacks?
     }
 
     private var adapter: DreamAdapter? = null
@@ -29,6 +42,11 @@ class DreamListFragment : Fragment() {
         binding.dreamRecyclerView.layoutManager = LinearLayoutManager(context)
         updateUI()
         return view
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        callbacks = null
     }
 
     private fun updateUI() {
@@ -55,14 +73,18 @@ class DreamListFragment : Fragment() {
             } else {
                 View.INVISIBLE
             }
+
+            itemBinding.dreamItemImage.setImageResource(
+                if (dream.isFulfilled) {
+                    R.drawable.dream_fulfilled
+                } else {
+                    R.drawable.dream_deferred
+                }
+            )
         }
 
         override fun onClick(v: View) {
-            Toast.makeText(
-                context,
-                "${dream.title} pressed!", Toast.LENGTH_SHORT
-            )
-                .show()
+            callbacks?.onDreamSelected(dream.id)
         }
     }
 

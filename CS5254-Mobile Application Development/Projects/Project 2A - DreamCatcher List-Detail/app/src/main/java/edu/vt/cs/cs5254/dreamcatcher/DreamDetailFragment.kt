@@ -10,29 +10,39 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import edu.vt.cs.cs5254.dreamcatcher.databinding.FragmentDreamDetailBinding
+import java.util.*
 
 private const val TAG = "DreamDetailFragment"
+private const val ARG_DREAM_ID = "dream_id"
 
 class DreamDetailFragment : Fragment() {
     private var _binding: FragmentDreamDetailBinding? = null
-    private val binding get() = _binding!!
-    private val viewModel: DreamDetailViewModel by lazy {
+    private val ui get() = _binding!!
+    private val vm: DreamDetailViewModel by lazy {
         ViewModelProvider(this).get(DreamDetailViewModel::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(TAG, "Dream detail fragment for dream with ID ${viewModel.dream.id}")
+        val dreamId: UUID = arguments?.getSerializable(ARG_DREAM_ID) as UUID
+        vm.loadDream(dreamId)
+        Log.d(TAG, "Dream detail fragment for dream with ID ${vm.dream.id}")
     }
 
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?, savedInstanceState: Bundle?
+    ): View? {
         _binding = FragmentDreamDetailBinding.inflate(inflater, container, false)
-        val view = binding.root
-        binding.dreamDate.apply {
-            text = viewModel.dream.date.toString()
+        val view = ui.root
+
+        ui.dreamTitle.setText(vm.dream.title)
+        ui.dreamDate.apply {
+            text = vm.dream.date.toString()
             isEnabled = false
         }
+        ui.dreamFulfilled.isChecked = vm.dream.isFulfilled
+        ui.dreamDeferred.isChecked = vm.dream.isDeferred
         return view
     }
 
@@ -40,33 +50,45 @@ class DreamDetailFragment : Fragment() {
         super.onStart()
         val titleWatcher = object : TextWatcher {
             override fun beforeTextChanged(
-                sequence: CharSequence?, start: Int, count: Int, after: Int) { }
-            override fun onTextChanged(sequence: CharSequence?,
-                                       start: Int, before: Int, count: Int) {
-                viewModel.dream.title = sequence.toString()
+                sequence: CharSequence?, start: Int, count: Int, after: Int
+            ) {
             }
-            override fun afterTextChanged(sequence: Editable?) { }
+
+            override fun onTextChanged(
+                sequence: CharSequence?,
+                start: Int, before: Int, count: Int
+            ) {
+                vm.dream.title = sequence.toString()
+            }
+
+            override fun afterTextChanged(sequence: Editable?) {}
         }
-        binding.dreamTitle.addTextChangedListener(titleWatcher)
-        binding.dreamFulfilled.apply {
+        ui.dreamTitle.addTextChangedListener(titleWatcher)
+        ui.dreamFulfilled.apply {
             setOnCheckedChangeListener { _, isChecked ->
-                viewModel.dream.isFulfilled = isChecked
+                vm.dream.isFulfilled = isChecked
             }
         }
-        binding.dreamDeferred.apply {
+        ui.dreamDeferred.apply {
             setOnCheckedChangeListener { _, isChecked ->
-                viewModel.dream.isDeferred = isChecked
+                vm.dream.isDeferred = isChecked
             }
         }
     }
-    
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
     companion object {
-        fun newInstance(): DreamDetailFragment {
-            return DreamDetailFragment()
+        fun newInstance(dreamId: UUID): DreamDetailFragment {
+            val args = Bundle().apply {
+                putSerializable(ARG_DREAM_ID, dreamId)
+            }
+            return DreamDetailFragment().apply {
+                arguments = args
+            }
         }
     }
 }
