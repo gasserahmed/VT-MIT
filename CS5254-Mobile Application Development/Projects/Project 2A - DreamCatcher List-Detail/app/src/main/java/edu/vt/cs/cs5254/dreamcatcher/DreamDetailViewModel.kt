@@ -5,10 +5,10 @@ import java.util.*
 
 class DreamDetailViewModel : ViewModel() {
     private val dreamRepository = DreamRepository.get()
-    lateinit var dream: Dream
+    lateinit var dreamWithEntries: DreamWithEntries
     
     fun loadDream(dreamId: UUID) {
-        dream = dreamRepository.getDream(dreamId)
+        dreamWithEntries = dreamRepository.getDreamWithEntries(dreamId)
             ?: throw IllegalArgumentException("Dream with ID $dreamId not found")
     }
 }

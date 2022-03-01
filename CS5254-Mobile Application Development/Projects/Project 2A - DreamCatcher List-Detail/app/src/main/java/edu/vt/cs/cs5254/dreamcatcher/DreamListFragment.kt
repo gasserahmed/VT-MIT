@@ -3,11 +3,11 @@ package edu.vt.cs.cs5254.dreamcatcher
 import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.text.format.DateFormat
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import edu.vt.cs.cs5254.dreamcatcher.databinding.FragmentDreamListBinding
@@ -22,8 +22,8 @@ class DreamListFragment : Fragment() {
     private var callbacks: Callbacks? = null
 
     private var _binding: FragmentDreamListBinding? = null
-    private val binding get() = _binding!!
-    private val viewModel: DreamListViewModel by lazy {
+    private val ui get() = _binding!!
+    private val vm: DreamListViewModel by lazy {
         ViewModelProvider(this).get(DreamListViewModel::class.java)
     }
 
@@ -38,8 +38,8 @@ class DreamListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentDreamListBinding.inflate(inflater, container, false)
-        val view = binding.root
-        binding.dreamRecyclerView.layoutManager = LinearLayoutManager(context)
+        val view = ui.root
+        ui.dreamRecyclerView.layoutManager = LinearLayoutManager(context)
         updateUI()
         return view
     }
@@ -50,13 +50,13 @@ class DreamListFragment : Fragment() {
     }
 
     private fun updateUI() {
-        val dreams = viewModel.dreams
+        val dreams = vm.dreams
         adapter = DreamAdapter(dreams)
-        binding.dreamRecyclerView.adapter = adapter
+        ui.dreamRecyclerView.adapter = adapter
     }
 
     // DreamHolder && DreamAdapter
-    private inner class DreamHolder(val itemBinding: ListItemDreamBinding) :
+    inner class DreamHolder(val itemBinding: ListItemDreamBinding) :
         RecyclerView.ViewHolder(itemBinding.root), View.OnClickListener {
         private lateinit var dream: Dream
 
@@ -67,20 +67,22 @@ class DreamListFragment : Fragment() {
         fun bind(dream: Dream) {
             this.dream = dream
             itemBinding.dreamItemTitle.text = this.dream.title
-            itemBinding.dreamItemDate.text = this.dream.date.toString()
-            itemBinding.dreamItemImage.visibility = if (dream.isFulfilled || dream.isDeferred) {
-                View.VISIBLE
-            } else {
-                View.INVISIBLE
-            }
+            itemBinding.dreamItemDate.text = DateFormat.format("MMM dd, yyyy", this.dream.date)
 
-            itemBinding.dreamItemImage.setImageResource(
-                if (dream.isFulfilled) {
-                    R.drawable.dream_fulfilled
-                } else {
-                    R.drawable.dream_deferred
+            when {
+                dream.isDeferred -> {
+                    itemBinding.dreamItemImage.setImageResource(R.drawable.dream_deferred_icon)
+                    itemBinding.dreamItemImage.tag = R.drawable.dream_deferred_icon
                 }
-            )
+                dream.isFulfilled -> {
+                    itemBinding.dreamItemImage.setImageResource(R.drawable.dream_fulfilled_icon)
+                    itemBinding.dreamItemImage.tag = R.drawable.dream_fulfilled_icon
+                }
+                else -> {
+                    itemBinding.dreamItemImage.setImageResource(0)
+                    itemBinding.dreamItemImage.tag = 0
+                }
+            }
         }
 
         override fun onClick(v: View) {

@@ -16,7 +16,7 @@
         android:text="@string/dream_title_label" />
 
     <EditText
-        android:id="@+id/dream_title"
+        android:id="@+id/dream_title_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autofillHints=""
@@ -28,36 +28,67 @@
         android:layout_height="wrap_content">
 
         <CheckBox
-            android:id="@+id/dream_fulfilled"
+            android:id="@+id/dream_fulfilled_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/dream_fulfilled_label"
-            app:layout_constraintEnd_toStartOf="@+id/dream_deferred"
+            app:layout_constraintEnd_toStartOf="@+id/dream_deferred_checkbox"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent" />
 
         <CheckBox
-            android:id="@+id/dream_deferred"
+            android:id="@+id/dream_deferred_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/dream_deferred_label"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/dream_fulfilled" />
+            app:layout_constraintStart_toEndOf="@+id/dream_fulfilled_checkbox" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/dream_details_label"
-        style="?android:listSeparatorTextViewStyle"
+    <LinearLayout
+        android:id="@+id/dream_entry_buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/dream_entries_label" />
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/dream_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="Wed Nov 14 11:56 EST 2018" />
+        <TextView
+            android:id="@+id/dream_entries_label"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dream_entries_label" />
+
+        <Button
+            android:id="@+id/dream_entry_0_button"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/dream_entry_1_button"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/dream_entry_2_button"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/dream_entry_3_button"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/dream_entry_4_button"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
 </LinearLayout>
