@@ -166,9 +166,9 @@ class DreamDetailFragment : Fragment() {
                 button.setTextColor(Color.WHITE)
             }
             else -> {
-                val date = DateFormat.format("MMM dd, yyyy", dreamEntry.date).toString() +
+                val buttonText = DateFormat.format("MMM dd, yyyy", dreamEntry.date).toString() +
                         ": " + dreamEntry.text
-                button.text = date
+                button.text = buttonText
                 button.backgroundTintList =
                     ColorStateList.valueOf(Color.parseColor(REFLECTION_BUTTON_COLOR))
                 button.setTextColor(Color.BLACK)

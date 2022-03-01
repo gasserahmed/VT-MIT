@@ -62,33 +62,38 @@
 
         <Button
             android:id="@+id/dream_entry_0_button"
-            android:visibility="gone"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/dream_entry_1_button"
-            android:visibility="gone"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/dream_entry_2_button"
-            android:visibility="gone"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/dream_entry_3_button"
-            android:visibility="gone"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/dream_entry_4_button"
-            android:visibility="gone"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:visibility="gone" />
     </LinearLayout>
 
 </LinearLayout>
