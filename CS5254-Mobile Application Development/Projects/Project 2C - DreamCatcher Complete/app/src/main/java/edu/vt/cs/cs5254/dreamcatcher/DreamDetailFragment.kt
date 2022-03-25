@@ -128,13 +128,10 @@ class DreamDetailFragment : Fragment() {
     }
 
     private fun refreshView() {
-        // Remove fulfilled and deferred
-        if (dreamWithEntries.dreamEntries.isNotEmpty() &&
-            (dreamWithEntries.dreamEntries.last().kind == DreamEntryKind.FULFILLED ||
-                    dreamWithEntries.dreamEntries.last().kind == DreamEntryKind.DEFERRED)
-        ) {
-            dreamWithEntries.dreamEntries = dreamWithEntries.dreamEntries.dropLast(1);
-        }
+        val deferredDreamEntry =
+            dreamWithEntries.dreamEntries.firstOrNull { dreamEntry -> dreamEntry.kind == DreamEntryKind.DEFERRED }
+        val fulfilledDreamEntry =
+            dreamWithEntries.dreamEntries.firstOrNull { dreamEntry -> dreamEntry.kind == DreamEntryKind.FULFILLED }
 
         // Refresh checkboxes
         when {
@@ -144,10 +141,12 @@ class DreamDetailFragment : Fragment() {
                 ui.dreamDeferredCheckbox.isChecked = false
                 ui.dreamDeferredCheckbox.isEnabled = false
                 ui.addReflectionButton.isEnabled = false
-                dreamWithEntries.dreamEntries += DreamEntry(
-                    kind = DreamEntryKind.FULFILLED,
-                    dreamId = dreamWithEntries.dream.id
-                )
+                if (fulfilledDreamEntry == null) {
+                    dreamWithEntries.dreamEntries += DreamEntry(
+                        kind = DreamEntryKind.FULFILLED,
+                        dreamId = dreamWithEntries.dream.id
+                    )
+                }
             }
             dreamWithEntries.dream.isDeferred -> {
                 ui.dreamDeferredCheckbox.isChecked = true
@@ -155,10 +154,12 @@ class DreamDetailFragment : Fragment() {
                 ui.dreamFulfilledCheckbox.isChecked = false
                 ui.dreamFulfilledCheckbox.isEnabled = false
                 ui.addReflectionButton.isEnabled = true
-                dreamWithEntries.dreamEntries += DreamEntry(
-                    kind = DreamEntryKind.DEFERRED,
-                    dreamId = dreamWithEntries.dream.id
-                )
+                if (deferredDreamEntry == null) {
+                    dreamWithEntries.dreamEntries += DreamEntry(
+                        kind = DreamEntryKind.DEFERRED,
+                        dreamId = dreamWithEntries.dream.id
+                    )
+                }
             }
             else -> {
                 ui.dreamDeferredCheckbox.isChecked = false
@@ -166,6 +167,12 @@ class DreamDetailFragment : Fragment() {
                 ui.dreamFulfilledCheckbox.isChecked = false
                 ui.dreamFulfilledCheckbox.isEnabled = true
                 ui.addReflectionButton.isEnabled = true
+                if (deferredDreamEntry != null) {
+                    dreamWithEntries.dreamEntries -= deferredDreamEntry
+                }
+                if (fulfilledDreamEntry != null) {
+                    dreamWithEntries.dreamEntries -= fulfilledDreamEntry
+                }
             }
         }
 
@@ -194,6 +201,7 @@ class DreamDetailFragment : Fragment() {
                 button.text = DreamEntryKind.FULFILLED.name
                 button.backgroundTintList =
                     ColorStateList.valueOf(Color.parseColor(FULFILLED_BUTTON_COLOR))
+                button.setTextColor(Color.WHITE)
             }
             DreamEntryKind.DEFERRED -> {
                 button.text = DreamEntryKind.DEFERRED.name
