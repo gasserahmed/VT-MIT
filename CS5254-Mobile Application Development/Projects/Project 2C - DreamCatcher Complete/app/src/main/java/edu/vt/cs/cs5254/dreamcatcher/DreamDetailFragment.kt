@@ -15,8 +15,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.core.view.children
+import androidx.core.widget.doOnTextChanged
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import edu.vt.cs.cs5254.dreamcatcher.DreamDetailFragment.Companion.newInstance
 import edu.vt.cs.cs5254.dreamcatcher.databinding.FragmentDreamDetailBinding
+import org.w3c.dom.Text
 import java.util.*
 
 private const val TAG = "DreamDetailFragment"
@@ -31,9 +35,7 @@ class DreamDetailFragment : Fragment() {
 
     private var _binding: FragmentDreamDetailBinding? = null
     private val ui get() = _binding!!
-    private val vm: DreamDetailViewModel by lazy {
-        ViewModelProvider(this).get(DreamDetailViewModel::class.java)
-    }
+    private val vm: DreamDetailViewModel by viewModels()
 
     lateinit var dreamEntryButtonList: List<Button>
 
@@ -77,23 +79,10 @@ class DreamDetailFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        val titleWatcher = object : TextWatcher {
-            override fun beforeTextChanged(
-                sequence: CharSequence?, start: Int, count: Int, after: Int
-            ) {
-            }
-
-            override fun onTextChanged(
-                sequence: CharSequence?,
-                start: Int, before: Int, count: Int
-            ) {
-                dreamWithEntries.dream.title = sequence.toString()
-            }
-
-            override fun afterTextChanged(sequence: Editable?) {}
+        ui.dreamTitleText.doOnTextChanged { text, start, before, count ->
+            dreamWithEntries.dream.title = text.toString()
         }
 
-        ui.dreamTitleText.addTextChangedListener(titleWatcher)
         ui.dreamFulfilledCheckbox.apply {
             setOnCheckedChangeListener { _, isChecked ->
                 dreamWithEntries.dream.isFulfilled = isChecked
@@ -105,6 +94,26 @@ class DreamDetailFragment : Fragment() {
                 dreamWithEntries.dream.isDeferred = isChecked
                 refreshView()
             }
+        }
+
+        ui.addReflectionButton.setOnClickListener {
+            AddReflectionDialog.newInstance(REQUEST_KEY_ADD_REFLECTION)
+                .show(parentFragmentManager, REQUEST_KEY_ADD_REFLECTION)
+        }
+
+        parentFragmentManager.setFragmentResultListener(
+            REQUEST_KEY_ADD_REFLECTION,
+            viewLifecycleOwner
+        )
+        { _, bundle ->
+            val reflectionText = bundle.getSerializable(BUNDLE_KEY_REFLECTION_TEXT) as String
+            val newReflection = DreamEntry(
+                kind = DreamEntryKind.REFLECTION,
+                dreamId = dreamWithEntries.dream.id,
+                text = reflectionText
+            )
+            dreamWithEntries.dreamEntries += newReflection
+            updateUI()
         }
     }
 
@@ -119,7 +128,7 @@ class DreamDetailFragment : Fragment() {
     }
 
     private fun refreshView() {
-        // Refresh checkboxes
+        // Remove fulfilled and deferred
         if (dreamWithEntries.dreamEntries.isNotEmpty() &&
             (dreamWithEntries.dreamEntries.last().kind == DreamEntryKind.FULFILLED ||
                     dreamWithEntries.dreamEntries.last().kind == DreamEntryKind.DEFERRED)
@@ -127,12 +136,14 @@ class DreamDetailFragment : Fragment() {
             dreamWithEntries.dreamEntries = dreamWithEntries.dreamEntries.dropLast(1);
         }
 
+        // Refresh checkboxes
         when {
             dreamWithEntries.dream.isFulfilled -> {
                 ui.dreamFulfilledCheckbox.isChecked = true
                 ui.dreamFulfilledCheckbox.isEnabled = true
                 ui.dreamDeferredCheckbox.isChecked = false
                 ui.dreamDeferredCheckbox.isEnabled = false
+                ui.addReflectionButton.isEnabled = false
                 dreamWithEntries.dreamEntries += DreamEntry(
                     kind = DreamEntryKind.FULFILLED,
                     dreamId = dreamWithEntries.dream.id
@@ -143,6 +154,7 @@ class DreamDetailFragment : Fragment() {
                 ui.dreamDeferredCheckbox.isEnabled = true
                 ui.dreamFulfilledCheckbox.isChecked = false
                 ui.dreamFulfilledCheckbox.isEnabled = false
+                ui.addReflectionButton.isEnabled = true
                 dreamWithEntries.dreamEntries += DreamEntry(
                     kind = DreamEntryKind.DEFERRED,
                     dreamId = dreamWithEntries.dream.id
@@ -153,6 +165,7 @@ class DreamDetailFragment : Fragment() {
                 ui.dreamDeferredCheckbox.isEnabled = true
                 ui.dreamFulfilledCheckbox.isChecked = false
                 ui.dreamFulfilledCheckbox.isEnabled = true
+                ui.addReflectionButton.isEnabled = true
             }
         }
 

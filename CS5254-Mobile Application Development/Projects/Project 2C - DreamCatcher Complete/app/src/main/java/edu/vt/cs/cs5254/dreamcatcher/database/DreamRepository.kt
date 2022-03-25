@@ -24,60 +24,6 @@ class DreamRepository private constructor(context: Context) {
                     // delete all dreams and entries
                     deleteAllDreamsInDatabase()
                     deleteAllDreamEntriesInDatabase()
-
-                    for (i in 0 until 100) {
-                        val dream = Dream()
-                        dream.title = "Dream #$i"
-                        val entries = mutableListOf<DreamEntry>()
-                        entries += DreamEntry(kind = DreamEntryKind.CONCEIVED, dreamId = dream.id)
-                        when (i % 4) {
-                            1 -> entries += DreamEntry(
-                                text = "Dream Entry ${i}A",
-                                dreamId = dream.id
-                            )
-                            2 -> {
-                                entries += DreamEntry(
-                                    text = "Dream Entry ${i}A",
-                                    dreamId = dream.id
-                                )
-                                entries += DreamEntry(
-                                    text = "Dream Entry ${i}B",
-                                    dreamId = dream.id
-                                )
-                            }
-                            3 -> {
-                                entries += DreamEntry(
-                                    text = "Dream Entry ${i}A",
-                                    dreamId = dream.id
-                                )
-                                entries += DreamEntry(
-                                    text = "Dream Entry ${i}B",
-                                    dreamId = dream.id
-                                )
-                                entries += DreamEntry(
-                                    text = "Dream Entry ${i}C",
-                                    dreamId = dream.id
-                                )
-                            }
-                        }
-                        when (i % 3) {
-                            1 -> {
-                                dream.isDeferred = true
-                                entries += DreamEntry(
-                                    kind = DreamEntryKind.DEFERRED,
-                                    dreamId = dream.id
-                                )
-                            }
-                            2 -> {
-                                dream.isFulfilled = true
-                                entries += DreamEntry(
-                                    kind = DreamEntryKind.FULFILLED,
-                                    dreamId = dream.id
-                                )
-                            }
-                        }
-                        addDreamWithEntries(DreamWithEntries(dream, entries))
-                    }
                 }
             }
         }

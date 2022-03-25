@@ -5,10 +5,9 @@ import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.text.format.DateFormat
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,13 +26,16 @@ class DreamListFragment : Fragment() {
 
     private var _binding: FragmentDreamListBinding? = null
     private val ui get() = _binding!!
-    private val vm: DreamListViewModel by lazy {
-        ViewModelProvider(this).get(DreamListViewModel::class.java)
-    }
+    private val vm: DreamListViewModel by viewModels()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         callbacks = context as Callbacks?
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
     }
 
     private var adapter: DreamAdapter? = null
@@ -64,7 +66,30 @@ class DreamListFragment : Fragment() {
         super.onDetach()
         callbacks = null
     }
-    
+
+    // option menu callbacks
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.fragment_dream_list, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.add_dream -> {
+                val dreamWithEntries = DreamWithEntries(Dream(), emptyList())
+                vm.addDream(dreamWithEntries)
+                callbacks?.onDreamSelected(dreamWithEntries.dream.id)
+                true
+            }
+            R.id.delete_all_dreams -> {
+                vm.deleteAllDreams()
+                true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
+
     private fun updateUI(dreams: List<Dream>) {
         adapter = DreamAdapter(dreams)
         ui.dreamRecyclerView.adapter = adapter
