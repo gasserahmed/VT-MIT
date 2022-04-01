@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">MultiQuiz</string>
+    <string name="question_text">Question</string>
+    <string name="answer_0_button">Answer 0</string>
+    <string name="answer_1_button">Answer 1</string>
+    <string name="answer_2_button">Answer 2</string>
+    <string name="answer_3_button">Answer 3</string>
+    <string name="australia_question">What is the capital of Australia?</string>
+    <string name="opera_question">Where is the Sydney Opera House located?</string>
+    <string name="france_question">What is the capital of France?</string>
+    <string name="eiffel_question">Where is the Eiffel Tower located?</string>
+    <string name="australia_answer_brisbane">Brisbane</string>
+    <string name="australia_answer_canberra">Canberra</string>
+    <string name="australia_answer_perth">Perth</string>
+    <string name="australia_answer_sydney">Sydney</string>
+    <string name="france_answer_paris">Paris</string>
+    <string name="france_answer_marseille">Marseille</string>
+    <string name="france_answer_nice">Nice</string>
+    <string name="france_answer_lyon">Lyon</string>
+    <string name="hint_button">Hint</string>
+    <string name="submit_button">Submit</string>
+    <string name="results_header_text">Results</string>
+    <string name="total_questions_label">Total questions:</string>
+    <string name="total_questions_value">0</string>
+    <string name="total_answers_correct_label">Total Correct:</string>
+    <string name="total_answers_correct_value">0</string>
+    <string name="total_hints_used_label">Hints used:</string>
+    <string name="total_hints_used_value">0</string>
+    <string name="retake_quiz_button">Retake Quiz</string>
+</resources>

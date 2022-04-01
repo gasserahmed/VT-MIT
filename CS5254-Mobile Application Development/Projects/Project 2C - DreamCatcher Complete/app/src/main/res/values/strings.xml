@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">DreamCatcher</string>
+    <string name="dream_title_hint">Enter a title for the dream.</string>
+    <string name="dream_title_label">Title</string>
+    <string name="dream_entries_label">Entries</string>
+    <string name="dream_fulfilled_label">Fulfilled</string>
+    <string name="dream_deferred_label">Deferred</string>
+    <string name="dream_item_title">dream Title</string>
+    <string name="dream_item_date">dream Date</string>
+    <string name="add_reflection_button">Add Reflection</string>
+    <string name="reflection_hint">Enter the new reflection</string>
+</resources>

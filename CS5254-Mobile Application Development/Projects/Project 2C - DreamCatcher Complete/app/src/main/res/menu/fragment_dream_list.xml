@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/add_dream"
+        android:icon="@drawable/ic_icon_add_foreground"
+        android:title="Add Dream"
+        app:showAsAction="ifRoom|withText" />
+    <item
+        android:id="@+id/delete_all_dreams"
+        android:icon="@drawable/ic_icon_delete_foreground"
+        android:title="Delete All Dreams"
+        app:showAsAction="ifRoom|withText" />
+</menu>
