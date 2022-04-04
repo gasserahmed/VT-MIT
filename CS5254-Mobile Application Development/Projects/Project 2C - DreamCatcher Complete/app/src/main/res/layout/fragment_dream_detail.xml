@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
         <TextView
             android:id="@+id/dream_title_label"
             style="?android:listSeparatorTextViewStyle"
@@ -63,41 +62,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/dream_entries_label" />
-
-            <Button
-                android:id="@+id/dream_entry_0_button"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/dream_entry_recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAllCaps="false"
-                android:visibility="gone" />
+                android:layout_height="wrap_content" />
 
-            <Button
-                android:id="@+id/dream_entry_1_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAllCaps="false"
-                android:visibility="gone" />
-
-            <Button
-                android:id="@+id/dream_entry_2_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAllCaps="false"
-                android:visibility="gone" />
-
-            <Button
-                android:id="@+id/dream_entry_3_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAllCaps="false"
-                android:visibility="gone" />
-
-            <Button
-                android:id="@+id/dream_entry_4_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAllCaps="false"
-                android:visibility="gone" />
         </LinearLayout>
     </LinearLayout>
 
