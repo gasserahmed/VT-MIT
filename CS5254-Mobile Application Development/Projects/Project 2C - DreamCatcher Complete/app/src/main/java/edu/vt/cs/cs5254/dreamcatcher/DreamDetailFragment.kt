@@ -1,18 +1,18 @@
 package edu.vt.cs.cs5254.dreamcatcher
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.opengl.Visibility
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.provider.Settings.System.DATE_FORMAT
 import android.text.Editable
 import android.text.TextWatcher
 import android.text.format.DateFormat
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import androidx.core.view.children
 import androidx.core.widget.doOnTextChanged
@@ -43,6 +43,7 @@ class DreamDetailFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
         dreamWithEntries = DreamWithEntries(Dream(), emptyList())
         val dreamId: UUID = arguments?.getSerializable(ARG_DREAM_ID) as UUID
         Log.d(TAG, "Dream detail fragment for dream with ID $dreamId")
@@ -58,6 +59,70 @@ class DreamDetailFragment : Fragment() {
         val view = ui.root
         ui.dreamEntryRecyclerView.layoutManager = LinearLayoutManager(context)
         return view
+    }
+
+    // option menu callbacks
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.fragment_dream_detail, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.share_dream -> {
+                Intent(Intent.ACTION_SEND).apply {
+                    type = "text/plain"
+                    putExtra(Intent.EXTRA_TEXT, getDreamReport())
+                    putExtra(
+                        Intent.EXTRA_SUBJECT,
+                        getString(R.string.dream_report_subject)
+                    )
+                }.also { intent ->
+                    val chooserIntent =
+                        Intent.createChooser(intent, getString(R.string.share_report))
+                    startActivity(chooserIntent)
+                }
+                true
+            }
+            R.id.take_dream_photo -> {
+                //vm.deleteAllDreams()
+                true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun getDreamReport(): String {
+        val fulfilledDeferredString = if (dreamWithEntries.dream.isFulfilled) {
+            getString(R.string.dream_report_fulfilled)
+        } else if (dreamWithEntries.dream.isDeferred) {
+            getString(R.string.dream_report_deferred)
+        } else {
+            ""
+        }
+
+        val df = DateFormat.getMediumDateFormat(context)
+        val dateString = df.format(dreamWithEntries.dream.date)
+        val dreamReflections =
+            dreamWithEntries.dreamEntries.filter { dreamEntry -> dreamEntry.kind == DreamEntryKind.REFLECTION }
+        var dreamReflectionsString = if (dreamReflections.isNotEmpty()) {
+            "Dream reflections:\n"
+        } else {
+            getString(R.string.dream_report_no_reflection)
+        }
+
+        dreamReflections.forEach { dreamEntry ->
+            dreamReflectionsString += "-" + dreamEntry.text + "\n"
+        }
+
+        return getString(
+            R.string.dream_report,
+            dreamWithEntries.dream.title,
+            dateString,
+            dreamReflectionsString,
+            fulfilledDeferredString
+        )
     }
 
     private fun updateUI() {

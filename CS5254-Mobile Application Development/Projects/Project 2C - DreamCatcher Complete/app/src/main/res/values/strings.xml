@@ -9,4 +9,15 @@
     <string name="dream_item_date">dream Date</string>
     <string name="add_reflection_button">Add Reflection</string>
     <string name="reflection_hint">Enter the new reflection</string>
+    <string name="dream_image">Dream Image</string>
+    <string name="share_dream">Share Dream</string>
+    <string name="take_dream_photo">Take Dream Photo</string>
+    <string name="dream_image_text">Choose Dream Image</string>
+    <string name="dream_report_text">Share Dream Report</string>
+    <string name="dream_report">&gt;&gt; %1$s &lt;&lt;\nThis dream was conceived on %2$s.\n%3$s%4$s</string>
+    <string name="dream_report_fulfilled">The dream has been fulfilled.</string>
+    <string name="dream_report_deferred">The dream has been deferred.</string>
+    <string name="dream_report_no_reflection">There are no reflections.\n</string>
+    <string name="dream_report_subject">DreamCatcher Dream Report</string>
+    <string name="share_report">Share dream report via</string>
 </resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/share_dream"
+        android:icon="@drawable/ic_icon_share_foreground"
+        android:title="@string/share_dream"
+        app:showAsAction="ifRoom|withText" />
+    <item
+        android:id="@+id/take_dream_photo"
+        android:icon="@drawable/ic_icon_camera_foreground"
+        android:title="@string/take_dream_photo"
+        app:showAsAction="ifRoom|withText" />
+</menu>
