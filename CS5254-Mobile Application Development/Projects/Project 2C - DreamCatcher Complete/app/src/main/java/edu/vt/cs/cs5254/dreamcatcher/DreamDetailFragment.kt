@@ -24,6 +24,7 @@ import androidx.core.view.children
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import edu.vt.cs.cs5254.dreamcatcher.DreamDetailFragment.Companion.newInstance
@@ -74,11 +75,26 @@ class DreamDetailFragment : Fragment() {
         _binding = FragmentDreamDetailBinding.inflate(inflater, container, false)
         val view = ui.root
         ui.dreamEntryRecyclerView.layoutManager = LinearLayoutManager(context)
+
+        // itemTouchHelper CallBack For RecyclerView
+        val swipeToDeleteCallback = object : SwipeToDeleteCallback() {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val pos = viewHolder.absoluteAdapterPosition
+                val swipedDreamEntry = dreamWithEntries.dreamEntries[pos]
+                if (swipedDreamEntry.kind == DreamEntryKind.REFLECTION) {
+                    dreamWithEntries.dreamEntries -= swipedDreamEntry
+                }
+                updateUI()
+            }
+        }
+
+        // attach ItemTouchHelper to RecyclerView
+        val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallback)
+        itemTouchHelper.attachToRecyclerView(ui.dreamEntryRecyclerView)
         return view
     }
 
     // option menu callbacks
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.fragment_dream_detail, menu)
@@ -186,9 +202,11 @@ class DreamDetailFragment : Fragment() {
                 dreamWithEntries?.let {
                     this.dreamWithEntries = dreamWithEntries
                     photoFile = vm.getPhotoFile(dreamWithEntries.dream)
-                    photoUri = FileProvider.getUriForFile(requireActivity(),
+                    photoUri = FileProvider.getUriForFile(
+                        requireActivity(),
                         "edu.vt.cs.cs5254.dreamcatcher.fileprovider",
-                        photoFile)
+                        photoFile
+                    )
                     updateUI()
                 }
             })
@@ -329,6 +347,17 @@ class DreamDetailFragment : Fragment() {
         override fun onBindViewHolder(holder: DreamEntryHolder, position: Int) {
             val dreamEntry = dreamEntries[position]
             holder.bind(dreamEntry)
+        }
+    }
+
+    // SwipeToDelete
+    abstract class SwipeToDeleteCallback : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+        override fun onMove(
+            recyclerView: RecyclerView,
+            viewHolder: RecyclerView.ViewHolder,
+            target: RecyclerView.ViewHolder
+        ): Boolean {
+            return false
         }
     }
 
