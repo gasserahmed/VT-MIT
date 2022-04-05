@@ -201,7 +201,7 @@ class DreamDetailFragment : Fragment() {
         }
 
         ui.dreamFulfilledCheckbox.apply {
-            setOnCheckedChangeListener { _, isChecked ->
+            setOnClickListener {
                 dreamWithEntries.dream.isFulfilled = isChecked
                 if (isChecked) {
                     ui.dreamDeferredCheckbox.isEnabled = false
@@ -226,7 +226,7 @@ class DreamDetailFragment : Fragment() {
         }
 
         ui.dreamDeferredCheckbox.apply {
-            setOnCheckedChangeListener { _, isChecked ->
+            setOnClickListener {
                 dreamWithEntries.dream.isDeferred = isChecked
                 if (isChecked) {
                     ui.dreamFulfilledCheckbox.isEnabled = false
