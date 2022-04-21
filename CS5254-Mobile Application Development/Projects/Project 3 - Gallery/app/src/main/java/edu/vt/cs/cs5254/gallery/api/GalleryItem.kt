@@ -6,6 +6,8 @@ import com.google.gson.annotations.SerializedName
 data class GalleryItem(
     var title: String = "",
     var id: String = "",
+    var latitude: String = "",
+    var longitude: String = "",
     @SerializedName("url_s") var url: String = "",
     @SerializedName("owner") var owner: String = ""
 ) {
