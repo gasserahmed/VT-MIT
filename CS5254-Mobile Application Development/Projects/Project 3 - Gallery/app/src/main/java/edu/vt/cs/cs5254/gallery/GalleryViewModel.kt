@@ -1,8 +1,15 @@
 package edu.vt.cs.cs5254.gallery
 
+import android.graphics.drawable.Drawable
 import androidx.lifecycle.ViewModel
 import edu.vt.cs.cs5254.gallery.api.FlickrFetchr
 
 class GalleryViewModel : ViewModel() {
-    val galleryItemLiveData = FlickrFetchr.fetchPhotos()
+    val galleryItemsLiveData = FlickrFetchr.galleryItemsLiveData
+
+    fun loadPhotos() = FlickrFetchr.fetchPhotos()
+
+    fun storeThumbnail(id: String, drawable: Drawable) {
+        FlickrFetchr.storeThumbnail(id, drawable)
+    }
 }

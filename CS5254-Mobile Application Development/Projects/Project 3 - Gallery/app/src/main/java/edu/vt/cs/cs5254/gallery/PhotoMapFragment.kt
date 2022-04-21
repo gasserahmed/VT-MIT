@@ -1,6 +1,5 @@
 package edu.vt.cs.cs5254.gallery
 
-import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -15,15 +14,14 @@ import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import edu.vt.cs.cs5254.gallery.api.GalleryItem
-import edu.vt.cs.cs5254.gallery.databinding.FragmentGalleryBinding
-import edu.vt.cs.cs5254.gallery.databinding.FragmentPhotoMapBinding
 
 private const val TAG = "PhotoMapFragment"
 
 class PhotoMapFragment : MapViewFragment(), GoogleMap.OnMarkerClickListener {
     private val viewModel: PhotoMapViewModel by viewModels()
-    private lateinit var latLngGalleryItems: List<GalleryItem>
     private lateinit var thumbnailDownloader: ThumbnailDownloader<Marker>
+    var geoGalleryMap = emptyMap<String, GalleryItem>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,12 +51,16 @@ class PhotoMapFragment : MapViewFragment(), GoogleMap.OnMarkerClickListener {
         super.onMapViewCreated(
             view,
             savedInstanceState
-        ) { googleMap -> googleMap.setOnMarkerClickListener(this@PhotoMapFragment) }
-        viewModel.galleryItemLiveData.observe(
-            viewLifecycleOwner
-        ) { galleryItems ->
-            updateUI(galleryItems)
+        ) { googleMap ->
+            googleMap.setOnMarkerClickListener(this@PhotoMapFragment)
+            viewModel.geoGalleryItemMapLiveData.observe(
+                viewLifecycleOwner
+            ) { geoGalleryItemMap ->
+                geoGalleryMap = geoGalleryItemMap
+                updateUI()
+            }
         }
+
     }
 
     override fun onDestroyView() {
@@ -87,7 +89,7 @@ class PhotoMapFragment : MapViewFragment(), GoogleMap.OnMarkerClickListener {
     override fun onMarkerClick(marker: Marker): Boolean {
         val markerId = marker.tag
         Log.i(TAG, "The marker $markerId has been clicked on")
-        val galleryItem = latLngGalleryItems.find { galleryItem -> galleryItem.id == markerId }
+        val galleryItem = geoGalleryMap[markerId]
         val galleryItemUri = galleryItem?.photoPageUri ?: return false
 
         val intent = PhotoPageActivity
@@ -96,23 +98,21 @@ class PhotoMapFragment : MapViewFragment(), GoogleMap.OnMarkerClickListener {
         return true
     }
 
-    private fun updateUI(galleryItems: List<GalleryItem>) {
+    private fun updateUI() {
 
         // if the fragment is not currently added to its activity, or
         // if there are not gallery items, do not update the UI
-        if (!isAdded || galleryItems.isEmpty()) {
+        if (!isAdded || geoGalleryMap.isEmpty()) {
             return
         }
 
-        Log.i(TAG, "Gallery has " + galleryItems.size + " items")
+        Log.i(TAG, "Gallery has " + geoGalleryMap.size + " items")
 
         // remove all markers, overlays, etc. from the map
         googleMap.clear()
 
         val bounds = LatLngBounds.Builder()
-        latLngGalleryItems =
-            galleryItems.filterNot { it.latitude == "0" && it.longitude == "0" }
-        for (item in latLngGalleryItems) {
+        for (item in geoGalleryMap.values) {
             // log the information of each gallery item with a valid lat-lng
             Log.i(
                 TAG,
@@ -131,6 +131,6 @@ class PhotoMapFragment : MapViewFragment(), GoogleMap.OnMarkerClickListener {
             marker?.let { thumbnailDownloader.queueThumbnail(it, item.url) }
         }
 
-        Log.i(TAG, "Expecting ${latLngGalleryItems.size} markers on the map")
+        Log.i(TAG, "Expecting ${geoGalleryMap.size} markers on the map")
     }
 }

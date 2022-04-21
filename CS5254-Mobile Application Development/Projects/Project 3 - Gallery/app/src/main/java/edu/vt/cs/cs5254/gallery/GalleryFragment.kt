@@ -26,11 +26,13 @@ class GalleryFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel.loadPhotos()
         val responseHandler = Handler(Looper.getMainLooper())
         thumbnailDownloader =
             ThumbnailDownloader(responseHandler) { photoHolder, bitmap ->
                 val drawable = BitmapDrawable(resources, bitmap)
                 photoHolder.bindDrawable(drawable)
+                viewModel.storeThumbnail(photoHolder.galleryItem.id, drawable)
             }
         lifecycle.addObserver(thumbnailDownloader.fragmentLifecycleObserver)
     }
@@ -51,7 +53,7 @@ class GalleryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.galleryItemLiveData.observe(
+        viewModel.galleryItemsLiveData.observe(
             viewLifecycleOwner
         ) { galleryItems ->
             binding.photoRecyclerView.adapter = PhotoAdapter(galleryItems)
@@ -83,7 +85,7 @@ class GalleryFragment : Fragment() {
 
     private inner class PhotoHolder(itemImageView: ImageView) :
         RecyclerView.ViewHolder(itemImageView), View.OnClickListener {
-        private lateinit var galleryItem: GalleryItem
+        lateinit var galleryItem: GalleryItem
 
         init {
             itemView.setOnClickListener(this)
@@ -124,8 +126,10 @@ class GalleryFragment : Fragment() {
                 requireContext(),
                 R.drawable.placeholder
             ) ?: ColorDrawable()
-            holder.bindDrawable(placeholder)
-            thumbnailDownloader.queueThumbnail(holder, galleryItem.url)
+            holder.bindDrawable(galleryItem.drawable ?: placeholder)
+            if (galleryItem.drawable == null) {
+                thumbnailDownloader.queueThumbnail(holder, galleryItem.url)
+            }
         }
     }
 
