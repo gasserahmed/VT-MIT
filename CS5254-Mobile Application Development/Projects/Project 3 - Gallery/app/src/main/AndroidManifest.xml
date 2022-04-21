@@ -20,7 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PhotoPageActivity"/>
+        <activity android:name=".PhotoPageActivity" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBSITx6HQOHmdV2T1cBRcHcrfMC1ELJsZE" />
     </application>
 
 </manifest>

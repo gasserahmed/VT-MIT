@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_gallery">
+
+    <fragment
+        android:id="@+id/navigation_gallery"
+        android:name="edu.vt.cs.cs5254.gallery.GalleryFragment"
+        android:label="@string/title_gallery"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/navigation_map"
+        android:name="edu.vt.cs.cs5254.gallery.PhotoMapFragment"
+        android:label="@string/title_map"
+        tools:layout="@layout/fragment_photo_map" />
+</navigation>
