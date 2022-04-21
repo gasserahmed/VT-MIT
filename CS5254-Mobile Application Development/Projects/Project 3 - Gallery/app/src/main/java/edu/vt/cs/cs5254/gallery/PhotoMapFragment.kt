@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.Marker
@@ -19,8 +20,9 @@ import edu.vt.cs.cs5254.gallery.databinding.FragmentPhotoMapBinding
 
 private const val TAG = "PhotoMapFragment"
 
-class PhotoMapFragment : MapViewFragment() {
+class PhotoMapFragment : MapViewFragment(), GoogleMap.OnMarkerClickListener {
     private val viewModel: PhotoMapViewModel by viewModels()
+    private lateinit var latLngGalleryItems: List<GalleryItem>
     private lateinit var thumbnailDownloader: ThumbnailDownloader<Marker>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +50,10 @@ class PhotoMapFragment : MapViewFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onMapViewCreated(view, savedInstanceState) { googleMap -> {} }
+        super.onMapViewCreated(
+            view,
+            savedInstanceState
+        ) { googleMap -> googleMap.setOnMarkerClickListener(this@PhotoMapFragment) }
         viewModel.galleryItemLiveData.observe(
             viewLifecycleOwner
         ) { galleryItems ->
@@ -79,6 +84,18 @@ class PhotoMapFragment : MapViewFragment() {
         )
     }
 
+    override fun onMarkerClick(marker: Marker): Boolean {
+        val markerId = marker.tag
+        Log.i(TAG, "The marker $markerId has been clicked on")
+        val galleryItem = latLngGalleryItems.find { galleryItem -> galleryItem.id == markerId }
+        val galleryItemUri = galleryItem?.photoPageUri ?: return false
+
+        val intent = PhotoPageActivity
+            .newIntent(requireContext(), galleryItemUri)
+        startActivity(intent)
+        return true
+    }
+
     private fun updateUI(galleryItems: List<GalleryItem>) {
 
         // if the fragment is not currently added to its activity, or
@@ -93,7 +110,7 @@ class PhotoMapFragment : MapViewFragment() {
         googleMap.clear()
 
         val bounds = LatLngBounds.Builder()
-        val latLngGalleryItems =
+        latLngGalleryItems =
             galleryItems.filterNot { it.latitude == "0" && it.longitude == "0" }
         for (item in latLngGalleryItems) {
             // log the information of each gallery item with a valid lat-lng
