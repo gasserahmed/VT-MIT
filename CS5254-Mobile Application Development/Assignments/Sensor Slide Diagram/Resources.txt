@@ -1,0 +1,3 @@
+-https://howtomechatronics.com/how-it-works/electrical-engineering/mems-accelerometer-gyrocope-magnetometer-arduino/
+-https://medium.com/chip-monks/whats-a-gyroscope-and-accelerometer-doing-in-my-mobile-device-eb7acbdfa4e0#:~:text=MEMS%20gyroscopes%20are%20compact%2C%20and,motion%2Dsensing%20in%20our%20smartphones.
+-https://gizmodo.com/all-the-sensors-in-your-smartphone-and-how-they-work-1797121002
