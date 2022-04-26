@@ -1,13 +1,10 @@
-package edu.vt.cs.cs5254.dreamcatcher.database
+package edu.vt.cs.cs5254.dreamcatcher
 
 import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import edu.vt.cs.cs5254.dreamcatcher.Dream
-import edu.vt.cs.cs5254.dreamcatcher.DreamEntry
-import edu.vt.cs.cs5254.dreamcatcher.DreamEntryKind
-import edu.vt.cs.cs5254.dreamcatcher.DreamWithEntries
+import edu.vt.cs.cs5254.dreamcatcher.database.DreamDatabase
 import java.io.File
 import java.util.UUID
 import java.util.concurrent.Executors

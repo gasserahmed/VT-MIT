@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import edu.vt.cs.cs5254.dreamcatcher.database.DreamRepository
 import java.io.File
 import java.util.*
 
