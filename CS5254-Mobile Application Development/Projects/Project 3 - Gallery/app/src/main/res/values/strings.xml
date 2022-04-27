@@ -2,5 +2,6 @@
     <string name="app_name">Gallery</string>
     <string name="title_gallery">Gallery</string>
     <string name="title_map">Map</string>
+    <string name="reload_photos">Reload Photos</string>
 
 </resources>

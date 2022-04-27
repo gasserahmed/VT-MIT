@@ -1,31 +1,35 @@
 package edu.vt.cs.cs5254.gallery
 
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.provider.MediaStore
+import android.util.Log
+import android.view.*
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import edu.vt.cs.cs5254.gallery.api.FlickrFetchr
 import edu.vt.cs.cs5254.gallery.api.GalleryItem
 import edu.vt.cs.cs5254.gallery.databinding.FragmentGalleryBinding
 
-class GalleryFragment : Fragment() {
+class PhotoGalleryFragment : Fragment() {
     private var _binding: FragmentGalleryBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: GalleryViewModel by viewModels()
+    private val viewModel: PhotoGalleryViewModel by viewModels()
     private lateinit var thumbnailDownloader: ThumbnailDownloader<PhotoHolder>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
         viewModel.loadPhotos()
         val responseHandler = Handler(Looper.getMainLooper())
         thumbnailDownloader =
@@ -83,6 +87,21 @@ class GalleryFragment : Fragment() {
         )
     }
 
+    // option menu callbacks
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_reload_photos, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.reload_photos -> {
+                true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
+
     private inner class PhotoHolder(itemImageView: ImageView) :
         RecyclerView.ViewHolder(itemImageView), View.OnClickListener {
         lateinit var galleryItem: GalleryItem
@@ -134,6 +153,6 @@ class GalleryFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() = GalleryFragment()
+        fun newInstance() = PhotoGalleryFragment()
     }
 }

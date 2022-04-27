@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.viewModels
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
@@ -25,6 +23,7 @@ class PhotoMapFragment : MapViewFragment(), GoogleMap.OnMarkerClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
         val responseHandler = Handler(Looper.getMainLooper())
         thumbnailDownloader =
             ThumbnailDownloader(responseHandler) { marker, bitmap ->
@@ -84,6 +83,21 @@ class PhotoMapFragment : MapViewFragment(), GoogleMap.OnMarkerClickListener {
                 .fragmentLifecycleObserver
 
         )
+    }
+
+    // option menu callbacks
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_reload_photos, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.reload_photos -> {
+                true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 
     override fun onMarkerClick(marker: Marker): Boolean {
