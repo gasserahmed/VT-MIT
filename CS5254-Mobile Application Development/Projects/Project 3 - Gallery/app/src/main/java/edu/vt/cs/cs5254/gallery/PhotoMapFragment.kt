@@ -94,6 +94,7 @@ class PhotoMapFragment : MapViewFragment(), GoogleMap.OnMarkerClickListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.reload_photos -> {
+                viewModel.reloadPhotos()
                 true
             }
             else -> return super.onOptionsItemSelected(item)

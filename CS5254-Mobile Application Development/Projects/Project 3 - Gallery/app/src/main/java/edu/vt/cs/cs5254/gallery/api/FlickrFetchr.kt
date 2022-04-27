@@ -28,8 +28,8 @@ object FlickrFetchr {
 
     val galleryItemsLiveData: MutableLiveData<List<GalleryItem>> = MutableLiveData()
 
-    fun fetchPhotos() {
-        if (galleryItemsLiveData.value != null) return
+    fun fetchPhotos(isReload: Boolean) {
+        if (galleryItemsLiveData.value != null && !isReload) return
         val flickrRequest: Call<FlickrResponse> = flickrApi.fetchPhotos()
         flickrRequest.enqueue(object : Callback<FlickrResponse> {
             override fun onFailure(call: Call<FlickrResponse>, t: Throwable) {
