@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import edu.vt.cs.cs5254.gallery.api.FlickrFetchr
 import edu.vt.cs.cs5254.gallery.api.GalleryItem
 
 class PhotoMapViewModel : ViewModel() {

@@ -9,7 +9,6 @@ import android.os.Message
 import android.util.Log
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import edu.vt.cs.cs5254.gallery.api.FlickrFetchr
 import java.util.concurrent.ConcurrentHashMap
 
 private const val TAG = "ThumbnailDownloader"

@@ -9,11 +9,11 @@
         android:id="@+id/navigation_gallery"
         android:name="edu.vt.cs.cs5254.gallery.PhotoGalleryFragment"
         android:label="@string/title_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_photo_gallery" />
 
     <fragment
         android:id="@+id/navigation_map"
         android:name="edu.vt.cs.cs5254.gallery.PhotoMapFragment"
         android:label="@string/title_map"
-        tools:layout="@layout/fragment_photo_map" />
+        tools:layout="@layout/fragment_map" />
 </navigation>

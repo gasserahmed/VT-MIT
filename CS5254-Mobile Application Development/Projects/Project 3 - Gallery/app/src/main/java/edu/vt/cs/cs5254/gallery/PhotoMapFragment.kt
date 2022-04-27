@@ -41,7 +41,7 @@ class PhotoMapFragment : MapViewFragment(), GoogleMap.OnMarkerClickListener {
             inflater,
             container,
             savedInstanceState,
-            R.layout.fragment_photo_map,
+            R.layout.fragment_map,
             R.id.map_view
         )
     }
@@ -88,7 +88,7 @@ class PhotoMapFragment : MapViewFragment(), GoogleMap.OnMarkerClickListener {
     // option menu callbacks
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu_reload_photos, menu)
+        inflater.inflate(R.menu.menu_gallery, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

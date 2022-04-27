@@ -1,4 +1,4 @@
-package edu.vt.cs.cs5254.gallery.api
+package edu.vt.cs.cs5254.gallery
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -6,6 +6,10 @@ import android.graphics.drawable.Drawable
 import android.util.Log
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.MutableLiveData
+import edu.vt.cs.cs5254.gallery.api.FlickrApi
+import edu.vt.cs.cs5254.gallery.api.FlickrResponse
+import edu.vt.cs.cs5254.gallery.api.GalleryItem
+import edu.vt.cs.cs5254.gallery.api.PhotoResponse
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback

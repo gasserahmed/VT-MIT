@@ -1,15 +1,11 @@
 package edu.vt.cs.cs5254.gallery
 
-import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.provider.MediaStore
-import android.util.Log
 import android.view.*
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
@@ -17,12 +13,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import edu.vt.cs.cs5254.gallery.api.FlickrFetchr
 import edu.vt.cs.cs5254.gallery.api.GalleryItem
-import edu.vt.cs.cs5254.gallery.databinding.FragmentGalleryBinding
+import edu.vt.cs.cs5254.gallery.databinding.FragmentPhotoGalleryBinding
 
 class PhotoGalleryFragment : Fragment() {
-    private var _binding: FragmentGalleryBinding? = null
+    private var _binding: FragmentPhotoGalleryBinding? = null
     private val binding get() = _binding!!
     private val viewModel: PhotoGalleryViewModel by viewModels()
     private lateinit var thumbnailDownloader: ThumbnailDownloader<PhotoHolder>
@@ -49,7 +44,7 @@ class PhotoGalleryFragment : Fragment() {
         viewLifecycleOwner.lifecycle.addObserver(
             thumbnailDownloader.viewLifecycleObserver
         )
-        _binding = FragmentGalleryBinding.inflate(inflater, container, false)
+        _binding = FragmentPhotoGalleryBinding.inflate(inflater, container, false)
         val view = binding.root
         binding.photoRecyclerView.layoutManager = GridLayoutManager(context, 3)
         return view
@@ -90,7 +85,7 @@ class PhotoGalleryFragment : Fragment() {
     // option menu callbacks
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu_reload_photos, menu)
+        inflater.inflate(R.menu.menu_gallery, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
