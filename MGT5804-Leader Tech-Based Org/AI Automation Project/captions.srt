@@ -1,0 +1,277 @@
+1
+00:00:00,089 --> 00:00:03,080
+Hi everyone, this is Gasser Ahmed.
+
+2
+00:00:03,080 --> 00:00:08,590
+Welcome to this presentation where I’m going
+to talk about the AI technology strategy for
+
+3
+00:00:08,590 --> 00:00:10,530
+the Lawn Buddy app.
+
+4
+00:00:10,530 --> 00:00:18,640
+I am building an AI-powered strategy for a
+lawn service startup company called Lawn Buddy
+
+5
+00:00:18,640 --> 00:00:23,730
+that allows lawn owners to input information
+about their lawn to help determining the type
+
+6
+00:00:23,730 --> 00:00:29,570
+of service the lawn needs then customers will
+be able to schedule and confirm their lawn
+
+7
+00:00:29,570 --> 00:00:32,700
+service appointment
+
+8
+00:00:32,700 --> 00:00:38,469
+Lawn Buddy however faces few strategic problems
+for instance landscape maintenance involves
+
+9
+00:00:38,469 --> 00:00:43,739
+multiple tasks that must be performed properly
+at the right time to avoid losing the advantage
+
+10
+00:00:43,739 --> 00:00:45,650
+of natural process.
+
+11
+00:00:45,650 --> 00:00:50,820
+In addition, scheduling and dispatching landscapers
+on time with the right equipment makes a big
+
+12
+00:00:50,820 --> 00:00:53,090
+difference to operations and profitability.
+
+13
+00:00:53,090 --> 00:00:59,199
+Also, since the business is seasonal, keeping
+the equipment safe and in a ready-to-operate
+
+14
+00:00:59,199 --> 00:01:04,229
+condition when the crew needs them at the
+job site is a challenge and requires proper
+
+15
+00:01:04,229 --> 00:01:07,580
+usage and maintenance on a routine basis.
+
+16
+00:01:07,580 --> 00:01:12,259
+Lastly Green industry regulations whether
+it is related to the use of pesticides and
+
+17
+00:01:12,259 --> 00:01:20,120
+fertilizers, or the equipment and pollution
+levels is a big challenge for Lawn Buddy.
+
+18
+00:01:20,120 --> 00:01:24,760
+For the previous problems Lawn Buddy should
+use object recognition to scan and evaluate
+
+19
+00:01:24,760 --> 00:01:30,020
+the lawn to determine the right time to perform
+lawn maintenance tasks.
+
+20
+00:01:30,020 --> 00:01:35,630
+Lawn Buddy should also use an equipment maintenance
+program to track the equipment in use in real-time
+
+21
+00:01:35,630 --> 00:01:41,680
+and notify the crew member about the upcoming
+maintenance lastly Lawn Buddy should have
+
+22
+00:01:41,680 --> 00:01:46,590
+the right inspection tools, historical records,
+and a knowledge-base to help in keeping up
+
+23
+00:01:46,590 --> 00:01:51,520
+with the regulatory standards
+
+24
+00:01:51,520 --> 00:01:56,750
+Lawn Buddy is targeting early adopters as
+they are happy to test the product, provide
+
+25
+00:01:56,750 --> 00:02:00,719
+feedback, and hope to simplify everyday tasks.
+
+26
+00:02:00,719 --> 00:02:05,719
+The targeted early adopters will be those
+who do not have time to dedicate to lawn maintenance
+
+27
+00:02:05,719 --> 00:02:11,500
+or physically unable to provide care to their
+lawn like the elderly, sick individuals or
+
+28
+00:02:11,500 --> 00:02:17,120
+disabled persons in addition to those who
+do not have lawn care tools and seek lawn
+
+29
+00:02:17,120 --> 00:02:20,200
+services.
+
+30
+00:02:20,200 --> 00:02:26,090
+Lawn Buddy uses a principle of machine and
+deep learning called object recognition where
+
+31
+00:02:26,090 --> 00:02:31,700
+computer vision technique allows users to
+identify and locate objects in an image.
+
+32
+00:02:31,700 --> 00:02:38,220
+Lawn Buddy has a thorough dataset of all types
+of lawns like lawn color or quality blade
+
+33
+00:02:38,220 --> 00:02:43,760
+length lawn size, and lawn terrain.
+
+34
+00:02:43,760 --> 00:02:52,110
+Having this dataset allows us to have the
+most accurate reading of the image recognition.
+
+35
+00:02:52,110 --> 00:02:57,590
+By analyzing that dataset Lawn Buddy uses
+the criteria of computer vision in order to
+
+36
+00:02:57,590 --> 00:03:02,260
+break down the classification, localization
+and tagging.
+
+37
+00:03:02,260 --> 00:03:07,900
+Lawn buddy uses the classification feature
+to detect the lawn, localization to determine
+
+38
+00:03:07,900 --> 00:03:13,970
+lawn size, and tagging to further find the
+lawn quality which is measured through lawn
+
+39
+00:03:13,970 --> 00:03:21,180
+color and blade length which determines when
+the lawn needs to be trimmed.
+
+40
+00:03:21,180 --> 00:03:27,420
+The value network of Lawn Buddy consists of
+multiple key players like homeowners who use
+
+41
+00:03:27,420 --> 00:03:33,950
+the tool to provide information about lawn,
+schedule appointments, and confirm payments.
+
+42
+00:03:33,950 --> 00:03:39,220
+Credit Payment Service, which enables secured
+payment transactions between homeowners and
+
+43
+00:03:39,220 --> 00:03:41,220
+lawn professionals.
+
+44
+00:03:41,220 --> 00:03:47,610
+Lawn Professionals, who use tool to confirm
+appointments and provide reports about services.
+
+45
+00:03:47,610 --> 00:03:52,739
+Home Improvement Stores, that enable new lawn
+mowing services to lawn professionals.
+
+46
+00:03:52,739 --> 00:04:00,110
+Homeowners Insurance, that reduces lawn care
+costs by paying for lawn damage caused by
+
+47
+00:04:00,110 --> 00:04:03,090
+an earthquake or a flood.
+
+48
+00:04:03,090 --> 00:04:10,200
+Data Analytics, by selling data to third parties
+for research and additional services.
+
+49
+00:04:10,200 --> 00:04:18,009
+AI Engineers who analyze data to provide algorithms
+improvements and service solutions and lastly
+
+50
+00:04:18,009 --> 00:04:24,790
+those who use the app to promote and sell
+other services to stakeholders.
+
+51
+00:04:24,790 --> 00:04:28,530
+So as a wrap up Lawn Buddy is a pioneering
+idea.
+
+52
+00:04:28,530 --> 00:04:34,100
+By mobilizing lawn maintenance, the company
+actively implements ease and efficiency.
+
+53
+00:04:34,100 --> 00:04:38,170
+At Lawn Buddy the lawn professional comes
+to the customer knowing exactly what needs
+
+54
+00:04:38,170 --> 00:04:43,880
+to be done where the process is completely
+contact-free Lawn Buddy also projects many
+
+55
+00:04:43,880 --> 00:04:48,720
+goals to further grow the company for year
+1 the company plans to convert into a fully
+
+56
+00:04:48,720 --> 00:04:54,320
+functioning service then after 5 years, lawn
+buddy plans to broaden service offerings and
+
+57
+00:04:54,320 --> 00:05:00,160
+after 10 years the plan is to broaden geographic
+locations and move at a national level.
+
+58
+00:05:00,160 --> 00:05:01,260
+Thank you for watching!
+
