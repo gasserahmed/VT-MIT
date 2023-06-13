@@ -1,0 +1,25 @@
+we are working on a customer discovery process to validate the need for a new AI power solution to help busy, disabled, or elderly people easily and efficiently mow their lawn. Please help me develop a set of open-ended interview questions that I can ask those customers to figure out what their critical needs and wants are. The interview should last for about 20 minutes
+-----------------------------------------------------------------------------
+Certainly! Here are some open-ended interview questions you can ask during your customer discovery process:
+
+1. Can you describe your experience with lawn maintenance and the challenges you face, especially considering your busy schedule, disability, or age?
+
+2. How do you currently handle lawn mowing? Do you do it yourself, rely on someone else, or hire a service? Could you walk me through the process?
+
+3. What frustrations or difficulties do you encounter when mowing your lawn or managing its maintenance?
+
+4. Can you tell me about any specific instances where you felt particularly overwhelmed or inconvenienced by the lawn maintenance tasks? What made those situations challenging?
+
+5. What features or characteristics would you consider essential in an AI-powered lawn mowing solution that caters to your specific needs?
+
+6. How important is efficiency to you when it comes to lawn maintenance? What aspects of the process do you believe can be improved to save you time and effort?
+
+7. How comfortable are you with technology and AI-based solutions? Are there any concerns or reservations you have about incorporating AI into your lawn mowing routine?
+
+8. Are there any specific safety considerations that are particularly important to you when it comes to a lawn mowing solution? What safety features would you like to see?
+
+9. How do you envision an ideal AI-powered lawn mowing solution integrating into your daily routine? What tasks would you expect it to handle, and what tasks would you still prefer to handle yourself?
+
+10. Are there any other features, functionalities, or considerations that you believe would enhance your overall experience with an AI-powered lawn mowing solution?
+
+Remember to encourage your interviewees to expand on their responses and share specific examples or anecdotes to better understand their needs and pain points. It's also helpful to probe deeper into any areas they express particular interest or concern about. Good luck with your customer discovery process!

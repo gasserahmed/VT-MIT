@@ -1,0 +1,29 @@
+we are working on a customer discovery process to validate the need for a new AI power solution to help busy, disabled, or elderly people easily and efficiently mow their lawn. Please help me develop a set of survey questions that I can ask a group of those customers to figure out what their critical needs and wants are. The survey should take a customer about 5-20 minutes to complete. Please use a combination of short answer questions along with survey questions with likert-type scales with a range of 1-5 with 5 being the 'best' and 1 being the 'worst'
+-------------------------------------------------------------------
+Certainly! Here's a combination of short answer questions and Likert-scale survey questions that you can use to gather insights about the critical needs and wants of your target customers:
+
+Short Answer Questions:
+
+1. How would you describe your current experience with lawn mowing and maintenance?
+2. What are the biggest challenges or difficulties you face when it comes to mowing your lawn efficiently?
+3. In your opinion, what are the most important features or functionalities that an AI-powered lawn mowing solution should have?
+4. How would an AI-powered lawn mowing solution specifically benefit you, considering your busy schedule, disability, or age?
+5. Do you have any concerns or reservations about incorporating AI technology into your lawn mowing routine?
+6. Are there any specific safety considerations that are particularly important to you when using a lawn mowing solution?
+
+Likert-Scale Survey Questions:
+
+Please rate the following statements on a scale of 1-5, with 5 being the best and 1 being the worst:
+
+1. Overall, how satisfied are you with your current lawn mowing and maintenance experience?
+2. How much time and effort do you currently spend on lawn mowing and maintenance?
+3. The current lawn mowing solutions available adequately address the needs of busy, disabled, or elderly individuals.
+4. I believe an AI-powered lawn mowing solution would significantly improve my efficiency in maintaining my lawn.
+5. Safety is a top priority for me when considering a lawn mowing solution.
+6. I am comfortable using AI-powered technology for my lawn maintenance needs.
+7. I would be willing to invest in an AI-powered lawn mowing solution if it meets my needs and expectations.
+8. An ideal AI-powered lawn mowing solution should be able to handle the task autonomously without my direct involvement.
+9. The ability to control and monitor the AI-powered lawn mowing solution remotely is important to me.
+10. I am open to learning and adapting to new technologies to improve my lawn maintenance experience.
+
+Feel free to modify these questions as per your specific requirements. It's important to strike a balance between gathering quantitative data through Likert-scale questions and capturing qualitative insights through short answer questions to ensure a comprehensive understanding of your customers' needs and preferences.
