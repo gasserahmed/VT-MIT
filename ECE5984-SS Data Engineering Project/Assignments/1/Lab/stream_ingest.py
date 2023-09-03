@@ -11,8 +11,8 @@ def kafka_consumer():
     t_end = time.time() + 60 * 1  # Amount of time data is sent for
     while time.time() < t_end:
         consumer = KafkaConsumer(
-            '',  # add Topic name here
-            bootstrap_servers=['54.196.246.52:9115'],  # add your IP and port number here
+            'StockData',  # add Topic name here
+            bootstrap_servers=['54.196.246.52:9139'],  # add your IP and port number here
             value_deserializer=lambda x: loads(x.decode('utf-8')))
 
         for count, i in enumerate(consumer):
