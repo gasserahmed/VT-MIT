@@ -1,1 +1,1 @@
-bin/kafka-topics.sh --create --topic StockData --bootstrap-server 54.196.246.52:9139 --replication-factor 1 --partitions 1
+bin/kafka-topics.sh --create --topic WeatherData --bootstrap-server 54.196.246.52:9116 --replication-factor 1 --partitions 1
