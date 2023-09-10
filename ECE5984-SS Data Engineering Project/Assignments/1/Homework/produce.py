@@ -6,7 +6,7 @@ from json import dumps
 
 
 def kafka_producer():
-    producer = KafkaProducer(bootstrap_servers=[''],  # change ip and port number here
+    producer = KafkaProducer(bootstrap_servers=['54.196.246.52:9139'],  # change ip and port number here
                              value_serializer=lambda x:
                              dumps(x).encode('utf-8'))
 
