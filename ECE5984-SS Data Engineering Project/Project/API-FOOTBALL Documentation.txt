@@ -1,0 +1,1 @@
+API-FOOTBALL Documentation URL: https://rapidapi.com/api-sports/api/api-football/tutorials/how-to-use-the-api-football-api-with-python
