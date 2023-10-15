@@ -1,1 +1,3 @@
 docker run --rm -it --entrypoint bash -v /home/ubuntu/efs-mountpoint/students/gasser18/root:/root -p 8080-8131:8080 -p 9092-9143:9092 --name gasser18 pipeline:latest
+
+docker exec -it gasser18 bash
