@@ -6,7 +6,7 @@ from datetime import datetime
 from batch_ingest import ingest_data
 from transform import transform_data
 from featureExtraction import feature_extract
-#from build_train_model import build_train
+from build_train_model import build_train
 
 default_args = {
     'owner': 'airflow',
@@ -44,10 +44,10 @@ feature_etl = PythonOperator(
     dag=dag,
 )
 
-#model_etl = PythonOperator(
-#    task_id='build_train_dataset',
-#    python_callable=build_train,
-#    dag=dag,
-#)
+model_etl = PythonOperator(
+   task_id='build_train_dataset',
+   python_callable=build_train,
+   dag=dag,
+)
 
-ingest_etl >> transform_etl >> feature_etl #>> model_etl
+ingest_etl >> transform_etl >> feature_etl >> model_etl

@@ -13,9 +13,9 @@ def build_train():
 
     s3 = S3FileSystem()
     # S3 bucket directory (data warehouse)
-    DIR_aapl = ''                       # Insert here
-    DIR_amzn = ''                       # Insert here
-    DIR_googl = ''                      # Insert here
+    DIR_aapl = 's3://ece5984-bucket-gasser18/Lab3'                       # Insert here
+    DIR_amzn = 's3://ece5984-bucket-gasser18/Lab3'                       # Insert here
+    DIR_googl = 's3://ece5984-bucket-gasser18/Lab3'                      # Insert here
 
     X_train_aapl = np.load(s3.open('{}/{}'.format(DIR_aapl, 'X_train_aapl.pkl')), allow_pickle=True)
     X_test_aapl = np.load(s3.open('{}/{}'.format(DIR_aapl, 'X_test_aapl.pkl')), allow_pickle=True)
