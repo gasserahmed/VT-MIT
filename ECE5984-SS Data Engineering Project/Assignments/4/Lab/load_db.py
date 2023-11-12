@@ -15,9 +15,8 @@ def load_data():
     # create sqlalchemy engine
     engine = create_engine("mysql+pymysql://{user}:{pw}@{endpnt}"
                            .format(user="admin",
-                                   pw="admin12345",
-                                   endpnt="database-dataeng.cwgvgleixj0c.us-east-1.rds.amazonaws.com"))
-
+                                   pw="wY59A93oZFz2Vff7sjpd",
+                                   endpnt="database-eng2.cwgvgleixj0c.us-east-1.rds.amazonaws.com"))
     # Check if the database already exists
     inspector = inspect(engine)
     if 'gasser18' not in inspector.get_schema_names():
@@ -29,8 +28,8 @@ def load_data():
 
     engine = create_engine("mysql+pymysql://{user}:{pw}@{endpnt}/{db}"
                            .format(user="admin",
-                                   pw="admin12345",
-                                   endpnt="database-dataeng.cwgvgleixj0c.us-east-1.rds.amazonaws.com",
+                                   pw="wY59A93oZFz2Vff7sjpd",
+                                   endpnt="database-eng2.cwgvgleixj0c.us-east-1.rds.amazonaws.com",
                                    db="gasser18"))
 
     # Insert whole DataFrame into MySQL DB

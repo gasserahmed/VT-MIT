@@ -16,7 +16,7 @@ def load_data():
     engine = create_engine("mysql+pymysql://{user}:{pw}@{endpnt}"
                            .format(user="admin",
                                    pw="admin12345",
-                                   endpnt="database-dataeng.cwgvgleixj0c.us-east-1.rds.amazonaws.com"))
+                                   endpnt="database-eng2.cwgvgleixj0c.us-east-1.rds.amazonaws.com"))
 
     engine.execute("CREATE DATABASE {db}"
                    .format(db=""))  # Insert pid here
@@ -24,7 +24,7 @@ def load_data():
     engine = create_engine("mysql+pymysql://{user}:{pw}@{endpnt}/{db}"
                            .format(user="admin",
                                    pw="admin12345",
-                                   endpnt="database-dataeng.cwgvgleixj0c.us-east-1.rds.amazonaws.com",
+                                   endpnt="database-eng2.cwgvgleixj0c.us-east-1.rds.amazonaws.com",
                                    db=""))
 
 
