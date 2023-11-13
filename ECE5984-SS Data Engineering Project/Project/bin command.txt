@@ -1,1 +1,1 @@
-bin/kafka-topics.sh --create --topic KickStatsData --bootstrap-server 54.196.246.52:9134 --replication-factor 1 --partitions 1
+bin/kafka-topics.sh --create --topic KickStatsData --bootstrap-server 3.235.223.243:9108 --replication-factor 1 --partitions 1
