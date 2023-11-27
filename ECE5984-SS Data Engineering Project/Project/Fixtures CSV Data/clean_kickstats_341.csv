@@ -1,0 +1,4 @@
+,Fixture ID,Date,Country,League ID,League Name,League Logo,Home Team Name,Home Team Logo,Home Team Score,Away Team Name,Away Team Logo,Away Team Score,Status,Minutes Played
+69,1136074,2023-11-25 10:00:00,Vietnam,341,Cup,https://media-4.api-sports.io/football/leagues/341.png,Da Nang,https://media-4.api-sports.io/football/teams/3669.png,2.0,Bóng đá Huế,https://media-4.api-sports.io/football/teams/9162.png,0.0,Match Finished,90.0
+282,1136075,2023-11-25 12:15:00,Vietnam,341,Cup,https://media-4.api-sports.io/football/leagues/341.png,Công An Nhân Dân,https://media-4.api-sports.io/football/teams/16400.png,2.0,Hoang Anh Gia Lai,https://media-4.api-sports.io/football/teams/3673.png,1.0,Match Finished,90.0
+38,1136080,2023-11-25 09:00:00,Vietnam,341,Cup,https://media-4.api-sports.io/football/leagues/341.png,Phu Dong,https://media-4.api-sports.io/football/teams/9167.png,0.0,Binh Thuan,https://media-4.api-sports.io/football/teams/21051.png,0.0,Walkover,0.0

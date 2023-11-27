@@ -1,0 +1,4 @@
+,Fixture ID,Date,Country,League ID,League Name,League Logo,Home Team Name,Home Team Logo,Home Team Score,Away Team Name,Away Team Logo,Away Team Score,Status,Minutes Played
+1249,1041626,2023-11-25 18:30:00,Hungary,271,NB I,https://media-4.api-sports.io/football/leagues/271.png,Mezokovesd-zsory,https://media-4.api-sports.io/football/teams/2389.png,4.0,Ujpest,https://media-4.api-sports.io/football/teams/2255.png,0.0,Match Finished,90.0
+1023,1041628,2023-11-25 16:00:00,Hungary,271,NB I,https://media-4.api-sports.io/football/leagues/271.png,Zalaegerszegi TE,https://media-4.api-sports.io/football/teams/2414.png,1.0,Debreceni VSC,https://media-4.api-sports.io/football/teams/2392.png,2.0,Match Finished,90.0
+558,1041629,2023-11-25 13:45:00,Hungary,271,NB I,https://media-4.api-sports.io/football/leagues/271.png,Kisvarda FC,https://media-4.api-sports.io/football/teams/2394.png,3.0,MTK Budapest,https://media-4.api-sports.io/football/teams/2396.png,1.0,Match Finished,90.0

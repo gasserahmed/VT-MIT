@@ -1,0 +1,4 @@
+,Fixture ID,Date,Country,League ID,League Name,League Logo,Home Team Name,Home Team Logo,Home Team Score,Away Team Name,Away Team Logo,Away Team Score,Status,Minutes Played
+132,1136635,2023-11-25 11:00:00,Syria,425,Premier League,https://media-4.api-sports.io/football/leagues/425.png,Jabala,https://media-4.api-sports.io/football/teams/9116.png,1.0,Tishreen,https://media-4.api-sports.io/football/teams/9117.png,0.0,Match Finished,90.0
+133,1136636,2023-11-25 11:00:00,Syria,425,Premier League,https://media-4.api-sports.io/football/leagues/425.png,Al Karama,https://media-4.api-sports.io/football/teams/9111.png,1.0,Jaish,https://media-4.api-sports.io/football/teams/8040.png,1.0,Match Finished,90.0
+134,1136637,2023-11-25 11:00:00,Syria,425,Premier League,https://media-4.api-sports.io/football/leagues/425.png,Al Wahda,https://media-4.api-sports.io/football/teams/8035.png,0.0,Al Sahel,https://media-4.api-sports.io/football/teams/15302.png,2.0,Match Finished,90.0

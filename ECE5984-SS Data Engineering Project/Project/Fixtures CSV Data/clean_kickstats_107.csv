@@ -1,0 +1,4 @@
+,Fixture ID,Date,Country,League ID,League Name,League Logo,Home Team Name,Home Team Logo,Home Team Score,Away Team Name,Away Team Logo,Away Team Score,Status,Minutes Played
+562,1037771,2023-11-25 14:00:00,Poland,107,I Liga,https://media-4.api-sports.io/football/leagues/107.png,Stal Rzeszów,https://media-4.api-sports.io/football/teams/6957.png,3.0,Górnik Łęczna,https://media-4.api-sports.io/football/teams/6941.png,0.0,Match Finished,90.0
+1076,1037773,2023-11-25 16:30:00,Poland,107,I Liga,https://media-4.api-sports.io/football/leagues/107.png,Wisla Krakow,https://media-4.api-sports.io/football/teams/338.png,3.0,GKS Katowice,https://media-4.api-sports.io/football/teams/3484.png,2.0,Match Finished,90.0
+1247,1037777,2023-11-25 18:15:00,Poland,107,I Liga,https://media-4.api-sports.io/football/leagues/107.png,Motor Lublin,https://media-4.api-sports.io/football/teams/14562.png,3.0,Resovia Rzeszów,https://media-4.api-sports.io/football/teams/6951.png,2.0,Match Finished,90.0

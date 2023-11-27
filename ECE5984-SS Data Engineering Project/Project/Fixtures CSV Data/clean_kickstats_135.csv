@@ -1,0 +1,4 @@
+,Fixture ID,Date,Country,League ID,League Name,League Logo,Home Team Name,Home Team Logo,Home Team Score,Away Team Name,Away Team Logo,Away Team Score,Status,Minutes Played
+1096,1052373,2023-11-25 17:00:00,Italy,135,Serie A,https://media-4.api-sports.io/football/leagues/135.png,Atalanta,https://media-4.api-sports.io/football/teams/499.png,1.0,Napoli,https://media-4.api-sports.io/football/teams/492.png,2.0,Match Finished,90.0
+14177,1052380,2023-11-25 19:45:00,Italy,135,Serie A,https://media-4.api-sports.io/football/leagues/135.png,AC Milan,https://media-4.api-sports.io/football/teams/489.png,1.0,Fiorentina,https://media-4.api-sports.io/football/teams/502.png,0.0,Second Half,82.0
+580,1052382,2023-11-25 14:00:00,Italy,135,Serie A,https://media-4.api-sports.io/football/leagues/135.png,Salernitana,https://media-4.api-sports.io/football/teams/514.png,2.0,Lazio,https://media-4.api-sports.io/football/teams/487.png,1.0,Match Finished,90.0

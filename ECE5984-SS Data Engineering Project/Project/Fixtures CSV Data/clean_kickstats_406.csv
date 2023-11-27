@@ -1,0 +1,4 @@
+,Fixture ID,Date,Country,League ID,League Name,League Logo,Home Team Name,Home Team Logo,Home Team Score,Away Team Name,Away Team Logo,Away Team Score,Status,Minutes Played
+362,1115762,2023-11-25 12:35:00,Oman,406,Professional League,https://media-4.api-sports.io/football/leagues/406.png,Sur,https://media-4.api-sports.io/football/teams/5337.png,0.0,Al Nasr,https://media-4.api-sports.io/football/teams/2878.png,0.0,Not Started,0.0
+501,1115763,2023-11-25 13:05:00,Oman,406,Professional League,https://media-4.api-sports.io/football/leagues/406.png,Dhofar,https://media-4.api-sports.io/football/teams/5330.png,4.0,Al-Rustaq,https://media-4.api-sports.io/football/teams/5328.png,1.0,Match Finished,90.0
+1013,1115764,2023-11-25 15:30:00,Oman,406,Professional League,https://media-4.api-sports.io/football/leagues/406.png,Bahla,https://media-4.api-sports.io/football/teams/7505.png,0.0,Al-Shabab,https://media-4.api-sports.io/football/teams/5329.png,0.0,Match Finished,90.0

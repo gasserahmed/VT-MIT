@@ -1,0 +1,4 @@
+,Fixture ID,Date,Country,League ID,League Name,League Logo,Home Team Name,Home Team Logo,Home Team Score,Away Team Name,Away Team Logo,Away Team Score,Status,Minutes Played
+123,1099086,2023-11-25 11:00:00,Moldova,395,Liga 1,https://media-4.api-sports.io/football/leagues/395.png,Victoria Bardar,https://media-4.api-sports.io/football/teams/5384.png,0.0,Iskra,https://media-4.api-sports.io/football/teams/5372.png,0.0,Not Started,0.0
+124,1099087,2023-11-25 11:00:00,Moldova,395,Liga 1,https://media-4.api-sports.io/football/leagues/395.png,Dinamo-Auto,https://media-4.api-sports.io/football/teams/4631.png,0.0,Speranța Drochia,https://media-4.api-sports.io/football/teams/5381.png,0.0,Not Started,0.0
+127,1100082,2023-11-25 11:00:00,Moldova,395,Liga 1,https://media-4.api-sports.io/football/leagues/395.png,Olimp Comrat,https://media-4.api-sports.io/football/teams/14010.png,0.0,Saxan,https://media-4.api-sports.io/football/teams/4637.png,0.0,Not Started,0.0

@@ -1,0 +1,4 @@
+,Fixture ID,Date,Country,League ID,League Name,League Logo,Home Team Name,Home Team Logo,Home Team Score,Away Team Name,Away Team Logo,Away Team Score,Status,Minutes Played
+1066,1139917,2023-11-25 16:00:00,Iraq,542,Iraqi League,https://media-4.api-sports.io/football/leagues/542.png,Erbil,https://media-4.api-sports.io/football/teams/11070.png,0.0,Zakho,https://media-4.api-sports.io/football/teams/15547.png,2.0,Match Finished,90.0
+151,1139918,2023-11-25 11:30:00,Iraq,542,Iraqi League,https://media-4.api-sports.io/football/leagues/542.png,Naft,https://media-4.api-sports.io/football/teams/11071.png,2.0,Al Karkh,https://media-4.api-sports.io/football/teams/15544.png,2.0,Match Finished,90.0
+152,1139920,2023-11-25 11:30:00,Iraq,542,Iraqi League,https://media-4.api-sports.io/football/leagues/542.png,Karbala,https://media-4.api-sports.io/football/teams/20464.png,1.0,Al Hudod,https://media-4.api-sports.io/football/teams/11063.png,1.0,Match Finished,90.0

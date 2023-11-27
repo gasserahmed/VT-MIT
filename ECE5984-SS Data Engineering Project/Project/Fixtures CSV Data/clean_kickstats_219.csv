@@ -1,0 +1,4 @@
+,Fixture ID,Date,Country,League ID,League Name,League Logo,Home Team Name,Home Team Logo,Home Team Score,Away Team Name,Away Team Logo,Away Team Score,Status,Minutes Played
+502,1044374,2023-11-25 13:30:00,Austria,219,2. Liga,https://media-4.api-sports.io/football/leagues/219.png,SV Lafnitz,https://media-4.api-sports.io/football/teams/1402.png,1.0,FC Liefering,https://media-4.api-sports.io/football/teams/1400.png,6.0,Match Finished,90.0
+503,1044378,2023-11-25 13:30:00,Austria,219,2. Liga,https://media-4.api-sports.io/football/leagues/219.png,Dornbirn,https://media-4.api-sports.io/football/teams/4255.png,0.0,Ried,https://media-4.api-sports.io/football/teams/1028.png,2.0,Match Finished,90.0
+504,1044380,2023-11-25 13:30:00,Austria,219,2. Liga,https://media-4.api-sports.io/football/leagues/219.png,Admira Wacker,https://media-4.api-sports.io/football/teams/1023.png,1.0,Schwarz-Weiß Bregenz,https://media-4.api-sports.io/football/teams/8259.png,3.0,Match Finished,90.0

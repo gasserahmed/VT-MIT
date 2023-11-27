@@ -1,0 +1,3 @@
+,Fixture ID,Date,Country,League ID,League Name,League Logo,Home Team Name,Home Team Logo,Home Team Score,Away Team Name,Away Team Logo,Away Team Score,Status,Minutes Played
+984,1143672,2023-11-25 15:00:00,Mexico,1017,U23 League,https://media-4.api-sports.io/football/leagues/1017.png,Guadalajara U23,https://media-4.api-sports.io/football/teams/21547.png,1.0,Necaxa U23,https://media-4.api-sports.io/football/teams/21551.png,2.0,Match Finished,90.0
+1071,1143674,2023-11-25 16:00:00,Mexico,1017,U23 League,https://media-4.api-sports.io/football/leagues/1017.png,Tigres UANL U23,https://media-4.api-sports.io/football/teams/21556.png,0.0,Pachuca U23,https://media-4.api-sports.io/football/teams/21552.png,0.0,Match Finished,90.0
